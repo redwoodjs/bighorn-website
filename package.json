@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "api",
+      "web"
+    ]
+  },
+  "devDependencies": {
+    "@redwoodjs/cli-storybook": "6.6.2",
+    "@redwoodjs/core": "6.6.2",
+    "prettier-plugin-tailwindcss": "0.4.1"
+  },
+  "eslintConfig": {
+    "extends": "@redwoodjs/eslint-config",
+    "root": true
+  },
+  "engines": {
+    "node": "=18.x",
+    "yarn": ">=1.22.21"
+  },
+  "prisma": {
+    "seed": "yarn rw exec seed"
+  },
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "glob": "^10.3.10",
+    "node-html-parser": "^6.1.12",
+    "tsx": "^4.7.0"
+  },
+  "scripts": {
+    "build:icons": "tsx ./scripts/build-icons.mts"
+  }
+}

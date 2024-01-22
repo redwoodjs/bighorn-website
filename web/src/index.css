@@ -1,0 +1,79 @@
+@import url("https://use.typekit.net/sjm8rub.css");
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,400;0,700;1,400;1,700;1,900&display=swap');
+
+/**
+ * START --- SETUP TAILWINDCSS EDIT
+ *
+ * `yarn rw setup ui tailwindcss` placed these directives here
+ * to inject Tailwind's styles into your CSS.
+ * For more information, see: https://tailwindcss.com/docs/installation
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/**
+ * END --- SETUP TAILWINDCSS EDIT
+ */
+
+@layer base {
+  html, body {
+    @apply bg-licorice font-sans text-white m-0 p-0;
+  }
+
+  hr {
+    @apply border-t-1 w-full border-maiTai bg-transparent
+  }
+
+  svg {
+    @apply fill-current;
+  }
+
+  footer h4 {
+    @apply text-xs uppercase font-black text-sulu tracking-wider leading-5 mb-5
+  }
+
+  footer ul {
+    @apply m-0 p-0
+  }
+
+  footer ul li {
+    @apply leading-5 mb-5
+  }
+
+  footer ul li a {
+    @apply hover:underline hover:text-sulu flex items-center justify-start
+  }
+
+  /* any links that aren't social media links */
+  footer ul:not(.social) li a svg {
+    @apply text-battleshipGray relative -top-[2px] opacity-30 transition-all duration-300 ease-in-out
+  }
+
+  footer ul:not(.social) li a:hover svg{
+    @apply text-sulu translate-x-1 -translate-y-1 opacity-100
+  }
+
+  /* social media links */
+  footer ul.social li a {
+    @apply gap-4
+  }
+
+  footer ul.social li a svg {
+    @apply text-battleshipGray
+  }
+
+  footer ul.social li a:hover svg {
+    @apply text-sulu
+  }
+}
+
+@layer components {
+
+
+}
+
+@layer utilities {
+  .center {
+    @apply flex items-center justify-center;
+  }
+}
