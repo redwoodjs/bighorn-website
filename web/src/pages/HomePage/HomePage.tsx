@@ -1,19 +1,33 @@
-import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
+
+import Footer from 'src/components/Footer/Footer'
+import HomeHero from 'src/components/Home/HomeHero/HomeHero'
 
 const HomePage = () => {
   return (
     <>
       <Metadata title="Home" description="Home page" />
 
-      <h1>HomePage</h1>
-      <p>
-        Find me in <code>./web/src/pages/HomePage/HomePage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>home</code>, link to me with `
-        <Link to={routes.home()}>Home</Link>`
-      </p>
+      {/* HERO */}
+      <HomeHero />
+
+      {/* REDWOOD IS... */}
+
+      {/* VIDEO */}
+
+      {/* WHAT'S INCLUDED */}
+
+      {/* ROADMAP */}
+
+      {/* CHANGELOG */}
+
+      {/* BLOG */}
+
+      {/* UPCOMING-EVENTS */}
+
+      {/* NEWSLETTER */}
+
+      <Footer />
     </>
   )
 }

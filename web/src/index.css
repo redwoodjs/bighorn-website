@@ -28,6 +28,17 @@
     @apply fill-current;
   }
 
+  /* -------------------------- HEADER ------------------------------------- */
+
+  nav ul li {
+    @apply text-white text-lg font-bold
+  }
+
+  nav ul li a:hover {
+    @apply text-sulu
+  }
+
+  /* -------------------------- FOOTER ------------------------------------- */
   footer h4 {
     @apply text-xs uppercase font-black text-sulu tracking-wider leading-5 mb-5
   }
@@ -75,5 +86,9 @@
 @layer utilities {
   .center {
     @apply flex items-center justify-center;
+  }
+
+  .page-grid {
+    @apply grid grid-cols-12 gap-4
   }
 }
