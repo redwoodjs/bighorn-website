@@ -26,6 +26,10 @@
  */
 
 @layer base {
+  ::selection {
+    @apply bg-sulu text-black
+  }
+
   html, body {
     @apply bg-licorice font-sans text-white m-0 p-0;
   }
