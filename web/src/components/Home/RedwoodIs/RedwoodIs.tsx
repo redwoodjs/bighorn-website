@@ -49,7 +49,7 @@ const RedwoodIs = () => {
                 <Icon id="check" />
               </span>
             ) : (
-              <span className="text-battleshipGray">
+              <span className="text-battleshipGray hover:text-white">
                 <Icon id="clipboard" />
               </span>
             )}
