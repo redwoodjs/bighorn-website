@@ -22,6 +22,7 @@
         "../.redwood/types/mirror/api/src/*"
       ],
       "$api/*": [ "../api/*" ],
+      "$content/*": [ "../.contentlayer/generated/*" ],
       "types/*": ["./types/*", "../types/*"],
       "@redwoodjs/testing": ["../node_modules/@redwoodjs/testing/web"]
     },
@@ -34,6 +35,7 @@
     "../.redwood/types/includes/all-*",
     "../.redwood/types/includes/web-*",
     "../types",
-    "./types"
+    "./types",
+    "../.contentlayer/generated",
   ]
 }

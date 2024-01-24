@@ -1,122 +1,110 @@
-# README
+# redwoodjs.com
 
-Welcome to [RedwoodJS](https://redwoodjs.com)!
+This repo contains the latest iteration of [redwoodjs.com](https://redwoodjs.com), redesigned for our Bighorn launch.
 
-> **Prerequisites**
->
-> - Redwood requires [Node.js](https://nodejs.org/en/) (=18.x) and [Yarn](https://yarnpkg.com/) (>=1.15)
-> - Are you on Windows? For best results, follow our [Windows development setup](https://redwoodjs.com/docs/how-to/windows-development-setup) guide
-
-Start by installing dependencies:
+## Development Quick Start
 
 ```
 yarn install
 ```
 
-Then start the development server:
+### .env
+
+You'll need to create a .env file. Start with this in the file:
 
 ```
-yarn redwood dev
+DATABASE_URL=
+SESSION_SECRET=
 ```
 
-Your browser should automatically open to [http://localhost:8910](http://localhost:8910) where you'll see the Welcome Page, which links out to many great resources.
+We're using the database to save Newsletter submissions.
 
-> **The Redwood CLI**
->
-> Congratulations on running your first Redwood CLI command! From dev to deploy, the CLI is with you the whole way. And there's quite a few commands at your disposal:
->
-> ```
-> yarn redwood --help
-> ```
->
-> For all the details, see the [CLI reference](https://redwoodjs.com/docs/cli-commands).
+The production database is using [Neon.tech](https://neon.tech/)
 
-## Prisma and the database
+## Updating the Content on the Site
 
-Redwood wouldn't be a full-stack framework without a database. It all starts with the schema. Open the [`schema.prisma`](api/db/schema.prisma) file in `api/db` and replace the `UserExample` model with the following `Post` model:
+All the content on the site is controlled through markdown files in the `content` directory.
 
-```prisma
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  body      String
-  createdAt DateTime @default(now())
-}
-```
-
-Redwood uses [Prisma](https://www.prisma.io/), a next-gen Node.js and TypeScript ORM, to talk to the database. Prisma's schema offers a declarative way of defining your app's data models. And Prisma [Migrate](https://www.prisma.io/migrate) uses that schema to make database migrations hassle-free:
+To preview the content changes you've made locally, you'll need to run:
 
 ```
-yarn rw prisma migrate dev
-
-# ...
-
-? Enter a name for the new migration: › create posts
+yarn build:content
 ```
 
-> `rw` is short for `redwood`
+If everything runs successfully, you'll see a message like this:
 
-You'll be prompted for the name of your migration. `create posts` will do.
+![](/images/contentlayer-success.png)
 
-Now let's generate everything we need to perform all the CRUD (Create, Retrieve, Update, Delete) actions on our `Post` model:
+Unfortunately, the displayed error message, is a known issue with Contentlayer. (See Issues [598](https://github.com/contentlayerdev/contentlayer/issues/598) and [495](https://github.com/contentlayerdev/contentlayer/issues/495))
 
-```
-yarn redwood generate scaffold post
-```
+This script generates a `.contentlayer` folder inside the project's root.
 
-Navigate to [http://localhost:8910/posts/new](http://localhost:8910/posts/new), fill in the title and body, and click "Save".
-
-Did we just create a post in the database? Yup! With `yarn rw generate scaffold <model>`, Redwood created all the pages, components, and services necessary to perform all CRUD actions on our posts table.
-
-## Frontend first with Storybook
-
-Don't know what your data models look like? That's more than ok—Redwood integrates Storybook so that you can work on design without worrying about data. Mockup, build, and verify your React components, even in complete isolation from the backend:
+### Changelog
 
 ```
-yarn rw storybook
+---
+publishDate: 2024-02-01
+published: true
+---
 ```
 
-Seeing "Couldn't find any stories"? That's because you need a `*.stories.{tsx,jsx}` file. The Redwood CLI makes getting one easy enough—try generating a [Cell](https://redwoodjs.com/docs/cells), Redwood's data-fetching abstraction:
+Since we're using `mdx`, you can also include React components within the content. Right below the frontmatter, import the component, using an absolute path:
 
 ```
-yarn rw generate cell examplePosts
+import Browser from 'web/src/components/Browser/Browser'
 ```
 
-The Storybook server should hot reload and now you'll have four stories to work with. They'll probably look a little bland since there's no styling. See if the Redwood CLI's `setup ui` command has your favorite styling library:
+Then, you can use the component in the content:
 
 ```
-yarn rw setup ui --help
+<Browser><div>Some code</div></Browser>
 ```
 
-## Testing with Jest
+I've created a couple of components that you can use:
+- `<Browser />`
+- `<Video />`
 
-It'd be hard to scale from side project to startup without a few tests. Redwood fully integrates Jest with both the front- and back-ends, and makes it easy to keep your whole app covered by generating test files with all your components and services:
+I've also installed [Prism.js](https://prismjs.com/) for formatting code blocks.
 
-```
-yarn rw test
-```
-
-To make the integration even more seamless, Redwood augments Jest with database [scenarios](https://redwoodjs.com/docs/testing#scenarios)  and [GraphQL mocking](https://redwoodjs.com/docs/testing#mocking-graphql-calls).
-
-## Ship it
-
-Redwood is designed for both serverless deploy targets like Netlify and Vercel and serverful deploy targets like Render and AWS:
+### Events
 
 ```
-yarn rw setup deploy --help
+---
+title: "Maker Hour"
+date: 2024-01-24T18:00:00-05:00
+description: "Each week, we meet to support each other and discuss projects we’re building on top of RedwoodJS."
+rsvp: 'https://lu.ma/redwoodjs'
+---
 ```
 
-Don't go live without auth! Lock down your app with Redwood's built-in, database-backed authentication system ([dbAuth](https://redwoodjs.com/docs/authentication#self-hosted-auth-installation-and-setup)), or integrate with nearly a dozen third-party auth providers:
+### Roadmap
 
 ```
-yarn rw setup auth --help
+---
+title: "Autoscaling for dedicated PostgreSQL clusters"
+description: "Access and work in your own configurable PostgreSQL cluster, complete with autoscaling support."
+status: "soon"
+---
 ```
 
-## Next Steps
+Possible status values are: `soon`, `later`, `planned`, and `done`
 
-The best way to learn Redwood is by going through the comprehensive [tutorial](https://redwoodjs.com/docs/tutorial/foreword) and joining the community (via the [Discourse forum](https://community.redwoodjs.com) or the [Discord server](https://discord.gg/redwoodjs)).
+## Icons
 
-## Quick Links
+All the icons on the site are delivered through a generated SVG sprite. To add a new icon, add a 24x24 SVG file to the `scripts/svg-icons` directory. Then, run:
 
-- Stay updated: read [Forum announcements](https://community.redwoodjs.com/c/announcements/5), follow us on [Twitter](https://twitter.com/redwoodjs), and subscribe to the [newsletter](https://redwoodjs.com/newsletter)
-- [Learn how to contribute](https://redwoodjs.com/docs/contributing)
+```
+yarn build:icons
+```
+
+This will generate a new `icons/sprite.svg` file and a corresponding type file (`name.d.ts`) in the `web/public` directory.
+
+The new icon will be available within the `Icon` component, using the same name as the SVG file. For example, `github.svg` can be displayed using:
+
+```
+<Icon id="github" />
+```
+
+## Blog Posts
+
+Blog posts are written and managed inside [Hashnode](https://hashnode.com/).

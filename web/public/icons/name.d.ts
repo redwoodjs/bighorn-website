@@ -2,6 +2,7 @@
 
 export type IconName =
 	| "arrowUpRight"
+	| "check"
 	| "chevronDown"
 	| "clipboard"
 	| "discord"
