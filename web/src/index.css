@@ -1,5 +1,15 @@
 @import url("https://use.typekit.net/sjm8rub.css");
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,400;0,700;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+/* TODO: Handle Cambon properly */
+@font-face {
+    font-family: 'Cambon';
+    src: url('/fonts/cambon/Cambon-Bold.eot');
+    src: local('Cambon Bold'), local('Cambon-Bold'), url('/fonts/cambon/Cambon-Bold.eot?#iefix') format('embedded-opentype'), url('/fonts/cambon/Cambon-Bold.woff2') format('woff2'), url('/fonts/cambon/Cambon-Bold.woff') format('woff'), url('/fonts/cambon/Cambon-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 
 /**
  * START --- SETUP TAILWINDCSS EDIT
@@ -79,11 +89,68 @@
 }
 
 @layer components {
+  /* Tags */
+  .tag-soon {
+    @apply text-labels-soon-text bg-labels-soon-bg
+  }
 
+  .tag-later {
+    @apply text-labels-later-text bg-labels-later-bg
+  }
+
+  .tag-done {
+    @apply text-labels-done-text bg-labels-done-bg
+  }
+
+  .tag-planned {
+    @apply text-labels-planned-text bg-labels-planned-bg
+  }
+
+  /* buttons */
+  .button {
+    @apply py-4 px-7 bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
+  }
+
+  /* changelog */
+  .changelog h3 {
+    @apply text-lg text-white font-bold mb-2
+  }
+
+  .changelog p {
+    @apply mb-10 text-battleshipGray
+  }
+
+  .changelog ul {
+    @apply list-disc list-inside mb-10
+  }
+
+  .changelog li {
+    @apply mb-2
+  }
+
+  .changelog a {
+    @apply border-b-1 border-b-white border-t-1 border-t-transparent hover:border-b-sulu text-white
+  }
 
 }
 
 @layer utilities {
+  .section-heading {
+    @apply font-serif text-18 text-maiTai font-bold leading-none;
+  }
+
+  .section-subheading {
+    @apply font-sans text-battleshipGray leading-normal font-extralight text-2xl
+  }
+
+  .view-all {
+    @apply flex items-center justify-start text-xs font-sans font-bold uppercase tracking-wider text-white;
+  }
+
+  .view-all span {
+    @apply border-b-1 border-b-white border-t-1 border-t-transparent hover:border-b-sulu
+  }
+
   .center {
     @apply flex items-center justify-center;
   }

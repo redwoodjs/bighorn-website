@@ -15,11 +15,14 @@ module.exports = {
         labels: {
           soon: { text: '#5D960C', bg: '#dcf8b4' } /* green */,
           later: { text: '#944711', bg: '#F1AB78' } /* orange */,
-          done: { text: '#477185', bg: '#B097B2' } /* purple */,
-          planned: { text: '#944711', bg: '#BCD1DB' } /* blue */,
+          done: { text: '#513C51', bg: '#B097B2' } /* purple */,
+          planned: { text: '#477185', bg: '#BCD1DB' } /* blue */,
         },
         white: '#ffffff',
         black: '#000000',
+      },
+      fontSize: {
+        18: '4.5rem',
       },
       padding: {
         page: '6.25rem',
@@ -27,9 +30,11 @@ module.exports = {
       },
     },
     fontFamily: {
-      serif: ['mandrel-normal', 'serif'],
+      serif: ['Cambon', 'serif'],
       sans: ['Public Sans', 'sans-serif'],
+      mono: ['Roboto Mono', 'monospaced'],
     },
   },
+  safelist: ['tag-soon', 'tag-later', 'tag-done', 'tag-planned'],
   plugins: [],
 }
