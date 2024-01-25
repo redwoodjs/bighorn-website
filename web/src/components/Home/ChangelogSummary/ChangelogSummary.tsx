@@ -11,7 +11,7 @@ const ChangelogSummary = () => {
 
   return (
     <section className="page-grid px-page">
-      <div className="col-span-5">
+      <div className="col-span-5 pr-5">
         <div className="sticky top-5">
           <h2 className="section-heading mb-6">Changelog</h2>
           <h3 className="section-subheading">

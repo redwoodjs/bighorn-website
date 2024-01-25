@@ -38,6 +38,10 @@
     @apply border-t-1 w-full border-maiTai bg-transparent
   }
 
+  section {
+    @apply mb-[270px]
+  }
+
   svg {
     @apply fill-current;
   }
@@ -93,6 +97,38 @@
 }
 
 @layer components {
+  .home-hero {
+    background: url('/images/hero.jpg') center top no-repeat;
+    @apply pt-7 min-h-[800px] px-5;
+  }
+
+  .home-hero h1,
+  .home-hero h2,
+  .home-hero p {
+    text-shadow: 0px 0px 47.827px #000;
+  }
+
+  /* -------------------------- BENTO BOX ---------------------------------- */
+  .bento-box {
+    @apply border-maiTai border-2 rounded-lg;
+  }
+
+  .bento-box h3 {
+    @apply text-2xl leading-snug font-bold text-white mb-5
+  }
+
+  .bento-box p {
+    @apply text-battleshipGray text-lg leading-snug
+  }
+
+  .bento-box.third {
+    @apply col-span-2;
+  }
+
+  .bento-box.half {
+    @apply col-span-3
+  }
+
   /* Tags */
   .tag-soon {
     @apply text-labels-soon-text bg-labels-soon-bg
@@ -144,7 +180,7 @@
   }
 
   .section-subheading {
-    @apply font-sans text-battleshipGray leading-normal font-extralight text-2xl
+    @apply font-sans leading-normal font-extralight text-2xl
   }
 
   .view-all {

@@ -25,6 +25,8 @@ module.exports = {
         18: '4.5rem',
       },
       padding: {
+        bentoX: '2rem',
+        bentoY: '1.75rem',
         page: '6.25rem',
         18: '4.5rem',
       },

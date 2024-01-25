@@ -20,7 +20,7 @@ const RedwoodIs = () => {
   }
 
   return (
-    <section>
+    <section className="px-page">
       <h2 className="mb-7 font-serif text-18 leading-[74px] text-maiTai">
         Redwood is the
         <br />
@@ -28,7 +28,7 @@ const RedwoodIs = () => {
         <br />
         application framework.
       </h2>
-      <h3 className="mb-14 mb-14 font-sans text-4xl font-extralight text-battleshipGray">
+      <h3 className="mb-14 font-sans text-4xl font-extralight text-battleshipGray">
         Batteries, backend, React, conventions, and opinions included.
       </h3>
 

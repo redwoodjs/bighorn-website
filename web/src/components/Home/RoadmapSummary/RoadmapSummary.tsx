@@ -13,7 +13,7 @@ const RoadmapSummary = () => {
   return (
     <section className="page-grid px-page">
       <div className="col-span-5">
-        <div className="sticky top-5">
+        <div className="sticky top-5 pr-5">
           <h2 className="section-heading mb-6">Roadmap</h2>
           <h3 className="section-subheading">
             This is a glimpse into what we’re working on and what we’ve

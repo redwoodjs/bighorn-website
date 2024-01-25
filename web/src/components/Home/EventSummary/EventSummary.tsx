@@ -17,7 +17,7 @@ const EventSummary = () => {
           <p>
             <Link
               to={routes.events()}
-              className="font-white border-b-2 border-b-white text-lg hover:border-b-sulu hover:border-b-transparent"
+              className="font-white border-b-2 border-b-white text-lg hover:border-b-sulu"
             >
               View the Entire Calendar.
             </Link>

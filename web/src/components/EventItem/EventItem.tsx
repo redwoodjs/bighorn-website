@@ -44,7 +44,7 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="border-b-1 border-b-white text-sm group-hover/link:text-sulu">
+            <span className="border-b-1 border-b-white text-sm group-hover/link:border-b-sulu">
               RSVP
             </span>{' '}
             <Icon id="doubleChevronRight" />
