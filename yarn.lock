@@ -9170,6 +9170,7 @@ __metadata:
   dependencies:
     "@redwoodjs/api": "npm:6.6.2"
     "@redwoodjs/graphql-server": "npm:6.6.2"
+    graphql-request: "npm:^6.1.0"
   languageName: unknown
   linkType: soft
 
@@ -15072,7 +15073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-request@npm:^6.0.0":
+"graphql-request@npm:^6.0.0, graphql-request@npm:^6.1.0":
   version: 6.1.0
   resolution: "graphql-request@npm:6.1.0"
   dependencies:
