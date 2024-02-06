@@ -16,7 +16,12 @@ type PublicationResponse = {
 type RecentPostsResponse = {
   publication: PublicationResponse
 }
-
+/**
+ * Fetches a Publication with latest posts from Hashnode.
+ *
+ * Note: This resolver is cached for a specified amount of time
+ * defined in the GraphQL Handler in ttlPerSchemaCoordinate.
+ **/
 export const recentPosts = async ({
   first = 3,
 }: QueryrecentPostsArgs): Promise<Publication> => {
