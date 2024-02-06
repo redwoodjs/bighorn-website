@@ -19,6 +19,7 @@ export const handler = createGraphQLHandler({
       session: () => null,
       // by default cache all operations for 2 seconds
       ttl: 2_000,
+      // can just cache recent posts for a different amount of time etc
     }),
   ],
   onException: () => {
