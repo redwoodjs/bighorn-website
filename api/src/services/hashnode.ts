@@ -35,9 +35,25 @@ export const recentPosts = async ({
           edges {
             node {
               id
+              slug
               title
+              subtitle
               brief
+              content {
+                markdown
+                html
+                text
+              }
+              coverImage {
+                url
+              }
+              publishedAt
+              seo {
+                title
+                description
+              }
               url
+              canonicalUrl
               author {
                 id
                 name
