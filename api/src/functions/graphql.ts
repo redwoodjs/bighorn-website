@@ -17,9 +17,9 @@ export const handler = createGraphQLHandler({
   extraPlugins: [
     useResponseCache({
       session: () => null,
-      // by default cache all operations for 2 seconds
-      ttl: 2_000,
-      // can just cache recent posts for a different amount of time etc
+      ttlPerSchemaCoordinate: {
+        'Query.recentPosts': 10 * 1_000, // 10 seconds
+      },
     }),
   ],
   onException: () => {
