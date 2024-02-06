@@ -1,5 +1,5 @@
 import { request } from 'graphql-request'
-import type { Post, Publication } from 'types/graphql'
+import type { Post, Publication, QueryrecentPostsArgs } from 'types/graphql'
 
 import { logger } from 'src/lib/logger'
 
@@ -17,13 +17,15 @@ type RecentPostsResponse = {
   publication: PublicationResponse
 }
 
-export const recentPosts = async () => {
+export const recentPosts = async ({
+  first = 3,
+}: QueryrecentPostsArgs): Promise<Publication> => {
   const RECENT_POSTS = `
     {
       publication(host: "selfteach.me") {
         isTeam
         title
-        posts(first: 10) {
+        posts(first: ${first}) {
           edges {
             node {
               id

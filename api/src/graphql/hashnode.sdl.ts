@@ -20,6 +20,6 @@ export const schema = gql`
   }
 
   type Query {
-    recentPosts: Publication! @skipAuth
+    recentPosts(first: Int): Publication! @skipAuth
   }
 `
