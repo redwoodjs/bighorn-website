@@ -3568,7 +3568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-yoga/plugin-response-cache@npm:^3.3.0":
+"@graphql-yoga/plugin-response-cache@npm:3.3.0":
   version: 3.3.0
   resolution: "@graphql-yoga/plugin-response-cache@npm:3.3.0"
   dependencies:
@@ -5623,6 +5623,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@redwoodjs/api@npm:6.6.4":
+  version: 6.6.4
+  resolution: "@redwoodjs/api@npm:6.6.4"
+  dependencies:
+    "@babel/runtime-corejs3": "npm:7.23.6"
+    "@prisma/client": "npm:5.7.0"
+    "@whatwg-node/fetch": "npm:0.9.14"
+    core-js: "npm:3.34.0"
+    humanize-string: "npm:2.1.0"
+    jsonwebtoken: "npm:9.0.2"
+    pascalcase: "npm:1.0.0"
+    pino: "npm:8.16.2"
+    title-case: "npm:3.0.3"
+  peerDependencies:
+    memjs: 1.3.1
+    redis: 4.6.7
+  peerDependenciesMeta:
+    memjs:
+      optional: true
+    redis:
+      optional: true
+  bin:
+    redwood: dist/bins/redwood.js
+    rw: dist/bins/redwood.js
+    rwfw: dist/bins/rwfw.js
+    tsc: dist/bins/tsc.js
+  checksum: 93ea492b38ef3c9c4008e95621d5645b6b36a73934ac43f94030155126e0a23f90fd8f6462b1ecd8df74e6155c0c22c8ce8933bdc5f65bdd71a90b2510ce9655
+  languageName: node
+  linkType: hard
+
 "@redwoodjs/auth@npm:6.6.2":
   version: 6.6.2
   resolution: "@redwoodjs/auth@npm:6.6.2"
@@ -5922,6 +5952,33 @@ __metadata:
     lodash: "npm:4.17.21"
     uuid: "npm:9.0.1"
   checksum: dd603f21a4c38a54e8ceacbfc4ac09f6ad5a0fd15ab7a4cd2504feecd4ccc57c81d3804b4ef6a376cd8dac816ade7ef67098ac421f9d8ac80c3e9c0deaec78fb
+  languageName: node
+  linkType: hard
+
+"@redwoodjs/graphql-server@npm:6.6.4":
+  version: 6.6.4
+  resolution: "@redwoodjs/graphql-server@npm:6.6.4"
+  dependencies:
+    "@babel/runtime-corejs3": "npm:7.23.6"
+    "@envelop/core": "npm:4.0.3"
+    "@envelop/depth-limit": "npm:3.0.3"
+    "@envelop/disable-introspection": "npm:5.0.3"
+    "@envelop/filter-operation-type": "npm:5.0.3"
+    "@envelop/on-resolve": "npm:3.0.3"
+    "@escape.tech/graphql-armor": "npm:2.3.1"
+    "@graphql-tools/merge": "npm:9.0.1"
+    "@graphql-tools/schema": "npm:10.0.2"
+    "@graphql-tools/utils": "npm:10.0.11"
+    "@opentelemetry/api": "npm:1.7.0"
+    "@redwoodjs/api": "npm:6.6.4"
+    core-js: "npm:3.34.0"
+    graphql: "npm:16.8.1"
+    graphql-scalars: "npm:1.22.4"
+    graphql-tag: "npm:2.12.6"
+    graphql-yoga: "npm:4.0.4"
+    lodash: "npm:4.17.21"
+    uuid: "npm:9.0.1"
+  checksum: 21eb58116350587d0d9fb296fa22bbe286b3fd7cfb05aa6f42f63bbd5c44a0cb3ac35fbcbf59f489e5e602d5fb29bd1a66591e2926dd7d51eb44eab3610fb5a2
   languageName: node
   linkType: hard
 
@@ -9233,10 +9290,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "api@workspace:api"
   dependencies:
-    "@graphql-yoga/plugin-response-cache": "npm:^3.3.0"
-    "@redwoodjs/api": "npm:6.6.2"
-    "@redwoodjs/graphql-server": "npm:6.6.2"
-    graphql-request: "npm:^6.1.0"
+    "@graphql-yoga/plugin-response-cache": "npm:3.3.0"
+    "@redwoodjs/api": "npm:6.6.4"
+    "@redwoodjs/graphql-server": "npm:6.6.4"
+    graphql-request: "npm:6.1.0"
   languageName: unknown
   linkType: soft
 
@@ -15139,7 +15196,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-request@npm:^6.0.0, graphql-request@npm:^6.1.0":
+"graphql-request@npm:6.1.0, graphql-request@npm:^6.0.0":
   version: 6.1.0
   resolution: "graphql-request@npm:6.1.0"
   dependencies:
