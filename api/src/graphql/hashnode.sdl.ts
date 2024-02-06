@@ -2,7 +2,7 @@ export const schema = gql`
   type Publication {
     isTeam: Boolean
     title: String!
-    posts: [Post!]!
+    posts: [Post!]
   }
 
   type Post {
@@ -10,7 +10,7 @@ export const schema = gql`
     title: String!
     brief: String!
     url: String!
-    # author: Author!
+    author: Author!
   }
 
   type Author {
