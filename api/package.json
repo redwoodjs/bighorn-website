@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@graphql-yoga/plugin-response-cache": "^3.3.0",
     "@redwoodjs/api": "6.6.2",
     "@redwoodjs/graphql-server": "6.6.2",
     "graphql-request": "^6.1.0"
