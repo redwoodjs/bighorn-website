@@ -72,7 +72,7 @@ export const recentPosts = async ({
       isTeam: publication.isTeam,
       title: publication.title,
       posts: publication.posts?.edges?.map((edge) => edge.node),
-    } as Publication
+    }
   } catch (error) {
     logger.error(error, 'Failed to fetch recent posts')
     throw new Error('Failed to fetch recent posts')
