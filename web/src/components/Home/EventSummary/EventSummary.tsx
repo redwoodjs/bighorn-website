@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { Link, routes } from '@redwoodjs/router'
 
 import EventItem from 'src/components/EventItem/EventItem'
@@ -6,6 +8,16 @@ import data from '$content/Events/_index.json'
 import { Events } from '$content/types.d'
 
 const EventSummary = () => {
+  const [events, setEvents] = useState<Events[]>([])
+
+  // order events by date
+  useEffect(() => {
+    const ordered = data.sort((a: Events, b: Events) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime()
+    })
+    setEvents(ordered)
+  }, [])
+
   return (
     <section className="page-grid px-page">
       <div className="col-span-5">
@@ -26,7 +38,7 @@ const EventSummary = () => {
       </div>
 
       <div className="col-span-7 flex flex-col gap-[72px] pt-10">
-        {data?.map((item: Events, index: number) => (
+        {events?.map((item: Events, index: number) => (
           <EventItem
             key={index}
             date={item.date}

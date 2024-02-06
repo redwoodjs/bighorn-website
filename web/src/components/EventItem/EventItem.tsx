@@ -29,7 +29,7 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
           {getDate(date)}
         </div>
         <div className="text-lg text-battleshipGray">
-          {getDay(date)} at <span className="lowercase">{getTime(date)}</span>
+          {getDay(date)} at {getTime(date)} PST
         </div>
       </div>
       <h4 className="mb-2 text-lg font-bold leading-6 text-white">{title}</h4>
