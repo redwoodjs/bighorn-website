@@ -3,19 +3,26 @@ import type { Post, Publication, QueryrecentPostsArgs } from 'types/graphql'
 
 import { logger } from 'src/lib/logger'
 
+type HashnodePost = Post
+
+type Edge<T> = {
+  node: T
+}
+
+type PostsConnection<T> = {
+  edges: Edge<T>[]
+}
+
 type PublicationResponse = {
-  isTeam: boolean
-  title: string
-  posts: {
-    edges: Array<{
-      node: Post
-    }>
-  }
+  isTeam: Publication['isTeam']
+  title: Publication['title']
+  posts: PostsConnection<HashnodePost>
 }
 
 type RecentPostsResponse = {
   publication: PublicationResponse
 }
+
 /**
  * Fetches a Publication with latest posts from Hashnode.
  *
@@ -64,7 +71,7 @@ export const recentPosts = async ({
     return {
       isTeam: publication.isTeam,
       title: publication.title,
-      posts: publication.posts?.edges?.map((edge) => edge.node as Post),
+      posts: publication.posts?.edges?.map((edge) => edge.node),
     } as Publication
   } catch (error) {
     logger.error(error, 'Failed to fetch recent posts')
