@@ -1,4 +1,5 @@
 import { request } from 'graphql-request'
+import type { Connection } from 'types/connections'
 import type {
   Post,
   Publication,
@@ -8,24 +9,12 @@ import type {
 
 import { logger } from 'src/lib/logger'
 
-type HashnodePost = Post
-
-type Edge<T> = {
-  node: T
-}
-
-type PostsConnection<T> = {
-  edges: Edge<T>[]
-}
-
-type PublicationResponse = {
-  isTeam: Publication['isTeam']
-  title: Publication['title']
-  posts: PostsConnection<HashnodePost>
-}
-
 type RecentPostsResponse = {
-  publication: PublicationResponse
+  publication: {
+    isTeam: Publication['isTeam']
+    title: Publication['title']
+    posts: Connection<Post>
+  }
 }
 
 /**
