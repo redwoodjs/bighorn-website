@@ -56,6 +56,46 @@
     @apply text-sulu
   }
 
+  .nav-dropdown {
+    @apply bg-licorice rounded-[4px] border-1 border-maiTai relative w-[380px]
+  }
+
+  .nav-dropdown:before {
+    @apply content-[''] block w-0 h-0  border-[15px] border-transparent border-b-maiTai absolute right-5 -top-[30px] z-10
+  }
+
+  .nav-dropdown:after {
+    @apply content-[''] block w-0 h-0  border-[15px] border-transparent border-b-licorice absolute right-5 -top-[29px] z-20
+  }
+
+  .nav-dropdown ul li {
+    @apply border-b-1 border-b-maiTai px-4 py-5 last:border-b-0
+  }
+
+  .nav-dropdown ul li a {
+    @apply flex gap-3
+  }
+
+  .nav-dropdown ul li svg {
+    @apply text-maiTai;
+  }
+
+  .nav-dropdown ul li strong {
+    @apply font-bold text-white mb-1 text-base
+  }
+
+  .nav-dropdown ul li a:hover svg {
+    @apply text-sulu
+  }
+
+  .nav-dropdown ul li p {
+    @apply text-sm text-battleshipGray m-0 p-0
+  }
+
+  .nav-dropdown ul li a {
+
+  }
+
   /* -------------------------- FOOTER ------------------------------------- */
   footer h4 {
     @apply text-xs uppercase font-black text-sulu tracking-wider leading-5 mb-5
