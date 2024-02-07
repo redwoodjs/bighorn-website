@@ -1,7 +1,8 @@
 import { Metadata } from '@redwoodjs/web'
+import { Toaster } from '@redwoodjs/web/dist/toast'
 
 import Footer from 'src/components/Footer/Footer'
-import ChangelogSummary from 'src/components/Home/ChangelogSummary/ChangelogSummary'
+// import ChangelogSummary from 'src/components/Home/ChangelogSummary/ChangelogSummary'
 import EventSummary from 'src/components/Home/EventSummary/EventSummary'
 import HomeHero from 'src/components/Home/HomeHero/HomeHero'
 import RedwoodIs from 'src/components/Home/RedwoodIs/RedwoodIs'
@@ -12,7 +13,11 @@ import Newsletter from 'src/components/Newsletter/Newsletter'
 const HomePage = () => {
   return (
     <>
-      <Metadata title="Home" description="Home page" />
+      <Metadata
+        title="Home"
+        description="Redwood is the full-stack JavaScript application framework."
+      />
+      <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
       {/* HERO */}
       <HomeHero />
@@ -29,7 +34,7 @@ const HomePage = () => {
       <RoadmapSummary />
 
       {/* CHANGELOG */}
-      <ChangelogSummary />
+      {/* <ChangelogSummary /> */}
 
       {/* BLOG */}
 
