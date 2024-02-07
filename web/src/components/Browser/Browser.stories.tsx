@@ -23,4 +23,10 @@ export default meta
 
 type Story = StoryObj<typeof Browser>
 
-export const Primary: Story = {}
+export const Primary: Story = {
+  render: (args) => (
+    <Browser {...args}>
+      <span>Something</span>
+    </Browser>
+  ),
+}
