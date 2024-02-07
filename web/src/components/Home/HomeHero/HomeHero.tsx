@@ -1,4 +1,5 @@
 import Nav from 'src/components/Nav/Nav'
+import { Constants } from 'src/helpers/Constants'
 
 const HomeHero = () => {
   return (
@@ -16,7 +17,15 @@ const HomeHero = () => {
         Preview Bighorn&apos;s React Server Features
       </a>
 
-      <p>or Build on Redwood's Established Base</p>
+      <p>
+        or{' '}
+        <a
+          href={Constants.DOCS}
+          className="font-bold underline hover:no-underline"
+        >
+          Build on Redwood's Established Base
+        </a>
+      </p>
     </div>
   )
 }
