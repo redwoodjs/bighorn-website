@@ -57,9 +57,9 @@ const RoadmapSummary = () => {
             )
         })}
 
-        <Link to={routes.roadmap()} className="view-all">
+        {/* <Link to={routes.roadmap()} className="view-all">
           <span>View Entire Roadmap</span> <Icon id="doubleChevronRight" />
-        </Link>
+        </Link> */}
       </div>
     </section>
   )

@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer>
       <hr />
-      <div className="grid grid-cols-5 px-page py-18">
+      <div className="grid grid-cols-1 gap-y-8 px-5 py-18 md:grid-cols-3 lg:grid-cols-5 lg:px-page">
         <div>
           <h4>About</h4>
           <ul>
@@ -23,10 +23,18 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to={routes.coreTeam()}>Core Team</Link>
+              <a href={Constants.CORE_TEAM} target="_blank" rel="noreferrer">
+                Core Team <Icon id="arrowUpRight" />
+              </a>
             </li>
             <li>
-              <Link to={routes.contributors()}>All Contributors</Link>
+              <a
+                href={Constants.ALL_CONTRIBUTORS}
+                target="_blank"
+                rel="noreferrer"
+              >
+                All Contributors <Icon id="arrowUpRight" />
+              </a>
             </li>
             <li>
               <a href={Constants.SHOP} target="_blank" rel="noreferrer">
@@ -156,7 +164,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className="px-page py-12">
+      <div className="px-5 py-12 lg:px-page">
         <p className="text-sm text-maiTai">
           Copyright &copy; {currentYear()}.{' '}
           <a

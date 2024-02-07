@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
 export const Constants = Object.freeze({
+  ALL_CONTRIBUTORS: 'https://github.com/redwoodjs/redwood#all-contributors',
   CODE_OF_CONDUCT: 'https://github.com/redwoodjs/redwood/blob/main/CODE_OF_CONDUCT.md',
   COMMUNITY: 'https://community.redwoodjs.com/t/welcome-to-the-redwoodjs-community/2416',
   CONFERENCE: 'https://redwoodjsconf.com/',
   CONTRIBUTORS_MEETUP: 'https://community.redwoodjs.com/t/contributors-meetups-a-next-step-for-redwoodjs-participation/2470',
+  CORE_TEAM: 'https://github.com/redwoodjs/redwood#core-team-leadership',
   CREATE_REDWOOD_SCRIPT: 'yarn create redwood-app',
   DISCORD: 'https://discord.com/invite/redwoodjs',
   DISCOURSE: 'https://community.redwoodjs.com/',

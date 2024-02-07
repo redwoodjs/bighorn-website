@@ -46,7 +46,7 @@ const Nav = () => {
           </li>
           <li>
             <button
-              className="relative"
+              className="relative hover:text-sulu"
               onClick={toggleCommunityDropdown}
               ref={communityMenu}
             >
