@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "@redwoodjs/api": "6.6.4",
+    "@redwoodjs/api-server": "6.6.4",
     "@redwoodjs/graphql-server": "6.6.4",
-    "graphql-request": "^6.1.0"
+    "graphql-request": "^6.1.0",
+    "prisma": "5.9.0"
   }
 }

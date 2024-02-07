@@ -1,46 +1,94 @@
-ARG BASE_IMAGE=node:16.13.0-alpine
-FROM ${BASE_IMAGE} as base
+# base
+# ------------------------------------------------
+FROM node:20-bookworm-slim as base
 
-RUN mkdir /app
-WORKDIR /app
+RUN corepack enable
 
-# Required for building the api and web distributions
-ENV NODE_ENV development
+RUN apt-get update && apt-get install -y \
+    openssl \
+    python3 make gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-FROM base as dependencies
+USER node
+WORKDIR /home/node/app
 
-COPY .yarn .yarn
-COPY .yarnrc.yml .yarnrc.yml
-COPY package.json package.json
-COPY web/package.json web/package.json
-COPY api/package.json api/package.json
-COPY yarn.lock yarn.lock
+COPY --chown=node:node .yarnrc.yml .
+COPY --chown=node:node package.json .
+COPY --chown=node:node api/package.json api/
+COPY --chown=node:node web/package.json web/
+COPY --chown=node:node yarn.lock .
 
-RUN --mount=type=cache,target=/root/.yarn/berry/cache \
-    --mount=type=cache,target=/root/.cache yarn install --immutable
+RUN mkdir -p /home/node/.yarn/berry/index
+RUN mkdir -p /home/node/.cache
 
-COPY redwood.toml .
-COPY graphql.config.js .
+# RUN --mount=type=cache,target=/home/node/.yarn/berry/cache,uid=1000 \
+#     --mount=type=cache,target=/home/node/.cache,uid=1000 \
+RUN    CI=1 yarn install
 
-FROM dependencies as web_build
+COPY --chown=node:node redwood.toml .
+COPY --chown=node:node graphql.config.js .
+COPY --chown=node:node .env.defaults .env.defaults
 
-COPY web web
-RUN yarn rw build web
+# api build
+# ------------------------------------------------
+FROM base as api_build
 
-FROM dependencies as api_build
+# If your api side build relies on build-time environment variables,
+# specify them here as ARGs. (But don't put secrets in your Dockerfile!)
+#
+# ARG MY_BUILD_TIME_ENV_VAR
 
-COPY api api
-RUN yarn rw build api
+COPY --chown=node:node api api
+RUN yarn redwood build api
 
-FROM dependencies
+# web build
+# ------------------------------------------------
+FROM base as web_build
 
-ENV NODE_ENV production
+COPY --chown=node:node web web
+COPY --chown=node:node .contentlayer .contentlayer
+RUN yarn redwood build web --no-prerender
 
-COPY --from=web_build /app/web/dist /app/web/dist
-COPY --from=api_build /app/api /app/api
-COPY --from=api_build /app/node_modules/.prisma /app/node_modules/.prisma
+# serve api
+# ------------------------------------------------
+FROM node:20-bookworm-slim as serve
 
-COPY .fly .fly
+ENV NODE_ENV=production
+
+RUN corepack enable
+
+RUN apt-get update && apt-get install -y \
+    openssl \
+    python3 make gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+USER node
+WORKDIR /home/node/app
+
+COPY --chown=node:node .yarnrc.yml .
+COPY --chown=node:node package.json .
+COPY --chown=node:node api/package.json api/
+COPY --chown=node:node web/package.json web/
+COPY --chown=node:node yarn.lock .
+
+RUN mkdir -p /home/node/.yarn/berry/index
+RUN mkdir -p /home/node/.cache
+
+# RUN --mount=type=cache,target=/home/node/.yarn/berry/cache,uid=1000 \
+#     --mount=type=cache,target=/home/node/.cache,uid=1000 \
+RUN    CI=1 yarn workspaces focus api web --production
+
+COPY --chown=node:node redwood.toml .
+COPY --chown=node:node graphql.config.js .
+COPY --chown=node:node .env.defaults .env.defaults
+
+COPY --chown=node:node --from=api_build /home/node/app/api/dist /home/node/app/api/dist
+COPY --chown=node:node --from=api_build /home/node/app/api/db /home/node/app/api/db
+COPY --chown=node:node --from=api_build /home/node/app/node_modules/.prisma /home/node/app/node_modules/.prisma
+
+COPY --chown=node:node --from=web_build /home/node/app/web/dist /home/node/app/web/dist
+
+COPY --chown=node:node .fly .fly
 
 ENTRYPOINT ["sh"]
 CMD [".fly/start.sh"]
