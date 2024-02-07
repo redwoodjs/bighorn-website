@@ -25845,7 +25845,6 @@ __metadata:
     "@redwoodjs/router": "npm:6.6.4"
     "@redwoodjs/vite": "npm:6.6.4"
     "@redwoodjs/web": "npm:6.6.4"
-    "@redwoodjs/web-server": "npm:6.6.4"
     "@types/react": "npm:18.2.37"
     "@types/react-dom": "npm:18.2.15"
     autoprefixer: "npm:^10.4.17"

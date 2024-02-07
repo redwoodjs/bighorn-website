@@ -6,4 +6,4 @@ if [ -n $MIGRATE_ON_BOOT ]; then
   $(dirname $0)/migrate.sh
 fi
 
-npx rw-server --port ${PORT} $@
+yarn api/ rw-server --port ${PORT} $@
