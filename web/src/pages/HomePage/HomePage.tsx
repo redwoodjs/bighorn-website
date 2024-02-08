@@ -5,6 +5,7 @@ import Footer from 'src/components/Footer/Footer'
 // import ChangelogSummary from 'src/components/Home/ChangelogSummary/ChangelogSummary'
 import EventSummary from 'src/components/Home/EventSummary/EventSummary'
 import HomeHero from 'src/components/Home/HomeHero/HomeHero'
+import RecentBlogPostsCell from 'src/components/Home/RecentBlogPostsCell'
 import RedwoodIs from 'src/components/Home/RedwoodIs/RedwoodIs'
 import RoadmapSummary from 'src/components/Home/RoadmapSummary/RoadmapSummary'
 import WhatsIncluded from 'src/components/Home/WhatsIncluded/WhatsIncluded'
@@ -37,6 +38,7 @@ const HomePage = () => {
       {/* <ChangelogSummary /> */}
 
       {/* BLOG */}
+      <RecentBlogPostsCell />
 
       {/* UPCOMING-EVENTS */}
       <EventSummary />
