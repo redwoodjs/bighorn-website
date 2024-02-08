@@ -16,6 +16,8 @@ const HomeHero = () => {
       <a
         href={Constants.BIGHORN_FEATURES}
         className="button mb-4 inline-block text-sm md:mb-8 md:text-base"
+        target="_blank"
+        rel="noreferrer"
       >
         Preview Bighorn&apos;s React Server Features
       </a>

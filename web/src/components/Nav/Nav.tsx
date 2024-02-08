@@ -42,9 +42,11 @@ const Nav = () => {
               Docs
             </a>
           </li>
-          {/* <li>
-            <Link to={routes.blog()}>Blog</Link>
-          </li> */}
+          <li>
+            <Link to={routes.blogIndividual({ slug: 'bighorn-update' })}>
+              Blog
+            </Link>
+          </li>
           <li>
             <button
               className="relative hover:text-sulu"

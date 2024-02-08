@@ -17,6 +17,10 @@ const HomePage = () => {
       <Metadata
         title="Home"
         description="Redwood is the full-stack JavaScript application framework."
+        og={{
+          image: '/images/og.png',
+          url: 'https://redwoodjs.com',
+        }}
       />
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 

@@ -200,9 +200,14 @@
     @apply py-3 md:py-4 px-5 md:px-7 bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
   }
 
-  /* changelog */
+  /* changelog and blog */
+  .blog-post h3,
   .changelog h3 {
     @apply text-lg text-white font-bold mb-2
+  }
+
+  .blog-post p {
+    @apply mb-10 text-white
   }
 
   .changelog p {
@@ -213,8 +218,69 @@
     @apply list-disc list-inside mb-10
   }
 
+  .blog-post ol,
+  .blog-post ul {
+    @apply pl-10 mb-10
+  }
+
+  .blog-post ul {
+    @apply list-none
+  }
+
+  .blog-post ol {
+    counter-reset: ordered-list;
+  }
+
+  .blog-post ol li {
+    @apply mb-4
+  }
+
+  .blog-post li,
   .changelog li {
-    @apply mb-2
+    @apply mb-2 relative
+  }
+
+  .blog-post code {
+    @apply text-sulu
+  }
+
+  .blog-post ol li {
+    @apply mb-6
+  }
+
+  .blog-post ol li:before {
+    counter-increment: ordered-list;
+    content: counter(ordered-list);
+    @apply text-maiTai font-bold absolute top-[-8px] left-[-40px] font-serif text-4xl
+  }
+
+  .blog-post ul li:before {
+    @apply bg-sulu w-1 h-1 rounded-full block content-[''] absolute left-[-12px] top-[10px]
+  }
+
+  .blog-post ul li:before {
+    @apply bg-sulu w-1 h-1 rounded-full block content-[''] absolute left-[-12px] top-[10px]
+  }
+
+  .blog-post li p {
+    @apply w-[90%]
+  }
+
+  .blog-post li p:first-child {
+    @apply m-0 p-0 inline-block
+  }
+
+
+  .blog-post a {
+    @apply border-b-1 border-b-sulu border-t-1 border-t-transparent hover:text-sulu text-white
+  }
+
+  .blog-post blockquote {
+    @apply border-l-[3px] border-neutral-800 pl-6 mb-10 pt-2 pb-1
+  }
+
+  .blog-post blockquote p {
+    @apply text-battleshipGray
   }
 
   .changelog a {

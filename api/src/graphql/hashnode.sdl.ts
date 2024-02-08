@@ -51,6 +51,7 @@ export const schema = gql`
     id: String!
     name: String!
     profilePicture: String!
+    bio: Content!
   }
 
   type Query {

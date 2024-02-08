@@ -125,6 +125,11 @@ export const post = async ({ slug }: QueryPostArgs): Promise<Query['post']> => {
             id
             name
             profilePicture
+            bio {
+              markdown
+              html
+              text
+            }
           }
         }
       }

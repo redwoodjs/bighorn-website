@@ -42,10 +42,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to={routes.brand()}>Brand and Logos</Link>
-            </li>
-            <li>
-              <Link to={routes.security()}>Security</Link>
+              <a href={Constants.SECURITY} target="_blank" rel="noreferrer">
+                Security <Icon id="arrowUpRight" />
+              </a>
             </li>
           </ul>
         </div>
@@ -104,7 +103,10 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to={routes.newsletter()}>Newsletter</Link>
+              <a href={Constants.NEWSLETTER} target="_blank" rel="noreferrer">
+                Newsletter
+                <Icon id="arrowUpRight" />
+              </a>
             </li>
           </ul>
         </div>
@@ -118,7 +120,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to={routes.blog()}>Blog</Link>
+              <Link to={routes.blogIndividual({ slug: 'bighorn-update' })}>
+                Blog
+              </Link>
             </li>
             <li>
               <a href={Constants.CONFERENCE} target="_blank" rel="noreferrer">

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 export const Constants = Object.freeze({
   ALL_CONTRIBUTORS: 'https://github.com/redwoodjs/redwood#all-contributors',
-  BIGHORN_FEATURES: 'https://github.com/redwoodjs/redwood',
+  BIGHORN_FEATURES: 'https://community.redwoodjs.com/t/react-server-components-rsc/5081',
   CODE_OF_CONDUCT: 'https://github.com/redwoodjs/redwood/blob/main/CODE_OF_CONDUCT.md',
   COMMUNITY: 'https://community.redwoodjs.com/t/welcome-to-the-redwoodjs-community/2416',
   CONFERENCE: 'https://redwoodjsconf.com/',
@@ -15,9 +15,11 @@ export const Constants = Object.freeze({
   GET_STARTED: 'https://redwoodjs.com/docs/quick-start',
   GITHUB: 'https://github.com/redwoodjs/redwood',
   MAKER_HOUR: 'https://community.redwoodjs.com/t/redwood-makers-hour-stand-up/1971',
+  NEWSLETTER: 'https://mailchi.mp/redwoodjs/redwoodjs-newsletter',
   PRESTON_WERNER_VENTURES: 'https://prestonwernerventures.com/',
   README: 'https://github.com/redwoodjs/redwood/blob/main/README.md',
   RELEASES: 'https://community.redwoodjs.com/c/announcements/releases-and-upgrade-guides/18',
+  SECURITY: 'https://github.com/redwoodjs/redwood/security/policy',
   SHOP: 'https://shop.redwoodjs.com/',
   STARTUP_CLUB: 'https://docs.google.com/forms/d/e/1FAIpQLSeuoGpGJ8gN_eYRY9hU6u2Apw0RB5UV6eYASp6ujsSv_aLaMg/viewform',
   STARTUP_FUND: 'http://redwoodstartupfund.com/',
