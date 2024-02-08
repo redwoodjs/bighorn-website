@@ -86,7 +86,10 @@ const Footer = () => {
           <h4>ANNOUNCEMENTS</h4>
           <ul>
             <li>
-              <Link to={routes.events()}>Events</Link>
+              <a href={Constants.EVENTS} target="_blank" rel="noreferrer">
+                Events
+                <Icon id="arrowUpRight" />
+              </a>
             </li>
             <li>
               <a href={Constants.RELEASES} target="_blank" rel="noreferrer">
