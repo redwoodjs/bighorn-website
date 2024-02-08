@@ -42,9 +42,9 @@ const Nav = () => {
               Docs
             </a>
           </li>
-          <li>
+          {/* <li>
             <Link to={routes.blog()}>Blog</Link>
-          </li>
+          </li> */}
           <li>
             <button
               className="relative hover:text-sulu"
