@@ -76,7 +76,7 @@ export const recentPosts = async ({
       throw new Error('Failed to fetch recent posts')
     }
 
-    logger.debug(publication, 'Recent posts response from hashnode')
+    // logger.debug(publication, 'Recent posts response from hashnode')
 
     return {
       isTeam: publication.isTeam,
@@ -86,5 +86,31 @@ export const recentPosts = async ({
   } catch (error) {
     logger.error(error, 'Failed to fetch recent posts')
     throw new Error('Failed to fetch recent posts')
+  }
+}
+
+export const post = async ({ slug }) => {
+  const POST = `
+    post(slug: "bighorn-update") {
+      id
+      title
+    }
+  `
+
+  try {
+    const data = await request('https://gql.hashnode.com', POST)
+
+    if (!data) {
+      throw new Error('Failed to fetch post')
+    }
+
+    logger.debug(data, 'Post response from hashnode')
+
+    return {
+      data,
+    }
+  } catch (error) {
+    logger.error(error, 'Failed to fetch post')
+    throw new Error('Failed to fetch post')
   }
 }
