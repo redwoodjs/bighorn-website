@@ -1,12 +1,9 @@
-import { Link, routes } from '@redwoodjs/router'
-import { Metadata } from '@redwoodjs/web'
+import IndividualBlogPostCell from 'src/components/IndividualBlogPostCell'
 
-const BlogIndividualPage = () => {
+const BlogIndividualPage = ({ slug }) => {
   return (
     <>
-      <Metadata title="BlogIndividual" description="BlogIndividual page" />
-
-      <h1>BlogIndividualPage</h1>
+      <IndividualBlogPostCell slug={slug} />
     </>
   )
 }

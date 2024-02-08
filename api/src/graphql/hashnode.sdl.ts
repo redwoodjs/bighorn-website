@@ -51,10 +51,14 @@ export const schema = gql`
     id: String!
     name: String!
     profilePicture: String!
+    bio: Content!
   }
 
   type Query {
     "Fetches a Publication with latest posts from Hashnode."
     recentPosts(first: Int): Publication! @skipAuth
+
+    "Fetches a single post by its slug."
+    post(slug: String!): Post! @skipAuth
   }
 `

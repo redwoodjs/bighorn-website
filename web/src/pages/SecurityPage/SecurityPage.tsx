@@ -6,7 +6,7 @@ const SecurityPage = () => {
     <>
       <Metadata title="Security" description="Security page" />
 
-      <h1>SecurityPage</h1>
+      <h1>Security Page</h1>
       <p>
         Find me in <code>./web/src/pages/SecurityPage/SecurityPage.tsx</code>
       </p>

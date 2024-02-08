@@ -5,6 +5,7 @@ import type {
   Publication,
   Query,
   QueryrecentPostsArgs as QueryRecentPostsArgs,
+  QuerypostArgs as QueryPostArgs,
 } from 'types/graphql'
 
 import { logger } from 'src/lib/logger'
@@ -76,7 +77,7 @@ export const recentPosts = async ({
       throw new Error('Failed to fetch recent posts')
     }
 
-    logger.debug(publication, 'Recent posts response from hashnode')
+    // logger.debug(publication, 'Recent posts response from hashnode')
 
     return {
       isTeam: publication.isTeam,
@@ -86,5 +87,74 @@ export const recentPosts = async ({
   } catch (error) {
     logger.error(error, 'Failed to fetch recent posts')
     throw new Error('Failed to fetch recent posts')
+  }
+}
+
+type PostResponse = {
+  publication: {
+    post?: Post
+  }
+}
+
+export const post = async ({ slug }: QueryPostArgs): Promise<Query['post']> => {
+  const POST = `
+    {
+      publication(host: "redwoodjs.com") {
+        post(slug: "${slug}") {
+          id
+          slug
+          title
+          subtitle
+          brief
+          content {
+            markdown
+            html
+            text
+          }
+          coverImage {
+            url
+          }
+          publishedAt
+          seo {
+            title
+            description
+          }
+          url
+          canonicalUrl
+          author {
+            id
+            name
+            profilePicture
+            bio {
+              markdown
+              html
+              text
+            }
+          }
+        }
+      }
+    }
+  `
+  logger.debug(slug, 'Fetching post from hashnode')
+  logger.debug(POST, 'Fetching post query')
+
+  try {
+    const { publication } = await request<PostResponse>(
+      'https://gql.hashnode.com',
+      POST
+    )
+
+    logger.debug(publication.post, 'Post response from hashnode')
+
+    if (!publication || !publication.post) {
+      throw new Error('Failed to fetch post')
+    }
+
+    logger.debug(post, 'Post response from hashnode')
+
+    return publication.post
+  } catch (error) {
+    logger.error(error, 'Failed to fetch post')
+    throw new Error('Failed to fetch post')
   }
 }
