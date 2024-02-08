@@ -7,8 +7,14 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 export const QUERY = gql`
   query FindIndividualBlogPostQuery($slug: String!) {
-    individualBlogPost: individualBlogPost(id: $id) {
+    individualBlogPost: post(slug: $slug) {
       id
+      title
+      content {
+        markdown
+        html
+        text
+      }
     }
   }
 `
