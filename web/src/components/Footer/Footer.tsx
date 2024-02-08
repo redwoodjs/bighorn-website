@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer>
       <hr />
-      <div className="grid grid-cols-1 gap-y-8 px-5 py-18 md:grid-cols-3 lg:grid-cols-5 lg:px-page">
+      <div className="grid grid-cols-1 gap-y-8 px-5 py-18 md:grid-cols-3 lg:px-page xl:grid-cols-5">
         <div>
           <h4>About</h4>
           <ul>
