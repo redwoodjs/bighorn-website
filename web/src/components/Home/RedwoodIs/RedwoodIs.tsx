@@ -20,26 +20,26 @@ const RedwoodIs = () => {
   }
 
   return (
-    <section className="px-page">
-      <h2 className="mb-7 font-serif text-18 leading-[74px] text-maiTai">
+    <section className="px-5 lg:px-page">
+      <h2 className="mb-7 font-serif text-6xl leading-none text-maiTai md:text-18 md:leading-[74px]">
         Redwood is the
         <br />
         full-stack JavaScript
         <br />
         application framework.
       </h2>
-      <h3 className="mb-14 font-sans text-4xl font-extralight text-battleshipGray">
+      <h3 className="mb-14 font-sans text-3xl font-extralight text-battleshipGray md:text-4xl">
         Batteries, backend, React, conventions, and opinions included.
       </h3>
 
-      <div className="flex gap-9">
+      <div className="flex flex-col gap-9 md:flex-row">
         <a href={Constants.GET_STARTED} className="button">
           Get Started
         </a>
         <div className="flex h-[53px] items-center gap-7 rounded-[4px] border-2 border-maiTai px-7">
           <div
             contentEditable={true}
-            className="font-white font-mono text-lg leading-none"
+            className="font-white font-mono text-base leading-none md:text-lg"
           >
             {Constants.CREATE_REDWOOD_SCRIPT}
           </div>
