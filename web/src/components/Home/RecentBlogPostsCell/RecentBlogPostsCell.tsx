@@ -8,6 +8,7 @@ export const QUERY = gql`
   query RecentBlogPostsQuery {
     recentPosts {
       posts {
+        id
         author {
           id
           name

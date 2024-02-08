@@ -7,7 +7,7 @@ import Icon from '../Icon/Icon'
 
 interface BlogCardProps {
   post: {
-    id: number
+    id: string
     author: {
       id: string
       name: string

@@ -11,8 +11,6 @@ export const QUERY = gql`
       id
       title
       content {
-        markdown
-        html
         text
       }
     }

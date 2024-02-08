@@ -1,4 +1,4 @@
-import { IndividualBlogPostCell } from 'src/components/IndividualBlogPostCell'
+import IndividualBlogPostCell from 'src/components/IndividualBlogPostCell'
 
 const BlogIndividualPage = ({ slug }) => {
   return (
