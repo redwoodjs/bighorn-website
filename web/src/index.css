@@ -138,8 +138,17 @@
 
 @layer components {
   .home-hero {
-    background: url('/images/hero.jpg') center top no-repeat;
+    background: linear-gradient(180deg, rgba(24, 19, 17, 0) 0%, rgba(24, 19, 17, 1) 100%),
+      url('/images/hero.jpg') center top no-repeat;
+
     @apply pt-7 min-h-[800px] px-5;
+  }
+
+  @media (min-width: 768px) {
+    .home-hero {
+      background: url('/images/hero.jpg') center top no-repeat;
+      @apply pt-7 min-h-[800px] px-5;
+    }
   }
 
   .home-hero h1,
@@ -188,7 +197,7 @@
 
   /* buttons */
   .button {
-    @apply py-4 px-7 bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
+    @apply py-3 md:py-4 px-5 md:px-7 bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
   }
 
   /* changelog */
