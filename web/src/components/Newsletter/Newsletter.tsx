@@ -29,7 +29,7 @@ const Newsletter = () => {
   }
 
   return (
-    <section className="page-grid">
+    <section className="page-grid !mb-0">
       <div className="col-span-5 px-5 md:pl-page md:pr-0">
         <h2 className="section-heading mb-6">Fortnightly Newsletter</h2>
         <h3 className="section-subheading">Pure information gold. No spam.</h3>

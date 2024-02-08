@@ -48,7 +48,9 @@ const HomePage = () => {
       <EventSummary />
 
       {/* NEWSLETTER */}
-      <Newsletter />
+      <div className="mb-[270px]">
+        <Newsletter />
+      </div>
 
       <Footer />
     </>

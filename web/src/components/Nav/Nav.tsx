@@ -15,7 +15,7 @@ const Nav = () => {
   const [isCommunityDropdownShowing, setIsCommunityDropdownShowing] =
     useState(false) // this is used to store the state of the nav dropdown for table =>
   const communityMenu = useRef(null)
-  const [isNavShowing, setIsNavShowing] = useState() // this is used to control he state of the mobile nav
+  const [isNavShowing, setIsNavShowing] = useState(false) // this is used to control he state of the mobile nav
 
   useOutsideClick(() => setIsCommunityDropdownShowing(false), communityMenu)
 
@@ -28,7 +28,7 @@ const Nav = () => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center justify-start gap-1">
-        <Link to={routes.home()} className="mr-10 md:mr-0">
+        <Link to={routes.home()} className="mr-16 md:mr-0">
           <img src="/images/logo.svg" alt="RedwoodJS" />
         </Link>
         <div className="hidden rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white md:inline-block">
@@ -39,24 +39,24 @@ const Nav = () => {
       <nav>
         {/* hamburger */}
         <button
-          className="flex flex-col gap-[6px]"
+          className="fixed right-4 top-4 z-50 flex flex-col gap-[6px] md:hidden"
           onClick={() => {
             setIsNavShowing((prevValue) => !prevValue)
           }}
         >
           <motion.div
-            className="h-1 w-8 bg-white"
+            className="h-[2px] w-8 bg-white"
             initial={{ y: 0 }}
             animate={
               isNavShowing
-                ? { y: [0, 10, 10], rotate: [0, 0, 45] }
-                : { y: [10, 10, 0], rotate: [45, 0, 0] }
+                ? { y: [0, 8, 8], rotate: [0, 0, 45] }
+                : { y: [8, 8, 0], rotate: [45, 0, 0] }
             }
             exit={{ y: 0, rotate: [45, 0, 0] }}
             transition={{ duration: 0.35 }}
           />
           <motion.div
-            className="h-1 w-8 bg-white"
+            className="h-[2px] w-8 bg-white"
             initial={{ opacity: 0 }}
             animate={
               isNavShowing ? { opacity: [1, 0, 0] } : { opacity: [0, 0, 1] }
@@ -65,12 +65,12 @@ const Nav = () => {
             transition={{ duration: 0.35 }}
           />
           <motion.div
-            className="h-1 w-8 bg-white"
+            className="h-[2px] w-8 bg-white"
             initial={{ y: 0 }}
             animate={
               isNavShowing
-                ? { y: [0, -10, -10], rotate: [0, 0, -45] }
-                : { y: [-10, -10, 0], rotate: [-45, 0, 0] }
+                ? { y: [0, -8, -8], rotate: [0, 0, -45] }
+                : { y: [-8, -8, 0], rotate: [-45, 0, 0] }
             }
             exit={{ y: 0, rotate: [45, 0, 0] }}
             transition={{ duration: 0.35 }}
@@ -78,19 +78,41 @@ const Nav = () => {
         </button>
 
         {/* mobile nav */}
-        <ul>
-          <li>Home</li>
-          <li>Docs</li>
-          <li>Blog</li>
+        <motion.ul
+          className="fixed inset-0 -top-[100vh] z-40 flex h-screen w-screen flex-col gap-3 bg-[#111] px-5 py-4"
+          initial={{ y: '0' }}
+          animate={{ y: isNavShowing ? '100vh' : '0' }}
+          exit={{ y: '0' }}
+          transition={{ ease: [0.17, 0.67, 0.83, 0.67] }}
+        >
           <li>
-            <div className="flex items-center">
+            <Link to={routes.home()}>Home</Link>
+          </li>
+          <li>
+            <a href={Constants.DOCS}>Docs</a>
+          </li>
+          <li>
+            <Link to={routes.blogIndividual({ slug: 'bighorn-update' })}>
+              Blog
+            </Link>
+          </li>
+          <li>
+            <a href={Constants.DISCORD} className="flex items-center gap-1">
               Community <Icon id="chevronDown" size={16} />
-            </div>
-            <ul>
-              <li></li>
+            </a>
+            <ul className="flex flex-col gap-2 py-2 pl-4">
+              <li className="font-normal">
+                <a href={Constants.DISCORD}>Discord</a>
+              </li>
+              <li className="font-normal">
+                <a href={Constants.DISCOURSE}>Discourse</a>
+              </li>
+              <li className="font-normal">
+                <a href={Constants.TWITTER}>Twitter</a>
+              </li>
             </ul>
           </li>
-        </ul>
+        </motion.ul>
       </nav>
 
       <nav className="hidden md:block">

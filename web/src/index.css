@@ -138,7 +138,7 @@
 
 @layer components {
   .home-hero {
-    background: linear-gradient(180deg, rgba(24, 19, 17, 0) 0%, rgba(24, 19, 17, 1) 100%),
+    background: linear-gradient(180deg, rgba(24, 19, 17, 1) 0%, rgba(24, 19, 17, 0) 100px, rgba(24, 19, 17, 1) 100%),
       url('/images/hero.jpg') center top no-repeat;
 
     @apply pt-7 min-h-[800px] px-5;
