@@ -1,3 +1,5 @@
+import { useResponseCache } from '@graphql-yoga/plugin-response-cache'
+
 import { createGraphQLHandler } from '@redwoodjs/graphql-server'
 
 import directives from 'src/directives/**/*.{js,ts}'
@@ -12,6 +14,14 @@ export const handler = createGraphQLHandler({
   directives,
   sdls,
   services,
+  extraPlugins: [
+    useResponseCache({
+      session: () => null,
+      ttlPerSchemaCoordinate: {
+        'Query.recentPosts': 10 * 1_000, // 10 seconds
+      },
+    }),
+  ],
   onException: () => {
     // Disconnect from your database with an unhandled exception.
     db.$disconnect()
