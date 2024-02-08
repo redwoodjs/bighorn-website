@@ -1,9 +1,9 @@
 const WhatsIncluded = () => {
   return (
-    <section className="px-page">
+    <section className="px-5 lg:px-page">
       <h2 className="section-heading mb-6">What&apos;s Included?</h2>
 
-      <div className="grid grid-cols-6 gap-5">
+      <div className="grid grid-cols-1 gap-y-5 md:grid-cols-6 md:gap-5">
         {/* deployment */}
         <div className="bento-box third flex flex-col justify-start px-bentoX py-bentoY">
           <h3>Deployment that Eliminates Vendor Lock-In</h3>

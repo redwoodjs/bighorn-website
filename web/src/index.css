@@ -216,7 +216,7 @@
 
 @layer utilities {
   .section-heading {
-    @apply font-serif text-18 text-maiTai font-bold leading-none;
+    @apply font-serif text-6xl md:text-18 text-maiTai font-bold leading-none;
   }
 
   .section-subheading {
