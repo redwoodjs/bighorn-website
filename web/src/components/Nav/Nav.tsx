@@ -8,6 +8,7 @@ import { Constants } from 'src/helpers/Constants'
 import { useOutsideClick } from 'src/hooks/useClickoutside'
 import { useEscapeKey } from 'src/hooks/useEscapeKey'
 
+import Icon from '../Icon/Icon'
 import NavDropdown from '../NavDropdown/NavDropdown'
 
 const Nav = () => {
@@ -50,7 +51,18 @@ const Nav = () => {
               onClick={toggleCommunityDropdown}
               ref={communityMenu}
             >
-              Community
+              <div className="flex items-center gap-1">
+                Community
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{
+                    rotate: isCommunityDropdownShowing ? -180 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Icon id="chevronDown" size={16} />
+                </motion.div>
+              </div>
               <AnimatePresence>
                 {isCommunityDropdownShowing && (
                   <motion.div
