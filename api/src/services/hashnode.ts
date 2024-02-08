@@ -5,6 +5,7 @@ import type {
   Publication,
   Query,
   QueryrecentPostsArgs as QueryRecentPostsArgs,
+  QuerypostArgs as QueryPostArgs,
 } from 'types/graphql'
 
 import { logger } from 'src/lib/logger'
@@ -89,26 +90,58 @@ export const recentPosts = async ({
   }
 }
 
-export const post = async ({ slug }) => {
+type PostResponse = {
+  post: Post
+}
+
+export const post = async ({ id }: QueryPostArgs): Promise<Query['post']> => {
   const POST = `
-    post(slug: "bighorn-update") {
-      id
-      title
+    {
+      post(id: "${id}") {
+        id
+        slug
+        title
+        subtitle
+        brief
+        content {
+          markdown
+          html
+          text
+        }
+        coverImage {
+          url
+        }
+        publishedAt
+        seo {
+          title
+          description
+        }
+        url
+        canonicalUrl
+        author {
+          id
+          name
+          profilePicture
+        }
+      }
     }
   `
+  logger.debug(id, 'Fetching post from hashnode')
+  logger.debug(POST, 'Fetching post query')
 
   try {
-    const data = await request('https://gql.hashnode.com', POST)
+    const { post } = await request<PostResponse>(
+      'https://gql.hashnode.com',
+      POST
+    )
 
-    if (!data) {
+    if (!post) {
       throw new Error('Failed to fetch post')
     }
 
-    logger.debug(data, 'Post response from hashnode')
+    logger.debug(post, 'Post response from hashnode')
 
-    return {
-      data,
-    }
+    return post
   } catch (error) {
     logger.error(error, 'Failed to fetch post')
     throw new Error('Failed to fetch post')
