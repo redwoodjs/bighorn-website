@@ -30,13 +30,16 @@ const Newsletter = () => {
 
   return (
     <section className="page-grid">
-      <div className="col-span-5 pl-page">
+      <div className="col-span-5 px-5 md:pl-page md:pr-0">
         <h2 className="section-heading mb-6">Fortnightly Newsletter</h2>
         <h3 className="section-subheading">Pure information gold. No spam.</h3>
       </div>
-      <div className="col-span-6 pr-page pt-18">
+      <div className="col-span-7 px-5 pt-5 md:px-page lg:pr-page lg:pt-18 xl:col-span-6">
         <Form onSubmit={handleSubmit}>
-          <fieldset disabled={loading} className="flex items-center gap-7">
+          <fieldset
+            disabled={loading}
+            className="flex flex-row items-center gap-7"
+          >
             <EmailField
               name="email"
               placeholder="your@email.com"
@@ -48,7 +51,7 @@ const Newsletter = () => {
           </fieldset>
         </Form>
       </div>
-      <div className="col-span-6 pl-page">
+      <div className="col-span-6 px-5 md:px-page lg:pr-0">
         <p className="text-lg leading-normal text-battleshipGray">
           Get a summary of what we’ve shipped, articles we’ve written, and
           upcoming events straight to your inbox, every two weeks.

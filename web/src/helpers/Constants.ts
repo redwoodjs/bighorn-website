@@ -10,6 +10,7 @@ export const Constants = Object.freeze({
   DISCORD: 'https://discord.com/invite/redwoodjs',
   DISCOURSE: 'https://community.redwoodjs.com/',
   DOCS: 'https://redwoodjs.com/docs/introduction',
+  EVENTS: 'https://lu.ma/redwoodjs',
   GET_STARTED: 'https://redwoodjs.com/docs/quick-start',
   GITHUB: 'https://github.com/redwoodjs/redwood',
   MAKER_HOUR: 'https://community.redwoodjs.com/t/redwood-makers-hour-stand-up/1971',

@@ -20,7 +20,7 @@ const RedwoodIs = () => {
   }
 
   return (
-    <section className="px-5 lg:px-page">
+    <section className="px-5 md:px-page">
       <h2 className="mb-7 font-serif text-6xl leading-none text-maiTai md:text-18 md:leading-[74px]">
         Redwood is the
         <br />

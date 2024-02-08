@@ -1,17 +1,11 @@
-// import { allRoadmap } from 'contentlayer/generated'
-
-import { Link, routes } from '@redwoodjs/router'
-
 import RoadmapItem from 'src/components/RoadmapItem/RoadmapItem'
-
-import Icon from '../../Icon/Icon'
 
 import data from '$content/Roadmap/_index.json'
 import { Roadmap } from '$content/types.d'
 
 const RoadmapSummary = () => {
   return (
-    <section className="page-grid px-page">
+    <section className="page-grid px-5 md:px-page">
       <div className="col-span-5">
         <div className="sticky top-5 pr-5">
           <h2 className="section-heading mb-6">Roadmap</h2>

@@ -1,6 +1,6 @@
 const WhatsIncluded = () => {
   return (
-    <section className="px-5 lg:px-page">
+    <section className="px-5 md:px-page">
       <h2 className="section-heading mb-6">What&apos;s Included?</h2>
 
       <div className="grid grid-cols-1 gap-y-5 md:grid-cols-6 md:gap-5">
