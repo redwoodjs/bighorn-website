@@ -7,7 +7,9 @@ const WhatsIncluded = () => {
         {/* deployment */}
         <div className="bento-box third flex flex-col justify-start px-bentoX py-bentoY">
           <h3>Deployment that Eliminates Vendor Lock-In</h3>
-          <p>You have the power of choice without the complexity.</p>
+          <p className="mb-5">
+            You have the power of choice without the complexity.
+          </p>
           <div className="mt-auto flex w-full items-center justify-between self-end">
             <div>
               <img src="/images/fly.svg" alt="Fly.io" />

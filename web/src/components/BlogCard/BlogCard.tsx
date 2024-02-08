@@ -1,14 +1,22 @@
 import { Link, routes } from '@redwoodjs/router'
 
+import { prettifyDate } from 'src/helpers/DateHelpers'
+
 import Avatar from '../Avatar/Avatar'
 import Icon from '../Icon/Icon'
 
 interface BlogCardProps {
   post: {
     id: number
+    author: {
+      id: string
+      name: string
+      profilePicture: string
+    }
     title: string
-    url: string
+    slug: string
     brief: string
+    publishedAt: string
   }
 }
 
@@ -16,19 +24,20 @@ const BlogCard = ({ post }: BlogCardProps) => {
   return (
     <article className="rounded-[4px] border-1 border-maiTai p-7 pb-5">
       <h4 className="mb-2 text-sm font-bold uppercase text-maiTai">
-        FEBRUARY 1, 2024
+        {prettifyDate(post.publishedAt)}
       </h4>
-      <h2 className="mb-5 text-3xl font-bold leading-tight text-white">
-        Double the Power for Open Source
-      </h2>
-      <p className="mb-5 text-lg leading-tight text-battleshipGray">
-        GitHub Actions continues its industry-leading support for the OSS
-        community by doubling the Windows/Linux machine size to 4-vCPU runners
-        at...
+      <Link
+        to={routes.blogIndividual({ slug: post.slug })}
+        className="text-white hover:text-sulu"
+      >
+        <h2 className="mb-5 text-3xl font-bold leading-tight ">{post.title}</h2>
+      </Link>
+      <p className="mb-5 text-lg leading-normal text-battleshipGray">
+        {post.brief}
       </p>
       <div className="flex justify-between">
         <Link
-          to={routes.blogIndividual({ slug: 'slug' })}
+          to={routes.blogIndividual({ slug: post.slug })}
           className="group/readMoreBlogLink flex items-center gap-1 font-bold uppercase text-white "
         >
           <span className="border-b-1 border-b-white text-sm hover:text-white group-hover/readMoreBlogLink:border-sulu">
@@ -36,10 +45,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
           </span>{' '}
           <Icon id="doubleChevronRight" />
         </Link>
-        <Avatar
-          alt="Amy Dutton"
-          src="https://picsum.photos/seed/1707377454461/300/300"
-        />
+        <Avatar alt={post.author.name} src={post.author.profilePicture} />
       </div>
     </article>
   )

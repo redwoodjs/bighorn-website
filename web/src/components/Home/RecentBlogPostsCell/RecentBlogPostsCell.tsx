@@ -8,10 +8,33 @@ export const QUERY = gql`
   query RecentBlogPostsQuery {
     recentPosts {
       posts {
-        id
+        author {
+          id
+          name
+          profilePicture
+        }
+        brief
+        canonicalUrl
+        coverImage {
+          url
+        }
+        content {
+          html
+          markdown
+          text
+        }
+        ogMetaData {
+          image
+        }
+        seo {
+          description
+          title
+        }
+        slug
+        subtitle
         title
         url
-        brief
+        publishedAt
       }
     }
   }

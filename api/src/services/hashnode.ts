@@ -28,7 +28,7 @@ export const recentPosts = async ({
 }: QueryRecentPostsArgs): Promise<Query['recentPosts']> => {
   const RECENT_POSTS = `
     {
-      publication(host: "selfteach.me") {
+      publication(host: "redwoodjs.com") {
         isTeam
         title
         posts(first: ${first}) {
