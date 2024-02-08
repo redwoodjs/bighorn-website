@@ -47,9 +47,9 @@ const Footer = () => {
             <li>
               <Link to={routes.security()}>Security</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to={routes.roadmap()}>Roadmap</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div>

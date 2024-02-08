@@ -9242,6 +9242,7 @@ __metadata:
   dependencies:
     "@graphql-yoga/plugin-response-cache": "npm:3.3.0"
     "@redwoodjs/api": "npm:6.6.4"
+    "@redwoodjs/api-server": "npm:6.6.4"
     "@redwoodjs/graphql-server": "npm:6.6.4"
     graphql-request: "npm:6.1.0"
   languageName: unknown
