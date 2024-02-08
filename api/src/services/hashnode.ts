@@ -91,57 +91,63 @@ export const recentPosts = async ({
 }
 
 type PostResponse = {
-  post: Post
+  publication: {
+    post?: Post
+  }
 }
 
-export const post = async ({ id }: QueryPostArgs): Promise<Query['post']> => {
+export const post = async ({ slug }: QueryPostArgs): Promise<Query['post']> => {
   const POST = `
     {
-      post(id: "${id}") {
-        id
-        slug
-        title
-        subtitle
-        brief
-        content {
-          markdown
-          html
-          text
-        }
-        coverImage {
-          url
-        }
-        publishedAt
-        seo {
-          title
-          description
-        }
-        url
-        canonicalUrl
-        author {
+      publication(host: "redwoodjs.com") {
+        post(slug: "${slug}") {
           id
-          name
-          profilePicture
+          slug
+          title
+          subtitle
+          brief
+          content {
+            markdown
+            html
+            text
+          }
+          coverImage {
+            url
+          }
+          publishedAt
+          seo {
+            title
+            description
+          }
+          url
+          canonicalUrl
+          author {
+            id
+            name
+            profilePicture
+          }
         }
       }
     }
   `
-  logger.debug(id, 'Fetching post from hashnode')
+  logger.debug(slug, 'Fetching post from hashnode')
   logger.debug(POST, 'Fetching post query')
 
   try {
-    const { post } = await request<PostResponse>(
+    const { publication } = await request<PostResponse>(
       'https://gql.hashnode.com',
       POST
     )
 
-    if (!post) {
+    logger.debug(publication.post, 'Post response from hashnode')
+
+    if (!publication || !publication.post) {
       throw new Error('Failed to fetch post')
     }
 
     logger.debug(post, 'Post response from hashnode')
 
-    return post
+    return publication.post
   } catch (error) {
     logger.error(error, 'Failed to fetch post')
     throw new Error('Failed to fetch post')

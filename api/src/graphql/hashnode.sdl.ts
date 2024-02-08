@@ -58,6 +58,6 @@ export const schema = gql`
     recentPosts(first: Int): Publication! @skipAuth
 
     "Fetches a single post by its slug."
-    post(id: String!): Post! @skipAuth
+    post(slug: String!): Post! @skipAuth
   }
 `
