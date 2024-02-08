@@ -40,9 +40,9 @@ const WhatsIncluded = () => {
         <div className="bento-box third px-bentoX py-bentoY">
           <h3>Render Content, How You Want It, When You Want It</h3>
           <p>
-            Redwood supports Client and Server Side Rendering. It has flexible
-            rendering and caching options, on a per-page level. Giving your
-            application the speed and optimization it needs.
+            In Bighorn, Redwood supports Client and Server Side Rendering. It
+            has flexible rendering options, on a per-page level, optimizing your
+            application for enhanced speed and performance.
           </p>
         </div>
 
