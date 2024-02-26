@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import { Link, routes } from '@redwoodjs/router'
-
 import EventItem from 'src/components/EventItem/EventItem'
 import { Constants } from 'src/helpers/Constants'
 
@@ -39,15 +37,19 @@ const EventSummary = () => {
       </div>
 
       <div className="col-span-7 flex flex-col gap-[72px] pt-10">
-        {events?.map((item: Events, index: number) => (
-          <EventItem
-            key={index}
-            date={item.date}
-            title={item.title}
-            description={item.description}
-            rsvp={item.rsvp}
-          />
-        ))}
+        {events?.map((item: Events, index: number) => {
+          if (item.published) {
+            return (
+              <EventItem
+                key={index}
+                date={item.date}
+                title={item.title}
+                description={item.description}
+                rsvp={item.rsvp}
+              />
+            )
+          }
+        })}
       </div>
     </section>
   )

@@ -57,6 +57,11 @@ const events = defineDocumentType(() => ({
       description: 'The RSVP link for the event',
       required: true,
     },
+    published: {
+      type: 'boolean',
+      description: 'Whether the event is published',
+      required: true,
+    },
   },
 }))
 

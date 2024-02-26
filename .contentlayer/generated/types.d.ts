@@ -35,6 +35,8 @@ export type Events = {
   description: string
   /** The RSVP link for the event */
   rsvp: string
+  /** Whether the event is published */
+  published: boolean
   /** MDX file body */
   body: MDX
 
