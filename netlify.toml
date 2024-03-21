@@ -16,11 +16,6 @@
   port = 8888
 
 [[redirects]]
-  from = "/*"
-  to = "/200.html"
-  status = 200
-
-[[redirects]]
   from = "/sitemap.xml"
   to = "https://redwoodjs-docs.netlify.app/sitemap.xml"
   status = 200
@@ -162,3 +157,8 @@
   to = "https://redwoodjs.notion.site/redwoodjs/React-Summit-5af495a07ba846ba995686dc9529357a"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/200.html"
+  status = 200
