@@ -19,7 +19,7 @@ const HomeHero = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Preview Bighorn&apos;s React Server Features
+        Walkthrough Bighorn's Features
       </a>
 
       <p className="text-sm md:text-base">

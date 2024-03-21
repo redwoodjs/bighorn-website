@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 export const Constants = Object.freeze({
   ALL_CONTRIBUTORS: 'https://github.com/redwoodjs/redwood#all-contributors',
-  BIGHORN_FEATURES: 'https://community.redwoodjs.com/t/react-server-components-rsc/5081',
+  BIGHORN_FEATURES: '/bighorn-walkthrough',
   CODE_OF_CONDUCT: 'https://github.com/redwoodjs/redwood/blob/main/CODE_OF_CONDUCT.md',
   COMMUNITY: 'https://community.redwoodjs.com/t/welcome-to-the-redwoodjs-community/2416',
   CONFERENCE: 'https://redwoodjsconf.com/',
