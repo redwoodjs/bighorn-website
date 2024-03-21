@@ -120,7 +120,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/index#blog">
+              <a href="/#blog">
                 Blog
               </a>
             </li>
