@@ -92,9 +92,7 @@ const Nav = () => {
             <a href={Constants.DOCS}>Docs</a>
           </li>
           <li>
-            <Link to={routes.blogIndividual({ slug: 'bighorn-update' })}>
-              Blog
-            </Link>
+            <a href="/#blog">Blog</a>
           </li>
           <li>
             <a href={Constants.DISCORD} className="flex items-center gap-1">

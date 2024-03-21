@@ -53,7 +53,7 @@ export const Success = ({
   recentPosts,
 }: CellSuccessProps<RecentBlogPostsQuery>) => {
   return (
-    <section className="page-grid px-5 md:px-page">
+    <section className="page-grid px-5 md:px-page" id="blog">
       <div className="col-span-5">
         <div className="sticky top-5">
           <h2 className="section-heading mb-6">Blog</h2>
