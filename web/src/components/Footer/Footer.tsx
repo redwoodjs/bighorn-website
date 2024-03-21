@@ -120,9 +120,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link to={routes.blogIndividual({ slug: 'bighorn-update' })}>
+              <a href="/index#blog">
                 Blog
-              </Link>
+              </a>
             </li>
             <li>
               <a href={Constants.CONFERENCE} target="_blank" rel="noreferrer">

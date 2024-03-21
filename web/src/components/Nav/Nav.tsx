@@ -32,7 +32,7 @@ const Nav = () => {
           <img src="/images/logo.svg" alt="RedwoodJS" />
         </Link>
         <div className="hidden rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white md:inline-block">
-          v6.6.62
+          v7.1.3
         </div>
       </div>
 
@@ -92,7 +92,7 @@ const Nav = () => {
             <a href={Constants.DOCS}>Docs</a>
           </li>
           <li>
-            <a href="/#blog">Blog</a>
+            <a href="/#blog">Blogs</a>
           </li>
           <li>
             <a href={Constants.DISCORD} className="flex items-center gap-1">
@@ -121,9 +121,9 @@ const Nav = () => {
             </a>
           </li>
           <li>
-            <Link to={routes.blogIndividual({ slug: 'bighorn-update' })}>
+            <a href="/#blog">
               Blog
-            </Link>
+            </a>
           </li>
           <li>
             <button

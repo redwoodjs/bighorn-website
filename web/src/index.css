@@ -31,7 +31,7 @@
   }
 
   html, body {
-    @apply bg-licorice font-sans text-white m-0 p-0;
+    @apply bg-licorice font-sans text-white m-0 p-0 scroll-smooth;
   }
 
   hr {
