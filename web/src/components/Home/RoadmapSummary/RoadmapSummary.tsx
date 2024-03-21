@@ -18,11 +18,28 @@ const RoadmapSummary = () => {
 
       <div className="col-span-7 pt-10">
         <h4 className="mb-8 font-sans text-[28px] font-bold leading-snug">
+          Done
+        </h4>
+
+        {data?.map((item: Roadmap, index: number) => {
+          if (item.status === 'done')
+            return (
+              <div className="mb-10" key={index}>
+                <RoadmapItem
+                  status={item.status}
+                  heading={item.title}
+                  description={item.description}
+                />
+              </div>
+            )
+        })}
+
+        <h4 className="mb-8 font-sans text-[28px] font-bold leading-snug">
           In Progress
         </h4>
 
         {data?.map((item: Roadmap, index: number) => {
-          if (item.status !== 'planned')
+          if (item.status === 'soon')
             return (
               <div className="mb-10" key={index}>
                 <RoadmapItem
