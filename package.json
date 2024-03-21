@@ -16,7 +16,7 @@
     "root": true
   },
   "engines": {
-    "node": "=18.x",
+    "node": "=20.x",
     "yarn": ">=1.22.17"
   },
   "prisma": {
