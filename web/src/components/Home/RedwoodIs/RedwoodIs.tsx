@@ -36,7 +36,7 @@ const RedwoodIs = () => {
         <a href={Constants.GET_STARTED} className="button">
           Get Started
         </a>
-        <div className="flex h-[53px] items-center gap-7 rounded-[4px] border-2 border-maiTai px-7">
+        <div className="flex h-[53px] items-center justify-between gap-7 rounded-[4px] border-2 border-maiTai px-7">
           <div
             contentEditable={true}
             className="font-white font-mono text-base leading-none md:text-lg"
