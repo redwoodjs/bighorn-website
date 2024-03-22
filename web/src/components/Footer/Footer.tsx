@@ -120,9 +120,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/#blog">
-                Blog
-              </a>
+              <Link to={routes.blog()}>Blog</Link>
             </li>
             <li>
               <a href={Constants.CONFERENCE} target="_blank" rel="noreferrer">
