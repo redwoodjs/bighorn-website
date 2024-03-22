@@ -16,7 +16,8 @@ const Routes = () => {
     <Router>
       <Route path="/" page={HomePage} name="home" />
       <Set wrap={InteriorLayout}>
-        <Route path="/{slug:string}" page={BlogIndividualPage} name="blogIndividual" />
+        <Route path="/blog/{slug:string}" page={BlogIndividualPage} name="blogIndividual" />
+        <Route path="/blog" page={BlogPage} name="blog" />
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>

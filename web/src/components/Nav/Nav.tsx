@@ -92,7 +92,7 @@ const Nav = () => {
             <a href={Constants.DOCS}>Docs</a>
           </li>
           <li>
-            <a href="/#blog">Blogs</a>
+            <Link to={routes.blog()}>Blog</Link>
           </li>
           <li>
             <a href={Constants.DISCORD} className="flex items-center gap-1">
@@ -106,7 +106,7 @@ const Nav = () => {
                 <a href={Constants.DISCOURSE}>Discourse</a>
               </li>
               <li className="font-normal">
-                <a href={Constants.TWITTER}>Twitter</a>
+                <a href={Constants.X}>Twitter</a>
               </li>
             </ul>
           </li>
@@ -121,9 +121,7 @@ const Nav = () => {
             </a>
           </li>
           <li>
-            <a href="/#blog">
-              Blog
-            </a>
+            <Link to={routes.blog()}>Blog</Link>
           </li>
           <li>
             <button
