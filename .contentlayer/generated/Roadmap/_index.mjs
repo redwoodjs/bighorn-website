@@ -11,5 +11,6 @@ import roadmap__08__externalResourcesMdx from './roadmap__08__external-resources
 import roadmap__09__newCreateRedwoodAppMdx from './roadmap__09__new-create-redwood-app.mdx.json' assert { type: 'json' }
 import roadmap__10__deployMdx from './roadmap__10__deploy.mdx.json' assert { type: 'json' }
 import roadmap__11__dxMdx from './roadmap__11__dx.mdx.json' assert { type: 'json' }
+import roadmap__12__serverActionsMdx from './roadmap__12__server-actions.mdx.json' assert { type: 'json' }
 
-export const allRoadmaps = [roadmap__01__serverSideCellsMdx, roadmap__02__ssrMdx, roadmap__03__serverSideRoutingMdx, roadmap__04__clientSideRoutingMdx, roadmap__05__clientSideCellsMdx, roadmap__06__cssMdx, roadmap__07__esmMdx, roadmap__08__externalResourcesMdx, roadmap__09__newCreateRedwoodAppMdx, roadmap__10__deployMdx, roadmap__11__dxMdx]
+export const allRoadmaps = [roadmap__01__serverSideCellsMdx, roadmap__02__ssrMdx, roadmap__03__serverSideRoutingMdx, roadmap__04__clientSideRoutingMdx, roadmap__05__clientSideCellsMdx, roadmap__06__cssMdx, roadmap__07__esmMdx, roadmap__08__externalResourcesMdx, roadmap__09__newCreateRedwoodAppMdx, roadmap__10__deployMdx, roadmap__11__dxMdx, roadmap__12__serverActionsMdx]
