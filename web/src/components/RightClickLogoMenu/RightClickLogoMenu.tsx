@@ -15,7 +15,7 @@ const RightClickLogoMenu = () => {
           >
             <Icon
               id="arrowUpRight"
-              className="text-battleshipGray group-hover/openLink:text-sulu"
+              className="text-maiTai group-hover/openLink:text-sulu"
             />
             Open Link in New Tab
           </a>
@@ -25,7 +25,7 @@ const RightClickLogoMenu = () => {
             <button className="group/copyLogo flex items-center gap-2 font-bold">
               <Icon
                 id="copy"
-                className="text-battleshipGray group-hover/copyLogo:text-sulu"
+                className="text-maiTai group-hover/copyLogo:text-sulu"
               />
               Copy Logo as SVG
             </button>
@@ -37,7 +37,7 @@ const RightClickLogoMenu = () => {
             >
               <Icon
                 id="brand"
-                className="text-battleshipGray group-hover/brandKit:text-sulu"
+                className="text-maiTai group-hover/brandKit:text-sulu"
               />
               Go to Brand Kit
             </Link>

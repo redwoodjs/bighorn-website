@@ -11,6 +11,7 @@ import { useEscapeKey } from 'src/hooks/useEscapeKey'
 import Icon from '../Icon/Icon'
 import NavDropdown from '../NavDropdown/NavDropdown'
 import RightClickLogoMenu from '../RightClickLogoMenu/RightClickLogoMenu'
+import ThemeDropdown from '../ThemeDropdown/ThemeDropdown'
 
 const Nav = () => {
   const [isCommunityDropdownShowing, setIsCommunityDropdownShowing] =
@@ -18,9 +19,13 @@ const Nav = () => {
   const [isRightClickLogoMenu, setIsRightClickLogoMenu] = useState(false)
   const communityMenu = useRef(null)
   const logoRef = useRef(null)
+  const themeSwitcherWrapperRef = useRef(null)
   const logoWrapperRef = useRef(null)
   const [isNavShowing, setIsNavShowing] = useState(false) // this is used to control he state of the mobile nav
+  const [isThemeDropdownShowing, setIsThemeDropdownShowing] = useState(false)
+  const [selectedTheme, setSelectedTheme] = useState<ThemeType>('system')
 
+  // set up right click on the logo
   useEffect(() => {
     logoRef.current.addEventListener(
       'contextmenu',
@@ -32,13 +37,55 @@ const Nav = () => {
     )
   }, [logoRef])
 
+  // when the user clicks outside
   useOutsideClick(() => setIsCommunityDropdownShowing(false), communityMenu)
   useOutsideClick(() => setIsRightClickLogoMenu(false), logoWrapperRef)
+  useOutsideClick(
+    () => setIsThemeDropdownShowing(false),
+    themeSwitcherWrapperRef
+  )
 
-  useEscapeKey(() => setIsCommunityDropdownShowing(false))
+  // when the user hits the escape key (close all the dropdown menus)
+  useEscapeKey(() => {
+    setIsCommunityDropdownShowing(false)
+    setIsRightClickLogoMenu(false)
+    setIsThemeDropdownShowing(false)
+  })
+
+  // initialize - get the theme from local storage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('bighorn-theme') || 'system'
+    setSelectedTheme(savedTheme as ThemeType)
+  }, [])
+
+  // when the selected theme changes within the state, update the class list and local storage
+  useEffect(() => {
+    // update class list
+    // clear out the existing class list
+    document.documentElement.classList.remove('dark', 'light', 'system')
+
+    // if the class name is 'system'
+    if (
+      selectedTheme === 'system' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.add(selectedTheme)
+    }
+
+    // update local storage
+    localStorage.setItem('bighorn-theme', selectedTheme)
+  }, [selectedTheme])
 
   const toggleCommunityDropdown = () => {
     setIsCommunityDropdownShowing((prevValue) => !prevValue)
+  }
+
+  // switch the theme
+  const switchTheme = (theme: ThemeType) => {
+    setSelectedTheme(theme) // update the selected theme
+    setIsThemeDropdownShowing(false) // close the theme dropdown
   }
 
   return (
@@ -66,7 +113,7 @@ const Nav = () => {
         )}
 
         <div className="hidden rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white md:inline-block">
-          v7.1.3
+          {Constants.VERSION}
         </div>
       </div>
 
@@ -147,8 +194,39 @@ const Nav = () => {
         </motion.ul>
       </nav>
 
+      {/* desktop nav */}
       <nav className="hidden md:block">
         <ul className="flex items-center gap-6">
+          {/* THEME SWITCHER */}
+          <li className="relative" ref={themeSwitcherWrapperRef}>
+            <button
+              onClick={() => {
+                setIsThemeDropdownShowing((prevValue) => !prevValue)
+              }}
+            >
+              <Icon
+                id={selectedTheme}
+                className="relative top-1 text-battleshipGray hover:text-sulu"
+              />
+            </button>
+            <div>
+              <AnimatePresence>
+                {isThemeDropdownShowing && (
+                  <motion.div
+                    className="absolute -right-6 top-12 text-left"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    <ThemeDropdown
+                      selected={selectedTheme}
+                      onClick={switchTheme}
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </li>
           <li>
             <a href={Constants.DOCS} target="_blank" rel="noreferrer">
               Docs
@@ -178,7 +256,7 @@ const Nav = () => {
               <AnimatePresence>
                 {isCommunityDropdownShowing && (
                   <motion.div
-                    className="absolute right-0 top-10 text-left"
+                    className="absolute right-0 top-12 text-left"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}

@@ -10,6 +10,7 @@
 import { Router, Route, Set } from '@redwoodjs/router'
 
 import InteriorLayout from './layouts/InteriorLayout/InteriorLayout'
+import ThemeLayout from './layouts/ThemeLayout/ThemeLayout'
 
 const Routes = () => {
   return (

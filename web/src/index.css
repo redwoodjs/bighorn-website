@@ -31,7 +31,7 @@
   }
 
   html, body {
-    @apply bg-licorice font-sans text-white m-0 p-0 scroll-smooth;
+    @apply bg-white dark:bg-licorice font-sans text-black dark:text-white m-0 p-0 scroll-smooth;
   }
 
   hr {
@@ -208,7 +208,8 @@
 
   /* buttons */
   .button {
-    @apply py-3 md:py-4 px-5 md:px-7 bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
+    /* passing green - #6aa910 */
+    @apply py-3 md:py-4 px-5 md:px-7 bg-[#8de112] dark:bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
   }
 
   /* changelog and blog */

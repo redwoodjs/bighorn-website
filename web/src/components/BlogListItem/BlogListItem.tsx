@@ -32,7 +32,7 @@ const BlogListItem = ({ post }: Props) => {
         <h2 className="mb-2 font-sans text-2xl font-bold md:mb-0">
           <Link
             to={routes.blogIndividual({ slug: post.slug })}
-            className="text-white hover:text-sulu"
+            className="text-black hover:text-sulu dark:text-white"
           >
             {post.title}
           </Link>
@@ -41,10 +41,14 @@ const BlogListItem = ({ post }: Props) => {
           to={routes.blogIndividual({ slug: post.slug })}
           className="group/link inline-flex cursor-pointer items-center"
         >
-          <span className="border-b-1 border-b-white text-xs font-bold uppercase tracking-wider group-hover/link:border-b-sulu">
+          <span className="border-b-1 border-b-black text-xs font-bold uppercase tracking-wider text-black group-hover/link:border-b-sulu dark:border-b-white dark:text-white">
             Read the Full Article
           </span>{' '}
-          <Icon id="doubleChevronRight" size={16} />
+          <Icon
+            id="doubleChevronRight"
+            size={16}
+            className="text-black dark:text-white"
+          />
         </Link>
       </div>
       <p className="mb-3 text-battleshipGray">{post.brief}</p>
