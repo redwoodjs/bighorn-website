@@ -85,12 +85,7 @@ export const Success = ({
 
         <div className="mb-10 flex items-center gap-3">
           <Avatar alt={post.author.name} src={post.author.profilePicture} />
-          <div>
-            <div className="text-lg text-white">{post.author.name}</div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-battleshipGray">
-              Co-Founder of RedwoodJS
-            </p>
-          </div>
+          <div className="text-lg text-white">{post.author.name}</div>
         </div>
 
         {post?.content?.html && (

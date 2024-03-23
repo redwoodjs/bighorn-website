@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -10,14 +10,30 @@ import { useEscapeKey } from 'src/hooks/useEscapeKey'
 
 import Icon from '../Icon/Icon'
 import NavDropdown from '../NavDropdown/NavDropdown'
+import RightClickLogoMenu from '../RightClickLogoMenu/RightClickLogoMenu'
 
 const Nav = () => {
   const [isCommunityDropdownShowing, setIsCommunityDropdownShowing] =
     useState(false) // this is used to store the state of the nav dropdown for table =>
+  const [isRightClickLogoMenu, setIsRightClickLogoMenu] = useState(false)
   const communityMenu = useRef(null)
+  const logoRef = useRef(null)
+  const logoWrapperRef = useRef(null)
   const [isNavShowing, setIsNavShowing] = useState(false) // this is used to control he state of the mobile nav
 
+  useEffect(() => {
+    logoRef.current.addEventListener(
+      'contextmenu',
+      function (e) {
+        e.preventDefault()
+        setIsRightClickLogoMenu(true)
+      },
+      false
+    )
+  }, [logoRef])
+
   useOutsideClick(() => setIsCommunityDropdownShowing(false), communityMenu)
+  useOutsideClick(() => setIsRightClickLogoMenu(false), logoWrapperRef)
 
   useEscapeKey(() => setIsCommunityDropdownShowing(false))
 
@@ -27,10 +43,28 @@ const Nav = () => {
 
   return (
     <div className="flex items-center justify-between">
-      <div className="flex items-center justify-start gap-1">
+      <div
+        className="relative flex items-center justify-start gap-1"
+        ref={logoWrapperRef}
+      >
         <Link to={routes.home()} className="mr-16 md:mr-0">
-          <img src="/images/logo.svg" alt="RedwoodJS" />
+          <img src="/images/logo.svg" alt="RedwoodJS" ref={logoRef} />
         </Link>
+
+        {/* right click logo menu */}
+        {isRightClickLogoMenu && (
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="right-click-menu absolute left-6 top-[64px]"
+            >
+              <RightClickLogoMenu />
+            </motion.div>
+          </AnimatePresence>
+        )}
+
         <div className="hidden rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white md:inline-block">
           v7.1.3
         </div>

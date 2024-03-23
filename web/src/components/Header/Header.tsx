@@ -1,9 +1,20 @@
-const Header = () => {
+interface Props {
+  title: string
+  subtitle?: string
+}
+
+const Header = ({ title, subtitle = '' }: Props) => {
   return (
-    <div>
-      <h2>{'Header'}</h2>
-      <p>{'Find me in ./web/src/components/Header/Header.tsx'}</p>
-    </div>
+    <header>
+      <h1 className="mb-3 font-serif text-7xl font-bold text-maiTai">
+        {title}
+      </h1>
+      {subtitle && (
+        <h2 className="font-sans text-2xl font-extralight text-white">
+          {subtitle}
+        </h2>
+      )}
+    </header>
   )
 }
 

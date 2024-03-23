@@ -47,7 +47,22 @@
   }
 
   /* -------------------------- HEADER ------------------------------------- */
+  /* logo - right click menu */
+  .right-click-menu {
+    @apply bg-licorice rounded-[4px] border-1 border-maiTai relative w-[280px] shadow-lg
+  }
 
+  /* triangle border */
+  .right-click-menu:before {
+    @apply content-[''] block w-0 h-0  border-[15px] border-transparent border-b-maiTai absolute left-5 -top-[30px] z-10
+  }
+
+  /* triangle */
+  .right-click-menu:after {
+    @apply content-[''] block w-0 h-0  border-[15px] border-transparent border-b-licorice absolute left-5 -top-[28px] z-20
+  }
+
+  /* navigation dropdown */
   nav ul li {
     @apply text-white text-lg font-bold
   }
@@ -68,6 +83,7 @@
     @apply content-[''] block w-0 h-0  border-[15px] border-transparent border-b-licorice absolute right-5 -top-[29px] z-20
   }
 
+  .right-click-menu ul li,
   .nav-dropdown ul li {
     @apply border-b-1 border-b-maiTai px-4 py-5 last:border-b-0
   }
@@ -90,10 +106,6 @@
 
   .nav-dropdown ul li p {
     @apply text-sm text-battleshipGray m-0 p-0
-  }
-
-  .nav-dropdown ul li a {
-
   }
 
   /* -------------------------- FOOTER ------------------------------------- */
@@ -138,9 +150,8 @@
 
 @layer components {
   .home-hero {
-    background: linear-gradient(180deg, rgba(24, 19, 17, 1) 0%, rgba(24, 19, 17, 0) 100px, rgba(24, 19, 17, 1) 100%),
-      url('/images/hero.jpg') center top no-repeat;
-
+    /* the background needs to be on a single line, otherwise it will break storybook */
+    background: linear-gradient(180deg, rgba(24, 19, 17, 1) 0%, rgba(24, 19, 17, 0) 100px, rgba(24, 19, 17, 1) 100%), url('/images/hero.jpg') center top no-repeat;
     @apply pt-7 min-h-[800px] px-5;
   }
 
@@ -290,6 +301,10 @@
 }
 
 @layer utilities {
+  .page-content {
+    @apply px-5 py-14 md:px-page
+  }
+
   .section-heading {
     @apply font-serif text-6xl md:text-18 text-maiTai font-bold leading-none;
   }

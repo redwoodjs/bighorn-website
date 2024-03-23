@@ -18,6 +18,7 @@ const Routes = () => {
       <Set wrap={InteriorLayout}>
         <Route path="/blog/{slug:string}" page={BlogIndividualPage} name="blogIndividual" />
         <Route path="/blog" page={BlogPage} name="blog" />
+        <Route path="/brand" page={BrandPage} name="brand" />
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>

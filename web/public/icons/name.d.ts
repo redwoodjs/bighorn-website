@@ -2,12 +2,17 @@
 
 export type IconName =
 	| "arrowUpRight"
+	| "brand"
 	| "check"
 	| "chevronDown"
 	| "clipboard"
+	| "copy"
+	| "dark"
 	| "discord"
 	| "discourse"
 	| "doubleChevronRight"
 	| "github"
+	| "light"
+	| "system"
 	| "x"
 	| "youtube";

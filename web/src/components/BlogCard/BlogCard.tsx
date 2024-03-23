@@ -1,3 +1,7 @@
+/**
+ * This component is for the blog card that appears on the home page
+ */
+
 import { Link, routes } from '@redwoodjs/router'
 
 import { prettifyDate } from 'src/helpers/DateHelpers'

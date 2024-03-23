@@ -1,11 +1,10 @@
 import IndividualBlogPostCell from 'src/components/IndividualBlogPostCell'
-import Newsletter from 'src/components/Newsletter/Newsletter'
 
 const BlogIndividualPage = ({ slug }) => {
   return (
-    <>
+    <div className="page-content">
       <IndividualBlogPostCell slug={slug} />
-    </>
+    </div>
   )
 }
 
