@@ -42,6 +42,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
+              <Link to={routes.brand()}>Brand and Logos</Link>
+            </li>
+            <li>
               <a href={Constants.SECURITY} target="_blank" rel="noreferrer">
                 Security <Icon id="arrowUpRight" />
               </a>
