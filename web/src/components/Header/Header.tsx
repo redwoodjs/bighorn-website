@@ -1,9 +1,10 @@
 interface Props {
+  children?: React.ReactNode
   title: string
   subtitle?: string
 }
 
-const Header = ({ title, subtitle = '' }: Props) => {
+const Header = ({ children, title, subtitle = '' }: Props) => {
   return (
     <header>
       <h1 className="mb-3 font-serif text-7xl font-bold text-maiTai">
@@ -14,6 +15,7 @@ const Header = ({ title, subtitle = '' }: Props) => {
           {subtitle}
         </h2>
       )}
+      {children && children}
     </header>
   )
 }
