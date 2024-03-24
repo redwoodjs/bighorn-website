@@ -9,7 +9,7 @@ const RightClickLogoMenu = () => {
         <li>
           <a
             href="/"
-            className="group/openLink flex items-center gap-2 font-bold"
+            className="group/openLink flex items-center gap-2 font-bold text-white"
             target="_blank"
             rel="noreferrer"
           >
@@ -22,7 +22,7 @@ const RightClickLogoMenu = () => {
         </li>
         <li>
           <div className="mb-3 flex items-center gap-2">
-            <button className="group/copyLogo flex items-center gap-2 font-bold">
+            <button className="group/copyLogo flex items-center gap-2 font-bold text-white">
               <Icon
                 id="copy"
                 className="text-maiTai group-hover/copyLogo:text-sulu"
@@ -33,7 +33,7 @@ const RightClickLogoMenu = () => {
           <div>
             <Link
               to={routes.brand()}
-              className="group/brandKit flex items-center gap-2 font-bold"
+              className="group/brandKit flex items-center gap-2 font-bold text-white"
             >
               <Icon
                 id="brand"

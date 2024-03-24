@@ -8,10 +8,10 @@ import { Constants } from 'src/helpers/Constants'
 import { useOutsideClick } from 'src/hooks/useClickoutside'
 import { useEscapeKey } from 'src/hooks/useEscapeKey'
 
-import Icon from '../Icon/Icon'
-import NavDropdown from '../NavDropdown/NavDropdown'
-import RightClickLogoMenu from '../RightClickLogoMenu/RightClickLogoMenu'
-import ThemeDropdown from '../ThemeDropdown/ThemeDropdown'
+import Icon from '../../Icon/Icon'
+import NavDropdown from '../../NavDropdown/NavDropdown'
+import RightClickLogoMenu from '../../RightClickLogoMenu/RightClickLogoMenu'
+import ThemeDropdown from '../../ThemeDropdown/ThemeDropdown'
 
 const Nav = () => {
   const [isCommunityDropdownShowing, setIsCommunityDropdownShowing] =
@@ -95,18 +95,7 @@ const Nav = () => {
         ref={logoWrapperRef}
       >
         <Link to={routes.home()} className="mr-16 md:mr-0">
-          <img
-            src="/images/logo--dark.svg"
-            alt="RedwoodJS"
-            ref={logoRef}
-            className="hidden dark:block"
-          />
-          <img
-            src="/images/logo.svg"
-            alt="RedwoodJS"
-            ref={logoRef}
-            className="dark:hidden"
-          />
+          <img src="/images/logo--dark.svg" alt="RedwoodJS" ref={logoRef} />
         </Link>
 
         {/* right click logo menu */}
@@ -217,7 +206,7 @@ const Nav = () => {
             >
               <Icon
                 id={selectedTheme}
-                className="relative top-1 text-battleshipGray hover:text-christi dark:hover:text-sulu"
+                className="relative top-1 text-battleshipGray hover:text-sulu"
               />
             </button>
             <div>
@@ -239,26 +228,16 @@ const Nav = () => {
             </div>
           </li>
           <li>
-            <a
-              href={Constants.DOCS}
-              target="_blank"
-              rel="noreferrer"
-              className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
-            >
+            <a href={Constants.DOCS} target="_blank" rel="noreferrer">
               Docs
             </a>
           </li>
           <li>
-            <Link
-              to={routes.blog()}
-              className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
-            >
-              Blog
-            </Link>
+            <Link to={routes.blog()}>Blog</Link>
           </li>
           <li>
             <button
-              className="relative text-black hover:text-christi dark:text-white dark:hover:text-sulu"
+              className="relative hover:text-sulu"
               onClick={toggleCommunityDropdown}
               ref={communityMenu}
             >

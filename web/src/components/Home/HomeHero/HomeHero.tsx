@@ -1,10 +1,10 @@
-import Nav from 'src/components/Nav/Nav'
+import NavHome from 'src/components/Home/NavHome/NavHome'
 import { Constants } from 'src/helpers/Constants'
 
 const HomeHero = () => {
   return (
     <div className="home-hero mb-20 bg-licorice">
-      <Nav />
+      <NavHome />
 
       <h1 className="mb-2 mt-[350px] font-serif text-6xl font-black text-white md:mb-8 md:mt-36 md:text-8xl">
         Bighorn

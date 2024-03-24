@@ -32,7 +32,7 @@ const BlogListItem = ({ post }: Props) => {
         <h2 className="mb-2 font-sans text-2xl font-bold md:mb-0">
           <Link
             to={routes.blogIndividual({ slug: post.slug })}
-            className="text-black hover:text-sulu dark:text-white"
+            className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
           >
             {post.title}
           </Link>

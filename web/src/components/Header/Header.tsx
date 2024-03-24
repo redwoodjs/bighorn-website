@@ -11,7 +11,7 @@ const Header = ({ children, title, subtitle = '' }: Props) => {
         {title}
       </h1>
       {subtitle && (
-        <h2 className="font-sans text-2xl font-extralight text-white">
+        <h2 className="font-sans text-2xl font-extralight text-black dark:text-white">
           {subtitle}
         </h2>
       )}
