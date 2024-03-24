@@ -118,7 +118,12 @@ const WhatsIncluded = () => {
             <img
               src="/images/simplified-email.svg"
               alt="Simplified Email"
-              className="rounded-br-lg"
+              className="light-image rounded-br-lg"
+            />
+            <img
+              src="/images/simplified-email--dark.svg"
+              alt="Simplified Email"
+              className="dark-image rounded-br-lg"
             />
           </div>
         </div>

@@ -25,7 +25,7 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
   return (
     <div>
       <div className="mb-4 flex items-center">
-        <div className="mr-5 rounded-[4px] bg-neutral-800 px-4 py-2 text-sm font-bold uppercase tracking-wide text-battleshipGray">
+        <div className="mr-5 rounded-[4px] bg-neutral-200 px-4 py-2 text-sm font-bold uppercase tracking-wide text-black dark:bg-neutral-800 dark:text-battleshipGray">
           {getDate(date)}
         </div>
         <div className="text-lg text-battleshipGray">
@@ -44,7 +44,7 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="border-b-1 border-b-white text-sm group-hover/link:border-b-sulu">
+            <span className="border-b-1 border-b-black text-sm font-bold group-hover/link:border-b-alienArmpit dark:border-b-white dark:group-hover/link:border-b-sulu">
               RSVP
             </span>{' '}
             <Icon id="doubleChevronRight" />

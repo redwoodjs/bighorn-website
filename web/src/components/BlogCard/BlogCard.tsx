@@ -34,7 +34,9 @@ const BlogCard = ({ post }: BlogCardProps) => {
         to={routes.blogIndividual({ slug: post.slug })}
         className="text-white hover:text-sulu"
       >
-        <h2 className="mb-5 text-3xl font-bold leading-tight ">{post.title}</h2>
+        <h2 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white">
+          {post.title}
+        </h2>
       </Link>
       <p className="mb-5 text-lg leading-normal text-battleshipGray">
         {post.brief}
@@ -44,10 +46,13 @@ const BlogCard = ({ post }: BlogCardProps) => {
           to={routes.blogIndividual({ slug: post.slug })}
           className="group/readMoreBlogLink flex items-center gap-1 font-bold uppercase text-white "
         >
-          <span className="border-b-1 border-b-white text-sm hover:text-white group-hover/readMoreBlogLink:border-sulu">
+          <span className="border-b-1 border-b-black text-sm text-black group-hover/readMoreBlogLink:border-sulu dark:border-b-white dark:text-white dark:hover:text-white">
             Read
           </span>{' '}
-          <Icon id="doubleChevronRight" />
+          <Icon
+            id="doubleChevronRight"
+            className="text-black dark:text-white"
+          />
         </Link>
         <Avatar alt={post.author.name} src={post.author.profilePicture} />
       </div>

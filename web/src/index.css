@@ -110,7 +110,7 @@
 
   /* -------------------------- FOOTER ------------------------------------- */
   footer h4 {
-    @apply text-xs uppercase font-black text-sulu tracking-wider leading-5 mb-5
+    @apply text-xs uppercase font-black text-christi dark:text-sulu tracking-wider leading-5 mb-5
   }
 
   footer ul {
@@ -122,16 +122,16 @@
   }
 
   footer ul li a {
-    @apply hover:underline hover:text-sulu flex items-center justify-start
+    @apply hover:underline dark:hover:text-sulu hover:text-christi flex items-center justify-start
   }
 
   /* any links that aren't social media links */
   footer ul:not(.social) li a svg {
-    @apply text-battleshipGray relative -top-[2px] opacity-30 transition-all duration-300 ease-in-out
+    @apply dark:text-battleshipGray relative -top-[2px] opacity-30 transition-all duration-300 ease-in-out
   }
 
   footer ul:not(.social) li a:hover svg{
-    @apply text-sulu translate-x-1 -translate-y-1 opacity-100
+    @apply text-christi dark:text-sulu translate-x-1 -translate-y-1 opacity-100
   }
 
   /* social media links */
@@ -144,7 +144,7 @@
   }
 
   footer ul.social li a:hover svg {
-    @apply text-sulu
+    @apply dark:text-sulu text-christi
   }
 }
 
@@ -174,7 +174,7 @@
   }
 
   .bento-box h3 {
-    @apply text-2xl leading-snug font-bold text-white mb-5
+    @apply text-2xl leading-snug font-bold text-black dark:text-white mb-5
   }
 
   .bento-box p {
@@ -212,14 +212,19 @@
     @apply py-3 md:py-4 px-5 md:px-7 bg-[#8de112] dark:bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
   }
 
+  .button.outline {
+    @apply border-2 border-sulu dark:border-sulu text-sulu dark:text-sulu bg-transparent hover:bg-sulu cursor-pointer hover:text-black
+  }
+
+
   /* changelog and blog */
   .blog-post h3,
   .changelog h3 {
-    @apply text-lg text-white font-bold mb-2
+    @apply text-lg text-black dark:text-white font-bold mb-2
   }
 
   .blog-post p {
-    @apply mb-10 text-white
+    @apply mb-10 text-black dark:text-white
   }
 
   .changelog p {
@@ -284,7 +289,7 @@
 
 
   .blog-post a {
-    @apply border-b-1 border-b-sulu border-t-1 border-t-transparent hover:text-sulu text-white
+    @apply border-b-1 border-b-black dark:border-b-sulu border-t-1 border-t-transparent hover:text-christi dark:hover:text-sulu text-black dark:text-white
   }
 
   .blog-post blockquote {
@@ -332,5 +337,18 @@
 
   .page-grid {
     @apply grid grid-cols-1 lg:grid-cols-12 gap-4
+  }
+
+  .dark-image,
+  .light-image {
+    @apply hidden;
+  }
+
+  html.dark .dark-image {
+    @apply block;
+  }
+
+  html:not(.dark) .light-image {
+    @apply block
   }
 }

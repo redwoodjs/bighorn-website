@@ -11,6 +11,7 @@ export const Constants = Object.freeze({
   DISCORD: 'https://discord.com/invite/redwoodjs',
   DISCOURSE: 'https://community.redwoodjs.com/',
   DOCS: 'https://redwoodjs.com/docs/introduction',
+  EMAIL: '',
   EVENTS: 'https://lu.ma/redwoodjs',
   GET_STARTED: 'https://redwoodjs.com/docs/quick-start',
   GITHUB: 'https://github.com/redwoodjs/redwood',

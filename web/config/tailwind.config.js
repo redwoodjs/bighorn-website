@@ -10,6 +10,8 @@ module.exports = {
       colors: {
         licorice: '#181311' /* dark brown */,
         sulu: '#c4f482' /* lime green */,
+        alienArmpit: '#8de112' /* lime green for light mode */,
+        christi: '#6aa910' /* lime green for text - light mode */,
         maiTai: '#a86338' /* tan */,
         battleshipGray: '#828282' /* gray */,
         darkPastelRed: '#bf4722' /* redwood red */,
