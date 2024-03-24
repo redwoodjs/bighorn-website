@@ -11,6 +11,7 @@ export type IconName =
 	| "discord"
 	| "discourse"
 	| "doubleChevronRight"
+	| "download"
 	| "github"
 	| "light"
 	| "system"
