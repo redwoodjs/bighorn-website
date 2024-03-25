@@ -15,8 +15,9 @@ const HomePage = () => {
   return (
     <>
       <Metadata
-        title="Home"
-        description="Redwood is the full-stack JavaScript application framework."
+        title="RedwoodJS: The App Framework for Startups"
+        description="Grow from side project to startup with RedwoodJS. Combines React, GraphQL, and Prisma for a full-stack app framework."
+        ogUrl="https://redwoodjs.com"
         og={{
           image: '/images/og.png',
           url: 'https://redwoodjs.com',
