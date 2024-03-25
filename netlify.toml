@@ -162,3 +162,9 @@
   to = "https://redwoodjs.notion.site/redwoodjs/React-Summit-5af495a07ba846ba995686dc9529357a"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/jobs"
+  to = "https://community.redwoodjs.com/c/jobs/29"
+  status = 301
+  force = true
