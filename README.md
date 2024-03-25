@@ -108,3 +108,34 @@ The new icon will be available within the `Icon` component, using the same name 
 ## Blog Posts
 
 Blog posts are written and managed inside [Hashnode](https://hashnode.com/).
+
+## Caching
+
+While blog posts and publications are fetched from Hashnode, Redwood's GraphQL server is also caching its responses.
+
+See the `graphql` function for the `useResponseCache` config.
+
+### Invalidating
+
+The GraphQL mutations:
+
+* invalidatePost(slug: string)
+* invalidatePosts
+
+will purge the Posts from the response cache.
+
+A webhook at /
+
+For example:
+
+```bash
+curl http://localhost:8911/invalidatePostsHook
+```
+
+Where the hostname is local or
+
+```bash
+curl https://redwoodjs.com/.netlify/functions/invalidatePostsHook
+```
+
+in production.
