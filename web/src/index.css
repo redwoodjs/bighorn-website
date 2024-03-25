@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,400;0,700;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
+@import url("./styles/dracula.css");
+
 /* TODO: Handle Cambon properly */
 @font-face {
     font-family: 'Cambon';
@@ -218,6 +220,10 @@
 
 
   /* changelog and blog */
+.blog-post h2 {
+  @apply text-2xl text-black dark:text-christi font-bold mb-2;
+}
+
   .blog-post h3,
   .changelog h3 {
     @apply text-lg text-black dark:text-white font-bold mb-2
@@ -225,6 +231,18 @@
 
   .blog-post p {
     @apply mb-10 text-black dark:text-white
+  }
+
+  .blog-post div[data-node-type="callout"] {
+    @apply border-2 border-maiTai rounded-md pl-4 pr-8 pt-5 pb-8 mb-10 flex gap-2 leading-relaxed
+  }
+
+  .blog-post div[data-node-type="callout-emoji"] {
+    @apply text-2xl relative -top-[2px];
+  }
+
+  .blog-post div[data-node-type="callout-text"] {
+    @apply relative top-2
   }
 
   .changelog p {
@@ -258,7 +276,7 @@
   }
 
   .blog-post code {
-    @apply text-sulu
+    @apply text-christi dark:text-sulu
   }
 
   .blog-post ol li {
@@ -271,12 +289,12 @@
     @apply text-maiTai font-bold absolute top-[-8px] left-[-40px] font-serif text-4xl
   }
 
-  .blog-post ul li:before {
-    @apply bg-sulu w-1 h-1 rounded-full block content-[''] absolute left-[-12px] top-[10px]
+  .blog-post ul li {
+    @apply pb-6;
   }
 
   .blog-post ul li:before {
-    @apply bg-sulu w-1 h-1 rounded-full block content-[''] absolute left-[-12px] top-[10px]
+    @apply bg-christi dark:bg-sulu w-1 h-1 rounded-full block content-[''] absolute left-[-12px] top-[10px]
   }
 
   .blog-post li p {
@@ -298,6 +316,14 @@
 
   .blog-post blockquote p {
     @apply text-battleshipGray
+  }
+
+  .blog-post blockquote p:last-of-type {
+    @apply mb-0 pb-2
+  }
+
+  .blog-post pre {
+    @apply bg-black mb-8 rounded-md py-4 px-5 overflow-x-scroll
   }
 
   .changelog a {
