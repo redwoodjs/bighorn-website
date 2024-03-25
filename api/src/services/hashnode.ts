@@ -3,13 +3,15 @@ import type { Connection } from 'types/connections'
 import type {
   Post,
   Publication,
+  Mutation,
   Query,
   QueryrecentPostsArgs as QueryRecentPostsArgs,
   QuerypostArgs as QueryPostArgs,
+  MutationinvalidatePostArgs as MutationInvalidatePostArgs,
 } from 'types/graphql'
 
+import { cache } from 'src/functions/graphql'
 import { logger } from 'src/lib/logger'
-
 type RecentPostsResponse = {
   publication: {
     isTeam: Publication['isTeam']
@@ -156,5 +158,32 @@ export const post = async ({ slug }: QueryPostArgs): Promise<Query['post']> => {
   } catch (error) {
     logger.error(error, 'Failed to fetch post')
     throw new Error('Failed to fetch post')
+  }
+}
+
+/**
+ * Invalidates all posts from the GraphQL Response Cache.
+ */
+
+export const invalidatePosts = async (): Promise<
+  Mutation['invalidatePosts']
+> => {
+  cache.invalidate([{ typename: 'Post' }])
+  return true
+}
+
+/**
+ * Invalidates a single post from the GraphQL Response Cache by its slug.
+ */
+export const invalidatePost = async ({
+  slug,
+}: MutationInvalidatePostArgs): Promise<Mutation['invalidatePost']> => {
+  try {
+    const originalPost = await post({ slug })
+    cache.invalidate([{ typename: 'Post', id: originalPost.id }])
+    return true
+  } catch (error) {
+    logger.error(error, `Failed to invalidate post with slug: ${slug}`)
+    throw new Error(`Failed to invalidate post with slug: ${slug}`)
   }
 }
