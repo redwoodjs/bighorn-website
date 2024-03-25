@@ -8,7 +8,10 @@ import { Constants } from 'src/helpers/Constants'
 const BrandPage = () => {
   return (
     <>
-      <Metadata title="Brand" description="Brand page" />
+      <Metadata
+        title="Brand Kit"
+        description="Guideline and assets for presenting the RedwoodJS brand consistently."
+      />
 
       <div className="page-content">
         <Header
