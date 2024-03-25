@@ -215,7 +215,7 @@
   }
 
   .button.outline {
-    @apply border-2 border-sulu dark:border-sulu text-sulu dark:text-sulu bg-transparent hover:bg-sulu cursor-pointer hover:text-black
+    @apply border-2 border-christi hover:border-christi dark:border-sulu dark:hover:border-sulu dark:text-sulu text-christi bg-transparent hover:bg-christi dark:hover:bg-sulu cursor-pointer dark:hover:text-black
   }
 
 
@@ -305,7 +305,6 @@
     @apply m-0 p-0 inline-block
   }
 
-
   .blog-post a {
     @apply border-b-1 border-b-black dark:border-b-sulu border-t-1 border-t-transparent hover:text-christi dark:hover:text-sulu text-black dark:text-white
   }
@@ -330,6 +329,34 @@
     @apply border-b-1 border-b-white border-t-1 border-t-transparent hover:border-b-sulu text-white
   }
 
+  .brand-kit-content h2 {
+    @apply font-sans font-extralight text-3xl mb-6;
+  }
+
+  .brand-kit-content ul {
+    @apply list-disc pl-8;
+  }
+
+  .brand-kit-content p,
+  .brand-kit-content li {
+    @apply font-sans text-battleshipGray text-lg leading-relaxed
+  }
+
+  .brand-kit-content li {
+    @apply mb-10;
+  }
+
+  .asset-button {
+    @apply py-3 md:py-4 px-5 md:px-7 center text-lg font-sans font-bold rounded-[4px] inline-block leading-none border-1;
+  }
+
+  .dark-mode .asset-button {
+    @apply border-sulu hover:border-sulu text-sulu hover:bg-sulu cursor-pointer hover:text-black
+  }
+
+  .light-mode .asset-button {
+    @apply border-christi hover:border-christi text-christi bg-transparent hover:bg-christi hover:text-white
+  }
 }
 
 @layer utilities {

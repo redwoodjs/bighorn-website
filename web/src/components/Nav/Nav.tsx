@@ -94,19 +94,13 @@ const Nav = () => {
         className="relative flex items-center justify-start gap-1"
         ref={logoWrapperRef}
       >
-        <Link to={routes.home()} className="mr-16 md:mr-0">
+        <Link to={routes.home()} className="mr-16 md:mr-0" ref={logoRef}>
           <img
             src="/images/logo--dark.svg"
             alt="RedwoodJS"
-            ref={logoRef}
             className="hidden dark:block"
           />
-          <img
-            src="/images/logo.svg"
-            alt="RedwoodJS"
-            ref={logoRef}
-            className="dark:hidden"
-          />
+          <img src="/images/logo.svg" alt="RedwoodJS" className="dark:hidden" />
         </Link>
 
         {/* right click logo menu */}
