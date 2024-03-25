@@ -3,7 +3,6 @@ import type {
   FindIndividualBlogPostQueryVariables,
 } from 'types/graphql'
 
-import { useLocation } from '@redwoodjs/router'
 import {
   type CellSuccessProps,
   type CellFailureProps,
