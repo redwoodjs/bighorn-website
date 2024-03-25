@@ -118,7 +118,11 @@ const Nav = () => {
               exit={{ opacity: 0, y: -10 }}
               className="right-click-menu absolute left-6 top-[64px]"
             >
-              <RightClickLogoMenu />
+              <RightClickLogoMenu
+                callback={() => {
+                  setIsRightClickLogoMenu(false)
+                }}
+              />
             </motion.div>
           </AnimatePresence>
         )}
