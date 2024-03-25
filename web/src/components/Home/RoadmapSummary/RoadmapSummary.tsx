@@ -5,7 +5,7 @@ import { Roadmap } from '$content/types.d'
 
 const RoadmapSummary = () => {
   return (
-    <section className="page-grid px-5 md:px-page">
+    <section className="page-grid px-5 md:px-page" id="roadmap">
       <div className="col-span-5">
         <div className="sticky top-5 pr-5">
           <h2 className="section-heading mb-6">Roadmap</h2>
