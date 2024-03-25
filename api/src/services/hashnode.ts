@@ -47,6 +47,9 @@ export const recentPosts = async ({
                 html
                 text
               }
+              ogMetaData {
+                image
+              },
               coverImage {
                 url
               }
@@ -113,6 +116,9 @@ export const post = async ({ slug }: QueryPostArgs): Promise<Query['post']> => {
             html
             text
           }
+          ogMetaData {
+            image
+          },
           coverImage {
             url
           }
