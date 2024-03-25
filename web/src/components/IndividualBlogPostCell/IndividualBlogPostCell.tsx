@@ -3,6 +3,7 @@ import type {
   FindIndividualBlogPostQueryVariables,
 } from 'types/graphql'
 
+import { useLocation } from '@redwoodjs/router'
 import {
   type CellSuccessProps,
   type CellFailureProps,
@@ -70,7 +71,9 @@ export const Success = ({
       <Metadata
         title={post.title}
         description={post.seo.description}
-        image="/images/og.png"
+        og={{
+          image: post.ogMetaData?.image || `${location.origin}/images/og.png`,
+        }}
         canonicalUrl={post.canonicalUrl}
       />
       <div className="col-span-7">

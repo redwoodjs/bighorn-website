@@ -4,7 +4,11 @@ import { Metadata } from '@redwoodjs/web'
 const ChangelogPage = () => {
   return (
     <>
-      <Metadata title="Changelog" description="Changelog page" />
+      <Metadata
+        title="Changelog"
+        description="Changelog page"
+        og={{ image: `${location.origin}/images/og.png` }}
+      />
 
       <h1>ChangelogPage</h1>
       <p>
