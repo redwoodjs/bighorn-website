@@ -17,8 +17,15 @@ export const handler = createGraphQLHandler({
   extraPlugins: [
     useResponseCache({
       session: () => null,
+      // by default cache all operations for 1 hour
+      ttl: 1_000 * 60 * 60,
+      ttlPerType: {
+        // only cache query operations containing Post for 1 day
+        Post: 1_000 * 60 * 60 * 24,
+      },
       ttlPerSchemaCoordinate: {
-        'Query.recentPosts': 10 * 1_000, // 10 seconds
+        // cache for 1 day
+        'Query.recentPosts': 1_000 * 60 * 60 * 24,
       },
     }),
   ],
