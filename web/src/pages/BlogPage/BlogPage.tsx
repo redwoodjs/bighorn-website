@@ -6,7 +6,11 @@ import Header from 'src/components/Header/Header'
 const BlogPage = () => {
   return (
     <>
-      <Metadata title="Blog" description="The Latest from RedwoodJS" />
+      <Metadata
+        title="Blog"
+        description="The Latest from RedwoodJS"
+        og={{ image: `${location.origin}/images/og.png` }}
+      />
 
       <div className="page-content">
         <Header title="Blog" subtitle="The Latest from RedwoodJS" />

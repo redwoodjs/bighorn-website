@@ -4,7 +4,11 @@ import { Metadata } from '@redwoodjs/web'
 const SecurityPage = () => {
   return (
     <>
-      <Metadata title="Security" description="Security page" />
+      <Metadata
+        title="Security"
+        description="Security page"
+        og={{ image: `${location.origin}/images/og.png` }}
+      />
 
       <h1>Security Page</h1>
       <p>

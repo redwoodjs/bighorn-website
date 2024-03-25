@@ -11,6 +11,7 @@ const BrandPage = () => {
       <Metadata
         title="Brand Kit"
         description="Guideline and assets for presenting the RedwoodJS brand consistently."
+        og={{ image: `${location.origin}/images/og.png` }}
       />
 
       <div className="page-content">
