@@ -66,12 +66,12 @@ const Footer = () => {
                 <Icon id="arrowUpRight" />
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href={Constants.STARTUP_CLUB} target="_blank" rel="noreferrer">
                 Redwood Startup Club
                 <Icon id="arrowUpRight" />
               </a>
-            </li>
+            </li> */}
             <li>
               <a
                 href={Constants.CODE_OF_CONDUCT}

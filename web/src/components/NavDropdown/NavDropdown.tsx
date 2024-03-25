@@ -12,7 +12,7 @@ const NavDropdown = () => {
             <div>
               <strong>Discord</strong>
               <p>
-                Watercooler, relationship building, quick discussion and help
+                Our "watercooler" for relationship building and community help
               </p>
             </div>
           </a>
@@ -23,8 +23,8 @@ const NavDropdown = () => {
             <div>
               <strong>Discourse</strong>
               <p>
-                Long-form discussions about Redwood, troubleshooting, show &
-                tell
+                Long-form discussions, show &
+                tell, and troubleshooting with Core Team
               </p>
             </div>
           </a>
@@ -35,8 +35,7 @@ const NavDropdown = () => {
             <div>
               <strong>Twitter / X</strong>
               <p>
-                Follow @redwoodjs for updates, new releases and community meetup
-                announcements
+                Follow @redwoodjs for updates about releases, initiatives, and events
               </p>
             </div>
           </a>
