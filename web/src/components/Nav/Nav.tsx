@@ -239,7 +239,6 @@ const Nav = () => {
           <li>
             <a
               href={Constants.DOCS}
-              target="_blank"
               rel="noreferrer"
               className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
             >

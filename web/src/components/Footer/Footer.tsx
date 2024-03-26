@@ -117,9 +117,8 @@ const Footer = () => {
           <h4>RESOURCES</h4>
           <ul>
             <li>
-              <a href={Constants.DOCS} target="_blank" rel="noreferrer">
+              <a href={Constants.DOCS} rel="noreferrer">
                 Docs
-                <Icon id="arrowUpRight" />
               </a>
             </li>
             <li>
