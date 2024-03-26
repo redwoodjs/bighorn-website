@@ -24,7 +24,7 @@ const NavDropdown = () => {
               <strong>Discourse</strong>
               <p>
                 Long-form discussions, show &
-                tell, and troubleshooting with Core Team
+                tell, and troubleshooting with the Core Team
               </p>
             </div>
           </a>
