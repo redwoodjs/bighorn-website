@@ -165,6 +165,12 @@
   force = true
 
 [[redirects]]
+  from = "/blog/bighorn-walkthrough"
+  to = "/blog/rsc-now-in-redwoodjs"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/200.html"
   status = 200
