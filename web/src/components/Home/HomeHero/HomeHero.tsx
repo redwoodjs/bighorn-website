@@ -21,7 +21,7 @@ const HomeHero = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Walkthrough Bighorn's Features
+        Walk Through Bighorn's Features
       </a>
 
       <p className="text-sm text-white md:text-base">
