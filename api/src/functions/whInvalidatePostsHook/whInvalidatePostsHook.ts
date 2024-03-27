@@ -6,6 +6,7 @@ import {
   WebhookVerificationError,
 } from '@redwoodjs/api/webhooks'
 
+import { handler as graphQLHandler } from 'src/functions/graphql'
 import { logger } from 'src/lib/logger'
 import { invalidatePosts } from 'src/services/hashnode'
 /**
@@ -20,6 +21,7 @@ import { invalidatePosts } from 'src/services/hashnode'
  */
 export const handler = async (event: APIGatewayEvent, _context: Context) => {
   logger.info(`${event.httpMethod} ${event.path}: invalidatePostsHook function`)
+  logger.info(graphQLHandler, 'Loaded GraphQL handler')
 
   try {
     const options = {

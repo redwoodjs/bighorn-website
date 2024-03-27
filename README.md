@@ -124,18 +124,34 @@ The GraphQL mutations:
 
 will purge the Posts from the response cache.
 
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation { invalidatePosts }" }' https://redwoodjs.com/.netlify/functions/graphql
+```
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation { invalidatePost(slug: \"rsc-now-in-redwoodjs\") }" }' https://redwoodjs.com/.netlify/functions/graphql
+```
+
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "query { post(slug: \"rsc-now-in-redwoodjs\") { id, title } }" }' https://redwoodjs.com/.netlify/functions/graphql
+```
+
+
 A webhook at /
 
 For example:
 
 ```bash
-curl http://localhost:8911/invalidatePostsHook
+curl http://localhost:8911/whInvalidatePostsHook
 ```
 
 Where the hostname is local or
 
 ```bash
-curl https://redwoodjs.com/.netlify/functions/invalidatePostsHook
+curl https://redwoodjs.com/.netlify/functions/whInvalidatePostsHook
 ```
 
 in production.
+
+Note: Since the webhook is signed, you'd need the secret as well, but Hashnode provides this for the webhook.
