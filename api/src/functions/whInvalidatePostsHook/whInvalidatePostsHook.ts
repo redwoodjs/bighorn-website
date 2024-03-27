@@ -11,6 +11,12 @@ import { invalidatePosts } from 'src/services/hashnode'
 /**
  * This function is the webhook handler for the Hashnode API.
  * It invalidates the cache for all posts.
+ *
+ * Note: This function is protected by a secret signature.
+ *
+ * Important: This function is prefixed with `wh` to indicate it is a webhook
+ * and also to ensure that the graphql function loads first on Netlify
+ * and thus merges the schema and invalidatePost can be imported properly.
  */
 export const handler = async (event: APIGatewayEvent, _context: Context) => {
   logger.info(`${event.httpMethod} ${event.path}: invalidatePostsHook function`)
@@ -23,7 +29,10 @@ export const handler = async (event: APIGatewayEvent, _context: Context) => {
       // timestamp: new Date().getDate() - 1,
     } as VerifyOptions
 
-    logger.info({ webhook: 'invalidatePostsHook', options }, 'Verifying event')
+    logger.info(
+      { webhook: 'whInvalidatePostsHook', options },
+      'Verifying event'
+    )
 
     verifyEvent('timestampSchemeVerifier', {
       event,
@@ -31,11 +40,13 @@ export const handler = async (event: APIGatewayEvent, _context: Context) => {
       options,
     })
 
-    logger.info({ webhook: 'invalidatePostsHook', options }, 'Verified!')
+    logger.info({ webhook: 'whInvalidatePostsHook', options }, 'Verified!')
 
     const status = await invalidatePosts()
-
-    logger.info({ webhook: 'invalidatePostsHook', status }, 'Posts invalidated')
+    logger.info(
+      { webhook: 'whInvalidatePostsHook', status },
+      'Posts invalidated'
+    )
 
     return {
       statusCode: 200,
@@ -43,7 +54,7 @@ export const handler = async (event: APIGatewayEvent, _context: Context) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        data: { webhook: 'invalidatePostsHook', status },
+        data: { webhook: 'whInvalidatePostsHook', status },
       }),
     }
   } catch (error) {
