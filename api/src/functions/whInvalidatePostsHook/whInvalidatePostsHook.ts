@@ -6,9 +6,8 @@ import {
   WebhookVerificationError,
 } from '@redwoodjs/api/webhooks'
 
-import { handler as graphQLHandler } from 'src/functions/graphql'
+import { cache } from 'src/functions/graphql'
 import { logger } from 'src/lib/logger'
-import { invalidatePosts } from 'src/services/hashnode'
 /**
  * This function is the webhook handler for the Hashnode API.
  * It invalidates the cache for all posts.
@@ -21,7 +20,6 @@ import { invalidatePosts } from 'src/services/hashnode'
  */
 export const handler = async (event: APIGatewayEvent, _context: Context) => {
   logger.info(`${event.httpMethod} ${event.path}: invalidatePostsHook function`)
-  logger.info(graphQLHandler, 'Loaded GraphQL handler')
 
   try {
     const options = {
@@ -44,7 +42,8 @@ export const handler = async (event: APIGatewayEvent, _context: Context) => {
 
     logger.info({ webhook: 'whInvalidatePostsHook', options }, 'Verified!')
 
-    const status = await invalidatePosts()
+    const status = cache.invalidate([{ typename: 'Post' }])
+
     logger.info(
       { webhook: 'whInvalidatePostsHook', status },
       'Posts invalidated'
