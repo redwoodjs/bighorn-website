@@ -18,10 +18,9 @@ const HomeHero = () => {
       <a
         href={Constants.BIGHORN_FEATURES}
         className="button mb-4 inline-block text-sm md:mb-8 md:text-base"
-        target="_blank"
         rel="noreferrer"
       >
-        Walkthrough Bighorn's Features
+        Walk Through Bighorn's Features
       </a>
 
       <p className="text-sm text-white md:text-base">

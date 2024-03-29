@@ -11,6 +11,15 @@ dns.setDefaultResultOrder('verbatim')
 
 const viteConfig: UserConfig = {
   plugins: [redwood()],
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: 'static/[name]-[hash][extname]',
+        entryFileNames: 'static/[name]-[hash].js',
+        chunkFileNames: 'static/[name]-[hash].js',
+      },
+    },
+  },
 }
 
 export default defineConfig(viteConfig)

@@ -52,6 +52,18 @@
   force = true
 
 [[redirects]]
+  from = "/assets/*"
+  to = "https://redwoodjs-docs.netlify.app/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/img/*"
+  to = "https://redwoodjs-docs.netlify.app/img/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/newsletter"
   to = "https://mailchi.mp/redwoodjs/redwoodjs-newsletter"
   force = true
@@ -149,6 +161,12 @@
 [[redirects]]
   from = "/jobs"
   to = "https://community.redwoodjs.com/c/jobs/29"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/bighorn-walkthrough"
+  to = "/blog/rsc-now-in-redwoodjs"
   status = 301
   force = true
 

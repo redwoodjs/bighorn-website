@@ -28,9 +28,10 @@ const EventSummary = () => {
           <p>
             <a
               href={Constants.EVENTS}
+              target="_blank"
               className="font-white border-b-2 border-b-black text-lg hover:border-b-alienArmpit dark:border-b-white dark:hover:border-b-sulu"
             >
-              View the Entire Calendar.
+              View the Entire Calendar
             </a>
           </p>
         </div>

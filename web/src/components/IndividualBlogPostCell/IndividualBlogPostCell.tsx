@@ -10,6 +10,7 @@ import {
 } from '@redwoodjs/web'
 
 import { prettifyDate } from 'src/helpers/DateHelpers'
+import { replaceYouTubeLinks } from 'src/lib/helpers'
 
 import Avatar from '../Avatar/Avatar'
 
@@ -94,7 +95,9 @@ export const Success = ({
         {post?.content?.html && (
           <div
             className="blog-post"
-            dangerouslySetInnerHTML={{ __html: post.content.html }}
+            dangerouslySetInnerHTML={{
+              __html: replaceYouTubeLinks(post.content.html),
+            }}
           />
         )}
       </div>
