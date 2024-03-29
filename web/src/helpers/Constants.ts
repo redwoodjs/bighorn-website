@@ -24,7 +24,7 @@ export const Constants = Object.freeze({
   SHOP: 'https://shop.redwoodjs.com/',
   STARTUP_CLUB: 'https://docs.google.com/forms/d/e/1FAIpQLSeuoGpGJ8gN_eYRY9hU6u2Apw0RB5UV6eYASp6ujsSv_aLaMg/viewform',
   STARTUP_FUND: 'http://redwoodstartupfund.com/',
-  VERSION: 'v7.1.3',
+  VERSION: 'v7.3',
   X: 'https://twitter.com/redwoodjs',
   YOUTUBE: 'https://www.youtube.com/redwoodjs',
 })
