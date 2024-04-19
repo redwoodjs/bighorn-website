@@ -221,7 +221,7 @@
 
   /* changelog and blog */
 .blog-post h2 {
-  @apply text-2xl text-black dark:text-christi font-bold mb-2;
+  @apply text-3xl text-black dark:text-sulu font-serif font-bold mb-2;
 }
 
   .blog-post h3,
