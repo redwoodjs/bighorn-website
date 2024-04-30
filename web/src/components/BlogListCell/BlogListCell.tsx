@@ -20,7 +20,7 @@ export const QUERY: TypedDocumentNode<
   FindBlogListQueryVariables
 > = gql`
   query FindBlogListQuery {
-    recentPosts {
+    recentPosts(first: 20) {
       posts {
         author {
           id
