@@ -1,3 +1,6 @@
+import { Link, routes } from '@redwoodjs/router'
+
+import Icon from 'src/components/Icon/Icon'
 import RoadmapItem from 'src/components/RoadmapItem/RoadmapItem'
 
 import data from '$content/Roadmap/_index.json'
@@ -68,9 +71,9 @@ const RoadmapSummary = () => {
             )
         })}
 
-        {/* <Link to={routes.roadmap()} className="view-all">
+        <Link to={routes.roadmap()} className="view-all">
           <span>View Entire Roadmap</span> <Icon id="doubleChevronRight" />
-        </Link> */}
+        </Link>
       </div>
     </section>
   )
