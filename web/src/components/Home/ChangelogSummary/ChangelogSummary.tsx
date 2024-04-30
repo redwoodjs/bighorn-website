@@ -1,5 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 
+import ChangelogDetails from 'src/components/ChangelogDetails/ChangelogDetails'
 import Icon from 'src/components/Icon/Icon'
 import { useMDXComponent } from 'src/hooks/useMDXComponents'
 
@@ -8,6 +9,9 @@ import { Changelog } from '$content/types.d'
 
 const ChangelogSummary = () => {
   const Component = useMDXComponent(data[0].body.code)
+
+  // get the first item in the array of data
+  const changelogData = data.slice(0, 1)
 
   return (
     <section className="page-grid px-page">
@@ -21,13 +25,10 @@ const ChangelogSummary = () => {
       </div>
 
       <div className="col-span-7 pt-10">
-        {data?.map((item: Changelog, index: number) => (
-          <div className="changelog mb-10" key={index}>
-            <strong className="mb-8 block text-2xl leading-relaxed">
-              January 23, 2024
-            </strong>
+        {changelogData?.map((item: Changelog, index: number) => (
+          <ChangelogDetails key={index} date={item.publishDate}>
             <Component />
-          </div>
+          </ChangelogDetails>
         ))}
         <Link to={routes.changelog()} className="view-all">
           <span>View Entire Changelog</span> <Icon id="doubleChevronRight" />
