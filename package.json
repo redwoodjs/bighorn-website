@@ -7,9 +7,9 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/cli-data-migrate": "7.4.3",
-    "@redwoodjs/cli-storybook": "7.4.3",
-    "@redwoodjs/core": "7.4.3",
+    "@redwoodjs/cli-data-migrate": "8.0.0-canary.529",
+    "@redwoodjs/cli-storybook": "8.0.0-canary.529",
+    "@redwoodjs/core": "8.0.0-canary.529",
     "prettier-plugin-tailwindcss": "0.4.1"
   },
   "eslintConfig": {
@@ -17,8 +17,7 @@
     "root": true
   },
   "engines": {
-    "node": "=20.x",
-    "yarn": ">=1.22.17"
+    "node": "=20.x"
   },
   "prisma": {
     "seed": "yarn rw exec seed"
