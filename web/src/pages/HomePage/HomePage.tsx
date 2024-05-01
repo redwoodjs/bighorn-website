@@ -12,13 +12,16 @@ import WhatsIncluded from 'src/components/Home/WhatsIncluded/WhatsIncluded'
 import Newsletter from 'src/components/Newsletter/Newsletter'
 
 const HomePage = () => {
+  // TODO(jgmw): This is not an actual proposal for a solution but just highlighting the issue.
+  const origin =
+    typeof location !== 'undefined' ? location.origin : 'https://redwoodjs.com'
   return (
     <>
       <Metadata
         title="RedwoodJS: The App Framework for Startups"
         description="Grow from side project to startup with RedwoodJS. Combines React, GraphQL, and Prisma for a full-stack app framework."
         og={{
-          image: `${location.origin}/images/og.png`,
+          image: `${origin}/images/og.png`,
           url: 'https://redwoodjs.com',
         }}
       />

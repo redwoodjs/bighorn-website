@@ -8,6 +8,7 @@
     ]
   },
   "dependencies": {
+    "@apollo/client-react-streaming": "0.10.0",
     "@redwoodjs/forms": "8.0.0-canary.529",
     "@redwoodjs/router": "8.0.0-canary.529",
     "@redwoodjs/web": "8.0.0-canary.529",
