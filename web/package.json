@@ -11,6 +11,7 @@
     "@apollo/client-react-streaming": "0.10.0",
     "@redwoodjs/forms": "8.0.0-canary.529",
     "@redwoodjs/router": "8.0.0-canary.529",
+    "@redwoodjs/vite": "8.0.0-canary.529",
     "@redwoodjs/web": "8.0.0-canary.529",
     "date-fns": "^3.3.1",
     "framer-motion": "^11.0.3",
@@ -19,7 +20,6 @@
     "react-dom": "19.0.0-canary-cb151849e1-20240424"
   },
   "devDependencies": {
-    "@redwoodjs/vite": "8.0.0-canary.529",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
