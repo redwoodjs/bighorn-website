@@ -1,7 +1,13 @@
+import { Readable } from 'node:stream'
+
+import { SitemapStream, streamToPromise } from 'sitemap'
+
 import type {
   MiddlewareRequest,
   MiddlewareResponse,
 } from '@redwoodjs/vite/dist/middleware'
+
+import { getAllPosts } from './util'
 
 export async function middleware(
   req: MiddlewareRequest,
@@ -11,21 +17,33 @@ export async function middleware(
   if (url.pathname !== '/sitemap.xml') {
     return mwResponse
   }
-
   console.log('Sitemap request is being handled by middleware')
 
-  mwResponse.headers.set('Content-Type', 'application/xml')
+  const ROOT_URL = process.env.DEPLOY_URL
 
-  // TODO(jgmw): Generate the sitemap.xml content
-  mwResponse.body = `
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-    <url>
-      <loc>https://redwoodjs.com/</loc>
-      <changefreq>weekly</changefreq>
-      <priority>0.5</priority>
-    </url>
-  </urlset>
-  `
+  // We know a selection of static links we can hardcode
+  const links = [{ url: ROOT_URL, changefreq: 'weekly', priority: 0.5 }]
+
+  // Include the dynamic links to blog posts
+  const posts = await getAllPosts()
+  for (const post of posts) {
+    const url = ROOT_URL + '/blog/' + post.slug
+    links.push({
+      url,
+      changefreq: 'weekly',
+      priority: 0.7,
+    })
+  }
+
+  // TODO(jgmw): Include entries for documentation pages
+
+  const sitemapStream = new SitemapStream({ hostname: ROOT_URL })
+  const sitemapXml = await streamToPromise(
+    Readable.from(links).pipe(sitemapStream)
+  ).then((data) => data.toString())
+
+  mwResponse.headers.set('Content-Type', 'application/xml')
+  mwResponse.body = sitemapXml
 
   return mwResponse
 }

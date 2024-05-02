@@ -5,21 +5,7 @@ import type {
   MiddlewareResponse,
 } from '@redwoodjs/vite/dist/middleware'
 
-interface Post {
-  id: string
-  slug: string
-  title: string
-  brief: string
-  coverImage: {
-    url: string
-  }
-  publishedAt: string
-  seo: {
-    title: string
-    description: string
-  }
-  url: string
-}
+import { getAllPosts } from './util'
 
 export async function middleware(
   req: MiddlewareRequest,
@@ -29,47 +15,9 @@ export async function middleware(
   if (url.pathname !== '/rss.xml') {
     return mwResponse
   }
-
   console.log('RSS request is being handled by middleware')
 
-  // Make a request to the api side for all the posts
-  const response = await fetch(
-    `${process.env.DEPLOY_URL}/.netlify/functions/graphql`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: `
-        query {
-          posts {
-            id
-            slug
-            title
-            brief
-            coverImage {
-              url
-            }
-            ogMetaData {
-              image
-            }
-            publishedAt
-            seo {
-              title
-              description
-            }
-            url
-          }
-        }
-      `,
-      }),
-    }
-  )
-
-  const { data } = await response.json()
-  const posts = data.posts as Post[]
-
+  const posts = await getAllPosts()
   const latestPost = posts.sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
@@ -87,21 +35,22 @@ export async function middleware(
     updated: new Date(latestPost.publishedAt),
     generator: 'RedwoodJS: RSS Middleware',
   })
-  for (const post of data.posts as Post[]) {
+  for (const post of posts) {
     // Hashnode does not automatically populate SEO or meta tag data so here
     // we use a simple check to fallback to the basic post data if they are
     // not provided.
     const title = post.seo?.title || post.title
     const description = post.seo?.description || post.brief
     const image = post.ogMetaData?.image || post.coverImage?.url
+    const link = process.env.DEPLOY_URL + '/blog/' + post.slug
 
     feed.addItem({
       title,
-      link: post.url,
+      link,
       date: new Date(post.publishedAt),
       description,
       published: new Date(post.publishedAt),
-      id: post.url,
+      id: link,
       image,
     })
   }
