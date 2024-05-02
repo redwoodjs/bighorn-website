@@ -29,7 +29,6 @@ type AllPostsResponse = {
         node: Post
         cursor: string
       }[]
-      totalDocuments: number
     }
   }
 }
@@ -219,7 +218,6 @@ export const posts = async (): Promise<Query['posts']> => {
               }
             }
           }
-          totalDocuments
         }
       }
     }
@@ -229,32 +227,33 @@ export const posts = async (): Promise<Query['posts']> => {
     const posts: Post[] = []
     let lastCursor = ''
 
-    const { publication } = await request<AllPostsResponse>(
-      'https://gql.hashnode.com',
-      POSTS(lastCursor)
-    )
-    if (!publication) {
-      throw new Error('Failed to fetch recent posts')
-    }
+    let i = 0
+    while (i < 1_000_000) {
+      logger.warn(`Fetching posts from hashnode (cursor: "${lastCursor}")`)
+      i += 1
 
-    posts.push(...publication.posts.edges.map((edge) => edge.node))
-    lastCursor =
-      publication.posts.edges[publication.posts.edges.length - 1].cursor
-
-    const requiredRequests = Math.ceil(publication.posts.totalDocuments / 20)
-    for (let i = 1; i < requiredRequests; i++) {
       const { publication } = await request<AllPostsResponse>(
         'https://gql.hashnode.com',
         POSTS(lastCursor)
       )
 
       if (!publication) {
-        throw new Error('Failed to fetch recent posts')
+        throw new Error('Failed to fetch posts')
       }
 
-      posts.push(...publication.posts.edges.map((edge) => edge.node))
-      lastCursor =
-        publication.posts.edges[publication.posts.edges.length - 1].cursor
+      const edges = publication.posts.edges
+      if (!edges || edges.length === 0) {
+        // No more posts to fetch
+        break
+      }
+
+      posts.push(...edges.map((edge) => edge.node))
+      lastCursor = edges[edges.length - 1].cursor
+
+      if (edges.length < 20) {
+        // We didn't get a full collection of posts, so we're done
+        break
+      }
     }
 
     return posts

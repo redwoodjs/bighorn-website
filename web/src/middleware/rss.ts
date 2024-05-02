@@ -1,3 +1,5 @@
+import { Feed } from 'feed'
+
 import type {
   MiddlewareRequest,
   MiddlewareResponse,
@@ -31,13 +33,15 @@ export async function middleware(
   console.log('RSS request is being handled by middleware')
 
   // Make a request to the api side for all the posts
-  const response = await fetch('http://localhost:8911/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
+  const response = await fetch(
+    `${process.env.DEPLOY_URL}/.netlify/functions/graphql`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `
         query {
           posts {
             id
@@ -56,38 +60,50 @@ export async function middleware(
           }
         }
       `,
-    }),
-  })
+      }),
+    }
+  )
 
   const { data } = await response.json()
-  const rssItems = data.posts.map((post: Post) => {
-    const title = post.seo?.title || post.title
-    const description = post.seo?.description || post.brief
-    return `
-      <item>
-        <title>${title}</title>
-        <link>${post.url}</link>
-        <description>${description}</description>
-        <pubDate>${post.publishedAt}</pubDate>
-      </item>
-    `
-  })
+  const posts = data.posts as Post[]
 
-  // Map the posts to the RSS format
+  const latestPost = posts.sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  )[0]
+
+  const feed = new Feed({
+    title: 'RedwoodJS',
+    description: 'Redwood is the full-stack JavaScript application framework.',
+    id: process.env.DEPLOY_URL,
+    link: process.env.DEPLOY_URL,
+    language: 'en',
+    // image: 'http://example.com/image.png', // ???
+    favicon: `${process.env.DEPLOY_URL}/favicon.png`,
+    copyright: 'All rights reserved 2013, John Doe',
+    updated: new Date(latestPost.publishedAt),
+    generator: 'RedwoodJS: RSS Middleware',
+    // feedLinks: {
+    //   json: 'https://example.com/json',
+    //   atom: 'https://example.com/atom',
+    // },
+    // author: {
+    //   name: 'John Doe',
+    //   email: 'johndoe@example.com',
+    //   link: 'https://example.com/johndoe',
+    // },
+  })
+  for (const post of data.posts as Post[]) {
+    feed.addItem({
+      title: post.title,
+      link: post.url,
+      date: new Date(post.publishedAt),
+    })
+  }
 
   mwResponse.headers.set('Content-Type', 'application/xml')
-
-  // TODO(jgmw): Generate the rss.xml content
-  mwResponse.body = `
-  <rss version="2.0">
-    <channel>
-      <title>RedwoodJS: The App Framework for Startups</title>
-      <link>https://redwoodjs.com</link>
-      <description>Grow from side project to startup with RedwoodJS. Combines React, GraphQL, and Prisma for a full-stack app framework.</description>
-      ${rssItems.join('\n')}
-    </channel>
-  </rss>
-  `
+  // TODO: Consider adding cache-control headers to the response
+  mwResponse.body = feed.rss2()
 
   return mwResponse
 }

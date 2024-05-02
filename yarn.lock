@@ -14200,6 +14200,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"feed@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "feed@npm:4.2.2"
+  dependencies:
+    xml-js: "npm:^1.6.11"
+  checksum: 10c0/c0849bde569da94493224525db00614fd1855a5d7c2e990f6e8637bd0298e85c3d329efe476cba77e711e438c3fb48af60cd5ef0c409da5bcd1f479790b0a372
+  languageName: node
+  linkType: hard
+
 "fetch-blob@npm:^3.1.2, fetch-blob@npm:^3.1.4":
   version: 3.2.0
   resolution: "fetch-blob@npm:3.2.0"
@@ -22232,6 +22241,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sax@npm:^1.2.4":
+  version: 1.3.0
+  resolution: "sax@npm:1.3.0"
+  checksum: 10c0/599dbe0ba9d8bd55e92d920239b21d101823a6cedff71e542589303fa0fa8f3ece6cf608baca0c51be846a2e88365fac94a9101a9c341d94b98e30c4deea5bea
+  languageName: node
+  linkType: hard
+
 "saxes@npm:^6.0.0":
   version: 6.0.0
   resolution: "saxes@npm:6.0.0"
@@ -24864,6 +24880,7 @@ __metadata:
     "@types/react-dom": "npm:^18.2.19"
     autoprefixer: "npm:^10.4.17"
     date-fns: "npm:^3.3.1"
+    feed: "npm:^4.2.2"
     framer-motion: "npm:^11.0.3"
     postcss: "npm:^8.4.33"
     postcss-loader: "npm:^8.0.0"
@@ -25454,6 +25471,17 @@ __metadata:
   version: 3.0.0
   resolution: "xdg-basedir@npm:3.0.0"
   checksum: 10c0/c3be36400d8a69c9154ce6ccff98832dae0d04f8bacda806f609d3955beb23dc7c9dde724438b81e6128bf253d440a2bfe0239dd37d70333ab625c4e170b77b2
+  languageName: node
+  linkType: hard
+
+"xml-js@npm:^1.6.11":
+  version: 1.6.11
+  resolution: "xml-js@npm:1.6.11"
+  dependencies:
+    sax: "npm:^1.2.4"
+  bin:
+    xml-js: ./bin/cli.js
+  checksum: 10c0/c83631057f10bf90ea785cee434a8a1a0030c7314fe737ad9bf568a281083b565b28b14c9e9ba82f11fc9dc582a3a907904956af60beb725be1c9ad4b030bc5a
   languageName: node
   linkType: hard
 
