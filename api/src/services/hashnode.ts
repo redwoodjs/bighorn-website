@@ -20,6 +20,20 @@ type RecentPostsResponse = {
   }
 }
 
+type AllPostsResponse = {
+  publication: {
+    isTeam: Publication['isTeam']
+    title: Publication['title']
+    posts: {
+      edges: {
+        node: Post
+        cursor: string
+      }[]
+      totalDocuments: number
+    }
+  }
+}
+
 /**
  * Fetches a Publication with latest posts from Hashnode.
  *
@@ -164,6 +178,89 @@ export const post = async ({ slug }: QueryPostArgs): Promise<Query['post']> => {
   } catch (error) {
     logger.error(error, 'Failed to fetch post')
     throw new Error('Failed to fetch post')
+  }
+}
+
+export const posts = async (): Promise<Query['posts']> => {
+  const POSTS = (after: string) => `
+    {
+      publication(host: "redwoodjs.com") {
+        posts(first: 20 ${after ? `, after: "${after}"` : ''}) {
+          edges {
+            cursor
+            node {
+              id
+              slug
+              title
+              subtitle
+              brief
+              content {
+                markdown
+                html
+                text
+              }
+              ogMetaData {
+                image
+              },
+              coverImage {
+                url
+              }
+              publishedAt
+              seo {
+                title
+                description
+              }
+              url
+              canonicalUrl
+              author {
+                id
+                name
+                profilePicture
+              }
+            }
+          }
+          totalDocuments
+        }
+      }
+    }
+  `
+
+  try {
+    const posts: Post[] = []
+    let lastCursor = ''
+
+    const { publication } = await request<AllPostsResponse>(
+      'https://gql.hashnode.com',
+      POSTS(lastCursor)
+    )
+    if (!publication) {
+      throw new Error('Failed to fetch recent posts')
+    }
+
+    posts.push(...publication.posts.edges.map((edge) => edge.node))
+    lastCursor =
+      publication.posts.edges[publication.posts.edges.length - 1].cursor
+
+    const requiredRequests = Math.ceil(publication.posts.totalDocuments / 20)
+    for (let i = 1; i < requiredRequests; i++) {
+      const { publication } = await request<AllPostsResponse>(
+        'https://gql.hashnode.com',
+        POSTS(lastCursor)
+      )
+
+      if (!publication) {
+        throw new Error('Failed to fetch recent posts')
+      }
+
+      posts.push(...publication.posts.edges.map((edge) => edge.node))
+      lastCursor =
+        publication.posts.edges[publication.posts.edges.length - 1].cursor
+    }
+
+    return posts
+  } catch (error) {
+    logger.error(error, 'Failed to fetch recent posts')
+    throw new Error('Failed to fetch recent posts')
   }
 }
 
