@@ -1,3 +1,4 @@
+import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 import { Toaster } from '@redwoodjs/web/dist/toast'
 
@@ -12,9 +13,7 @@ import WhatsIncluded from 'src/components/Home/WhatsIncluded/WhatsIncluded'
 import Newsletter from 'src/components/Newsletter/Newsletter'
 
 const HomePage = () => {
-  // TODO(jgmw): This is not an actual proposal for a solution but just highlighting the issue.
-  const origin =
-    typeof location !== 'undefined' ? location.origin : 'https://redwoodjs.com'
+  const { origin } = useLocation()
   return (
     <>
       <Metadata
