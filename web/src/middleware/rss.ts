@@ -51,6 +51,9 @@ export async function middleware(
             coverImage {
               url
             }
+            ogMetaData {
+              image
+            }
             publishedAt
             seo {
               title
@@ -78,31 +81,32 @@ export async function middleware(
     id: process.env.DEPLOY_URL,
     link: process.env.DEPLOY_URL,
     language: 'en',
-    // image: 'http://example.com/image.png', // ???
     favicon: `${process.env.DEPLOY_URL}/favicon.png`,
+    image: `${process.env.DEPLOY_URL}/favicon.png`,
     copyright: 'All rights reserved 2013, John Doe',
     updated: new Date(latestPost.publishedAt),
     generator: 'RedwoodJS: RSS Middleware',
-    // feedLinks: {
-    //   json: 'https://example.com/json',
-    //   atom: 'https://example.com/atom',
-    // },
-    // author: {
-    //   name: 'John Doe',
-    //   email: 'johndoe@example.com',
-    //   link: 'https://example.com/johndoe',
-    // },
   })
   for (const post of data.posts as Post[]) {
+    // Hashnode does not automatically populate SEO or meta tag data so here
+    // we use a simple check to fallback to the basic post data if they are
+    // not provided.
+    const title = post.seo?.title || post.title
+    const description = post.seo?.description || post.brief
+    const image = post.ogMetaData?.image || post.coverImage?.url
+
     feed.addItem({
-      title: post.title,
+      title,
       link: post.url,
       date: new Date(post.publishedAt),
+      description,
+      published: new Date(post.publishedAt),
+      id: post.url,
+      image,
     })
   }
 
   mwResponse.headers.set('Content-Type', 'application/xml')
-  // TODO: Consider adding cache-control headers to the response
   mwResponse.body = feed.rss2()
 
   return mwResponse
