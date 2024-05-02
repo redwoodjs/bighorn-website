@@ -14216,7 +14216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"feed@npm:^4.2.2":
+"feed@npm:4.2.2":
   version: 4.2.2
   resolution: "feed@npm:4.2.2"
   dependencies:
@@ -22608,7 +22608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sitemap@npm:^7.1.1":
+"sitemap@npm:7.1.1":
   version: 7.1.1
   resolution: "sitemap@npm:7.1.1"
   dependencies:
@@ -24910,14 +24910,14 @@ __metadata:
     "@types/react-dom": "npm:^18.2.19"
     autoprefixer: "npm:^10.4.17"
     date-fns: "npm:^3.3.1"
-    feed: "npm:^4.2.2"
+    feed: "npm:4.2.2"
     framer-motion: "npm:^11.0.3"
     postcss: "npm:^8.4.33"
     postcss-loader: "npm:^8.0.0"
     prop-types: "npm:15.8.1"
     react: "npm:19.0.0-canary-cb151849e1-20240424"
     react-dom: "npm:19.0.0-canary-cb151849e1-20240424"
-    sitemap: "npm:^7.1.1"
+    sitemap: "npm:7.1.1"
     tailwindcss: "npm:^3.4.1"
   languageName: unknown
   linkType: soft
