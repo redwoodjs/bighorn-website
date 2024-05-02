@@ -22,7 +22,11 @@ export async function middleware(
   const ROOT_URL = process.env.DEPLOY_URL
 
   // We know a selection of static links we can hardcode
-  const links = [{ url: ROOT_URL, changefreq: 'weekly', priority: 0.5 }]
+  const links = [
+    { url: ROOT_URL, changefreq: 'weekly', priority: 0.5 },
+    { url: ROOT_URL + '/blog', changefreq: 'weekly', priority: 0.7 },
+    { url: ROOT_URL + '/brand', changefreq: 'weekly', priority: 0.5 },
+  ]
 
   // Include the dynamic links to blog posts
   const posts = await getAllPosts()
@@ -34,8 +38,6 @@ export async function middleware(
       priority: 0.7,
     })
   }
-
-  // TODO(jgmw): Include entries for documentation pages
 
   const sitemapStream = new SitemapStream({ hostname: ROOT_URL })
   const sitemapXml = await streamToPromise(
