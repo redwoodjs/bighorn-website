@@ -11,7 +11,7 @@ const RoadmapSummary = () => {
           <h2 className="section-heading mb-6">Roadmap</h2>
           <h3 className="section-subheading">
             This is a glimpse into what we’re working on and what we’ve
-            planning.
+            planned.
           </h3>
         </div>
       </div>
