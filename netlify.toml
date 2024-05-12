@@ -171,6 +171,12 @@
   force = true
 
 [[redirects]]
+  from = "/win"
+  to = "https://redwoodjs-reactconf.netlify.app"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/200.html"
   status = 200
