@@ -6,6 +6,7 @@ export const Constants = Object.freeze({
   COMMUNITY: 'https://community.redwoodjs.com/t/welcome-to-the-redwoodjs-community/2416',
   CONFERENCE: 'https://redwoodjsconf.com/',
   CONTRIBUTORS_MEETUP: 'https://community.redwoodjs.com/t/contributors-meetups-a-next-step-for-redwoodjs-participation/2470',
+  CONTRIBUTING: 'https://github.com/redwoodjs/redwood/blob/main/CONTRIBUTING.md',
   CORE_TEAM: 'https://github.com/redwoodjs/redwood#core-team-leadership',
   CREATE_REDWOOD_SCRIPT: 'yarn create redwood-app',
   DISCORD: 'https://discord.com/invite/redwoodjs',
@@ -26,7 +27,9 @@ export const Constants = Object.freeze({
   SHOP: 'https://shop.redwoodjs.com/',
   STARTUP_CLUB: 'https://docs.google.com/forms/d/e/1FAIpQLSeuoGpGJ8gN_eYRY9hU6u2Apw0RB5UV6eYASp6ujsSv_aLaMg/viewform',
   STARTUP_FUND: 'http://redwoodstartupfund.com/',
+  TUTORIAL: 'https://redwoodjs.com/docs/tutorial/foreword',
   VERSION: 'v7.5',
   X: 'https://twitter.com/redwoodjs',
   YOUTUBE: 'https://www.youtube.com/redwoodjs',
+  YOUTUBE_SERIES: 'https://www.youtube.com/watch?v=Xr92RcUMngc&list=PLrz61zkUHJJFzXe0xZ55RdAF3o3PGhd0U'
 })

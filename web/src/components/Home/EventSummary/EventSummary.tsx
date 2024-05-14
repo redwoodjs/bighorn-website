@@ -18,7 +18,7 @@ const EventSummary = () => {
   }, [])
 
   return (
-    <section className="page-grid px-5 md:px-page">
+    <section className="page-grid px-5 md:px-page" id="events">
       <div className="col-span-5">
         <div className="sticky top-5">
           <h2 className="section-heading mb-6">Upcoming Events</h2>
@@ -30,6 +30,7 @@ const EventSummary = () => {
               href={Constants.EVENTS}
               target="_blank"
               className="font-white border-b-2 border-b-black text-lg hover:border-b-alienArmpit dark:border-b-white dark:hover:border-b-sulu"
+              rel="noreferrer"
             >
               View the Entire Calendar
             </a>

@@ -360,6 +360,10 @@
 }
 
 @layer utilities {
+  .bento {
+    @apply grid grid-cols-1 gap-y-5 md:grid-cols-6 md:gap-5
+  }
+
   .page-content {
     @apply px-5 py-14 md:px-page
   }

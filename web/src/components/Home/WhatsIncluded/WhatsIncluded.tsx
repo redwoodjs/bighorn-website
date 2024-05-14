@@ -1,9 +1,12 @@
+import BentoOpenSource from './BentoOpenSource/BentoOpenSource'
+import BentoTech from './BentoTech/BentoTech'
+
 const WhatsIncluded = () => {
   return (
     <section className="px-5 md:px-page">
       <h2 className="section-heading mb-6">What&apos;s Included?</h2>
 
-      <div className="grid grid-cols-1 gap-y-5 md:grid-cols-6 md:gap-5">
+      <div className="bento">
         {/* deployment */}
         <div className="bento-box third flex flex-col justify-start px-bentoX py-bentoY">
           <h3>Deployment that Eliminates Vendor Lock-In</h3>
@@ -61,50 +64,10 @@ const WhatsIncluded = () => {
         </div>
 
         {/* tech */}
-        <div className="bento-box half flex flex-col justify-start px-bentoX py-bentoY">
-          <h3>Best-in Class Technologies</h3>
-          <p className="mb-8">
-            This is NOT a starter project or a template. We’ve taken the best in
-            class libraries and frameworks that you already know and love and
-            given them first-class support within Redwood. Setup is simple and
-            maintenance is negligible.
-          </p>
-
-          <div className="mt-auto flex w-full items-center justify-between self-end">
-            <div>
-              <img src="/images/storybook.svg" alt="Storybook" />
-            </div>
-            <div>
-              <img src="/images/typescript.svg" alt="TypeScript" />
-            </div>
-            <div>
-              <img src="/images/graphql.svg" alt="GraphQL" />
-            </div>
-            <div>
-              <img src="/images/vite.svg" alt="Vite" />
-            </div>
-            <div>
-              <img src="/images/prisma.svg" alt="Prisma" />
-            </div>
-            <div>
-              <img src="/images/jest.svg" alt="Jest" />
-            </div>
-            <div>
-              <img src="/images/react.svg" alt="React" />
-            </div>
-          </div>
-        </div>
+        <BentoTech />
 
         {/* independent open source */}
-        <div className="bento-box third px-bentoX py-bentoY">
-          <h3>Independent Open Source Project</h3>
-          <p className="mb-8">
-            We’re obsessed with creating the best possible developer experience
-            and building a framework that enables the community to build at
-            scale.
-          </p>
-          <img src="/images/pwv.svg" alt="Preston-Werner Ventures" />
-        </div>
+        <BentoOpenSource />
 
         {/* simplified email */}
         <div className="bento-box third flex flex-col justify-between pl-bentoX pt-bentoY">
