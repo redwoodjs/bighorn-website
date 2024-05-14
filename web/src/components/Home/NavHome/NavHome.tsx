@@ -117,7 +117,7 @@ const Nav = () => {
         )}
 
         <div className="hidden rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white md:inline-block">
-          {Constants.VERSION}
+          <a href={Constants.GITHUB_RELEASE}>{Constants.VERSION}</a>
         </div>
       </div>
 
