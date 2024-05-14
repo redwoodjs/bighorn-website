@@ -14,6 +14,7 @@ export type IconName =
 	| "download"
 	| "github"
 	| "light"
+	| "star"
 	| "system"
 	| "x"
 	| "youtube";
