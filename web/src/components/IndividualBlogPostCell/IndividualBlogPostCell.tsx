@@ -76,7 +76,7 @@ export const Success = ({
         }}
         canonicalUrl={post.canonicalUrl}
       />
-      <div className="col-span-7">
+      <div className="col-span-12">
         <h4 className="mb-2 text-sm font-bold uppercase text-maiTai">
           {prettifyDate(post.publishedAt)}
         </h4>

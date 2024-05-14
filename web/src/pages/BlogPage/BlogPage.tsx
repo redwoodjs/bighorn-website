@@ -18,7 +18,7 @@ const BlogPage = () => {
 
       <hr />
 
-      <div className="page-content">
+      <div className="page-content mx-auto max-w-[1000px]">
         <BlogListCell />
       </div>
     </>
