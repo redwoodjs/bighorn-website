@@ -118,17 +118,15 @@ const Nav = () => {
           <div className="rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white hover:bg-sulu hover:text-black">
             <a href={Constants.GITHUB_RELEASE}>{Constants.VERSION}</a>
           </div>
-          <div className="rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white hover:bg-sulu hover:text-black">
-            <a
-              href={Constants.GITHUB}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1 whitespace-nowrap"
-            >
-              {Constants.GITHUB_STARS}
-              <Icon id="star" size={16} />
-            </a>
-          </div>
+          <a
+            href={Constants.GITHUB}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1 whitespace-nowrap rounded-md bg-darkPastelRed px-2 py-1 text-sm font-bold leading-none text-white hover:bg-sulu hover:text-black "
+          >
+            {Constants.GITHUB_STARS}
+            <Icon id="star" size={16} />
+          </a>
         </div>
       </div>
 
