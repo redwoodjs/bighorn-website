@@ -1,5 +1,6 @@
 import type { RecentBlogPostsQuery } from 'types/graphql'
 
+import { Link, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import BlogCard from 'src/components/BlogCard/BlogCard'
@@ -58,6 +59,12 @@ export const Success = ({
         <div className="sticky top-5">
           <h2 className="section-heading mb-6">Blog</h2>
           <h3 className="section-subheading mb-6">The Latest from RedwoodJS</h3>
+          <Link
+            to={routes.blog()}
+            className="font-white border-b-2 border-b-black text-lg hover:border-b-alienArmpit dark:border-b-white dark:hover:border-b-sulu"
+          >
+            View All Posts
+          </Link>
         </div>
       </div>
 
