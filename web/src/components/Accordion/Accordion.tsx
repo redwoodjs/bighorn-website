@@ -24,10 +24,10 @@ const Accordion = ({ children, heading, subheading }: Props) => {
           <img src="/images/plus.svg" alt="" />
         </motion.div>
         <div>
-          <div className="mb-2 text-left text-xl font-thin text-white md:text-2xl">
+          <div className="mb-2 text-left text-xl font-thin text-black md:text-2xl dark:text-white">
             {heading}
           </div>
-          <div className="text-silverSand text-left text-base text-white md:text-lg">
+          <div className="text-silverSand text-left text-base text-black md:text-lg dark:text-white">
             {subheading}
           </div>
         </div>

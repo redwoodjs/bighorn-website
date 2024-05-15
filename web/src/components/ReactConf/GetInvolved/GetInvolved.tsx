@@ -14,13 +14,13 @@ const GetInvolved = () => {
       </div>
       <div className="col-span-10 flex flex-col gap-5 md:flex-row md:items-center">
         <a
-          className="center flex-1 rounded-sm border-1 border-sulu px-5 py-4 text-sm font-bold text-sulu hover:bg-sulu hover:text-black"
+          className="center flex-1 rounded-sm border-1 border-alienArmpit px-5 py-4 text-sm font-bold text-black hover:bg-alienArmpit hover:text-black dark:border-sulu dark:text-sulu dark:hover:bg-sulu"
           href="/#events"
         >
           Our Event Calendar
         </a>
         <a
-          className="center flex-1 rounded-sm border-1 border-sulu px-5 py-4 text-sm font-bold text-sulu hover:bg-sulu hover:text-black"
+          className="center flex-1 rounded-sm border-1 border-alienArmpit px-5 py-4 text-sm font-bold text-black hover:bg-alienArmpit hover:text-black dark:border-sulu dark:text-sulu dark:hover:bg-sulu"
           href={Constants.DISCORD}
           target="_blank"
           rel="noreferrer"
@@ -28,7 +28,7 @@ const GetInvolved = () => {
           Join the Community on Discord
         </a>
         <a
-          className="center flex-1 rounded-sm border-1 border-sulu px-5 py-4 text-sm font-bold text-sulu hover:bg-sulu hover:text-black"
+          className="center flex-1 rounded-sm border-1 border-alienArmpit px-5 py-4 text-sm font-bold text-black hover:bg-alienArmpit hover:text-black dark:border-sulu dark:text-sulu dark:hover:bg-sulu"
           href={Constants.CONTRIBUTING}
         >
           Contribute to the Project

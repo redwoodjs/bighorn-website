@@ -15,7 +15,7 @@ const ConnectOption = ({ link, heading, icon, text }: Props) => (
     href={link}
     target="_blank"
     rel="noreferrer"
-    className="rounded-md border-2 border-maiTai p-4 hover:border-sulu md:p-10"
+    className="rounded-md border-2 border-maiTai p-4 hover:border-alienArmpit md:p-10 dark:hover:border-sulu"
   >
     <div className="mb-3 text-maiTai">
       <Icon id={icon} size={36} />
