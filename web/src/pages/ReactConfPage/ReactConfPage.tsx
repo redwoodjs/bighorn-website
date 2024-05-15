@@ -29,7 +29,16 @@ const ReactConfPage = () => {
               <h1 className="mb-5 font-serif text-5xl font-bold text-maiTai md:text-7xl">
                 Hello from
               </h1>
-              <img src="/images/react-conf-logo.svg" alt="React Conf 2024" />
+              <img
+                src="/images/react-conf-logo.svg"
+                alt="React Conf 2024"
+                className="dark:hidden"
+              />
+              <img
+                src="/images/react-conf-logo--dark.svg"
+                alt="React Conf 2024"
+                className="hidden dark:block"
+              />
             </div>
 
             {/* Newsletter Form */}
