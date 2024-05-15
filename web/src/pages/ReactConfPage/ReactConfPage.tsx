@@ -26,7 +26,7 @@ const ReactConfPage = () => {
           <div className="col-span-12 mr-12 lg:col-span-5">
             {/* Heading and logo */}
             <div className="mb-20">
-              <h1 className="mb-5 font-serif text-7xl font-bold text-maiTai">
+              <h1 className="mb-5 font-serif text-5xl font-bold text-maiTai md:text-7xl">
                 Hello from
               </h1>
               <img src="/images/react-conf-logo.svg" alt="React Conf 2024" />
@@ -45,17 +45,17 @@ const ReactConfPage = () => {
 
       <div className="page-content grid-cols-10 gap-5 lg:grid">
         <div className="col-span-8">
-          <h1 className="mb-10 font-serif text-[72px] leading-none text-maiTai">
+          <h1 className="mb-10 font-serif text-5xl leading-none text-maiTai md:text-[72px]">
             What are you looking for?
             <br /> How can we help?
           </h1>
-          <p className="mb-10 text-4xl font-light">
+          <p className="mb-10 text-2xl font-light md:text-4xl">
             We could dump our <Link to={routes.blog()}>latest content</Link>,{' '}
             <Link to={routes.home()}>upcoming events</Link>, and{' '}
             <Link to={routes.home()}>roadmap</Link>, here. 🤪 But, is that
             really what you’re looking for?
           </p>
-          <p className="text-4xl font-bold">
+          <p className="text-2xl font-bold md:text-4xl">
             We invite you to Choose Your Own Adventure.
           </p>
         </div>
@@ -68,7 +68,7 @@ const ReactConfPage = () => {
         subheading="What are some of the key differences between Redwood, Remix, and NextJS?"
       >
         <div className="bento">
-          <div className="col-span-3">
+          <div className="col-span-6 lg:col-span-3">
             <BlogCard
               post={{
                 id: '1',
@@ -87,7 +87,7 @@ const ReactConfPage = () => {
               }}
             />
           </div>
-          <div className="col-span-3">
+          <div className="col-span-6 lg:col-span-3">
             <BlogCard
               post={{
                 id: '1',
@@ -107,10 +107,10 @@ const ReactConfPage = () => {
             />
           </div>
           <div className="col-span-6 grid grid-cols-3 gap-5">
-            <div className="col-span-2">
+            <div className="col-span-3 lg:col-span-2">
               <BentoTech className="h-full" />
             </div>
-            <div className="col-span-1">
+            <div className="col-span-3 lg:col-span-1">
               <BentoOpenSource className="h-full" />
             </div>
           </div>
@@ -120,7 +120,7 @@ const ReactConfPage = () => {
         heading="Tell me more about RedwoodJS, where should I start?"
         subheading="We have several resources to make learning easy."
       >
-        <div className="grid grid-cols-2 gap-x-5 gap-y-16">
+        <div className="grid grid-cols-1 gap-x-5 gap-y-16 md:grid-cols-2">
           <div>
             <a href={Constants.YOUTUBE_SERIES} target="_blank" rel="noreferrer">
               <img

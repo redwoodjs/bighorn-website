@@ -24,8 +24,8 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
 
   return (
     <div>
-      <div className="mb-4 flex items-center">
-        <div className="mr-5 rounded-[4px] bg-neutral-200 px-4 py-2 text-sm font-bold uppercase tracking-wide text-black dark:bg-neutral-800 dark:text-battleshipGray">
+      <div className="mb-4 flex flex-col items-start sm:flex-row sm:items-center">
+        <div className="mb-2 mr-5 whitespace-nowrap rounded-[4px] bg-neutral-200 px-4 py-2 text-sm font-bold uppercase tracking-wide text-black sm:mb-0 dark:bg-neutral-800 dark:text-battleshipGray">
           {getDate(date)}
         </div>
         <div className="text-lg text-battleshipGray">

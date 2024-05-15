@@ -8,8 +8,8 @@ interface RoadmapItemProps {
 
 const RoadmapItem = ({ status, heading, description }: RoadmapItemProps) => {
   return (
-    <div className="grid grid-cols-[120px_1fr] gap-x-5">
-      <div className="text-right">
+    <div className="grid grid-cols-1 gap-x-5 sm:grid-cols-[120px_1fr]">
+      <div className="mb-4 sm:mb-0 sm:text-right">
         <Tag tag={status} />
       </div>
       <div>

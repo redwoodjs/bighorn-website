@@ -38,12 +38,12 @@ const Newsletter = () => {
         <Form onSubmit={handleSubmit}>
           <fieldset
             disabled={loading}
-            className="flex flex-row items-center gap-7 transition-all"
+            className="flex flex-col gap-7 transition-all sm:flex-row sm:items-center"
           >
             <EmailField
               name="email"
               placeholder="your@email.com"
-              className="h-[53px] w-full flex-1 rounded-[4px] border-1 border-battleshipGray bg-transparent px-7 font-sans text-lg text-white transition-all"
+              className="h-[53px] w-full rounded-[4px] border-1 border-battleshipGray bg-transparent px-7 font-sans text-lg text-white transition-all sm:flex-1"
             />
             <button
               type="submit"

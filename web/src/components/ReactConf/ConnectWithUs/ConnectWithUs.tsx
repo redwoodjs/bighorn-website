@@ -15,23 +15,23 @@ const ConnectOption = ({ link, heading, icon, text }: Props) => (
     href={link}
     target="_blank"
     rel="noreferrer"
-    className="rounded-md border-2 border-maiTai p-10 hover:border-sulu"
+    className="rounded-md border-2 border-maiTai p-4 hover:border-sulu md:p-10"
   >
     <div className="mb-3 text-maiTai">
       <Icon id={icon} size={36} />
     </div>
-    <h2 className="mb-3 text-2xl font-bold text-white">{heading}</h2>
-    <p className="text-lg">{text}</p>
+    <h2 className="mb-3 text-lg font-bold text-white md:text-2xl">{heading}</h2>
+    <p className="text-base md:text-lg">{text}</p>
   </a>
 )
 
 const ConnectWithUs = () => {
   return (
     <div className="page-content py-20">
-      <h1 className="mb-10 font-serif text-[72px] text-maiTai">
+      <h1 className="mb-10 font-serif text-5xl text-maiTai md:text-[72px]">
         Connect with us
       </h1>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
         <ConnectOption
           link={Constants.DISCORD}
           heading="Discord"

@@ -369,11 +369,11 @@
   }
 
   .section-heading {
-    @apply font-serif text-6xl md:text-18 text-maiTai font-bold leading-none;
+    @apply font-serif text-5xl md:text-6xl md:text-18 text-maiTai font-bold leading-none;
   }
 
   .section-subheading {
-    @apply font-sans leading-normal font-extralight text-2xl
+    @apply font-sans leading-normal font-extralight text-xl md:text-2xl
   }
 
   .view-all {

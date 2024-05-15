@@ -11,27 +11,55 @@ const BentoTech = ({ className = '' }) => {
         is negligible.
       </p>
 
-      <div className="mt-auto flex w-full items-center justify-between self-end">
+      <div className="mt-auto flex w-full flex-wrap justify-center gap-2 self-end sm:justify-between md:flex-nowrap md:items-center">
         <div>
-          <img src="/images/storybook.svg" alt="Storybook" />
+          <img
+            src="/images/storybook.svg"
+            alt="Storybook"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
         <div>
-          <img src="/images/typescript.svg" alt="TypeScript" />
+          <img
+            src="/images/typescript.svg"
+            alt="TypeScript"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
         <div>
-          <img src="/images/graphql.svg" alt="GraphQL" />
+          <img
+            src="/images/graphql.svg"
+            alt="GraphQL"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
         <div>
-          <img src="/images/vite.svg" alt="Vite" />
+          <img
+            src="/images/vite.svg"
+            alt="Vite"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
         <div>
-          <img src="/images/prisma.svg" alt="Prisma" />
+          <img
+            src="/images/prisma.svg"
+            alt="Prisma"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
         <div>
-          <img src="/images/jest.svg" alt="Jest" />
+          <img
+            src="/images/jest.svg"
+            alt="Jest"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
         <div>
-          <img src="/images/react.svg" alt="React" />
+          <img
+            src="/images/react.svg"
+            alt="React"
+            className="h-8 w-8 object-contain md:h-auto md:w-auto"
+          />
         </div>
       </div>
     </div>

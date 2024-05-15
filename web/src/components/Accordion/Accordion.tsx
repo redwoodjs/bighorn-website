@@ -15,19 +15,19 @@ const Accordion = ({ children, heading, subheading }: Props) => {
     <div className="page-content border-b-1 border-maiTai py-[72px]">
       <button
         onClick={() => setIsExpanded((prevValue) => !prevValue)}
-        className="grid grid-cols-[54px_1fr] gap-10"
+        className="grid grid-cols-[32px_1fr] gap-5 md:grid-cols-[54px_1fr] md:gap-10"
       >
         <motion.div
           animate={{ rotate: isExpanded ? 45 : 0 }}
-          className="h-[54px] w-[54px]"
+          className="h-8 w-8 md:h-[54px] md:w-[54px]"
         >
           <img src="/images/plus.svg" alt="" />
         </motion.div>
         <div>
-          <div className="mb-2 text-left text-2xl font-thin text-white">
+          <div className="mb-2 text-left text-xl font-thin text-white md:text-2xl">
             {heading}
           </div>
-          <div className="text-silverSand text-left text-lg text-white">
+          <div className="text-silverSand text-left text-base text-white md:text-lg">
             {subheading}
           </div>
         </div>
@@ -39,7 +39,7 @@ const Accordion = ({ children, heading, subheading }: Props) => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
           >
-            <div className="pl-[94px] pt-8">{children}</div>
+            <div className="pl-[52px] pt-8 md:pl-[94px]">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -34,11 +34,11 @@ const BlogCard = ({ post }: BlogCardProps) => {
         to={routes.blogIndividual({ slug: post.slug })}
         className="text-white hover:text-sulu"
       >
-        <h2 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white">
+        <h2 className="mb-5 text-xl font-bold leading-tight text-black md:text-3xl dark:text-white">
           {post.title}
         </h2>
       </Link>
-      <p className="mb-5 text-lg leading-normal text-battleshipGray">
+      <p className="mb-5 text-base leading-normal text-battleshipGray md:text-lg">
         {post.brief}
       </p>
       <div className="flex justify-between">
