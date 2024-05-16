@@ -9,7 +9,7 @@ type InteriorLayoutProps = {
 const InteriorLayout = ({ children }: InteriorLayoutProps) => {
   return (
     <>
-      <div className="w-screen border-b-1 border-maiTai px-5 py-2 md:px-page">
+      <div className="w-full border-b-1 border-maiTai px-5 py-2 md:px-page">
         <Nav />
       </div>
       {children}

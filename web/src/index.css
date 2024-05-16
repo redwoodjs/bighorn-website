@@ -322,7 +322,7 @@
   }
 
   .blog-post pre {
-    @apply bg-black mb-8 rounded-md py-4 px-5 overflow-x-scroll
+    @apply bg-black mb-8 rounded-md py-4 px-5 overflow-x-auto
   }
 
   .changelog a {
