@@ -7,9 +7,9 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/cli-data-migrate": "7.1.3",
-    "@redwoodjs/cli-storybook": "7.1.3",
-    "@redwoodjs/core": "7.1.3",
+    "@redwoodjs/cli-data-migrate": "8.0.0-canary.529",
+    "@redwoodjs/cli-storybook": "8.0.0-canary.529",
+    "@redwoodjs/core": "8.0.0-canary.529",
     "prettier-plugin-tailwindcss": "0.4.1"
   },
   "eslintConfig": {
@@ -17,13 +17,12 @@
     "root": true
   },
   "engines": {
-    "node": "=20.x",
-    "yarn": ">=1.22.17"
+    "node": "=20.x"
   },
   "prisma": {
     "seed": "yarn rw exec seed"
   },
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.1.1",
   "dependencies": {
     "contentlayer": "^0.3.4",
     "glob": "^10.3.10",
@@ -33,5 +32,8 @@
   "scripts": {
     "build:icons": "tsx ./scripts/build-icons.mts",
     "build:content": "contentlayer build"
+  },
+  "resolutions": {
+    "@apollo/client-react-streaming/superjson": "^1.12.2"
   }
 }

@@ -1,15 +1,17 @@
+import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import BlogListCell from 'src/components/BlogListCell'
 import Header from 'src/components/Header/Header'
 
 const BlogPage = () => {
+  const { origin } = useLocation()
   return (
     <>
       <Metadata
         title="Blog"
         description="The Latest from RedwoodJS"
-        og={{ image: `${location.origin}/images/og.png` }}
+        og={{ image: `${origin}/images/og.png` }}
       />
 
       <div className="page-content">

@@ -1,13 +1,14 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 const ChangelogPage = () => {
+  const { origin } = useLocation()
   return (
     <>
       <Metadata
         title="Changelog"
         description="Changelog page"
-        og={{ image: `${location.origin}/images/og.png` }}
+        og={{ image: `${origin}/images/og.png` }}
       />
 
       <h1>ChangelogPage</h1>
