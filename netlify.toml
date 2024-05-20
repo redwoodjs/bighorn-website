@@ -15,11 +15,12 @@
   # Point your browser to this port to access your RedwoodJS app
   port = 8888
 
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "https://redwoodjs-docs.netlify.app/sitemap.xml"
-  status = 200
-  force = true
+# We now handle our own sitemap.xml via middleware
+# [[redirects]]
+#   from = "/sitemap.xml"
+#   to = "https://redwoodjs-docs.netlify.app/sitemap.xml"
+#   status = 200
+#   force = true
 
 [[redirects]]
   from = "/docs/*"

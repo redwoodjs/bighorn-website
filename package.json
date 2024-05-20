@@ -32,5 +32,8 @@
   "scripts": {
     "build:icons": "tsx ./scripts/build-icons.mts",
     "build:content": "contentlayer build"
+  },
+  "resolutions": {
+    "@apollo/client-react-streaming/superjson": "^1.12.2"
   }
 }

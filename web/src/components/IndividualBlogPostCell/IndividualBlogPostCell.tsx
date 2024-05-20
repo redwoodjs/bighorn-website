@@ -3,6 +3,7 @@ import type {
   FindIndividualBlogPostQueryVariables,
 } from 'types/graphql'
 
+import { useLocation } from '@redwoodjs/router'
 import {
   type CellSuccessProps,
   type CellFailureProps,
@@ -66,13 +67,14 @@ export const Success = ({
   FindIndividualBlogPostQuery,
   FindIndividualBlogPostQueryVariables
 >) => {
+  const { origin } = useLocation()
   return (
     <div className="page-grid">
       <Metadata
         title={post.title}
         description={post.seo.description}
         og={{
-          image: post.ogMetaData?.image || `${location.origin}/images/og.png`,
+          image: post.ogMetaData?.image || `${origin}/images/og.png`,
         }}
         canonicalUrl={post.canonicalUrl}
       />
