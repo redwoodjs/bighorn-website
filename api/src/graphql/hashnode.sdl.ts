@@ -60,6 +60,9 @@ export const schema = gql`
 
     "Fetches a single post by its slug."
     post(slug: String!): Post! @skipAuth
+
+    "Fetches all posts."
+    posts: [Post!]! @skipAuth
   }
 
   type Mutation {
