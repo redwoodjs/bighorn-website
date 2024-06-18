@@ -211,6 +211,9 @@ const Nav = () => {
               </li>
             </ul>
           </li>
+          <li>
+            <a href={Constants.GET_STARTED}> Get Started</a>
+          </li>
         </motion.ul>
       </nav>
 
@@ -295,6 +298,11 @@ const Nav = () => {
                 )}
               </AnimatePresence>
             </button>
+          </li>
+          <li>
+            <a href={Constants.GET_STARTED} className="button hover:text-black">
+              Get Started
+            </a>
           </li>
         </ul>
       </nav>

@@ -204,6 +204,9 @@ const Nav = () => {
               </li>
             </ul>
           </li>
+          <li>
+            <a href={Constants.GET_STARTED}>Get Started</a>
+          </li>
         </motion.ul>
       </nav>
 
@@ -280,6 +283,15 @@ const Nav = () => {
               </AnimatePresence>
             </button>
           </li>
+          <motion.li
+            initial={{ opacity: 1, x: 100, width: 0 }}
+            animate={{ opacity: 1, x: 0, width: 'auto' }}
+            viewport={{ amount: 1500 }}
+          >
+            <a href={Constants.GET_STARTED} className="button hover:text-black">
+              Get Started
+            </a>
+          </motion.li>
         </ul>
       </nav>
     </div>
