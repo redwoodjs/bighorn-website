@@ -22,6 +22,7 @@ export const ServerEntry: React.FC<Props> = ({ css, meta }) => {
 export async function registerMiddleware() {
   const { middleware: sitemapMw } = await import('./middleware/sitemap')
   const { middleware: rssMw } = await import('./middleware/rss')
+  const { middleware: redirectMw } = await import('./middleware/redirects')
 
-  return [sitemapMw, rssMw]
+  return [sitemapMw, rssMw, redirectMw]
 }
