@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import NavHome from 'src/components/Home/NavHome/NavHome'
 import { Constants } from 'src/helpers/Constants'
 
