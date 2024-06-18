@@ -18,7 +18,7 @@
 [[redirects]]
   from = "/docs/*"
   to = "https://docs.redwoodjs.com/docs/:splat"
-  status = 200
+  status = 301
   force = true
 
 [[redirects]]
