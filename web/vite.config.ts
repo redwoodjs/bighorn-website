@@ -15,8 +15,7 @@ const viteConfig: UserConfig = {
     rollupOptions: {
       output: {
         assetFileNames: 'static/[name]-[hash][extname]',
-        entryFileNames: 'static/[name]-[hash].js',
-        chunkFileNames: 'static/[name]-[hash].js',
+        chunkFileNames: 'static/[name]-[hash].mjs',
       },
     },
   },

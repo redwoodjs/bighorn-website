@@ -1,3 +1,4 @@
+import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import AssetCard from 'src/components/AssetCard/AssetCard'
@@ -6,12 +7,13 @@ import Icon from 'src/components/Icon/Icon'
 import { Constants } from 'src/helpers/Constants'
 
 const BrandPage = () => {
+  const { origin } = useLocation()
   return (
     <>
       <Metadata
         title="Brand Kit"
         description="Guideline and assets for presenting the RedwoodJS brand consistently."
-        og={{ image: `${location.origin}/images/og.png` }}
+        og={{ image: `${origin}/images/og.png` }}
       />
 
       <div className="page-content">
