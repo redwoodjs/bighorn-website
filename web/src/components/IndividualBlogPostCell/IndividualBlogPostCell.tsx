@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import type {
   FindIndividualBlogPostQuery,
   FindIndividualBlogPostQueryVariables,
@@ -11,7 +13,11 @@ import {
 } from '@redwoodjs/web'
 
 import { prettifyDate } from 'src/helpers/DateHelpers'
-import { replaceYouTubeLinks } from 'src/lib/helpers'
+import {
+  replaceYouTubeLinks,
+  embedTweets,
+  addTwitterWidget,
+} from 'src/lib/helpers'
 
 import Avatar from '../Avatar/Avatar'
 
@@ -67,6 +73,16 @@ export const Success = ({
   FindIndividualBlogPostQuery,
   FindIndividualBlogPostQueryVariables
 >) => {
+  // if there are any mentions of x.com or twitter.com add the twitter embed script
+  useEffect(() => {
+    if (
+      post?.content?.html &&
+      post.content.html.match(/https:\/\/(x|twitter)\.com/)
+    ) {
+      addTwitterWidget()
+    }
+  }, [post])
+
   const { origin } = useLocation()
   return (
     <div className="page-grid">
@@ -98,7 +114,7 @@ export const Success = ({
           <div
             className="blog-post"
             dangerouslySetInnerHTML={{
-              __html: replaceYouTubeLinks(post.content.html),
+              __html: embedTweets(replaceYouTubeLinks(post.content.html)),
             }}
           />
         )}

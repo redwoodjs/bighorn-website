@@ -64,12 +64,4 @@ export const schema = gql`
     "Fetches all posts."
     posts: [Post!]! @skipAuth
   }
-
-  type Mutation {
-    "Invalidates a single cached post by its slug."
-    invalidatePost(slug: String!): Boolean @skipAuth
-
-    "Invalidates all cached posts."
-    invalidatePosts: Boolean @skipAuth
-  }
 `

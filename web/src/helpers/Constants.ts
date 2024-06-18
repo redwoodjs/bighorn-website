@@ -11,7 +11,7 @@ export const Constants = Object.freeze({
   CREATE_REDWOOD_SCRIPT: 'yarn create redwood-app',
   DISCORD: 'https://discord.com/invite/redwoodjs',
   DISCOURSE: 'https://community.redwoodjs.com/',
-  DOCS: 'https://redwoodjs.com/docs/introduction',
+  DOCS: 'https://docs.redwoodjs.com/docs/introduction',
   EMAIL: '',
   EVENTS: 'https://lu.ma/redwoodjs',
   GET_STARTED: 'https://redwoodjs.com/docs/quick-start',
