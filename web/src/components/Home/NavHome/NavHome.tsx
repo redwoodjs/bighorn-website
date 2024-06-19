@@ -219,6 +219,7 @@ const Nav = () => {
               onClick={() => {
                 setIsThemeDropdownShowing((prevValue) => !prevValue)
               }}
+              aria-label="switch theme"
             >
               <Icon
                 id={selectedTheme}
