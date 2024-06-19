@@ -31,7 +31,7 @@ export async function middleware(
     language: 'en',
     favicon: `${process.env.DEPLOY_URL}/favicon.png`,
     image: `${process.env.DEPLOY_URL}/favicon.png`,
-    copyright: 'All rights reserved 2013, John Doe',
+    copyright: 'Copyright © 2024. Tom Preston-Werner. All Rights Reserved.',
     updated: new Date(latestPost.publishedAt),
     generator: 'RedwoodJS: RSS Middleware',
   })
