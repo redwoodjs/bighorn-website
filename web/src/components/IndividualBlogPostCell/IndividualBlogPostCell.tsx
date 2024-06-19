@@ -84,6 +84,10 @@ export const Success = ({
   }, [post])
 
   const { origin } = useLocation()
+
+  const profilePictureUrl = new URL(post.author.profilePicture)
+  profilePictureUrl.searchParams.set('height', '128')
+
   return (
     <div className="page-grid">
       <Metadata
@@ -104,7 +108,7 @@ export const Success = ({
         </h2>
 
         <div className="mb-10 flex items-center gap-3">
-          <Avatar alt={post.author.name} src={post.author.profilePicture} />
+          <Avatar alt={post.author.name} src={profilePictureUrl} />
           <div className="text-lg text-black dark:text-white">
             {post.author.name}
           </div>
