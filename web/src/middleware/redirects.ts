@@ -104,7 +104,7 @@ export async function middleware(
   // Static redirects
   const froms = REDIRECTS.map((r) => r.from)
   const index = froms.indexOf(url.pathname)
-  if (index) {
+  if (index !== -1) {
     const { to, status } = REDIRECTS[index]
     mwResponse.status = status
     mwResponse.headers.set('Location', to)
