@@ -48,6 +48,14 @@
     @apply fill-current;
   }
 
+  table {
+    @apply w-full mb-5;
+  }
+
+  td {
+    @apply border-1 border-neutral-200 dark:border-neutral-800 p-2;
+  }
+
   /* -------------------------- HEADER ------------------------------------- */
   /* logo - right click menu */
   .right-click-menu {
