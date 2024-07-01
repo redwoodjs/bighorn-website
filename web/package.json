@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client-react-streaming": "0.10.0",
+    "@mdx-js/rollup": "3.0.1",
     "@redwoodjs/forms": "8.0.0-canary.529",
     "@redwoodjs/router": "8.0.0-canary.529",
     "@redwoodjs/vite": "8.0.0-canary.529",
