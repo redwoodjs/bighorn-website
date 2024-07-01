@@ -1,7 +1,6 @@
 import RoadmapItem from 'src/components/RoadmapItem/RoadmapItem'
-
-import data from '$content/Roadmap/_index.json'
-import { Roadmap } from '$content/types.d'
+import type { RoadmapEntry } from 'src/content/roadmap.js'
+import { roadmap } from 'src/content/roadmap.js'
 
 const RoadmapDetails = () => {
   return (
@@ -10,14 +9,14 @@ const RoadmapDetails = () => {
         Done
       </h4>
 
-      {data?.map((item: Roadmap, index: number) => {
-        if (item.status === 'done')
+      {roadmap?.map((entry: RoadmapEntry, index: number) => {
+        if (entry.status === 'done')
           return (
             <div className="mb-10" key={index}>
               <RoadmapItem
-                status={item.status}
-                heading={item.title}
-                description={item.description}
+                status={entry.status}
+                heading={entry.title}
+                description={entry.description}
               />
             </div>
           )
@@ -27,14 +26,14 @@ const RoadmapDetails = () => {
         In Progress
       </h4>
 
-      {data?.map((item: Roadmap, index: number) => {
-        if (item.status === 'soon')
+      {roadmap?.map((entry: RoadmapEntry, index: number) => {
+        if (entry.status === 'soon')
           return (
             <div className="mb-10" key={index}>
               <RoadmapItem
-                status={item.status}
-                heading={item.title}
-                description={item.description}
+                status={entry.status}
+                heading={entry.title}
+                description={entry.description}
               />
             </div>
           )
@@ -44,14 +43,14 @@ const RoadmapDetails = () => {
         Planned
       </h4>
 
-      {data?.map((item: Roadmap, index: number) => {
-        if (item.status === 'planned')
+      {roadmap?.map((entry: RoadmapEntry, index: number) => {
+        if (entry.status === 'planned')
           return (
             <div className="mb-10" key={index}>
               <RoadmapItem
-                status={item.status}
-                heading={item.title}
-                description={item.description}
+                status={entry.status}
+                heading={entry.title}
+                description={entry.description}
               />
             </div>
           )

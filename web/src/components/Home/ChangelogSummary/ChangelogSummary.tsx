@@ -1,14 +1,9 @@
 import { Link, routes } from '@redwoodjs/router'
 
 import Icon from 'src/components/Icon/Icon'
-import { useMDXComponent } from 'src/hooks/useMDXComponents'
-
-import data from '$content/Changelog/_index.json'
-import { Changelog } from '$content/types.d'
+import { changelog } from 'src/content/changelog'
 
 const ChangelogSummary = () => {
-  const Component = useMDXComponent(data[0].body.code)
-
   return (
     <section className="page-grid px-page">
       <div className="col-span-5 pr-5">
@@ -21,10 +16,10 @@ const ChangelogSummary = () => {
       </div>
 
       <div className="col-span-7 pt-10">
-        {data?.map((item: Changelog, index: number) => (
+        {changelog?.map(({ Component, frontmatter }, index: number) => (
           <div className="changelog mb-10" key={index}>
             <strong className="mb-8 block text-2xl leading-relaxed">
-              January 23, 2024
+              {new Date(frontmatter.publishDate).toLocaleDateString()}
             </strong>
             <Component />
           </div>

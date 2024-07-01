@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 
 import EventItem from 'src/components/EventItem/EventItem'
+import type { EventEntry } from 'src/content/events'
+import { events as data } from 'src/content/events'
 import { Constants } from 'src/helpers/Constants'
 
-import data from '$content/Events/_index.json'
-import { Events } from '$content/types.d'
-
 const EventSummary = () => {
-  const [events, setEvents] = useState<Events[]>([])
+  const [events, setEvents] = useState<EventEntry[]>([])
 
   // order events by date
   useEffect(() => {
-    const ordered = data.sort((a: Events, b: Events) => {
+    const ordered = data.sort((a: EventEntry, b: EventEntry) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime()
     })
     setEvents(ordered)
@@ -39,7 +38,7 @@ const EventSummary = () => {
       </div>
 
       <div className="col-span-7 flex flex-col gap-[72px] pt-10">
-        {events?.map((item: Events, index: number) => {
+        {events?.map((item: EventEntry, index: number) => {
           if (item.published) {
             return (
               <EventItem
