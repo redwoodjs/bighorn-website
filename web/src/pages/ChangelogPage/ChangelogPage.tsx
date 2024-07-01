@@ -1,8 +1,13 @@
-import { Link, routes, useLocation } from '@redwoodjs/router'
+import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
+
+import ChangelogDetails from 'src/components/ChangelogDetails/ChangelogDetails'
+import Header from 'src/components/Header/Header'
+import { changelog } from 'src/content/changelog'
 
 const ChangelogPage = () => {
   const { origin } = useLocation()
+
   return (
     <>
       <Metadata
@@ -11,14 +16,26 @@ const ChangelogPage = () => {
         og={{ image: `${origin}/images/og.png` }}
       />
 
-      <h1>ChangelogPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/ChangelogPage/ChangelogPage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>changelog</code>, link to me with `
-        <Link to={routes.changelog()}>Changelog</Link>`
-      </p>
+      <div className="page-content">
+        <Header
+          title="Changelog"
+          subtitle="A list of all the big & small changes we’re making to the platform."
+        />
+      </div>
+
+      <hr />
+
+      <div className="page-content page-grid">
+        <div className="col-span-7">
+          {changelog?.map(({ Component, frontmatter }, index: number) => {
+            return (
+              <ChangelogDetails key={index} date={frontmatter.publishDate}>
+                <Component />
+              </ChangelogDetails>
+            )
+          })}
+        </div>
+      </div>
     </>
   )
 }
