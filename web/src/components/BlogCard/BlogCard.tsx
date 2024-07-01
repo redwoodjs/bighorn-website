@@ -27,9 +27,9 @@ interface BlogCardProps {
 const BlogCard = ({ post }: BlogCardProps) => {
   return (
     <article className="rounded-[4px] border-1 border-maiTai p-7 pb-5">
-      <h4 className="mb-2 text-sm font-bold uppercase text-maiTai">
+      <p className="mb-2 text-sm font-bold uppercase text-maiTai">
         {prettifyDate(post.publishedAt)}
-      </h4>
+      </p>
       <Link
         to={routes.blogIndividual({ slug: post.slug })}
         className="text-white hover:text-sulu"
