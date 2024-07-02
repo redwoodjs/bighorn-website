@@ -10,18 +10,8 @@ import redwood from '@redwoodjs/vite'
 dns.setDefaultResultOrder('verbatim')
 
 export default defineConfig(async () => {
-  const { default: mdx } = await import('@mdx-js/rollup')
-  const { default: remarkFrontmatter } = await import('remark-frontmatter')
-  const { default: remarkMdxFrontmatter } = await import(
-    'remark-mdx-frontmatter'
-  )
   const config: UserConfig = {
-    plugins: [
-      redwood(),
-      mdx({
-        remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-      }),
-    ],
+    plugins: [redwood()],
     build: {
       rollupOptions: {
         output: {
