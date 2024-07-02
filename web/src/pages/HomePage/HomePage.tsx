@@ -3,7 +3,6 @@ import { Metadata } from '@redwoodjs/web'
 import { Toaster } from '@redwoodjs/web/dist/toast'
 
 import Footer from 'src/components/Footer/Footer'
-import ChangelogSummary from 'src/components/Home/ChangelogSummary/ChangelogSummary'
 import EventSummary from 'src/components/Home/EventSummary/EventSummary'
 import HomeHero from 'src/components/Home/HomeHero/HomeHero'
 import RecentBlogPostsCell from 'src/components/Home/RecentBlogPostsCell'
@@ -39,9 +38,6 @@ const HomePage = () => {
 
       {/* ROADMAP */}
       <RoadmapSummary />
-
-      {/* CHANGELOG */}
-      <ChangelogSummary />
 
       {/* BLOG */}
       <RecentBlogPostsCell />
