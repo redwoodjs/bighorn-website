@@ -100,12 +100,6 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href={Constants.STARTUP_FUND} target="_blank" rel="noreferrer">
-                Redwood Startup Fund
-                <Icon id="arrowUpRight" />
-              </a>
-            </li>
-            <li>
               <a href={Constants.NEWSLETTER} target="_blank" rel="noreferrer">
                 Newsletter
                 <Icon id="arrowUpRight" />
