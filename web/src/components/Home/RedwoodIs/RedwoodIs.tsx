@@ -43,7 +43,7 @@ const RedwoodIs = () => {
           >
             {Constants.CREATE_REDWOOD_SCRIPT}
           </div>
-          <button onClick={copyToClipboard}>
+          <button onClick={copyToClipboard} aria-label="copy install command">
             {isCopied ? (
               <span className="text-sulu">
                 <Icon id="check" />
