@@ -46,7 +46,6 @@ RUN yarn redwood build api
 FROM base as web_build
 
 COPY --chown=node:node web web
-COPY --chown=node:node .contentlayer .contentlayer
 RUN yarn redwood build web --no-prerender
 
 # serve api

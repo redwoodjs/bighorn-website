@@ -24,14 +24,12 @@
   },
   "packageManager": "yarn@4.1.1",
   "dependencies": {
-    "contentlayer": "^0.3.4",
     "glob": "^10.3.10",
     "node-html-parser": "^6.1.12",
     "tsx": "^4.7.0"
   },
   "scripts": {
-    "build:icons": "tsx ./scripts/build-icons.mts",
-    "build:content": "contentlayer build"
+    "build:icons": "tsx ./scripts/build-icons.mts"
   },
   "resolutions": {
     "@apollo/client-react-streaming/superjson": "^1.12.2"

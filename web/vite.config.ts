@@ -9,16 +9,17 @@ import redwood from '@redwoodjs/vite'
 // See: https://vitejs.dev/config/server-options.html#server-host.
 dns.setDefaultResultOrder('verbatim')
 
-const viteConfig: UserConfig = {
-  plugins: [redwood()],
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: 'static/[name]-[hash][extname]',
-        chunkFileNames: 'static/[name]-[hash].mjs',
+export default defineConfig(async () => {
+  const config: UserConfig = {
+    plugins: [redwood()],
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'static/[name]-[hash][extname]',
+          chunkFileNames: 'static/[name]-[hash].mjs',
+        },
       },
     },
-  },
-}
-
-export default defineConfig(viteConfig)
+  }
+  return config
+})
