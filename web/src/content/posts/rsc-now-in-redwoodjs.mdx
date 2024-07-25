@@ -4,7 +4,7 @@ Core team lead Tobbe [announced](https://community.redwoodjs.com/t/react-server-
 
 <div data-node-type="callout">
 <div data-node-type="callout-emoji">💡</div>
-<div data-node-type="callout-text">Redwood’s epochs are named after <a target="_blank" rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/List_of_national_forests_of_the_United_States" style="pointer-events: none">National Forests</a> in the United States!</div>
+<div data-node-type="callout-text">Redwood’s epochs are named after <a target="_blank" rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/List_of_national_forests_of_the_United_States" style={{pointerEvents: 'none'}}>National Forests</a> in the United States!</div>
 </div>
 
 You can also watch a video covering how RSC works in Redwood and how to convert an existing GraphQL app:
@@ -55,7 +55,7 @@ RSC presents a new way to think about React-based web applications. First, let�
 
 Here’s a sequence diagram showing the whole flow:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882408347/e3e66e98-e771-4878-8271-2cf17c2b1f02.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882408347/e3e66e98-e771-4878-8271-2cf17c2b1f02.png)
 
 Here’s the definition a typical Cell in a classic Redwood app that demonstrates the full flow above, where server data is needed before the result can be displayed:
 
@@ -120,7 +120,7 @@ Now let’s look at rendering the same Cell in RSC. The first major change is th
 
 Here’s the diagram showing the new data flow:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882506793/15a9a07f-6136-4c8a-b14a-51a618ea6868.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882506793/15a9a07f-6136-4c8a-b14a-51a618ea6868.png)
 
 We’ve removed a column from this diagram by eliminating an entire server! There’s also no longer a need to marshal data to and from GraphQL, and we get to write our server code right beside our client code, continuing Redwood’s embrace of [single file components](https://www.swyx.io/react-sfcs-here).
 
@@ -297,11 +297,11 @@ yarn rw serve
 
 **Cambium** is a simple light-table/photo-editing app. You choose a photo, tweak its brightness, contrast, etc. and then share a URL. Anyone following that URL can see your photos with the edits you made, along side some nerdy photographer data beneath it (shutter speed, aperture, etc):
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882919503/cd3a3fcf-8346-4499-8123-b785c61339f9.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882919503/cd3a3fcf-8346-4499-8123-b785c61339f9.png)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882938524/c0b924c4-e6bb-4161-9377-3af71f506a6d.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882938524/c0b924c4-e6bb-4161-9377-3af71f506a6d.png)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882951911/da5c2765-fbae-4c30-a904-e41882e9ada1.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882951911/da5c2765-fbae-4c30-a904-e41882e9ada1.png)
 
 <div data-node-type="callout">
 <div data-node-type="callout-emoji">💡</div>
@@ -419,7 +419,7 @@ const EditPhotoSuccess = ({ photo }) => {
 
 <div data-node-type="callout">
 <div data-node-type="callout-emoji">💡</div>
-<div data-node-type="callout-text">We’re using a new file organization scheme here we’ve developed over the years since Redwood v1.0: if a component is <em>only</em> used by a single parent, it goes into its parent’s directory. So the <code>EditPhotoCell</code> lives inside the <code>EditPhotoPage</code> directory, and <code>EditPhotoSuccess</code> lives inside <code>EditPhotoPage/EditPhotoCell</code>. We’re debating whether to make this scheme the default recommendation in Redwood apps going forward. <a target="_blank" rel="noopener noreferrer" class="notion-link-token notion-focusable-token notion-enable-hover" href="https://github.com/redwoodjs/redwood/issues/10263" style="pointer-events: none">What do you think?</a></div>
+<div data-node-type="callout-text">We’re using a new file organization scheme here we’ve developed over the years since Redwood v1.0: if a component is <em>only</em> used by a single parent, it goes into its parent’s directory. So the <code>EditPhotoCell</code> lives inside the <code>EditPhotoPage</code> directory, and <code>EditPhotoSuccess</code> lives inside <code>EditPhotoPage/EditPhotoCell</code>. We’re debating whether to make this scheme the default recommendation in Redwood apps going forward. <a target="_blank" rel="noopener noreferrer" className="notion-link-token notion-focusable-token notion-enable-hover" href="https://github.com/redwoodjs/redwood/issues/10263" style={{pointerEvents: 'none'}}>What do you think?</a></div>
 </div>
 
 What about all of the child components to this one, like `<Controls>`, do they need `'use client'` at the top as well? No, as long as the component itself doesn’t use state or other client-only functionality internally. React is smart and knows that when you `'use client'` that anything imported in that component *also* needs to be rendered on the client and does so automatically. (See the **Rendering Server Components Inside Client Components** section for more info.)
@@ -428,7 +428,7 @@ A side effect of this is that using those same child components in a server-rend
 
 Here’s a super helpful graphic Tobbe created explaining how an example page flips back and forth between client and server rendering:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710883821754/c3f16abf-6701-44ca-bfe1-53e5f3581879.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710883821754/c3f16abf-6701-44ca-bfe1-53e5f3581879.png)
 
 The original drawing can be accessed [here](https://excalidraw.com/#json=r79hKtU7A9EiN2DndkSuM,7VkPX6EYJvcBqkVsjtG8pQ).
 
@@ -628,7 +628,7 @@ yarn rw serve
 
 As part of the `setup-rsc` command a barebones RSC app is created for you, demonstrating a client component rendering inside of a server component:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710884294596/86881d65-a9b6-4899-b60b-fb124f991081.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710884294596/86881d65-a9b6-4899-b60b-fb124f991081.png)
 
 You can start your own app from this codebase by:
 

@@ -11,8 +11,11 @@ dns.setDefaultResultOrder('verbatim')
 
 export default defineConfig(async () => {
   const { default: mdx } = await import('@mdx-js/rollup')
+
   const { default: remarkBreaks } = await import('remark-breaks')
   const { default: remarkGfm } = await import('remark-gfm')
+  const { default: rehypeExternalLinks } = await import('rehype-external-links')
+
   const { default: rehypeRaw } = await import('rehype-raw')
   const { default: rehypeSlug } = await import('rehype-slug')
 
@@ -35,6 +38,7 @@ export default defineConfig(async () => {
             },
           ],
           [rehypeSlug],
+          [rehypeExternalLinks],
         ],
       }),
     ],

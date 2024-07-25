@@ -50,7 +50,9 @@ const BlogIndividualPage = async ({ slug }) => {
             </div>
           </div>
 
-          <ContentComponent />
+          <div className="blog-post">
+            <ContentComponent />
+          </div>
         </div>
       </div>
     </div>

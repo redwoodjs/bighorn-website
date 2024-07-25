@@ -33,6 +33,9 @@ module.exports = {
         page: '6.25rem',
         18: '4.5rem',
       },
+      zIndex: {
+        nav: '9000',
+      },
     },
     fontFamily: {
       serif: ['Cambon', 'serif'],
