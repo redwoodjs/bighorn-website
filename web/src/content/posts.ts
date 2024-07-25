@@ -8,6 +8,7 @@ export type Post = {
   tags: string[]
   publishedAt: Date
   author: Author
+  imageUrl?: string
 }
 
 const posts: Post[] = [
@@ -135,4 +136,8 @@ export function getPosts(): Post[] {
         id: index,
       }
     })
+}
+
+export function getPostBySlug(slug: string): Post | undefined {
+  return posts.find((post) => post.slug === slug)
 }
