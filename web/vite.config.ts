@@ -10,8 +10,34 @@ import redwood from '@redwoodjs/vite'
 dns.setDefaultResultOrder('verbatim')
 
 export default defineConfig(async () => {
+  const { default: mdx } = await import('@mdx-js/rollup')
+  const { default: remarkBreaks } = await import('remark-breaks')
+  const { default: remarkGfm } = await import('remark-gfm')
+  const { default: rehypeRaw } = await import('rehype-raw')
+  const { default: rehypeSlug } = await import('rehype-slug')
+
   const config: UserConfig = {
-    plugins: [redwood()],
+    plugins: [
+      redwood(),
+      mdx({
+        remarkPlugins: [[remarkGfm], [remarkBreaks]],
+        rehypePlugins: [
+          [
+            rehypeRaw,
+            {
+              passThrough: [
+                'mdxjsEsm',
+                'mdxFlowExpression',
+                'mdxJsxFlowElement',
+                'mdxJsxTextElement',
+                'mdxTextExpression',
+              ],
+            },
+          ],
+          [rehypeSlug],
+        ],
+      }),
+    ],
     build: {
       rollupOptions: {
         output: {
