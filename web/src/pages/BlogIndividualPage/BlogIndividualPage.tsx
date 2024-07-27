@@ -1,3 +1,5 @@
+import { Suspense, lazy } from 'react'
+
 import { routes, useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
@@ -5,7 +7,12 @@ import Avatar from 'src/components/Avatar/Avatar'
 import { getPostBySlug } from 'src/content/posts'
 import { prettifyDate } from 'src/helpers/DateHelpers'
 
-const BlogIndividualPage = async ({ slug }) => {
+const createLazyComponent = (slug: string) =>
+  lazy(() => import(`../../content/posts/${slug}.mdx`))
+
+const Loading = () => <div>Loading...</div>
+
+const BlogIndividualPage = ({ slug }) => {
   const { origin } = useLocation()
   const post = getPostBySlug(slug)
 
@@ -16,12 +23,7 @@ const BlogIndividualPage = async ({ slug }) => {
     )
   }
 
-  const ContentComponent = async () => {
-    const { default: MdxComponent } = await import(
-      `../../content/posts/${slug}.mdx`
-    )
-    return <MdxComponent />
-  }
+  const ContentComponent = createLazyComponent(post.slug)
 
   return (
     <div className="page-content mx-auto h-full max-w-[1000px]">
@@ -51,7 +53,9 @@ const BlogIndividualPage = async ({ slug }) => {
           </div>
 
           <div className="blog-post">
-            <ContentComponent />
+            <Suspense fallback={<Loading />}>
+              <ContentComponent />
+            </Suspense>
           </div>
         </div>
       </div>
