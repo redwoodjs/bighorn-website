@@ -7,7 +7,9 @@ If you've spent any time around the marketing department of your company/startup
 
 These days, one of the most important elements of SEO is the image you see when a URL is [unfurled](https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254). You've probably seen this in places when pasting a link to a GitHub repo somewhere like Twitter/X (if you're in your 30s) or Facebook (if you're in your 50s). You'll see a preview of the site that looks like this:
 
-![GitHub repo og:image with repository details](https://cdn.hashnode.com/res/hashnode/image/upload/v1713885655393/00257256-583a-484a-8139-5b6739fd06e6.png align="center")
+<p align="center">
+  <img alt="GitHub repo og:image with repository details" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713885655393/00257256-583a-484a-8139-5b6739fd06e6.png" />
+</p>
 
 Where does that come from? If you look at the source of any page of the Redwood repo you'll see a `<meta>` that looks like this:
 
@@ -144,13 +146,17 @@ og:image components need to export at least `output()` which will be the content
 
 The content of this component will not be very exciting, but we can check that it works by browsing to the URL for this image. It's the same as the URL to the PhotoPage itself, plus the extension: http://localhost:8910/photo.png
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1715190035732/4d90610b-df11-44d2-a46f-56720d407006.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1715190035732/4d90610b-df11-44d2-a46f-56720d407006.png" />
+</p>
 
 You should see the text in the upper right, and if you right click notice that you can "Save Image As" meaning this is real image!
 
 Now try this URL: http://localhost:8910/photo.png?debug=true
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1715190112784/13adbe9d-6bba-479c-80aa-5a9b01ef8b0d.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1715190112784/13adbe9d-6bba-479c-80aa-5a9b01ef8b0d.png" />
+</p>
 
 By adding `?debug=true` you get the HTML version of your component, before rendering to an image, including a border that shows how big your image will be rendered! 1200x630 is the default image size for an og:image, but you can override this (more on this in a moment).
 
@@ -225,7 +231,9 @@ export const output = ({ data }) => {
 
 Reloading the browser should result in something like this:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713889240510/9727d254-c2e1-4dd6-bbe1-9592a6fd1dcf.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713889240510/9727d254-c2e1-4dd6-bbe1-9592a6fd1dcf.png" />
+</p>
 
 `data()` works! Let's make this look a little nicer, and include the photo itself in the image.
 
@@ -253,11 +261,15 @@ export const output = ({ data }) => {
 <div data-node-type="callout-text">You may need to restart the dev server to get the photo to be found in <code>web/public</code>!</div>
 </div>
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713911965057/054b936d-5301-49ae-a43d-b49e1edb6fe6.jpeg align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713911965057/054b936d-5301-49ae-a43d-b49e1edb6fe6.jpeg" />
+</p>
 
 It's working! The dashed outline doesn't actually constrain anything vertically, it's just there as a reference to show you would be rendered in your final 1200x630 og:image. If you remove `?debug=true` you can see this in action:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713912137080/5a4e33f2-595d-4287-bdd7-dbc4a70e3e88.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713912137080/5a4e33f2-595d-4287-bdd7-dbc4a70e3e88.png" />
+</p>
 
 The middleware does inject a `<div style="width:1200px">` that limits the contents of your component to the rendered image width for convenience, otherwise you'd have to always limit the size of your component manually.
 
@@ -286,7 +298,9 @@ export const output = ({ data }) => {
 }
 ```
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713912589890/2cf73353-cfbb-45cc-a378-8b2bff126a4b.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713912589890/2cf73353-cfbb-45cc-a378-8b2bff126a4b.png" />
+</p>
 
 Finally, let's add some styling: margins, a darkroom background, space out the text a bit, and a fixed height so it fills our 630px high image:
 
@@ -315,11 +329,15 @@ export const output = ({ data }) => {
 }
 ```
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713912844249/a0a2a2f2-c174-433b-aa36-cd665e7b9bc1.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713912844249/a0a2a2f2-c174-433b-aa36-cd665e7b9bc1.png" />
+</p>
 
 And let's remove `?debug=true` to double check:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713912901341/a4410c6f-3d76-404c-aab6-227d183433b4.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713912901341/a4410c6f-3d76-404c-aab6-227d183433b4.png" />
+</p>
 
 Nice! Now to get this URL into the `<meta>` of the page so that bots can actually find this image.
 
@@ -459,13 +477,17 @@ ngrok http 8910
 
 The output will let you know what the domain is to access your app (look for the "Forwarding" line):
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1715190596840/7add103c-c316-4e2b-8c09-463bb37c4384.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1715190596840/7add103c-c316-4e2b-8c09-463bb37c4384.png" />
+</p>
 
 Open that domain and you should see your homepage. Add `/photo` to the URL to see the photo page, and finally add `.png` and you should see your og:image!
 
 Now, copy the path to /photo (the page, not the og:image) and paste that in at [https://opengraph.xyz](https://opengraph.xyz) and after a moment you should see something like the following:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1713977065539/e29d387b-5d52-427d-8965-3e51cb0a1232.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713977065539/e29d387b-5d52-427d-8965-3e51cb0a1232.png" />
+</p>
 
 It works! The marketing department will love us even more than they already do!
 

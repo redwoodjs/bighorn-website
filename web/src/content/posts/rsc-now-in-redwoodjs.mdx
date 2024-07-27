@@ -9,7 +9,7 @@ Core team lead Tobbe [announced](https://community.redwoodjs.com/t/react-server-
 
 You can also watch a video covering how RSC works in Redwood and how to convert an existing GraphQL app:
 
-%[https://youtu.be/5IZv3khsx0o]
+<iframe class="w-full aspect-video" src="https://www.youtube.com/embed/5IZv3khsx0o?rel=0&modestbranding=1" title="YouTube video player" frameborder="0" allowFullScreen></iframe>
 
 ## Why RSC?
 
@@ -55,7 +55,9 @@ RSC presents a new way to think about React-based web applications. First, let�
 
 Here’s a sequence diagram showing the whole flow:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882408347/e3e66e98-e771-4878-8271-2cf17c2b1f02.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882408347/e3e66e98-e771-4878-8271-2cf17c2b1f02.png" />
+</p>
 
 Here’s the definition a typical Cell in a classic Redwood app that demonstrates the full flow above, where server data is needed before the result can be displayed:
 
@@ -120,7 +122,9 @@ Now let’s look at rendering the same Cell in RSC. The first major change is th
 
 Here’s the diagram showing the new data flow:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882506793/15a9a07f-6136-4c8a-b14a-51a618ea6868.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882506793/15a9a07f-6136-4c8a-b14a-51a618ea6868.png" />
+</p>
 
 We’ve removed a column from this diagram by eliminating an entire server! There’s also no longer a need to marshal data to and from GraphQL, and we get to write our server code right beside our client code, continuing Redwood’s embrace of [single file components](https://www.swyx.io/react-sfcs-here).
 
@@ -297,11 +301,17 @@ yarn rw serve
 
 **Cambium** is a simple light-table/photo-editing app. You choose a photo, tweak its brightness, contrast, etc. and then share a URL. Anyone following that URL can see your photos with the edits you made, along side some nerdy photographer data beneath it (shutter speed, aperture, etc):
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882919503/cd3a3fcf-8346-4499-8123-b785c61339f9.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882919503/cd3a3fcf-8346-4499-8123-b785c61339f9.png" />
+</p>
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882938524/c0b924c4-e6bb-4161-9377-3af71f506a6d.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882938524/c0b924c4-e6bb-4161-9377-3af71f506a6d.png" />
+</p>
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710882951911/da5c2765-fbae-4c30-a904-e41882e9ada1.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882951911/da5c2765-fbae-4c30-a904-e41882e9ada1.png" />
+</p>
 
 <div data-node-type="callout">
 <div data-node-type="callout-emoji">💡</div>
@@ -428,7 +438,9 @@ A side effect of this is that using those same child components in a server-rend
 
 Here’s a super helpful graphic Tobbe created explaining how an example page flips back and forth between client and server rendering:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710883821754/c3f16abf-6701-44ca-bfe1-53e5f3581879.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710883821754/c3f16abf-6701-44ca-bfe1-53e5f3581879.png" />
+</p>
 
 The original drawing can be accessed [here](https://excalidraw.com/#json=r79hKtU7A9EiN2DndkSuM,7VkPX6EYJvcBqkVsjtG8pQ).
 
@@ -601,7 +613,7 @@ So as long as the client component (`<Theme>` in this case) isn't importing thos
 
 You can also watch a video covering creating your own app from scratch:
 
-%[https://youtu.be/PW0ulmCpWn4]
+<iframe class="w-full aspect-video" src="https://www.youtube.com/embed/PW0ulmCpWn4?rel=0&modestbranding=1" title="YouTube video player" frameborder="0" allowFullScreen></iframe>
 
 ### Getting Started
 
@@ -628,7 +640,9 @@ yarn rw serve
 
 As part of the `setup-rsc` command a barebones RSC app is created for you, demonstrating a client component rendering inside of a server component:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1710884294596/86881d65-a9b6-4899-b60b-fb124f991081.png)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710884294596/86881d65-a9b6-4899-b60b-fb124f991081.png" />
+</p>
 
 You can start your own app from this codebase by:
 

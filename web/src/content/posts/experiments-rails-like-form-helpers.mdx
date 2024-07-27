@@ -70,7 +70,9 @@ yarn rw dev
 
 You'll be presented with a simple form:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1717455815542/9ffe0d22-4052-42e5-9190-83286e5cdd8b.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1717455815542/9ffe0d22-4052-42e5-9190-83286e5cdd8b.png" />
+</p>
 
 Let's take a look at the code that makes the form on the left in `web/src/SimplePage.jsx` (styles removed for clarity):
 
@@ -118,7 +120,9 @@ The form helpers use this object to figure what `name` and `specialty` relate to
 
 A plain 'ol HTML form! Submit this form and then watch the console: the `/.redwood/functions/form` function just parrots back the data that it received *after* transforming it back into an object:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1717456153944/38022977-1782-48d2-bb07-2b4fbf93b1f3.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1717456153944/38022977-1782-48d2-bb07-2b4fbf93b1f3.png" />
+</p>
 
 The form on the right demonstrates that you can use these helpers without the pseudo "model" record populating the `<FormWith>`: you simply need to name your inputs properly and the backend will handle the rest.
 
@@ -154,7 +158,9 @@ export const handler = async (event, _context) => {
 
 There are several more forms of different complexity, but the last one labeled "Complex Form" accomplishes what Sam mentioned in the tweet: edit a doctor, their patients, and those patients' appointments all at once:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1717456435733/65ebb570-4901-4100-b454-de35dd440760.png align="center")
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1717456435733/65ebb570-4901-4100-b454-de35dd440760.png" />
+</p>
 
 It's not the prettiest form in the world, but we're here for the code!
 
