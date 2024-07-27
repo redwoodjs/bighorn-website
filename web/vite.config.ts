@@ -18,6 +18,7 @@ export default defineConfig(async () => {
 
   const { default: rehypeRaw } = await import('rehype-raw')
   const { default: rehypeSlug } = await import('rehype-slug')
+  const { default: rehypeHighlight } = await import('rehype-highlight')
 
   const config: UserConfig = {
     plugins: [
@@ -25,6 +26,7 @@ export default defineConfig(async () => {
       mdx({
         remarkPlugins: [[remarkGfm], [remarkBreaks]],
         rehypePlugins: [
+          [rehypeHighlight],
           [
             rehypeRaw,
             {
@@ -49,6 +51,9 @@ export default defineConfig(async () => {
           chunkFileNames: 'static/[name]-[hash].mjs',
         },
       },
+    },
+    ssr: {
+      noExternal: ['react-tweet'],
     },
   }
   return config
