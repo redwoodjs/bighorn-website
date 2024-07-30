@@ -32,7 +32,9 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
           {getDay(date)} at {getTime(date)} PST
         </div>
       </div>
-      <h4 className="mb-2 text-lg font-bold leading-6 text-white">{title}</h4>
+      <h4 className="mb-2 text-lg font-bold leading-6 dark:text-white">
+        {title}
+      </h4>
       <p className="mb-4 text-lg leading-6 text-battleshipGray">
         {description}
       </p>
