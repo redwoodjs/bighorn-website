@@ -18,6 +18,7 @@ const Routes = () => {
       <Set wrap={BaseLayout}>
         <Route path="/" page={HomePage} name="home" />
         <Set wrap={InteriorLayout}>
+          <Route path="/server-components" page={ServerComponentsPage} name="serverComponents" />
           <Route path="/conf" redirect="/react-conf" />
           <Route path="/reactconf" redirect="/react-conf" />
           <Route path="/react-conf" page={ReactConfPage} name="reactConf" />

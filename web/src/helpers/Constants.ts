@@ -23,6 +23,7 @@ export const Constants = Object.freeze({
   PRESTON_WERNER_VENTURES: 'https://prestonwernerventures.com/',
   README: 'https://github.com/redwoodjs/redwood/blob/main/README.md',
   RELEASES: 'https://community.redwoodjs.com/c/announcements/releases-and-upgrade-guides/18',
+  RSC_QUICKSTART: 'npx -y create-redwood-rsc-app APP-NAME',
   SECURITY: 'https://github.com/redwoodjs/redwood/security/policy',
   SHOP: 'https://shop.redwoodjs.com/',
   STARTUP_CLUB: 'https://docs.google.com/forms/d/e/1FAIpQLSeuoGpGJ8gN_eYRY9hU6u2Apw0RB5UV6eYASp6ujsSv_aLaMg/viewform',
