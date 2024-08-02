@@ -3,7 +3,7 @@ import { Feed } from 'feed'
 import type {
   MiddlewareRequest,
   MiddlewareResponse,
-} from '@redwoodjs/vite/dist/middleware'
+} from '@redwoodjs/web/middleware'
 
 import { getPosts } from 'src/content/posts'
 
