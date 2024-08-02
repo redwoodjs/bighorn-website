@@ -88,7 +88,7 @@ This means a request for `/docs` still renders the `<DocsRenderPage>` but `path`
 This results in the following basic, mostly unstyled layout of a typical doc page:
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713207114582/f75d758a-eb91-4391-86c2-14cb4a41cb04.png" />
+  <img src="/images/blogs/building-a-new-docs-site-with-rsc/quick_start_page_screenshot.png" alt="quick start page screenshot" />
 </p>
 
 For now we've surrounded each component with a dashed box to help keep track of what is rendering where.
@@ -184,7 +184,7 @@ However, if there is no `deploy.md` file we assume that `deploy` is instead a di
 If `deploy` is a directory but there's no `index.md` file we process and return option #4 above: we look in that directory for files and sub-directories and generate a virtual `index.md` file on the fly. It creates a list of all Markdown files in the directory, giving them titles and descriptions based on any frontmatter inside the files (if any). This virtual index ends up looking something like this:
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1713207525313/5ceb877c-69c2-4ca7-9183-b763d5315964.png" />
+  <img src="/images/blogs/building-a-new-docs-site-with-rsc/deploy_page_screenshot.png" alt="deploy page screenshot" />
 </p>
 
 The last piece of the puzzle is #2—MDX.
