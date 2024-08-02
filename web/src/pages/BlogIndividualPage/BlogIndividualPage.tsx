@@ -38,7 +38,7 @@ const BlogIndividualPage = ({ slug }) => {
         />
         <div className="col-span-12">
           <h4 className="mb-2 text-sm font-bold uppercase text-maiTai">
-            {prettifyDate(post.publishedAt.toString())}
+            {prettifyDate(post.publishedAt)}
           </h4>
           <h1 className="section-heading mb-5">{post.title}</h1>
           <h2 className="mb-10 text-3xl font-thin text-black dark:text-white">

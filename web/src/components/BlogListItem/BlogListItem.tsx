@@ -16,7 +16,7 @@ const BlogListItem = ({ post }: Props) => {
   return (
     <article>
       <h3 className="mb-2 text-sm font-bold uppercase text-maiTai">
-        {prettifyDate(post.publishedAt.toString())}
+        {prettifyDate(post.publishedAt)}
       </h3>
       <div className="mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
         <h2 className="mb-2 font-sans text-2xl font-bold md:mb-0">
