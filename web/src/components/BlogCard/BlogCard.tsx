@@ -20,7 +20,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
   return (
     <article className="rounded-[4px] border-1 border-maiTai p-7 pb-5">
       <p className="mb-2 text-sm font-bold uppercase text-maiTai">
-        {prettifyDate(post.publishedAt.toString())}
+        {prettifyDate(post.publishedAt)}
       </p>
       <Link
         to={routes.blogIndividual({ slug: post.slug })}
