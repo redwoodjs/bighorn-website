@@ -56,7 +56,7 @@ RSC presents a new way to think about React-based web applications. First, let�
 Here’s a sequence diagram showing the whole flow:
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882408347/e3e66e98-e771-4878-8271-2cf17c2b1f02.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/rsc_sequence_flow.png" alt="rsc sequence diagram" />
 </p>
 
 Here’s the definition a typical Cell in a classic Redwood app that demonstrates the full flow above, where server data is needed before the result can be displayed:
@@ -123,7 +123,7 @@ Now let’s look at rendering the same Cell in RSC. The first major change is th
 Here’s the diagram showing the new data flow:
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882506793/15a9a07f-6136-4c8a-b14a-51a618ea6868.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/new_data_flow.png" alt="new data flow diagram" />
 </p>
 
 We’ve removed a column from this diagram by eliminating an entire server! There’s also no longer a need to marshal data to and from GraphQL, and we get to write our server code right beside our client code, continuing Redwood’s embrace of [single file components](https://www.swyx.io/react-sfcs-here).
@@ -302,15 +302,15 @@ yarn rw serve
 **Cambium** is a simple light-table/photo-editing app. You choose a photo, tweak its brightness, contrast, etc. and then share a URL. Anyone following that URL can see your photos with the edits you made, along side some nerdy photographer data beneath it (shutter speed, aperture, etc):
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882919503/cd3a3fcf-8346-4499-8123-b785c61339f9.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/cambium_example_1.png" alt="cambium app" />
 </p>
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882938524/c0b924c4-e6bb-4161-9377-3af71f506a6d.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/cambium_example_2.png" alt="cambium app" />
 </p>
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710882951911/da5c2765-fbae-4c30-a904-e41882e9ada1.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/cambium_example_3.png" alt="cambium app" />
 </p>
 
 <div data-node-type="callout">
@@ -439,7 +439,7 @@ A side effect of this is that using those same child components in a server-rend
 Here’s a super helpful graphic Tobbe created explaining how an example page flips back and forth between client and server rendering:
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710883821754/c3f16abf-6701-44ca-bfe1-53e5f3581879.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/rsc_diagram.png" alt="diagram of client and server components" />
 </p>
 
 The original drawing can be accessed [here](https://excalidraw.com/#json=r79hKtU7A9EiN2DndkSuM,7VkPX6EYJvcBqkVsjtG8pQ).
@@ -641,7 +641,7 @@ yarn rw serve
 As part of the `setup-rsc` command a barebones RSC app is created for you, demonstrating a client component rendering inside of a server component:
 
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1710884294596/86881d65-a9b6-4899-b60b-fb124f991081.png" />
+  <img src="/images/blogs/rsc-now-in-redwoodjs/example_rsc_app_screenshot.png" alt="example rsc app screenshot" />
 </p>
 
 You can start your own app from this codebase by:
