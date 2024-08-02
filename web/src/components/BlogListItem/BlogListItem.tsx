@@ -11,8 +11,6 @@ interface Props {
 }
 
 const BlogListItem = ({ post }: Props) => {
-  const profilePictureUrl = new URL(post.author.profilePicture)
-  profilePictureUrl.searchParams.set('height', '128')
   return (
     <article>
       <h3 className="mb-2 text-sm font-bold uppercase text-maiTai">
@@ -45,7 +43,7 @@ const BlogListItem = ({ post }: Props) => {
 
       {/* author */}
       <div className="flex items-center gap-x-6">
-        <Avatar alt={post.author.name} src={profilePictureUrl} />
+        <Avatar alt={post.author.name} src={post.author.profilePicture} />
         <div>
           <div className="text-lg">{post.author.name}</div>
         </div>

@@ -15,8 +15,6 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ post }: BlogCardProps) => {
-  const profilePictureUrl = new URL(post.author.profilePicture)
-  profilePictureUrl.searchParams.set('height', '128')
   return (
     <article className="rounded-[4px] border-1 border-maiTai p-7 pb-5">
       <p className="mb-2 text-sm font-bold uppercase text-maiTai">
@@ -46,7 +44,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
             className="text-black dark:text-white"
           />
         </Link>
-        <Avatar alt={post.author.name} src={profilePictureUrl} />
+        <Avatar alt={post.author.name} src={post.author.profilePicture} />
       </div>
     </article>
   )
