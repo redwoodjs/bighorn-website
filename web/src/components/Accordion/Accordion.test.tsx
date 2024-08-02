@@ -8,7 +8,11 @@ import Accordion from './Accordion'
 describe('Accordion', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Accordion />)
+      render(
+        <Accordion heading="heading" subheading="subheading">
+          <p>content</p>
+        </Accordion>
+      )
     }).not.toThrow()
   })
 })
