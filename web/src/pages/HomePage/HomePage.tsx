@@ -1,6 +1,6 @@
 import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
-import { Toaster } from '@redwoodjs/web/dist/toast'
+import { Toaster } from '@redwoodjs/web/toast'
 
 import Footer from 'src/components/Footer/Footer'
 import EventSummary from 'src/components/Home/EventSummary/EventSummary'
