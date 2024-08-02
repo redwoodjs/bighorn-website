@@ -1,25 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
 
+import type { Post } from 'src/content/posts'
 import { prettifyDate } from 'src/helpers/DateHelpers'
 
 import Avatar from '../Avatar/Avatar'
 import Icon from '../Icon/Icon'
 
 interface Props {
-  post: {
-    author: {
-      id: string
-      name: string
-      profilePicture: string
-    }
-    id: string
-    publishedAt: string
-    slug: string
-    subtitle?: string
-    title: string
-    url: string
-    brief: string
-  }
+  post: Post
 }
 
 const BlogListItem = ({ post }: Props) => {
@@ -28,7 +16,7 @@ const BlogListItem = ({ post }: Props) => {
   return (
     <article>
       <h3 className="mb-2 text-sm font-bold uppercase text-maiTai">
-        {prettifyDate(post.publishedAt)}
+        {prettifyDate(post.publishedAt.toString())}
       </h3>
       <div className="mb-3 flex flex-col md:flex-row md:items-center md:justify-between">
         <h2 className="mb-2 font-sans text-2xl font-bold md:mb-0">
