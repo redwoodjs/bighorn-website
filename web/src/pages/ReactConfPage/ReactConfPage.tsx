@@ -1,4 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import Accordion from 'src/components/Accordion/Accordion'
@@ -10,15 +10,17 @@ import ConnectWithUs from 'src/components/ReactConf/ConnectWithUs/ConnectWithUs'
 import GetInvolved from 'src/components/ReactConf/GetInvolved/GetInvolved'
 import Newsletter from 'src/components/ReactConf/Newsletter/Newsletter'
 import RoadmapDetails from 'src/components/RoadmapDetails/RoadmapDetails'
+import { getPostBySlug } from 'src/content/posts'
 import { Constants } from 'src/helpers/Constants'
 
 const ReactConfPage = () => {
+  const { origin } = useLocation()
   return (
     <>
       <Metadata
         title="React Conf"
         description="Hello, from React Conf 2024!"
-        og={{ image: `${location.origin}/images/og.png` }}
+        og={{ image: `${origin}/images/og.png` }}
       />
 
       <div className="page-content">
@@ -79,41 +81,13 @@ const ReactConfPage = () => {
         <div className="bento">
           <div className="col-span-6 lg:col-span-3">
             <BlogCard
-              post={{
-                id: '1',
-                author: {
-                  id: '1',
-                  name: 'Amy Dutton',
-                  profilePicture:
-                    'https://cdn.hashnode.com/res/hashnode/image/upload/v1602294993756/ty1hu5VU2.jpeg',
-                },
-                title:
-                  "What's Different? Comparing the Router in Next.js App API, Next.js Pages API, Remix, and RedwoodJS",
-                slug: 'whats-different-comparing-the-router-in-nextjs-app-api-nextjs-pages-api-remix-and-redwoodjs',
-                brief:
-                  'Right now, there are a few key players in the React space: Next.js, Remix, and RedwoodJS. If I stack them next to each other, there are a few key differences. It’s helpful to recognize these, so you can make informed decisions about the tooling and y...',
-                publishedAt: '2024-03-27T07:59:20.092Z',
-              }}
+              post={getPostBySlug(
+                'whats-different-comparing-the-router-in-nextjs-app-api-nextjs-pages-api-remix-and-redwoodjs'
+              )}
             />
           </div>
           <div className="col-span-6 lg:col-span-3">
-            <BlogCard
-              post={{
-                id: '1',
-                author: {
-                  id: '1',
-                  name: 'Amy Dutton',
-                  profilePicture:
-                    'https://cdn.hashnode.com/res/hashnode/image/upload/v1602294993756/ty1hu5VU2.jpeg',
-                },
-                title:
-                  'Techniques for Fetching Data: Comparing Next.js (app and pages API), Remix, and RedwoodJS',
-                slug: '/something',
-                brief:
-                  'All SaaS applications involve CRUD – Creating, Reading, Updating, and Deleting. Therefore, the way we fetch data naturally becomes a major piece of the developer experience and one of the many problems that a framework is able to solve. Next.js app ...',
-                publishedAt: '2024-04-08T07:59:20.092Z',
-              }}
-            />
+            <BlogCard post={getPostBySlug('techniques-for-fetching-data')} />
           </div>
           <div className="col-span-6 grid grid-cols-3 gap-5">
             <div className="col-span-3 lg:col-span-2">
@@ -210,70 +184,10 @@ const ReactConfPage = () => {
         subheading="We’ve named our next epoch of development, Big Horn, entirely focused on implemented React Server Components and SSR."
       >
         <div className="col-span-2 grid gap-5">
-          <BlogCard
-            post={{
-              id: '1',
-              author: {
-                id: '1',
-                name: 'Rob Cameron',
-                profilePicture:
-                  'https://cdn.hashnode.com/res/hashnode/image/upload/v1711036438023/VTHdKJskw.jpg',
-              },
-              title: 'React Server Components Now in RedwoodJS',
-              slug: 'rsc-now-in-redwoodjs',
-              brief:
-                'Welcome to the preview of RedwoodJS Bighorn! You may not have realized it, but you’ve been living in the Arapahoe epoch since Redwood v1.0. Bighorn is the next epoch, and will bring a massive change to how apps are built with Redwood: React Server Co...',
-              publishedAt: '2024-04-24T07:59:20.092Z',
-            }}
-          />
-          <BlogCard
-            post={{
-              id: '2',
-              author: {
-                id: '1',
-                name: 'Rob Cameron',
-                profilePicture:
-                  'https://cdn.hashnode.com/res/hashnode/image/upload/v1711036438023/VTHdKJskw.jpg',
-              },
-              title: 'Building a new docs site with RSC',
-              slug: 'building-a-new-docs-site-with-rsc',
-              brief:
-                "As big fans of the dog fooding principle, we want to put RSC through its paces by using it to build more than just a demo app. As Redwood's support for RSC becomes more mature we are going to need to document it with the same attention we pay to the ...",
-              publishedAt: '2024-04-24T07:59:20.092Z',
-            }}
-          />
-          <BlogCard
-            post={{
-              id: '3',
-              author: {
-                id: '2',
-                name: 'Danny Choudhury',
-                profilePicture:
-                  'https://cdn.hashnode.com/res/hashnode/image/upload/v1715618460173/IpqHQvSWS.jpeg',
-              },
-              title: 'Middleware in RedwoodJS',
-              slug: 'middleware-in-redwoodjs',
-              brief:
-                "An Introduction to Middleware What is middleware? It's a function that runs before your request is routed and rendered – giving you the ability to: a) Intercept and modify the response b) Enrich the request “context” (e.g. add auth details) c) Enrich...",
-              publishedAt: '2024-05-10T07:59:20.092Z',
-            }}
-          />
-          <BlogCard
-            post={{
-              id: '4',
-              author: {
-                id: '1',
-                name: 'Rob Cameron',
-                profilePicture:
-                  'https://cdn.hashnode.com/res/hashnode/image/upload/v1711036438023/VTHdKJskw.jpg',
-              },
-              title: 'New Feature: og:image Middleware',
-              slug: 'new-feature-ogimage-middleware',
-              brief:
-                "og:image Middleware is only available in the latest canaries of Redwood! The code snippets below assume you're on at least 8.0.0-canary.570 If you've spent any time around the marketing department of your company/startup, you're probably familia...",
-              publishedAt: '2024-05-13T07:59:20.092Z',
-            }}
-          />
+          <BlogCard post={getPostBySlug('rsc-now-in-redwoodjs')} />
+          <BlogCard post={getPostBySlug('building-a-new-docs-site-with-rsc')} />
+          <BlogCard post={getPostBySlug('middleware-in-redwoodjs')} />
+          <BlogCard post={getPostBySlug('new-feature-ogimage-middleware')} />
         </div>
       </Accordion>
       <Accordion
