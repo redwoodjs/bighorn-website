@@ -18,7 +18,7 @@ const HomeHero = () => {
         className="button mb-4 inline-block text-sm md:mb-8 md:text-base"
         rel="noreferrer"
       >
-        Walk Through Bighorn's Features
+        Walk Through Bighorn&apos;s Features
       </a>
 
       <p className="text-sm text-white md:text-base">
@@ -27,7 +27,7 @@ const HomeHero = () => {
           href={Constants.DOCS}
           className="font-bold underline hover:no-underline"
         >
-          Build on Redwood's Established Base
+          Build on Redwood&apos;s Established Base
         </a>
       </p>
     </div>
