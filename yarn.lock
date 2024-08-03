@@ -16626,7 +16626,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -19993,15 +19993,6 @@ __metadata:
     react: ">= 18.0.0"
     react-dom: ">= 18.0.0"
   checksum: 10c0/55f27cbc6a13add4ed9e1e8bd6689f423e338807fba0d0cef3f5cdb61277c95af1fe5cc1121341e73e8da905ea08d4524c82e359398eeb7cd305723d154116bb
-  languageName: node
-  linkType: hard
-
-"react@npm:18.3.1":
-  version: 18.3.1
-  resolution: "react@npm:18.3.1"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: 10c0/283e8c5efcf37802c9d1ce767f302dd569dd97a70d9bb8c7be79a789b9902451e0d16334b05d73299b20f048cbc3c7d288bbbde10b701fa194e2089c237dbea3
   languageName: node
   linkType: hard
 
@@ -23571,8 +23562,8 @@ __metadata:
     postcss: "npm:^8.4.33"
     postcss-loader: "npm:^8.0.0"
     prop-types: "npm:15.8.1"
-    react: "npm:19.0.0-beta-04b058868c-20240508"
-    react-dom: "npm:19.0.0-beta-04b058868c-20240508"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
     react-tweet: "npm:3.2.1"
     rehype-external-links: "npm:3.0.0"
     rehype-highlight: "npm:7.0.0"
