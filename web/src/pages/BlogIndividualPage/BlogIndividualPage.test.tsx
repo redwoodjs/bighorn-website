@@ -8,7 +8,7 @@ import BlogIndividualPage from './BlogIndividualPage'
 describe('BlogIndividualPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BlogIndividualPage />)
+      render(<BlogIndividualPage slug="slug" />)
     }).not.toThrow()
   })
 })

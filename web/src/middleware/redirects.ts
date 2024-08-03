@@ -1,7 +1,7 @@
 import type {
   MiddlewareRequest,
   MiddlewareResponse,
-} from '@redwoodjs/vite/dist/middleware'
+} from '@redwoodjs/web/middleware'
 
 const REDIRECTS = [
   {

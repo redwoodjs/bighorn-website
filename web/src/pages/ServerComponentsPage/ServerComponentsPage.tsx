@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Metadata } from '@redwoodjs/web'
 
 import Icon from 'src/components/Icon/Icon'
-import Newsletter from 'src/components/Newsletter/Newsletter'
 import { Constants } from 'src/helpers/Constants'
 
 const ServerComponentsPage = () => {
