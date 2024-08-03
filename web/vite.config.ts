@@ -51,6 +51,7 @@ export default defineConfig(async () => {
           chunkFileNames: 'static/[name]-[hash].mjs',
         },
       },
+      minify: true,
     },
     ssr: {
       noExternal: ['react-tweet'],
