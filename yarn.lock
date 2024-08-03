@@ -19808,14 +19808,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.0.0-canary-cb151849e1-20240424":
-  version: 19.0.0-canary-cb151849e1-20240424
-  resolution: "react-dom@npm:19.0.0-canary-cb151849e1-20240424"
+"react-dom@npm:19.0.0-beta-04b058868c-20240508":
+  version: 19.0.0-beta-04b058868c-20240508
+  resolution: "react-dom@npm:19.0.0-beta-04b058868c-20240508"
   dependencies:
-    scheduler: "npm:0.25.0-canary-cb151849e1-20240424"
+    scheduler: "npm:0.25.0-beta-04b058868c-20240508"
   peerDependencies:
-    react: 19.0.0-canary-cb151849e1-20240424
-  checksum: 10c0/d42a6f0f587df43d889aac7fbfac26d5a1cc91bd7d93a8bfecf26a77196aba4fc0878dc75c3e5a13449cb531417876b6b0ea8483d414bba4e93008d3f8b52405
+    react: 19.0.0-beta-04b058868c-20240508
+  checksum: 10c0/136b5aa674740b4a33c8acffa0938d438d4368ed08ab123ed2cccb1f4b73423dec5c5e5d0c5691f97c3d1d31b4d210c4e663f5430e95813bd9b7a335a44e1eed
   languageName: node
   linkType: hard
 
@@ -20005,10 +20005,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:19.0.0-canary-cb151849e1-20240424":
-  version: 19.0.0-canary-cb151849e1-20240424
-  resolution: "react@npm:19.0.0-canary-cb151849e1-20240424"
-  checksum: 10c0/dcf99a3fd550aee018c61c8b28aafacaf50fa8fbf2321c27bf56a0109ed78d01dd3ec38829f01cb6729cef3377c5401c09723738d3e95acce7a915f16328056b
+"react@npm:19.0.0-beta-04b058868c-20240508":
+  version: 19.0.0-beta-04b058868c-20240508
+  resolution: "react@npm:19.0.0-beta-04b058868c-20240508"
+  checksum: 10c0/073bf88725c89a2b4fdaed686d5c9eac619c34e31480bcbb3f9cd362a04463da9985ac4f870869e111d3e776c52fb95a8783793c99d9951541ead67742cbf952
   languageName: node
   linkType: hard
 
@@ -20895,10 +20895,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:0.25.0-canary-cb151849e1-20240424":
-  version: 0.25.0-canary-cb151849e1-20240424
-  resolution: "scheduler@npm:0.25.0-canary-cb151849e1-20240424"
-  checksum: 10c0/5530d5541e5c7292e51c10d9f1607d7605fbb5f18a1d5d798db7094e1563df45f1a42af39561c999a743eabe3320b1c44b739b437a21a3ca9e84c98e8a09c473
+"scheduler@npm:0.25.0-beta-04b058868c-20240508":
+  version: 0.25.0-beta-04b058868c-20240508
+  resolution: "scheduler@npm:0.25.0-beta-04b058868c-20240508"
+  checksum: 10c0/3700160f3ab8894d8c8c73442580c814e9a6f97028c7b595cd1a9ce8e5a30c6d43b261684956bb53cd2af382a3f795dc622857c412d2e60d491a75eb2eb9d5a0
   languageName: node
   linkType: hard
 
@@ -23571,8 +23571,8 @@ __metadata:
     postcss: "npm:^8.4.33"
     postcss-loader: "npm:^8.0.0"
     prop-types: "npm:15.8.1"
-    react: "npm:19.0.0-canary-cb151849e1-20240424"
-    react-dom: "npm:19.0.0-canary-cb151849e1-20240424"
+    react: "npm:19.0.0-beta-04b058868c-20240508"
+    react-dom: "npm:19.0.0-beta-04b058868c-20240508"
     react-tweet: "npm:3.2.1"
     rehype-external-links: "npm:3.0.0"
     rehype-highlight: "npm:7.0.0"
