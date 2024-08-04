@@ -1,8 +1,81 @@
 @import url("https://use.typekit.net/sjm8rub.css");
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,400;0,700;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
-
 @import url("./styles/dracula.css");
+
+/* PublicSans taken from google fonts */
+/* normal, extra-light aka weight=200 */
+@font-face {
+  font-family: 'Public Sans';
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/PublicSans/PublicSans-ExtraLight.woff2') format('woff2'),
+       url('/fonts/PublicSans/PublicSans-ExtraLight.woff') format('woff');
+}
+/* normal, regular aka weight=400 */
+@font-face {
+  font-family: 'Public Sans';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/PublicSans/PublicSans-Regular.woff2') format('woff2'),
+       url('/fonts/PublicSans/PublicSans-Regular.woff') format('woff');
+}
+/* normal, bold aka weight=700 */
+@font-face {
+  font-family: 'Public Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/PublicSans/PublicSans-Bold.woff2') format('woff2'),
+       url('/fonts/PublicSans/PublicSans-Bold.woff') format('woff');
+}
+/* italic, regular aka weight=400 */
+@font-face {
+  font-family: 'Public Sans';
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/PublicSans/PublicSans-Italic.woff2') format('woff2'),
+       url('/fonts/PublicSans/PublicSans-Italic.woff') format('woff');
+}
+/* italic, bold aka weight=700 */
+@font-face {
+  font-family: 'Public Sans';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/PublicSans/PublicSans-BoldItalic.woff2') format('woff2'),
+       url('/fonts/PublicSans/PublicSans-BoldItalic.woff') format('woff');
+}
+/* italic, black aka weight=900 */
+@font-face {
+  font-family: 'Public Sans';
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/PublicSans/PublicSans-BlackItalic.woff2') format('woff2'),
+       url('/fonts/PublicSans/PublicSans-BlackItalic.woff') format('woff');
+}
+
+/* RobotoMono taken from google fonts */
+/* - regular aka weight=400 */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/RobotoMono/RobotoMono-Regular.woff2') format('woff2'),
+       url('/fonts/RobotoMono/RobotoMono-Regular.woff') format('woff');
+}
+/* - bold aka weight=700 */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/RobotoMono/RobotoMono-Bold.woff2') format('woff2'),
+       url('/fonts/RobotoMono/RobotoMono-Bold.woff') format('woff');
+}
 
 /* TODO: Handle Cambon properly */
 @font-face {
