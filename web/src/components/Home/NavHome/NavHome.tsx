@@ -289,7 +289,7 @@ const Nav = () => {
             animate={{ opacity: 1, x: 0, width: 'auto' }}
             viewport={{ amount: 1500 }}
           >
-            <a href={Constants.GET_STARTED} className="button hover:text-black">
+            <a href={Constants.GET_STARTED} className="button hover:text-black truncate">
               Get Started
             </a>
           </motion.li>
