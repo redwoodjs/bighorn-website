@@ -99,12 +99,6 @@ const Footer = () => {
                 <Icon id="arrowUpRight" />
               </a>
             </li>
-            <li>
-              <a href={Constants.NEWSLETTER} target="_blank" rel="noreferrer">
-                Newsletter
-                <Icon id="arrowUpRight" />
-              </a>
-            </li>
           </ul>
         </div>
         <div>
