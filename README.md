@@ -107,51 +107,16 @@ The new icon will be available within the `Icon` component, using the same name 
 
 ## Blog Posts
 
-Blog posts are written and managed inside [Hashnode](https://hashnode.com/).
+Blog posts are written and managed directly within this repo.
 
-## Caching
+### Suggesting new blog posts
 
-While blog posts and publications are fetched from Hashnode, Redwood's GraphQL server is also caching its responses.
+Please feel free to open an issue with the blog post suggestion you want us to consider.
 
-See the `graphql` function for the `useResponseCache` config.
+### Authoring new blog posts
 
-### Invalidating
-
-The GraphQL mutations:
-
-* invalidatePost(slug: string)
-* invalidatePosts
-
-will purge the Posts from the response cache.
-
-```bash
-curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation { invalidatePosts }" }' https://redwoodjs.com/.netlify/functions/graphql
-```
-
-```bash
-curl -X POST -H "Content-Type: application/json" --data '{ "query": "mutation { invalidatePost(slug: \"rsc-now-in-redwoodjs\") }" }' https://redwoodjs.com/.netlify/functions/graphql
-```
-
-
-```bash
-curl -X POST -H "Content-Type: application/json" --data '{ "query": "query { post(slug: \"rsc-now-in-redwoodjs\") { id, title } }" }' https://redwoodjs.com/.netlify/functions/graphql
-```
-
-
-A webhook at /
-
-For example:
-
-```bash
-curl http://localhost:8911/whInvalidatePostsHook
-```
-
-Where the hostname is local or
-
-```bash
-curl https://redwoodjs.com/.netlify/functions/whInvalidatePostsHook
-```
-
-in production.
-
-Note: Since the webhook is signed, you'd need the secret as well, but Hashnode provides this for the webhook.
+If you want to author a new blog post you can do so with a PR to this repository. The PR will have to do the following:
+1. Update the `posts` list in `web/src/content/posts.ts` to include the metadata associated with your new post.
+2. Add a new MDX document within the `web/src/content/posts` directory making sure to name it the same as the `slug` you used in your metadata `posts` entry.
+3. If you want to include any images which aren't already hosted on some third party platform then please add then to a new directory within `web/public/images/blogs`. This new directory should again be named the same as the `slug`. You can name your image files whatever you like. You can then reference these images like so: `src="/images/blogs/your-new-slug/image_file_name.png`.
+4. If this is your first time authoring a blog post here then you will also need to add your details to the `authors` list in `web/src/content/authors.ts`. Again if your profile picture is not already hosted on some third party platform then please add it into the `web/public/images/authors` directory.
