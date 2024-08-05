@@ -1,15 +1,15 @@
 import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
-import { Toaster } from '@redwoodjs/web/dist/toast'
+import { Toaster } from '@redwoodjs/web/toast'
 
 import Footer from 'src/components/Footer/Footer'
 import EventSummary from 'src/components/Home/EventSummary/EventSummary'
 import HomeHero from 'src/components/Home/HomeHero/HomeHero'
-import RecentBlogPostsCell from 'src/components/Home/RecentBlogPostsCell'
 import RedwoodIs from 'src/components/Home/RedwoodIs/RedwoodIs'
 import RoadmapSummary from 'src/components/Home/RoadmapSummary/RoadmapSummary'
 import WhatsIncluded from 'src/components/Home/WhatsIncluded/WhatsIncluded'
 import Newsletter from 'src/components/Newsletter/Newsletter'
+import RecentBlogPosts from 'src/components/RecentBlogPosts/RecentBlogPosts'
 
 const HomePage = () => {
   const { origin } = useLocation()
@@ -40,7 +40,7 @@ const HomePage = () => {
       <RoadmapSummary />
 
       {/* BLOG */}
-      <RecentBlogPostsCell />
+      <RecentBlogPosts />
 
       {/* UPCOMING-EVENTS */}
       <EventSummary />

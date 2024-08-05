@@ -10,8 +10,40 @@ import redwood from '@redwoodjs/vite'
 dns.setDefaultResultOrder('verbatim')
 
 export default defineConfig(async () => {
+  const { default: mdx } = await import('@mdx-js/rollup')
+
+  const { default: remarkBreaks } = await import('remark-breaks')
+  const { default: remarkGfm } = await import('remark-gfm')
+  const { default: rehypeExternalLinks } = await import('rehype-external-links')
+
+  const { default: rehypeRaw } = await import('rehype-raw')
+  const { default: rehypeSlug } = await import('rehype-slug')
+  const { default: rehypeHighlight } = await import('rehype-highlight')
+
   const config: UserConfig = {
-    plugins: [redwood()],
+    plugins: [
+      redwood(),
+      mdx({
+        remarkPlugins: [[remarkGfm], [remarkBreaks]],
+        rehypePlugins: [
+          [rehypeHighlight],
+          [
+            rehypeRaw,
+            {
+              passThrough: [
+                'mdxjsEsm',
+                'mdxFlowExpression',
+                'mdxJsxFlowElement',
+                'mdxJsxTextElement',
+                'mdxTextExpression',
+              ],
+            },
+          ],
+          [rehypeSlug],
+          [rehypeExternalLinks],
+        ],
+      }),
+    ],
     build: {
       rollupOptions: {
         output: {
@@ -19,6 +51,10 @@ export default defineConfig(async () => {
           chunkFileNames: 'static/[name]-[hash].mjs',
         },
       },
+      minify: true,
+    },
+    ssr: {
+      noExternal: ['react-tweet'],
     },
   }
   return config

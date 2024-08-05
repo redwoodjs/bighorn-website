@@ -5,9 +5,9 @@ import { SitemapStream, streamToPromise } from 'sitemap'
 import type {
   MiddlewareRequest,
   MiddlewareResponse,
-} from '@redwoodjs/vite/dist/middleware'
+} from '@redwoodjs/web/middleware'
 
-import { getAllPosts } from './util'
+import { getPosts } from 'src/content/posts'
 
 export async function middleware(
   req: MiddlewareRequest,
@@ -29,7 +29,7 @@ export async function middleware(
   ]
 
   // Include the dynamic links to blog posts
-  const posts = await getAllPosts()
+  const posts = getPosts()
   for (const post of posts) {
     const url = ROOT_URL + '/blog/' + post.slug
     links.push({

@@ -1,11 +1,13 @@
 import { useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
-import BlogListCell from 'src/components/BlogListCell'
+import BlogListItem from 'src/components/BlogListItem/BlogListItem'
 import Header from 'src/components/Header/Header'
+import { getPosts } from 'src/content/posts'
 
 const BlogPage = () => {
   const { origin } = useLocation()
+  const posts = getPosts()
   return (
     <>
       <Metadata
@@ -21,7 +23,13 @@ const BlogPage = () => {
       <hr />
 
       <div className="page-content mx-auto max-w-[1000px]">
-        <BlogListCell />
+        <div className="mb-[44px] flex flex-col gap-[100px]">
+          {posts.map((post) => (
+            <div key={post.slug}>
+              <BlogListItem post={post} />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
