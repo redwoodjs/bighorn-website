@@ -137,6 +137,7 @@ const Nav = () => {
           onClick={() => {
             setIsNavShowing((prevValue) => !prevValue)
           }}
+          aria-label="toggle navigation menu"
         >
           <motion.div
             className="h-[2px] w-8 bg-white"
@@ -289,7 +290,10 @@ const Nav = () => {
             animate={{ opacity: 1, x: 0, width: 'auto' }}
             viewport={{ amount: 1500 }}
           >
-            <a href={Constants.GET_STARTED} className="button hover:text-black truncate">
+            <a
+              href={Constants.GET_STARTED}
+              className="button truncate hover:text-black"
+            >
               Get Started
             </a>
           </motion.li>
