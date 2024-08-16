@@ -84,6 +84,11 @@ const REDIRECTS = [
     to: '/blog/rsc-now-in-redwoodjs',
     status: 301,
   },
+  {
+    from: '/shop',
+    to: 'https://shop.redwoodjs.com',
+    status: 301,
+  },
 ]
 
 export async function middleware(
