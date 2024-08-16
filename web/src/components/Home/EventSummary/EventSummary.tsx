@@ -44,6 +44,7 @@ const EventSummary = () => {
               <EventItem
                 key={index}
                 date={item.date}
+                time={item.time}
                 title={item.title}
                 description={item.description}
                 rsvp={item.rsvp}

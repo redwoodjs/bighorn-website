@@ -4,22 +4,19 @@ import Icon from '../Icon/Icon'
 
 interface EventItemProps {
   date: string
+  time: string
   title: string
   description: string
   rsvp?: string
 }
 
-const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
+const EventItem = ({ date, time, title, description, rsvp = '' }: EventItemProps) => {
   const getDate = (date: string) => {
     return format(date, 'MMM d')
   }
 
   const getDay = (date: string) => {
     return format(date, 'EEEE')
-  }
-
-  const getTime = (date: string) => {
-    return format(date, 'h:mm a')
   }
 
   return (
@@ -29,7 +26,7 @@ const EventItem = ({ date, title, description, rsvp = '' }: EventItemProps) => {
           {getDate(date)}
         </div>
         <div className="text-lg text-battleshipGray">
-          {getDay(date)} at {getTime(date)} PST
+          {getDay(date)} at {time}
         </div>
       </div>
       <h4 className="mb-2 text-lg font-bold leading-6 dark:text-white">
