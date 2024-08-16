@@ -144,6 +144,7 @@ const Nav = () => {
           onClick={() => {
             setIsNavShowing((prevValue) => !prevValue)
           }}
+          aria-label="toggle navigation menu"
         >
           <motion.div
             className="h-[2px] w-8 bg-white"
