@@ -438,6 +438,10 @@
   .light-mode .asset-button {
     @apply border-christi hover:border-christi text-christi bg-transparent hover:bg-christi hover:text-white
   }
+
+  .blog-post .react-tweet-theme a {
+    border-bottom: 0;
+  }
 }
 
 @layer utilities {
