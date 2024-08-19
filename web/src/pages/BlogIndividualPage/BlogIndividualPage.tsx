@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 
 import { routes, useLocation } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
@@ -10,11 +10,42 @@ import { prettifyDate } from 'src/helpers/DateHelpers'
 const createLazyComponent = (slug: string) =>
   lazy(() => import(`../../content/posts/${slug}.mdx`))
 
+const getYouTubeVideoID = (url: string) => {
+  return url.split('/').pop().split('?')[0]
+}
+
+// use this API to get the meta data as JSON for the video
+// https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoID}format=json
+const getYouTubeSize = async (videoID: string) => {
+  try {
+    const response = await fetch(
+      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoID}&format=json`
+    )
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    return await response.json()
+  } catch (error) {
+    console.error('Error fetching video metadata:', error)
+  }
+}
+
 const Loading = () => <div>Loading...</div>
 
 const BlogIndividualPage = ({ slug }) => {
+  const [isSuspenseResolved, setIsSuspenseResolved] = useState(false)
   const { origin } = useLocation()
   const post = getPostBySlug(slug)
+
+  useEffect(() => {
+    // find any YouTube embeds on the page
+    const youtubeEmbeds = document.querySelectorAll('iframe')
+    youtubeEmbeds.forEach(async (embed) => {
+      const videoID = getYouTubeVideoID(embed.src)
+      const data = await getYouTubeSize(videoID)
+      embed.style.aspectRatio = `${data.width / data.height}`
+    })
+  }, [isSuspenseResolved])
 
   // TODO: Provide a better 404 component
   if (!post) {
@@ -54,7 +85,7 @@ const BlogIndividualPage = ({ slug }) => {
 
           <div className="blog-post">
             <Suspense fallback={<Loading />}>
-              <ContentComponent />
+              <ContentComponent onLoad={() => setIsSuspenseResolved(true)} />
             </Suspense>
           </div>
         </div>

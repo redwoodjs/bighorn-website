@@ -129,6 +129,10 @@
     @apply border-1 border-neutral-200 dark:border-neutral-800 p-2;
   }
 
+  iframe {
+    @apply mb-10;
+  }
+
   /* -------------------------- HEADER ------------------------------------- */
   /* logo - right click menu */
   .right-click-menu {
