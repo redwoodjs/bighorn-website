@@ -29,6 +29,7 @@ export const Constants = Object.freeze({
   STARTUP_CLUB: 'https://docs.google.com/forms/d/e/1FAIpQLSeuoGpGJ8gN_eYRY9hU6u2Apw0RB5UV6eYASp6ujsSv_aLaMg/viewform',
   STARTUP_FUND: 'http://redwoodstartupfund.com/',
   TUTORIAL: 'https://redwoodjs.com/docs/tutorial/foreword',
+  UPGRADE: '8',
   VERSION: 'v7.7',
   X: 'https://twitter.com/redwoodjs',
   YOUTUBE: 'https://www.youtube.com/redwoodjs',

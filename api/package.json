@@ -6,6 +6,7 @@
     "@graphql-yoga/plugin-response-cache": "3.3.0",
     "@redwoodjs/api": "8.0.0-rc.1130",
     "@redwoodjs/api-server": "8.0.0-rc.1130",
+    "@redwoodjs/auth-dbauth-api": "8.0.0-rc.1130+86e6952ee",
     "@redwoodjs/graphql-server": "8.0.0-rc.1130",
     "graphql-request": "6.1.0"
   }

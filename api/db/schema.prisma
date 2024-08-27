@@ -21,3 +21,42 @@ model Newsletter {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model User {
+  id                  String    @id @default(uuid())
+  name                String
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  role                Role      @relation(fields: [roleId], references: [id])
+  roleId              Int
+  Comment             Comment[]
+  createdAt           DateTime  @default(now())
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  User      User[]
+}
+
+model Comment {
+  id              String        @id @default(uuid())
+  author          User          @relation(fields: [authorId], references: [id])
+  authorId        String
+  comment         String
+  commentStatus   CommentStatus @relation(fields: [commentStatusId], references: [id])
+  commentStatusId Int
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model CommentStatus {
+  id        Int       @id @default(autoincrement())
+  name      String
+  Comment   Comment[]
+  createdAt DateTime  @default(now())
+}

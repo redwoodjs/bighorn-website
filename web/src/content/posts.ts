@@ -1,7 +1,7 @@
 import * as authors from './authors'
 import type { Author } from './authors'
 
-export type Post = {
+export interface Post {
   slug: string
   title: string
   brief: string
@@ -116,15 +116,6 @@ const posts: Post[] = [
       'flyio',
     ],
     publishedAt: new Date('2024-07-02T12:00:00.000Z'),
-    author: authors.JoshGMWalker,
-  },
-  {
-    slug: 'v8-upgrade',
-    title: 'v8 Upgrade Guide',
-    brief:
-      'Version 8 is out with some cool new features like background jobs! Upgrading should be easy with this guide to help you along the way.',
-    tags: ['v8'],
-    publishedAt: new Date('2024-08-23T12:00:00.000Z'),
     author: authors.JoshGMWalker,
   },
 ]
