@@ -216,6 +216,19 @@ const Nav = () => {
             </ul>
           </li>
           <li>
+            {currentUser ? (
+              <button
+                onClick={() => {
+                  logOut()
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link to={routes.login()}>Login</Link>
+            )}
+          </li>
+          <li>
             <a href={Constants.GET_STARTED}> Get Started</a>
           </li>
         </motion.ul>
