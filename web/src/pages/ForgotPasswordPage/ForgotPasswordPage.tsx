@@ -48,7 +48,7 @@ const ForgotPasswordPage = () => {
           <h1 className="section-heading mb-10">Forgot your password?</h1>
           <Link
             to={routes.login()}
-            className="text-white underline hover:text-sulu"
+            className="text-black underline hover:text-christi dark:text-white dark:hover:text-sulu"
           >
             Ready to Login?
           </Link>

@@ -53,7 +53,7 @@ const LoginPage = () => {
           <h1 className="section-heading mb-10">Login to Your Account</h1>
           <Link
             to={routes.signup()}
-            className="text-white underline hover:text-sulu"
+            className="text-black underline hover:text-christi dark:text-white dark:hover:text-sulu"
           >
             Need an Account?
           </Link>
@@ -86,7 +86,7 @@ const LoginPage = () => {
               <Label name="password">Password</Label>
               <Link
                 to={routes.forgotPassword()}
-                className="text-white underline hover:text-sulu"
+                className="text-black underline hover:text-christi dark:text-white dark:hover:text-sulu"
               >
                 Forgot?
               </Link>
