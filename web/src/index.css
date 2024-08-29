@@ -118,7 +118,7 @@
     input[type="text"],
     input[type="password"],
     input[type="email"] {
-      @apply border-battleshipGray bg-transparent text-lg text-white px-7 h-[54px] w-full rounded-[4px] mb-7 border-1;
+      @apply border-battleshipGray bg-transparent text-lg dark:text-white px-7 h-[54px] w-full rounded-[4px] mb-7 border-1;
     }
   }
 
