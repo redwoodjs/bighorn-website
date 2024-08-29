@@ -10,6 +10,7 @@
   "dependencies": {
     "@apollo/client-react-streaming": "0.10.0",
     "@mdx-js/rollup": "3.0.1",
+    "@redwoodjs/auth-dbauth-middleware": "8.0.0-rc.1327",
     "@redwoodjs/auth-dbauth-web": "8.0.0-rc.1327",
     "@redwoodjs/forms": "8.0.0-rc.1327",
     "@redwoodjs/router": "8.0.0-rc.1327",

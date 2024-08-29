@@ -5661,7 +5661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/auth-dbauth-api@npm:8.0.0-rc.1327":
+"@redwoodjs/auth-dbauth-api@npm:8.0.0-rc.1327, @redwoodjs/auth-dbauth-api@npm:8.0.0-rc.1327+d68eadbfa":
   version: 8.0.0-rc.1327
   resolution: "@redwoodjs/auth-dbauth-api@npm:8.0.0-rc.1327"
   dependencies:
@@ -5670,6 +5670,16 @@ __metadata:
     md5: "npm:2.3.0"
     uuid: "npm:10.0.0"
   checksum: 10c0/77f5a5da21df2f203d581555e471120c64a462a1d1c5f0a47019a935beb7275f55fe434b7183d6e095076358294e5f39df99ecceea75be0fb9ec41c552411546
+  languageName: node
+  linkType: hard
+
+"@redwoodjs/auth-dbauth-middleware@npm:8.0.0-rc.1327":
+  version: 8.0.0-rc.1327
+  resolution: "@redwoodjs/auth-dbauth-middleware@npm:8.0.0-rc.1327"
+  dependencies:
+    "@redwoodjs/auth-dbauth-api": "npm:8.0.0-rc.1327+d68eadbfa"
+    "@redwoodjs/web": "npm:8.0.0-rc.1327+d68eadbfa"
+  checksum: 10c0/51dfba299c3a5e79f635cfd0cfdfe0bd83e52a0f375ae0b0a7fb2c2a89902fe1a9bf65ba2378b6cdcf23a0cb482a4e40be26ae250bfb3fb47de037a5ac81b8e6
   languageName: node
   linkType: hard
 
@@ -23514,6 +23524,7 @@ __metadata:
   dependencies:
     "@apollo/client-react-streaming": "npm:0.10.0"
     "@mdx-js/rollup": "npm:3.0.1"
+    "@redwoodjs/auth-dbauth-middleware": "npm:8.0.0-rc.1327"
     "@redwoodjs/auth-dbauth-web": "npm:8.0.0-rc.1327"
     "@redwoodjs/forms": "npm:8.0.0-rc.1327"
     "@redwoodjs/router": "npm:8.0.0-rc.1327"

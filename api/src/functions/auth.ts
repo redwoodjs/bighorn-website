@@ -3,7 +3,7 @@ import type { APIGatewayProxyEvent, Context } from 'aws-lambda'
 import { DbAuthHandler } from '@redwoodjs/auth-dbauth-api'
 import type { DbAuthHandlerOptions, UserType } from '@redwoodjs/auth-dbauth-api'
 
-import { cookieName } from 'src/lib/auth'
+import { cookieName, ROLES } from 'src/lib/auth'
 import { db } from 'src/lib/db'
 
 export const handler = async (
@@ -125,18 +125,18 @@ export const handler = async (
     //
     // If this returns anything else, it will be returned by the
     // `signUp()` function in the form of: `{ message: 'String here' }`.
-    handler: ({
-      username,
-      hashedPassword,
-      salt,
-      userAttributes: _userAttributes,
-    }) => {
+    handler: ({ username, hashedPassword, salt, userAttributes }) => {
       return db.user.create({
         data: {
           email: username,
           hashedPassword: hashedPassword,
           salt: salt,
-          // name: userAttributes.name
+          name: userAttributes.name,
+          role: {
+            connect: {
+              id: ROLES.user.id,
+            },
+          },
         },
       })
     },

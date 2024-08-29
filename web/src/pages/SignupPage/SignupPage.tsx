@@ -30,8 +30,8 @@ const SignupPage = () => {
   }, [])
 
   const onSubmit = async (data: Record<string, string>) => {
-    console.log({ data })
     const response = await signUp({
+      name: data.name,
       username: data.username,
       password: data.password,
     })
@@ -77,11 +77,11 @@ const SignupPage = () => {
               validation={{
                 required: {
                   value: true,
-                  message: 'Username is required',
+                  message: 'Name is required',
                 },
               }}
             />
-            <FieldError name="username" className="error-message" />
+            <FieldError name="name" className="error-message" />
           </div>
 
           <div className="field">

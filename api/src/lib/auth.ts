@@ -3,6 +3,11 @@ import { AuthenticationError, ForbiddenError } from '@redwoodjs/graphql-server'
 
 import { db } from './db'
 
+export const ROLES = {
+  admin: { id: 'admin' },
+  user: { id: 'user' },
+}
+
 /**
  * The name of the cookie that dbAuth sets
  *
@@ -30,7 +35,8 @@ export const cookieName = 'session_%port%'
  * seen if someone were to open the Web Inspector in their browser.
  */
 export const getCurrentUser = async (session: Decoded) => {
-  if (!session || typeof session.id !== 'number') {
+  // We use uuid ids for our users so we expect the session.id to be a string
+  if (!session || typeof session.id !== 'string') {
     throw new Error('Invalid session')
   }
 

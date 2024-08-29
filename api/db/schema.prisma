@@ -31,14 +31,13 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
   role                Role      @relation(fields: [roleId], references: [id])
-  roleId              Int
+  roleId              String
   Comment             Comment[]
   createdAt           DateTime  @default(now())
 }
 
 model Role {
-  id        Int      @id @default(autoincrement())
-  name      String
+  id        String   @id
   createdAt DateTime @default(now())
   User      User[]
 }
