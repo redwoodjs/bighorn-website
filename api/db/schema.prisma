@@ -44,19 +44,24 @@ model Role {
 }
 
 model Comment {
-  id              String        @id @default(uuid())
-  author          User          @relation(fields: [authorId], references: [id])
+  id              String    @id @default(uuid())
+  author          User      @relation(fields: [authorId], references: [id])
   authorId        String
   comment         String
-  commentStatus   CommentStatus @relation(fields: [commentStatusId], references: [id])
-  commentStatusId Int
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
+  parentComment   Comment?  @relation("thradedComments", fields: [parentCommentId], references: [id])
+  parentCommentId String?
+  visible         Boolean   @default(true)
+  flagged         Boolean   @default(false)
+  bookmarked      Boolean   @default(false)
+  editCount       Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  Comment         Comment[] @relation("thradedComments")
 }
 
-model CommentStatus {
-  id        Int       @id @default(autoincrement())
-  name      String
-  Comment   Comment[]
-  createdAt DateTime  @default(now())
+model Likes {
+  id        Int      @id @default(autoincrement())
+  commentId String
+  userId    String
+  createdAt DateTime @default(now())
 }
