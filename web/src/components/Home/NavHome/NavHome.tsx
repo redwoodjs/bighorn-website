@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import { Link, routes } from '@redwoodjs/router'
 
+import { useAuth } from 'src/auth'
 import { Constants } from 'src/helpers/Constants'
 import { useOutsideClick } from 'src/hooks/useClickoutside'
 import { useEscapeKey } from 'src/hooks/useEscapeKey'
@@ -24,6 +25,8 @@ const Nav = () => {
   const [isNavShowing, setIsNavShowing] = useState(false) // this is used to control he state of the mobile nav
   const [isThemeDropdownShowing, setIsThemeDropdownShowing] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState<ThemeType>('system')
+
+  const { currentUser, logOut } = useAuth()
 
   // set up right click on the logo
   useEffect(() => {
@@ -284,6 +287,20 @@ const Nav = () => {
                 )}
               </AnimatePresence>
             </button>
+          </li>
+          <li>
+            {currentUser ? (
+              <button
+                onClick={() => {
+                  logOut()
+                }}
+              >
+                {' '}
+                Logout{' '}
+              </button>
+            ) : (
+              <Link to={routes.login()}>Login</Link>
+            )}
           </li>
           <li>
             <a
