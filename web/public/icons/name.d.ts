@@ -8,6 +8,7 @@ export type IconName =
 	| "check"
 	| "chevronDown"
 	| "clipboard"
+	| "close"
 	| "copy"
 	| "dark"
 	| "discord"

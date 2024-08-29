@@ -18,6 +18,13 @@
     "hljs",
     "Queryrecent",
     "QUICKSTART",
-    "Roboto"
-  ]
+    "redwoodjs",
+    "Roboto",
+    "signup"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#0C3516",
+    "titleBar.activeBackground": "#114A1F",
+    "titleBar.activeForeground": "#F3FCF5"
+  }
 }

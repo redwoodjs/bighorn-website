@@ -23,11 +23,16 @@ module.exports = {
         },
         white: '#ffffff',
         black: '#000000',
+        slugger:
+          '#42362d' /* this is used on the upgrade guide to divide the body content and aside */,
+        coffeeBean:
+          '#382d26' /* this is used as the border color for the comments */,
       },
       fontSize: {
         18: '4.5rem',
       },
       padding: {
+        comment: '54px',
         bentoX: '2rem',
         bentoY: '1.75rem',
         page: '6.25rem',
