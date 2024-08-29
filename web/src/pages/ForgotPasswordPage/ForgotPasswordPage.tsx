@@ -64,7 +64,6 @@ const ForgotPasswordPage = () => {
             </Label>
             <TextField
               name="username"
-              className="rw-input"
               errorClassName="error-message"
               ref={firstFieldRef}
               validation={{

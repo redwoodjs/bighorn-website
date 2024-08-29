@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react'
 
 import {
   Form,
@@ -6,116 +6,114 @@ import {
   PasswordField,
   Submit,
   FieldError,
-} from "@redwoodjs/forms";
-import { navigate, routes } from "@redwoodjs/router";
-import { Metadata } from "@redwoodjs/web";
-import { toast, Toaster } from "@redwoodjs/web/toast";
+} from '@redwoodjs/forms'
+import { Link, navigate, routes } from '@redwoodjs/router'
+import { Metadata } from '@redwoodjs/web'
+import { toast, Toaster } from '@redwoodjs/web/toast'
 
-import { useAuth } from "src/auth";
+import { useAuth } from 'src/auth'
 
 const ResetPasswordPage = ({ resetToken }: { resetToken: string }) => {
   const { isAuthenticated, reauthenticate, validateResetToken, resetPassword } =
-    useAuth();
-  const [enabled, setEnabled] = useState(true);
+    useAuth()
+  const [enabled, setEnabled] = useState(true)
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home());
+      navigate(routes.home())
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated])
 
   useEffect(() => {
     const validateToken = async () => {
-      const response = await validateResetToken(resetToken);
+      const response = await validateResetToken(resetToken)
       if (response.error) {
-        setEnabled(false);
-        toast.error(response.error);
+        setEnabled(false)
+        toast.error(response.error)
       } else {
-        setEnabled(true);
+        setEnabled(true)
       }
-    };
-    validateToken();
-  }, [resetToken, validateResetToken]);
+    }
+    validateToken()
+  }, [resetToken, validateResetToken])
 
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const firstFieldRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
-    passwordRef.current?.focus();
-  }, []);
+    firstFieldRef.current?.focus()
+  }, [])
 
   const onSubmit = async (data: Record<string, string>) => {
     const response = await resetPassword({
       resetToken,
       password: data.password,
-    });
+    })
 
     if (response.error) {
-      toast.error(response.error);
+      toast.error(response.error)
     } else {
-      toast.success("Password changed!");
-      await reauthenticate();
-      navigate(routes.login());
+      toast.success('Password changed!')
+      await reauthenticate()
+      navigate(routes.login())
     }
-  };
+  }
 
   return (
     <>
       <Metadata title="Reset Password" />
 
-      <main className="rw-main">
-        <Toaster toastOptions={{ className: "rw-toast", duration: 6000 }} />
-        <div className="rw-scaffold rw-login-container">
-          <div className="rw-segment">
-            <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">
-                Reset Password
-              </h2>
-            </header>
+      <main className="page-grid px-5 py-20 md:px-[100px] md:py-[130px] lg:px-0">
+        <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
 
-            <div className="rw-segment-main">
-              <div className="rw-form-wrapper">
-                <Form onSubmit={onSubmit} className="rw-form-wrapper">
-                  <div className="text-left">
-                    <Label
-                      name="password"
-                      className="rw-label"
-                      errorClassName="rw-label rw-label-error"
-                    >
-                      New Password
-                    </Label>
-                    <PasswordField
-                      name="password"
-                      autoComplete="new-password"
-                      className="rw-input"
-                      errorClassName="rw-input rw-input-error"
-                      disabled={!enabled}
-                      ref={passwordRef}
-                      validation={{
-                        required: {
-                          value: true,
-                          message: "New Password is required",
-                        },
-                      }}
-                    />
-
-                    <FieldError name="password" className="rw-field-error" />
-                  </div>
-
-                  <div className="rw-button-group">
-                    <Submit
-                      className="rw-button rw-button-blue"
-                      disabled={!enabled}
-                    >
-                      Submit
-                    </Submit>
-                  </div>
-                </Form>
-              </div>
-            </div>
-          </div>
+        <div className="col-span-5 col-start-1 lg:col-start-2">
+          <h1 className="section-heading mb-10">Reset your Password</h1>
+          <Link
+            to={routes.login()}
+            className="text-black underline hover:text-christi dark:text-white dark:hover:text-sulu"
+          >
+            Ready to Login?
+          </Link>
         </div>
+
+        <Form
+          onSubmit={onSubmit}
+          className="auth-form col-span-5 xl:col-span-4"
+        >
+          <div className="field">
+            <Label
+              name="password"
+              className="rw-label"
+              errorClassName="rw-label rw-label-error"
+            >
+              New Password
+            </Label>
+            <PasswordField
+              name="password"
+              autoComplete="new-password"
+              className="rw-input"
+              errorClassName="rw-input rw-input-error"
+              disabled={!enabled}
+              ref={firstFieldRef}
+              validation={{
+                required: {
+                  value: true,
+                  message: 'New Password is required',
+                },
+              }}
+            />
+
+            <FieldError name="password" className="rw-field-error" />
+          </div>
+
+          <Submit
+            className="button truncate hover:text-black"
+            disabled={!enabled}
+          >
+            Submit
+          </Submit>
+        </Form>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default ResetPasswordPage;
+export default ResetPasswordPage
