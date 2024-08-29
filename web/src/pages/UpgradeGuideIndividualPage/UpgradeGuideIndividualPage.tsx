@@ -1,6 +1,13 @@
+import { lazy } from 'react'
+
 import Comment from 'src/components/Comments/Comment/Comment'
 import CommentForm from 'src/components/Comments/CommentForm/CommentForm'
 import Icon from 'src/components/Icon/Icon'
+
+const createLazyComponent = (slug: string) =>
+  lazy(() => import(`../../content/posts/${slug}.mdx`))
+
+const Loading = () => <div>Loading...</div>
 
 const UpgradeGuideIndividualPage = () => {
   return (

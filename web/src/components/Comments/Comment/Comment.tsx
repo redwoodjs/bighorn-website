@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Icon from '../../Icon/Icon'
 import CommentContent from '../CommentContent/CommentContent'
 import CommentForm from '../CommentForm/CommentForm'
+import LikeButton from '../LikeButton/LikeButton'
+import LinkButton from '../LinkButton/LinkButton'
 
 interface CommentProps {
   id: string
@@ -12,37 +14,22 @@ interface CommentProps {
 
 const Comment = ({ id }: CommentProps) => {
   const [isAdminControlsShowing, setIsAdminControlsShowing] = useState(false)
-  const [isLiked, setIsLiked] = useState(false)
   const [isReplyFormShowing, setIsReplyFormShowing] = useState(false)
 
-  const Like = () => {
-    setIsLiked(true)
-  }
+  const like = () => {}
 
-  const Unlike = () => {
-    setIsLiked(false)
-  }
+  const unlike = () => {}
 
   return (
     <div className="border-coffeeBean border-1 pt-10">
-      <CommentContent />
+      <CommentContent lastEdited="August 28, 2024" />
 
       {/* footer */}
       <div className="comment-footer flex items-center justify-between px-10 pb-10">
         {/* left side */}
         <div className="pl-comment flex items-center gap-8">
-          {isLiked ? (
-            <button className="py-2" onClick={Unlike}>
-              <Icon id="heartFilled" />
-            </button>
-          ) : (
-            <button className="py-2" onClick={Like}>
-              <Icon id="heart" />
-            </button>
-          )}
-          <button className="py-2">
-            <Icon id="link" />
-          </button>
+          <LikeButton like={like} unlike={unlike} />
+          <LinkButton handleClick={() => console.log('copy')} />
           <button
             className="py-2"
             onClick={() => setIsAdminControlsShowing((prevValue) => !prevValue)}

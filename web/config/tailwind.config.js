@@ -27,6 +27,7 @@ module.exports = {
           '#42362d' /* this is used on the upgrade guide to divide the body content and aside */,
         coffeeBean:
           '#382d26' /* this is used as the border color for the comments */,
+        eerieBlack: '#171717',
       },
       fontSize: {
         18: '4.5rem',
@@ -48,6 +49,15 @@ module.exports = {
       mono: ['Roboto Mono', 'monospaced'],
     },
   },
-  safelist: ['tag-soon', 'tag-later', 'tag-done', 'tag-planned'],
+  safelist: [
+    'tag-soon',
+    'tag-later',
+    'tag-done',
+    'tag-planned',
+    'tooltip-left',
+    'tooltip-right',
+    'tooltip-top',
+    'tooltip-bottom',
+  ],
   plugins: [],
 }
