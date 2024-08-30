@@ -60,11 +60,17 @@ export const Failure = ({ error }: CellFailureProps) => (
 
 export const Success = ({
   commentsByUpgrade,
+  upgradeGuide,
 }: CellSuccessProps<CommentsQuery> & { upgradeGuide: string }) => {
   return (
     <>
       {commentsByUpgrade.map((item) => (
-        <Comment key={item.id} id={item.id} comment={item} />
+        <Comment
+          key={item.id}
+          id={item.id}
+          comment={item}
+          upgradeGuide={upgradeGuide}
+        />
       ))}
     </>
   )

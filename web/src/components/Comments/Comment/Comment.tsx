@@ -25,9 +25,16 @@ export type CommentType = Omit<
 interface CommentProps {
   id: string
   comment: CommentType
+  upgradeGuide: string
+  parentComment?: string | null
 }
 
-const Comment = ({ id, comment }: CommentProps) => {
+const Comment = ({
+  id,
+  comment,
+  upgradeGuide,
+  parentComment = null,
+}: CommentProps) => {
   const [isAdminControlsShowing, setIsAdminControlsShowing] = useState(false)
   const [isReplyFormShowing, setIsReplyFormShowing] = useState(false)
 
@@ -113,7 +120,7 @@ const Comment = ({ id, comment }: CommentProps) => {
         </div>
       </div>
 
-      {/* replies */}
+      {/* threaded replies */}
       {comment.Comments.length > 0 && (
         <div className="border-coffeeBean flex flex-col gap-10 border-y-1 pt-10">
           {comment.Comments.map((threadedComment) => (
@@ -135,7 +142,11 @@ const Comment = ({ id, comment }: CommentProps) => {
             exit={{ opacity: 0, height: 0 }}
           >
             <div className="border-coffeeBean flex gap-4 border-t-1 px-10 pb-10 pt-16">
-              <CommentForm id={id} />
+              <CommentForm
+                id={id}
+                upgradeGuide={upgradeGuide}
+                parentComment={comment.id}
+              />
             </div>
           </motion.div>
         )}

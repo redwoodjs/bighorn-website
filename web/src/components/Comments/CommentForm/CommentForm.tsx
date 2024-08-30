@@ -19,6 +19,7 @@ interface CommentFormProps {
   id: string
   showLabel?: boolean
   upgradeGuide: string
+  parentComment?: string | null
 }
 
 // set up the mutation
@@ -28,6 +29,7 @@ const CREATE_COMMENT_MUTATION = gql`
     $upgradeGuide: String!
     $comment: String!
     $subscribeToUpdates: Boolean!
+    $parentComment: String
   ) {
     createComment(
       input: {
@@ -38,6 +40,7 @@ const CREATE_COMMENT_MUTATION = gql`
         flagged: false
         bookmarked: false
         editCount: 0
+        parentCommentId: $parentComment
       }
       subscribeToUpdates: $subscribeToUpdates
     ) {
@@ -50,6 +53,7 @@ const CommentForm = ({
   id,
   showLabel = true,
   upgradeGuide,
+  parentComment = null,
 }: CommentFormProps) => {
   const { currentUser } = useAuth()
   const formMethods = useForm()
@@ -74,6 +78,7 @@ const CommentForm = ({
   }
 
   const handleSubmit: SubmitHandler<FormValues> = (data) => {
+    console.log({ parentComment })
     const subscribeToUpdates = data[`subscribe_${id}`]
     createComment({
       variables: {
@@ -81,6 +86,7 @@ const CommentForm = ({
         upgradeGuide,
         comment: data.reply,
         subscribeToUpdates,
+        parentComment,
       },
     })
     formMethods.reset()
