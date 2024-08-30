@@ -302,7 +302,7 @@ const Nav = () => {
               </AnimatePresence>
             </button>
           </li>
-          <li>
+          <li className="w-16">
             {currentUser ? (
               <button
                 onClick={() => {
