@@ -22,7 +22,7 @@ const Routes = () => {
 
         {/* UPGRADE - INDIVIDUAL */}
         <Set wrap={UpgradeGuideLayout}>
-          <Route path="/upgrade/{slug:string}" page={UpgradeGuideIndividualPage} name="upgradeGuideIndividual" />
+          <Route path="/upgrade/v8" page={UpgradeGuideV8Page} name="upgradeGuideV8" />
         </Set>
 
         <Set wrap={InteriorLayout}>

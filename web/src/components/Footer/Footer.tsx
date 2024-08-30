@@ -110,11 +110,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <Link
-                to={routes.upgradeGuideIndividual({ slug: Constants.UPGRADE })}
-              >
-                Upgrade Guide
-              </Link>
+              <Link to={routes.upgradeGuide()}>Upgrade Guides</Link>
             </li>
             <li>
               <Link to={routes.blog()}>Blog</Link>
