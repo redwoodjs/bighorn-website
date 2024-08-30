@@ -59,7 +59,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
         </h4>
         <h1 className="section-heading mb-5">{upgrade.title}</h1>
         <div>
-          <h2 className="section-heading mb-5 !text-[48px]">Announcement</h2>
+          <h2 className="section-heading mb-5 !text-[48px]">Highlights</h2>
           <div className="blog-post">
             {/* TODO: Provide a better loading component */}
             <Suspense fallback={<div>Loading...</div>}>
