@@ -9,6 +9,7 @@ export default async () => {
         where: { id: role.id },
         create: {
           id: role.id,
+          name: role.name,
         },
         update: {},
       })

@@ -22,3 +22,6 @@
 
 [experimental.streamingSsr]
   enabled = true
+
+[graphql]
+  fragments = true

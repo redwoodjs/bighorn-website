@@ -1,4 +1,21 @@
-const Avatar = ({ alt, size = 42, src }) => {
+interface AvatarProps {
+  alt: string
+  size?: number
+  src?: string
+}
+
+const Avatar = ({ alt, size = 42, src = '' }: AvatarProps) => {
+  if (!src) {
+    return (
+      <div
+        className="bg-coffeeBean center rounded-full text-xl font-light text-white"
+        style={{ height: size, width: size }}
+      >
+        <span>{alt[0]}</span>
+      </div>
+    )
+  }
+
   return (
     <div>
       <img
