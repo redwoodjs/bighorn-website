@@ -75,7 +75,9 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
             </Suspense>
           </div>
 
-          <h2 className="section-heading mb-5 !text-[48px]">Feedback</h2>
+          <h2 className="section-heading mb-5 !text-[48px]" id="feedback">
+            Feedback
+          </h2>
 
           <div className="flex flex-col gap-8">
             <CommentsCell upgradeGuide={slug} />
@@ -146,7 +148,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
           {/* bottom nav */}
           <ul className="table-of-contents mt-8 border-t-1 border-slugger pt-8">
             <li>
-              <a href="#feedback" target="_blank" rel="noreferrer">
+              <a href="#feedback">
                 <Icon id="speech-bubble" />
                 Feedback
               </a>
