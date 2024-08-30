@@ -142,6 +142,29 @@ In v7 you'd get both the border and color when the link was active. In v8 you'll
 </NavLink>
 ```
 
+### Database file structure change
+This is not technically a breaking change to your code but we have changed how we structure the database file by default and strongly recommend you update your database file to match this new expectation. It's a simple change. We instead expect you to create a distince variable for the Prisma client and export that later as `db`. This is in preparation for future changes that will introduce some awesome features. Here's what the typical diff would look like:
+
+```diff ts
+import { PrismaClient } from '@prisma/client'
+import { emitLogLevels, handlePrismaLogging } from '@redwoodjs/api/logger'
+import { logger } from './logger'
+
+- export const db = new PrismaClient({
++ const prismaClient = new PrismaClient({
+  log: emitLogLevels(['info', 'warn', 'error']),
+})
+
+handlePrismaLogging({
+- db
++ db: prismaClient,
+  logger,
+  logLevels: ['info', 'warn', 'error'],
+})
+
++ export const db = prismaClient
+```
+
 ## Other changes
 
 Those changes discussed above are likely to effect everyone. There are other changes that might impact you depending on how you're using Redwood. Let's walk through those.
