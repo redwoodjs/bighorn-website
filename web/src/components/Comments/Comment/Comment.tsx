@@ -52,13 +52,13 @@ const Comment = ({
   const unlike = () => {}
 
   return (
-    <div className="border-coffeeBean border-1 pt-10" id={`#comment_${id}`}>
+    <div className="border-1 border-coffeeBean pt-10" id={`comment_${id}`}>
       <CommentContent comment={comment} />
 
       {/* footer */}
       <div className="comment-footer flex items-center justify-between px-10 pb-6">
         {/* left side */}
-        <div className="pl-comment flex items-center gap-8">
+        <div className="flex items-center gap-8 pl-comment">
           <LikeButton like={like} unlike={unlike} />
           <LinkButton
             handleClick={() => {
@@ -131,7 +131,7 @@ const Comment = ({
 
       {/* threaded replies */}
       {comment.Comments.length > 0 && (
-        <div className="border-coffeeBean flex flex-col gap-10 border-y-1 pt-10">
+        <div className="flex flex-col gap-10 border-y-1 border-coffeeBean pt-10">
           {comment.Comments.map((threadedComment) => (
             <CommentContent
               key={threadedComment.id}
@@ -150,7 +150,7 @@ const Comment = ({
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            <div className="border-coffeeBean flex gap-4 border-t-1 px-10 pb-10 pt-16">
+            <div className="flex gap-4 border-t-1 border-coffeeBean px-10 pb-10 pt-16">
               <CommentForm
                 id={id}
                 upgradeGuide={upgradeGuide}

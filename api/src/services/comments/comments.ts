@@ -5,6 +5,8 @@ import type {
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
+import { logger } from 'src/lib/logger'
+import { sendNewCommentSlackNotification } from 'src/lib/slack'
 
 export const comments: QueryResolvers['comments'] = () => {
   return db.comment.findMany()
@@ -43,7 +45,19 @@ export const createComment: MutationResolvers['createComment'] = async ({
         comment: { connect: { id: createdComment.id } },
       },
     })
-    // TODO: SEND EMAIL / SLACK NOTIFICATION
+    // Send an email to the user
+  }
+
+  // Send a slack notification to the core team
+  try {
+    await sendNewCommentSlackNotification({
+      isReply: input.parentCommentId ? true : false,
+      comment: input.comment,
+      upgradeGuide: input.upgradeGuide,
+      commentLink: `https://redwoodjs.com/upgrade/${input.upgradeGuide}#comment_${createdComment.id}`,
+    })
+  } catch (error) {
+    logger.error('Failed to send slack message', error)
   }
 
   return createdComment
