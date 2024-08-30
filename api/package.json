@@ -4,10 +4,18 @@
   "private": true,
   "dependencies": {
     "@graphql-yoga/plugin-response-cache": "3.3.0",
+    "@react-email/components": "0.0.24",
     "@redwoodjs/api": "8.0.0-rc.1327",
     "@redwoodjs/api-server": "8.0.0-rc.1327",
     "@redwoodjs/auth-dbauth-api": "8.0.0-rc.1327",
     "@redwoodjs/graphql-server": "8.0.0-rc.1327",
+    "@redwoodjs/mailer-core": "8.0.0-rc.1327",
+    "@redwoodjs/mailer-handler-resend": "8.0.0-rc.1327",
+    "@redwoodjs/mailer-renderer-react-email": "8.0.0-rc.1327",
     "graphql-request": "6.1.0"
+  },
+  "devDependencies": {
+    "@redwoodjs/mailer-handler-in-memory": "8.0.0-rc.1327",
+    "@redwoodjs/mailer-handler-studio": "8.0.0-rc.1327"
   }
 }
