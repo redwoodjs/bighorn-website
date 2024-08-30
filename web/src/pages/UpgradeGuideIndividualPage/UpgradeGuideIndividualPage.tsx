@@ -104,7 +104,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
           </div>
         </div>
       </div>
-      <div className="border-slugger col-span-3 border-l-1">
+      <div className="col-span-3 border-l-1 border-slugger">
         <div className="sticky top-[125px] hidden h-[calc(100vh_-_150px)] flex-col justify-between py-3 lg:flex">
           {/* top nav */}
           <ul className="table-of-contents overflow-y-auto">
@@ -148,7 +148,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
           </ul>
 
           {/* bottom nav */}
-          <ul className="table-of-contents border-slugger mt-8 border-t-1 pt-8">
+          <ul className="table-of-contents mt-8 border-t-1 border-slugger pt-8">
             <li>
               <a href="#" target="_blank" rel="noreferrer">
                 <Icon id="link" />

@@ -52,7 +52,7 @@ const Comment = ({
   const unlike = () => {}
 
   return (
-    <div className="border-coffeeBean border-1 pt-10">
+    <div className="border-coffeeBean border-1 pt-10" id={`#comment_${id}`}>
       <CommentContent comment={comment} />
 
       {/* footer */}
@@ -60,7 +60,16 @@ const Comment = ({
         {/* left side */}
         <div className="pl-comment flex items-center gap-8">
           <LikeButton like={like} unlike={unlike} />
-          <LinkButton handleClick={() => console.log('copy')} />
+          <LinkButton
+            handleClick={() => {
+              // get the URL for the comment - http://localhost:8910/upgrade/v8#comment_808be5fc-60f1-4c00-9b97-fe4d2363e124
+              // I want the base URL, before the # in case the user is already looking at a deep link
+              const url = window.location.href.split('#')[0]
+              const deepUrl = `${url}#${id}`
+              // copy the URL to the clipboard
+              navigator.clipboard.writeText(deepUrl)
+            }}
+          />
           {currentUser?.role?.id === 1 && (
             <>
               <button
