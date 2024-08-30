@@ -6,7 +6,9 @@ import { useAuth } from 'src/auth'
 import CommentForm from 'src/components/Comments/CommentForm/CommentForm'
 import CommentsCell from 'src/components/Comments/CommentsCell'
 import Icon from 'src/components/Icon/Icon'
+import { TableOfContentsItem } from 'src/components/TableOfContentsItem/TableOfContentsItem'
 import { getUpgradeBySlug } from 'src/content/upgrades'
+import { limitToDepth } from 'src/helpers/TableOfContents'
 
 const createLazyComponent = (slug: string) =>
   lazy(() => import(`../../content/upgrades/${slug}.mdx`))
@@ -22,10 +24,11 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
       const { tableOfContents } = await import(
         `../../content/upgrades/${slug}-${type}.mdx`
       )
+      const limited = limitToDepth(tableOfContents, 3)
       if (type === 'announcement') {
-        setAnnouncementToc(tableOfContents)
+        setAnnouncementToc(limited)
       } else if (type === 'guide') {
-        setGuideToc(tableOfContents)
+        setGuideToc(limited)
       }
     }
 
@@ -105,10 +108,38 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
               <h3>TABLE OF CONTENTS</h3>
             </li>
             <li>
-              <pre>{JSON.stringify(announcementToc)}</pre>
+              <h3>ANNOUNCEMENT</h3>
+              <ul className="list-none text-sm">
+                {announcementToc === null ? (
+                  <li>Loading...</li>
+                ) : (
+                  announcementToc.map((node) => (
+                    <TableOfContentsItem
+                      key={node.value + node.depth}
+                      node={node}
+                    />
+                  ))
+                )}
+              </ul>
             </li>
             <li>
-              <pre>{JSON.stringify(guideToc)}</pre>
+              <h3>UPGRADE GUIDE</h3>
+              <ul className="list-none text-sm">
+                {guideToc === null ? (
+                  <li>Loading...</li>
+                ) : (
+                  guideToc.map((node) => (
+                    <TableOfContentsItem
+                      key={node.value + node.depth}
+                      node={node}
+                    />
+                  ))
+                )}
+              </ul>
+            </li>
+            {/* TODO: Add anchor link */}
+            <li>
+              <h3>FEEDBACK</h3>
             </li>
           </ul>
 
