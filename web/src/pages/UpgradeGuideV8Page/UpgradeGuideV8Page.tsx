@@ -47,11 +47,7 @@ const UpgradeGuideV8Page = () => {
           <div className="px-10 py-16">
             <div className="mb-5 text-3xl font-light">New Comment</div>
             {currentUser ? (
-              <CommentForm
-                id="no-comment-id"
-                showLabel={false}
-                upgradeGuide={slug}
-              />
+              <CommentForm showLabel={false} upgradeGuide={slug} />
             ) : (
               <p>
                 You must be{' '}

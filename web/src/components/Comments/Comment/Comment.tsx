@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { CommentThreadsQuery } from 'types/graphql'
@@ -19,6 +19,8 @@ import LinkButton from '../LinkButton/LinkButton'
 interface CommentProps {
   index: number
   threadId: number
+  threadLength: number
+  upgradeGuide: string
   comment: CommentThreadsQuery['commentThreads'][0]['comments'][0]
 }
 
@@ -38,7 +40,13 @@ const REMOVE_LIKE_MUTATION = gql`
   }
 `
 
-const Comment = ({ index, threadId, comment }: CommentProps) => {
+const Comment = ({
+  index,
+  threadId,
+  threadLength,
+  comment,
+  upgradeGuide,
+}: CommentProps) => {
   const location = useLocation()
   const [isAdminControlsShowing, setIsAdminControlsShowing] = useState(false)
   const [isReplyFormShowing, setIsReplyFormShowing] = useState(index > 0)
@@ -75,6 +83,8 @@ const Comment = ({ index, threadId, comment }: CommentProps) => {
   }
 
   const liked = comment.Like.some((like) => like.userId === currentUser?.id)
+  const replyCount = threadLength - 1
+  const isLastComment = index === threadLength - 1
 
   return (
     <div
@@ -140,10 +150,10 @@ const Comment = ({ index, threadId, comment }: CommentProps) => {
         </div>
 
         {/* right side */}
-        {/* <div className="flex items-center gap-8 text-sm font-bold uppercase text-maiTai">
-          {comment.Comments.length === 1 ? (
+        <div className="flex items-center gap-8 text-sm font-bold uppercase text-maiTai">
+          {replyCount === 1 ? (
             '1 Reply'
-          ) : comment.Comments.length < 1 ? (
+          ) : replyCount < 1 ? (
             <button
               className="group flex items-center gap-2"
               onClick={() => setIsReplyFormShowing(true)}
@@ -152,42 +162,25 @@ const Comment = ({ index, threadId, comment }: CommentProps) => {
               REPLY
             </button>
           ) : (
-            `${comment.Comments.length} Replies`
+            `${replyCount} Replies`
           )}
-        </div> */}
+        </div>
       </div>
 
-      {/* threaded replies */}
-      {/* {comment.Comments.length > 0 && (
-        <div className="flex flex-col gap-10 border-y-1 border-coffeeBean pt-10">
-          {comment.Comments.map((threadedComment) => (
-            <CommentContent
-              key={threadedComment.id}
-              isThreaded={true}
-              comment={threadedComment}
-            />
-          ))}
-        </div>
-      )} */}
-
       {/* respond */}
-      {/* <AnimatePresence>
-        {isReplyFormShowing && (
+      <AnimatePresence>
+        {isReplyFormShowing && isLastComment && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
             <div className="flex gap-4 border-t-1 border-coffeeBean px-10 pb-10 pt-16">
-              <CommentForm
-                id={id}
-                upgradeGuide={upgradeGuide}
-                parentComment={comment.id}
-              />
+              <CommentForm upgradeGuide={upgradeGuide} threadId={threadId} />
             </div>
           </motion.div>
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
     </div>
   )
 }

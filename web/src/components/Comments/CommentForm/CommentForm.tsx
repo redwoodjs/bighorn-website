@@ -21,7 +21,6 @@ import { QUERY as CommentsQuery } from 'src/components/Comments/CommentsCell/Com
 import Icon from 'src/components/Icon/Icon'
 
 interface CommentFormProps {
-  id: string
   showLabel?: boolean
   upgradeGuide: string
   threadId?: number
@@ -37,7 +36,6 @@ const CREATE_COMMENT_MUTATION = gql`
 `
 
 const CommentForm = ({
-  id,
   showLabel = true,
   upgradeGuide,
   threadId,

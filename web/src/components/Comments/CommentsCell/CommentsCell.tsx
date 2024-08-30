@@ -49,7 +49,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 
 export const Success = ({
   commentThreads,
-}: CellSuccessProps<CommentThreadsQuery>) => {
+  upgradeGuide,
+}: CellSuccessProps<CommentThreadsQuery> & { upgradeGuide: string }) => {
   return commentThreads.map((thread) => (
     <div key={thread.id}>
       {thread.comments.map((comment, index) => (
@@ -57,7 +58,9 @@ export const Success = ({
           key={comment.id}
           index={index}
           threadId={thread.id}
+          threadLength={thread.comments.length}
           comment={comment}
+          upgradeGuide={upgradeGuide}
         />
       ))}
     </div>

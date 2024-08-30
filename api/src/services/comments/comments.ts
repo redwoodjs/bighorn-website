@@ -143,9 +143,25 @@ export const updateCommentContent: MutationResolvers['updateCommentContent'] =
       data: {
         comment: content,
       },
+      include: {
+        author: {
+          include: {
+            role: {
+              select: {
+                id: true,
+              },
+            },
+          },
+        },
+      },
     })
 
-    return comment
+    return {
+      authorId: comment.authorId,
+      authorName: comment.author.name,
+      authorRole: comment.author.role.id,
+      ...comment,
+    }
   }
 
 export const addLike: MutationResolvers['addLike'] = async ({ commentId }) => {
@@ -252,6 +268,9 @@ export const CommentThread: CommentThreadRelationResolvers = {
     const comments = await db.comment.findMany({
       where: {
         commentThreadId: root.id,
+      },
+      orderBy: {
+        createdAt: 'asc',
       },
       include: {
         author: {
