@@ -187,7 +187,7 @@ You can no longer use the `server.config.js` file to configure your fastify serv
 
 Apollo recently fixed a type error with `GraphQLError` and `GraphQLFormatterError` which can impact you if you're using these types in your code. You can see more about those changes [here](https://github.com/apollographql/apollo-client/issues/11787) and [here](https://github.com/apollographql/apollo-client/pull/11789).
 
-### `yarn rw build` no longer accepts a `--performance` flag
+### `yarn rw build` no longer accepts a `performance` flag
 
 When using the Webpack bundler a `--performance` flag was available for the `yarn rw build` command. This flag, and the underlying functionality, is no longer available since we've removed Webpack. In v8 attempting to use this flag will throw an error.
 
