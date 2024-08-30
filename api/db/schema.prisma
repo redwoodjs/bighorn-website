@@ -23,18 +23,19 @@ model Newsletter {
 }
 
 model User {
-  id                  String    @id @default(uuid())
-  name                String
-  email               String    @unique
-  hashedPassword      String
-  salt                String
-  resetToken          String?
-  resetTokenExpiresAt DateTime?
-  role                Role      @relation(fields: [roleId], references: [id])
-  roleId              Int
-  Comment             Comment[]
-  Like                Like[]
-  createdAt           DateTime  @default(now())
+  id                      String                   @id @default(uuid())
+  name                    String
+  email                   String                   @unique
+  hashedPassword          String
+  salt                    String
+  resetToken              String?
+  resetTokenExpiresAt     DateTime?
+  role                    Role                     @relation(fields: [roleId], references: [id])
+  roleId                  Int
+  Comment                 Comment[]
+  Like                    Like[]
+  SubscribeUserToComments SubscribeUserToComment[]
+  createdAt               DateTime                 @default(now())
 }
 
 model Role {
@@ -45,21 +46,31 @@ model Role {
 }
 
 model Comment {
-  id              String    @id @default(uuid())
-  author          User      @relation(fields: [authorId], references: [id])
-  authorId        String
-  upgradeGuide    String
-  comment         String
-  parentComment   Comment?  @relation("thradedComments", fields: [parentCommentId], references: [id])
-  parentCommentId String?
-  visible         Boolean   @default(true)
-  flagged         Boolean   @default(false)
-  bookmarked      Boolean   @default(false)
-  editCount       Int       @default(0)
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  Comments        Comment[] @relation("thradedComments")
-  Like            Like[]
+  id                      String                   @id @default(uuid())
+  author                  User                     @relation(fields: [authorId], references: [id])
+  authorId                String
+  upgradeGuide            String
+  comment                 String
+  parentComment           Comment?                 @relation("thradedComments", fields: [parentCommentId], references: [id])
+  parentCommentId         String?
+  visible                 Boolean                  @default(true)
+  flagged                 Boolean                  @default(false)
+  bookmarked              Boolean                  @default(false)
+  editCount               Int                      @default(0)
+  createdAt               DateTime                 @default(now())
+  updatedAt               DateTime                 @updatedAt
+  Comments                Comment[]                @relation("thradedComments")
+  Like                    Like[]
+  SubscribeUserToComments SubscribeUserToComment[]
+}
+
+model SubscribeUserToComment {
+  id        Int      @id @default(autoincrement())
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  commentId String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
 }
 
 model Like {

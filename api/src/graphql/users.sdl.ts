@@ -12,6 +12,7 @@ export const schema = gql`
     Comment: [Comment]!
     Like: [Like]!
     createdAt: DateTime!
+    SubscribeUserToComments: [SubscribeUserToComment]!
   }
 
   type Query {

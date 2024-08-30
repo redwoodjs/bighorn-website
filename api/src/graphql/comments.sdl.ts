@@ -15,6 +15,7 @@ export const schema = gql`
     updatedAt: DateTime!
     Comments: [Comment]!
     Like: [Like]!
+    SubscribeUserToComment: [SubscribeUserToComment]!
   }
 
   type Query {
@@ -46,9 +47,15 @@ export const schema = gql`
   }
 
   type Mutation {
-    createComment(input: CreateCommentInput!): Comment! @requireAuth
-    updateComment(id: String!, input: UpdateCommentInput!): Comment!
-      @requireAuth
+    createComment(
+      input: CreateCommentInput!
+      subscribeToUpdates: Boolean
+    ): Comment! @requireAuth
+    updateComment(
+      id: String!
+      input: UpdateCommentInput!
+      subscribeToUpdates: Boolean
+    ): Comment! @requireAuth
     deleteComment(id: String!): Comment! @requireAuth
   }
 `

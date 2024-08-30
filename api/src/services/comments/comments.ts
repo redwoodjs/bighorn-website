@@ -27,12 +27,26 @@ export const commentsByUpgrade: QueryResolvers['commentsByUpgrade'] = ({
   })
 }
 
-export const createComment: MutationResolvers['createComment'] = ({
+export const createComment: MutationResolvers['createComment'] = async ({
   input,
+  subscribeToUpdates,
 }) => {
-  return db.comment.create({
+  // is subscribeUserToComment set? (should be a boolean)
+  const createdComment = await db.comment.create({
     data: input,
   })
+
+  if (subscribeToUpdates) {
+    await db.subscribeUserToComment.create({
+      data: {
+        user: { connect: { id: input.authorId } },
+        comment: { connect: { id: createdComment.id } },
+      },
+    })
+    // TODO: SEND EMAIL / SLACK NOTIFICATION
+  }
+
+  return createdComment
 }
 
 export const updateComment: MutationResolvers['updateComment'] = ({
