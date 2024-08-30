@@ -20,7 +20,7 @@ export const TableOfContentsItem = ({ node }) => {
         {node.value}
       </span>
       {node.children.length > 0 && (
-        <ul className="list-none border-l border-gray-300 pl-2">
+        <ul className="mt-4 list-none border-l-2 border-maiTai pl-4 pt-2 text-[#afafaf]">
           {node.children.map((child) => (
             <TableOfContentsItem key={child.value + child.depth} node={child} />
           ))}

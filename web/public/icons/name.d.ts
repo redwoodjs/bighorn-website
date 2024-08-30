@@ -27,6 +27,7 @@ export type IconName =
 	| "logout"
 	| "reply"
 	| "show"
+	| "speech-bubble"
 	| "star"
 	| "system"
 	| "threeDots"

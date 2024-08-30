@@ -108,12 +108,12 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
         <div className="sticky top-[125px] hidden h-[calc(100vh_-_150px)] flex-col justify-between py-3 lg:flex">
           {/* top nav */}
           <ul className="table-of-contents overflow-y-auto">
-            <li>
+            <li className="mb-2">
               <h3>TABLE OF CONTENTS</h3>
             </li>
             <li>
-              <h3>ANNOUNCEMENT</h3>
-              <ul className="list-none text-sm">
+              <h3 className="mb-4 !text-xs">HIGHLIGHTS</h3>
+              <ul className="mb-5 list-none text-sm">
                 {announcementToc === null ? (
                   <li>Loading...</li>
                 ) : (
@@ -127,7 +127,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
               </ul>
             </li>
             <li>
-              <h3>UPGRADE GUIDE</h3>
+              <h3 className="mb-4 !text-xs">UPGRADE GUIDE</h3>
               <ul className="list-none text-sm">
                 {guideToc === null ? (
                   <li>Loading...</li>
@@ -141,14 +141,16 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
                 )}
               </ul>
             </li>
-            {/* TODO: Add anchor link */}
-            <li>
-              <h3>FEEDBACK</h3>
-            </li>
           </ul>
 
           {/* bottom nav */}
           <ul className="table-of-contents mt-8 border-t-1 border-slugger pt-8">
+            <li>
+              <a href="#feedback" target="_blank" rel="noreferrer">
+                <Icon id="speech-bubble" />
+                Feedback
+              </a>
+            </li>
             <li>
               <a href="#" target="_blank" rel="noreferrer">
                 <Icon id="link" />
