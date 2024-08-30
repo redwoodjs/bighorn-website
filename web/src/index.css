@@ -332,11 +332,10 @@
     @apply border-2 border-christi hover:border-christi dark:border-sulu dark:hover:border-sulu dark:text-sulu text-christi bg-transparent hover:bg-christi dark:hover:bg-sulu cursor-pointer dark:hover:text-black
   }
 
-
   /* changelog and blog */
-.blog-post h2 {
-  @apply text-3xl text-black dark:text-sulu font-serif font-bold mb-2;
-}
+  .blog-post h2 {
+    @apply text-3xl text-black dark:text-sulu font-serif font-bold mb-2;
+  }
 
   .blog-post h3,
   .changelog h3 {
@@ -513,6 +512,11 @@
     /* right */
     &.tooltip-right:before { @apply border-r-sulu -left-[16px] top-1/2 -translate-y-1/2; }
     &.tooltip-right:after { @apply border-r-eerieBlack -left-[16px] top-1/2 -translate-y-1/2; }
+  }
+
+  /* Offset the scroll margin for the sticky header */
+  .scroll-margin-container * {
+    scroll-margin-top: 80px;
   }
 }
 
