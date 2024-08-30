@@ -1,4 +1,4 @@
-// import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 
 import { Link, routes } from '@redwoodjs/router'
 
@@ -6,27 +6,51 @@ import { useAuth } from 'src/auth'
 import CommentForm from 'src/components/Comments/CommentForm/CommentForm'
 import CommentsCell from 'src/components/Comments/CommentsCell'
 import Icon from 'src/components/Icon/Icon'
+import { getUpgradeBySlug } from 'src/content/upgrades'
 
-// const createLazyComponent = (slug: string) =>
-//   lazy(() => import(`../../content/posts/${slug}.mdx`))
-
-// const Loading = () => <div>Loading...</div>
+const createLazyComponent = (slug: string) =>
+  lazy(() => import(`../../content/upgrades/${slug}.mdx`))
 
 const UpgradeGuideIndividualPage = ({ slug }) => {
   const { currentUser } = useAuth()
-  console.log({ slug })
+
+  const upgrade = getUpgradeBySlug(slug)
+
+  // TODO: Provide a better 404 component
+  if (!upgrade) {
+    return (
+      <div className="page-content  mx-auto max-w-[1000px]">
+        Upgrade not found
+      </div>
+    )
+  }
+
+  const AnnouncementComponent = createLazyComponent(
+    `${upgrade.slug}-announcement`
+  )
+  const GuideComponent = createLazyComponent(`${upgrade.slug}-guide`)
 
   return (
     <div className="page-grid my-12">
       <div className="col-span-9 px-5 md:pl-page md:pr-16">
         <h4 className="mb-2 text-sm font-bold uppercase text-maiTai">
-          Last Updated: August 28, 2024
+          Last Updated: {upgrade.updatedAt.toLocaleString()}
         </h4>
-        <h1 className="section-heading mb-5">Redwood v8.0.0 Upgrade Guide</h1>
+        <h1 className="section-heading mb-5">{upgrade.title}</h1>
         <div>
-          <p>Content</p>
+          <div className="blog-post">
+            <Suspense fallback={<div>Loading...</div>}>
+              <AnnouncementComponent />
+            </Suspense>
+          </div>
 
-          <hr className="mb-12 mt-[72px]" />
+          <h2 className="section-heading mb-14 !text-[48px]">Upgrade Guide</h2>
+
+          <div className="blog-post">
+            <Suspense fallback={<div>Loading...</div>}>
+              <GuideComponent />
+            </Suspense>
+          </div>
 
           <h2 className="section-heading mb-14 !text-[48px]">Feedback</h2>
 
@@ -53,7 +77,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
           </div>
         </div>
       </div>
-      <div className="col-span-3 border-l-1 border-slugger">
+      <div className="border-slugger col-span-3 border-l-1">
         <div className="sticky top-[125px] hidden h-[calc(100vh_-_150px)] flex-col justify-between py-3 lg:flex">
           {/* top nav */}
           <ul className="table-of-contents">
@@ -69,7 +93,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
           </ul>
 
           {/* bottom nav */}
-          <ul className="table-of-contents mt-8 border-t-1 border-slugger pt-8">
+          <ul className="table-of-contents border-slugger mt-8 border-t-1 pt-8">
             <li>
               <a href="#" target="_blank" rel="noreferrer">
                 <Icon id="link" />
