@@ -45,4 +45,9 @@ export const User: UserRelationResolvers = {
   Like: (_obj, { root }) => {
     return db.user.findUnique({ where: { id: root?.id } }).Like();
   },
+  SubscribeUserToCommentThread: (_obj, { root }) => {
+    return db.user
+      .findUnique({ where: { id: root?.id } })
+      .SubscribeUserToCommentThread();
+  },
 };

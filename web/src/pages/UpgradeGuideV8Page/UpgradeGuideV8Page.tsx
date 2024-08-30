@@ -48,7 +48,7 @@ const UpgradeGuideV8Page = () => {
             <div className="mb-5 text-3xl font-light">New Comment</div>
             {currentUser ? (
               <CommentForm
-                id="comment-form"
+                id="no-comment-id"
                 showLabel={false}
                 upgradeGuide={slug}
               />

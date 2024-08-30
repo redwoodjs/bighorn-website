@@ -3,9 +3,9 @@ import { useState } from 'react'
 import Icon from 'src/components/Icon/Icon'
 import Tooltip from 'src/components/Tooltip/Tooltip'
 
-const LikeButton = ({ like, unlike }) => {
+const LikeButton = ({ like, unlike, liked }) => {
   const [isLikeTooltipShowing, setIsLikeTooltipShowing] = useState(false)
-  const [isLiked, setIsLiked] = useState(false)
+  const [isLiked, setIsLiked] = useState(liked)
 
   return (
     <div className="relative">

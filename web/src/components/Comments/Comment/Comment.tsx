@@ -1,71 +1,99 @@
 import { useEffect, useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { CommentsQuery } from 'types/graphql'
+import { CommentThreadsQuery } from 'types/graphql'
+
+import { useLocation } from '@redwoodjs/router'
+import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/toast'
 
 import { useAuth } from 'src/auth'
 
 import Icon from '../../Icon/Icon'
 import CommentContent from '../CommentContent/CommentContent'
 import CommentForm from '../CommentForm/CommentForm'
+import { QUERY as CommentsQuery } from '../CommentsCell/CommentsCell'
 import LikeButton from '../LikeButton/LikeButton'
 import LinkButton from '../LinkButton/LinkButton'
 
-/* This type references the type returned by CommentsQuery but makes a few changes
-  - The type CommentsQuery is an array of objects and we only need one object
-  - the Comments object is optional
- */
-export type CommentType = Omit<
-  CommentsQuery['commentsByUpgrade'][0],
-  'Comments'
-> & {
-  Comments?: CommentsQuery['commentsByUpgrade'][0]['Comments']
-}
-
 interface CommentProps {
-  id: string
-  comment: CommentType
-  upgradeGuide: string
-  parentComment?: string | null
+  index: number
+  threadId: number
+  comment: CommentThreadsQuery['commentThreads'][0]['comments'][0]
 }
 
-const Comment = ({
-  id,
-  comment,
-  upgradeGuide,
-  parentComment = null,
-}: CommentProps) => {
+const ADD_LIKE_MUTATION = gql`
+  mutation AddLikeMutation($commentId: String!) {
+    addLike(commentId: $commentId) {
+      id
+    }
+  }
+`
+
+const REMOVE_LIKE_MUTATION = gql`
+  mutation RemoveLikeMutation($commentId: String!) {
+    removeLike(commentId: $commentId) {
+      id
+    }
+  }
+`
+
+const Comment = ({ index, threadId, comment }: CommentProps) => {
+  const location = useLocation()
   const [isAdminControlsShowing, setIsAdminControlsShowing] = useState(false)
-  const [isReplyFormShowing, setIsReplyFormShowing] = useState(false)
+  const [isReplyFormShowing, setIsReplyFormShowing] = useState(index > 0)
 
   const { currentUser } = useAuth()
 
-  // if the comment has threaded comments, display the reply form by default
-  useEffect(() => {
-    if (currentUser && comment?.Comments?.length > 0) {
-      setIsReplyFormShowing(true)
-    }
-  }, [currentUser, comment.Comments.length])
+  // set up the Apollo mutation for liking and unliking comments
+  const [addLike] = useMutation(ADD_LIKE_MUTATION, {
+    onCompleted: () => {
+      toast.success('Liked')
+    },
+    onError: (error) => {
+      toast.error('Error liking comment')
+      console.error(error)
+    },
+    refetchQueries: [CommentsQuery],
+  })
+  const like = async () => {
+    await addLike({ variables: { commentId: comment.id } })
+  }
+  const [removeLike] = useMutation(REMOVE_LIKE_MUTATION, {
+    onCompleted: () => {
+      toast.success('Unliked')
+    },
+    onError: (error) => {
+      toast.error('Error unliking comment')
+      console.error(error)
+    },
+    refetchQueries: [CommentsQuery],
+  })
 
-  const like = () => {}
+  const unlike = async () => {
+    await removeLike({ variables: { commentId: comment.id } })
+  }
 
-  const unlike = () => {}
+  const liked = comment.Like.some((like) => like.userId === currentUser?.id)
 
   return (
-    <div className="border-1 border-coffeeBean pt-10" id={`comment_${id}`}>
-      <CommentContent comment={comment} />
+    <div
+      className="border-1 border-coffeeBean pt-10"
+      id={`comment_${comment.id}`}
+    >
+      <CommentContent comment={comment} index={index} />
 
       {/* footer */}
       <div className="comment-footer flex items-center justify-between px-10 pb-6">
         {/* left side */}
         <div className="flex items-center gap-8 pl-comment">
-          <LikeButton like={like} unlike={unlike} />
+          <LikeButton like={like} unlike={unlike} liked={liked} />
           <LinkButton
             handleClick={() => {
               // get the URL for the comment - http://localhost:8910/upgrade/v8#comment_808be5fc-60f1-4c00-9b97-fe4d2363e124
               // I want the base URL, before the # in case the user is already looking at a deep link
-              const url = window.location.href.split('#')[0]
-              const deepUrl = `${url}#${id}`
+              const url = location.href.split('#')[0]
+              const deepUrl = `${url}#comment_${comment.id}`
               // copy the URL to the clipboard
               navigator.clipboard.writeText(deepUrl)
             }}
@@ -112,7 +140,7 @@ const Comment = ({
         </div>
 
         {/* right side */}
-        <div className="flex items-center gap-8 text-sm font-bold uppercase text-maiTai">
+        {/* <div className="flex items-center gap-8 text-sm font-bold uppercase text-maiTai">
           {comment.Comments.length === 1 ? (
             '1 Reply'
           ) : comment.Comments.length < 1 ? (
@@ -126,11 +154,11 @@ const Comment = ({
           ) : (
             `${comment.Comments.length} Replies`
           )}
-        </div>
+        </div> */}
       </div>
 
       {/* threaded replies */}
-      {comment.Comments.length > 0 && (
+      {/* {comment.Comments.length > 0 && (
         <div className="flex flex-col gap-10 border-y-1 border-coffeeBean pt-10">
           {comment.Comments.map((threadedComment) => (
             <CommentContent
@@ -140,10 +168,10 @@ const Comment = ({
             />
           ))}
         </div>
-      )}
+      )} */}
 
       {/* respond */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isReplyFormShowing && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -159,7 +187,7 @@ const Comment = ({
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </div>
   )
 }

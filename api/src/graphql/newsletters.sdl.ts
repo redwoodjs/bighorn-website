@@ -6,8 +6,8 @@ export const schema = gql`
   }
 
   type Query {
-    newsletters: [Newsletter!]! @requireAuth
-    newsletter(id: Int!): Newsletter @requireAuth
+    newsletters: [Newsletter!]! @requireAuth(roles: ["admin"])
+    newsletter(id: Int!): Newsletter @requireAuth(roles: ["admin"])
   }
 
   input CreateNewsletterInput {
@@ -21,7 +21,7 @@ export const schema = gql`
   type Mutation {
     createNewsletter(input: CreateNewsletterInput!): Newsletter! @skipAuth
     updateNewsletter(id: Int!, input: UpdateNewsletterInput!): Newsletter!
-      @requireAuth
-    deleteNewsletter(id: Int!): Newsletter! @requireAuth
+      @requireAuth(roles: ["admin"])
+    deleteNewsletter(id: Int!): Newsletter! @requireAuth(roles: ["admin"])
   }
 `

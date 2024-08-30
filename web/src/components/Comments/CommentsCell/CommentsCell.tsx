@@ -1,4 +1,7 @@
-import type { CommentsQuery, CommentsQueryVariables } from 'types/graphql'
+import type {
+  CommentThreadsQuery,
+  CommentThreadsQueryVariables,
+} from 'types/graphql'
 
 import type {
   CellSuccessProps,
@@ -8,47 +11,33 @@ import type {
 
 import Comment from 'src/components/Comments/Comment/Comment'
 
-export const QUERY: TypedDocumentNode<CommentsQuery, CommentsQueryVariables> =
-  gql`
-    query CommentsQuery($upgradeGuide: String!) {
-      commentsByUpgrade(upgradeGuide: $upgradeGuide) {
+export const QUERY: TypedDocumentNode<
+  CommentThreadsQuery,
+  CommentThreadsQueryVariables
+> = gql`
+  query CommentThreadsQuery($upgradeGuide: String!) {
+    commentThreads(upgradeGuide: $upgradeGuide) {
+      id
+      comments {
+        id
+        authorId
+        authorName
+        authorRole
         comment
-        createdAt
+        visible
+        flagged
         bookmarked
         editCount
-        flagged
-        id
+        createdAt
         updatedAt
-        upgradeGuide
-        visible
-        author {
+        Like {
           id
-          name
-          role {
-            id
-          }
-        }
-        Comments {
-          comment
-          createdAt
-          bookmarked
-          editCount
-          flagged
-          id
-          updatedAt
-          upgradeGuide
-          visible
-          author {
-            id
-            name
-            role {
-              id
-            }
-          }
+          userId
         }
       }
     }
-  `
+  }
+`
 
 export const Loading = () => <div>Loading...</div>
 
@@ -59,19 +48,18 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({
-  commentsByUpgrade,
-  upgradeGuide,
-}: CellSuccessProps<CommentsQuery> & { upgradeGuide: string }) => {
-  return (
-    <>
-      {commentsByUpgrade.map((item) => (
+  commentThreads,
+}: CellSuccessProps<CommentThreadsQuery>) => {
+  return commentThreads.map((thread) => (
+    <div key={thread.id}>
+      {thread.comments.map((comment, index) => (
         <Comment
-          key={item.id}
-          id={item.id}
-          comment={item}
-          upgradeGuide={upgradeGuide}
+          key={comment.id}
+          index={index}
+          threadId={thread.id}
+          comment={comment}
         />
       ))}
-    </>
-  )
+    </div>
+  ))
 }

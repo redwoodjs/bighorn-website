@@ -8,7 +8,7 @@ const Avatar = ({ alt, size = 42, src = '' }: AvatarProps) => {
   if (!src) {
     return (
       <div
-        className="bg-coffeeBean center rounded-full text-xl font-light text-white"
+        className="center rounded-full bg-coffeeBean text-xl font-light text-white"
         style={{ height: size, width: size }}
       >
         <span>{alt[0]}</span>

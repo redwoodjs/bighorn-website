@@ -1,4 +1,9 @@
 import {
+  CreateCommentMutation,
+  CreateCommentMutationVariables,
+} from 'types/graphql'
+
+import {
   Form,
   Label,
   TextAreaField,
@@ -19,31 +24,13 @@ interface CommentFormProps {
   id: string
   showLabel?: boolean
   upgradeGuide: string
-  parentComment?: string | null
+  threadId?: number
 }
 
 // set up the mutation
 const CREATE_COMMENT_MUTATION = gql`
-  mutation CreateCommentMutation(
-    $authorId: String!
-    $upgradeGuide: String!
-    $comment: String!
-    $subscribeToUpdates: Boolean!
-    $parentComment: String
-  ) {
-    createComment(
-      input: {
-        authorId: $authorId
-        upgradeGuide: $upgradeGuide
-        comment: $comment
-        visible: true
-        flagged: false
-        bookmarked: false
-        editCount: 0
-        parentCommentId: $parentComment
-      }
-      subscribeToUpdates: $subscribeToUpdates
-    ) {
+  mutation CreateCommentMutation($input: CreateCommentInput!) {
+    createComment(input: $input) {
       id
     }
   }
@@ -53,14 +40,22 @@ const CommentForm = ({
   id,
   showLabel = true,
   upgradeGuide,
-  parentComment = null,
+  threadId,
 }: CommentFormProps) => {
   const { currentUser } = useAuth()
   const formMethods = useForm()
 
   // set up the Apollo Mutation
-  const [createComment, { loading }] = useMutation(CREATE_COMMENT_MUTATION, {
-    refetchQueries: [CommentsQuery],
+  const [createComment, { loading }] = useMutation<
+    CreateCommentMutation,
+    CreateCommentMutationVariables
+  >(CREATE_COMMENT_MUTATION, {
+    refetchQueries: [
+      {
+        query: CommentsQuery,
+        variables: { upgradeGuide },
+      },
+    ],
     onCompleted: () => {
       toast.success('Comment submitted')
     },
@@ -78,33 +73,35 @@ const CommentForm = ({
   }
 
   const handleSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log({ parentComment })
-    const subscribeToUpdates = data[`subscribe_${id}`]
+    const subscribeAuthorToUpdates = data[`subscribe_${threadId}`]
+      ? true
+      : false
+
     createComment({
       variables: {
-        authorId: currentUser.id,
-        upgradeGuide,
-        comment: data.reply,
-        subscribeToUpdates,
-        parentComment,
+        input: {
+          authorId: currentUser?.id || '',
+          comment: data.reply,
+          threadId,
+          subscribeAuthorToUpdates,
+          upgradeGuide,
+        },
       },
     })
     formMethods.reset()
   }
 
-  // if (!currentUser) return null
-
   return (
     <div className="flex flex-1 gap-4">
-      <Avatar alt="Amy Dutton" />
+      <Avatar alt={currentUser.name} />
       <div className="flex-1">
         <Form onSubmit={handleSubmit} formMethods={formMethods}>
           <fieldset disabled={loading}>
             {showLabel && <Label name="reply">Write a Reply</Label>}
             <TextAreaField className="w-full" id="reply" name="reply" />
             <div className="flex justify-between">
-              <Label name={`subscribe_${id}`}>
-                <CheckboxField name={`subscribe_${id}`} defaultChecked />
+              <Label name={`subscribe_${threadId}`}>
+                <CheckboxField name={`subscribe_${threadId}`} defaultChecked />
                 Subscribe to Updates
               </Label>
               <Submit className="flex items-center gap-2 rounded-md border-1 border-sulu px-7 py-4 font-bold text-sulu hover:bg-sulu hover:text-black">

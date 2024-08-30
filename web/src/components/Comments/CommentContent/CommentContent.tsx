@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { CommentThreadsQuery } from 'types/graphql'
+
 import { Form, Submit, TextAreaField } from '@redwoodjs/forms'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -16,26 +18,21 @@ import {
   prettifyDate,
 } from 'src/helpers/DateHelpers'
 
-import { CommentType } from '../Comment/Comment'
-
 // set the mutation for updating the comment
 const UPDATE_COMMENT_MUTATION = gql`
-  mutation UpdateCommentMutation($id: String!, $input: UpdateCommentInput!) {
-    updateComment(id: $id, input: $input) {
+  mutation UpdateCommentMutation($id: String!, $content: String!) {
+    updateCommentContent(id: $id, content: $content) {
       id
     }
   }
 `
 
 interface CommentContentProps {
-  isThreaded?: boolean
-  comment: CommentType
+  index: number
+  comment: CommentThreadsQuery['commentThreads'][0]['comments'][0]
 }
 
-const CommentContent = ({
-  isThreaded = false,
-  comment,
-}: CommentContentProps) => {
+const CommentContent = ({ index, comment }: CommentContentProps) => {
   const [isEditTooltipShowing, setIsEditTooltipShowing] = useState(false)
   const { currentUser } = useAuth()
   const [commentState, setCommentState] = useState<'view' | 'edit'>('view')
@@ -70,31 +67,28 @@ const CommentContent = ({
     },
     refetchQueries: [CommentsQuery],
   })
-
   const handleUpdate = (data) => {
     console.log(data)
     updateComment({
       variables: {
         id: comment.id,
-        input: {
-          comment: data.comment,
-        },
+        content: data.comment,
       },
     })
   }
 
   return (
-    <div className={`px-10 ${isThreaded ? 'threaded-comment' : ''}`}>
+    <div className={`px-10 ${index > 0 ? 'threaded-comment' : ''}`}>
       <div className="mb-6 flex justify-between">
         {/* left side - author information */}
         <div className="relative z-20 flex items-center gap-3">
-          <Avatar alt={comment.author.name} size={44} />
+          <Avatar alt={comment.authorName} size={44} />
           <div>
             <div className="text-lg text-black dark:text-white">
-              {comment.author.name}
+              {comment.authorName}
             </div>
             {/* if the user is an admin, assume they're part of the core team */}
-            {comment.author.role.id === 1 && (
+            {comment.authorRole === 1 && (
               <div className="text-sm font-bold uppercase text-battleshipGray">
                 Core Team
               </div>
@@ -105,7 +99,7 @@ const CommentContent = ({
         {/* right side */}
         <div className="flex items-center gap-8">
           {/* edit button - should only display if  you're the author or admin */}
-          {(currentUser?.id === comment.author.id ||
+          {(currentUser?.id === comment.authorId ||
             currentUser?.role.id === 1) && (
             <div className="relative">
               <div className="absolute -top-12 left-1/2 -translate-x-1/2">
@@ -141,7 +135,7 @@ const CommentContent = ({
       </div>
 
       {/* comment content */}
-      <div className="pl-comment mb-8">
+      <div className="mb-8 pl-comment">
         {/* TODO: Need to parse Markdown */}
         {commentState === 'view' ? (
           <p>{comment.comment}</p>
