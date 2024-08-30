@@ -103,7 +103,7 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
       <div className="border-slugger col-span-3 border-l-1">
         <div className="sticky top-[125px] hidden h-[calc(100vh_-_150px)] flex-col justify-between py-3 lg:flex">
           {/* top nav */}
-          <ul className="table-of-contents">
+          <ul className="table-of-contents overflow-y-auto">
             <li>
               <h3>TABLE OF CONTENTS</h3>
             </li>
