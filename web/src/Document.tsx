@@ -11,7 +11,13 @@ interface DocumentProps {
 
 export const Document: React.FC<DocumentProps> = ({ children, css, meta }) => {
   return (
-    <html lang="en">
+    // suppressHydrationWarning is used to prevent React from complaining about
+    // the mismatch between the server-rendered content and the client-rendered
+    // content. In this case, it's because we're not injecting the dark mode class
+    // on the server-side - because we don't know what the user's preference is.
+    // We're doing this on the client-side and so have to suppress the warning
+    // that results from the mismatch.
+    <html lang="en" suppressHydrationWarning={true}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,6 +51,27 @@ export const Document: React.FC<DocumentProps> = ({ children, css, meta }) => {
           href="/images/hero.avif"
           as="image"
         />
+
+        {/* We insert this to prevent flashing on light/dark mode styling */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const browserTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+              const userTheme = localStorage.getItem('bighorn-theme') || 'system'
+              const addDark = userTheme === 'dark' || (userTheme === 'system' && browserTheme === 'dark')
+
+              // Add the dark class to the documentElement if the user prefers dark mode
+              if (addDark) {
+                document.documentElement.classList.add('dark')
+              }
+
+              // Store the default theme in localStorage if it doesn't exist
+              if (!localStorage.getItem('bighorn-theme')) {
+                localStorage.setItem('bighorn-theme', 'system')
+              }
+            `,
+          }}
+        ></script>
       </head>
       <body>
         <div id="redwood-app">{children}</div>

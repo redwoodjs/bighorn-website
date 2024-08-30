@@ -8,7 +8,8 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
 const Icon = ({ id, size = 24, ...props }: IconProps): JSX.Element => {
   return (
     <svg {...props} width={size} height={size}>
-      <use href={`/icons/sprite.svg#${id}`} />
+      {/* We have to use suppressHydrationWarning here because of theme type mismatch during SSR */}
+      <use href={`/icons/sprite.svg#${id}`} suppressHydrationWarning={true} />
     </svg>
   )
 }
