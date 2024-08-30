@@ -113,7 +113,11 @@ const UpgradeGuideV8Page = () => {
               </a>
             </li>
             <li>
-              <a href="#" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/redwoodjs/redwood/releases/v8.0.0"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Icon id="link" />
                 Changelog
               </a>
