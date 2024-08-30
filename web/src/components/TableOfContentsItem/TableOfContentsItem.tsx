@@ -8,17 +8,7 @@ export const TableOfContentsItem = ({ node }) => {
 
   return (
     <li className="my-1 leading-4">
-      {/* <a href={`#${id}`}>{node.value}</a> */}
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <span
-        className="cursor-pointer"
-        onClick={(el) => {
-          el.preventDefault()
-          document.getElementById(id).scrollIntoView({ behavior: 'smooth' })
-        }}
-      >
-        {node.value}
-      </span>
+      <a href={`#${id}`}>{node.value}</a>
       {node.children.length > 0 && (
         <ul className="mt-4 list-none border-l-2 border-maiTai pl-4 pt-2 text-[#afafaf]">
           {node.children.map((child) => (
