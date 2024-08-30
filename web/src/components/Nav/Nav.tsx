@@ -6,6 +6,10 @@ import { Link, routes } from '@redwoodjs/router'
 
 import { useAuth } from 'src/auth'
 import { Constants } from 'src/helpers/Constants'
+import {
+  getDefaultThemeType,
+  handleThemeTypeChange,
+} from 'src/helpers/ThemeType'
 import { useOutsideClick } from 'src/hooks/useClickoutside'
 import { useEscapeKey } from 'src/hooks/useEscapeKey'
 
@@ -24,7 +28,9 @@ const Nav = () => {
   const logoWrapperRef = useRef(null)
   const [isNavShowing, setIsNavShowing] = useState(false) // this is used to control he state of the mobile nav
   const [isThemeDropdownShowing, setIsThemeDropdownShowing] = useState(false)
-  const [selectedTheme, setSelectedTheme] = useState<ThemeType>('system')
+  const [selectedTheme, setSelectedTheme] = useState<ThemeType>(
+    getDefaultThemeType()
+  )
 
   const { currentUser, logOut } = useAuth()
 
@@ -55,30 +61,9 @@ const Nav = () => {
     setIsThemeDropdownShowing(false)
   })
 
-  // initialize - get the theme from local storage
+  // when the selected theme changes within the state
   useEffect(() => {
-    const savedTheme = localStorage.getItem('bighorn-theme') || 'system'
-    setSelectedTheme(savedTheme as ThemeType)
-  }, [])
-
-  // when the selected theme changes within the state, update the class list and local storage
-  useEffect(() => {
-    // update class list
-    // clear out the existing class list
-    document.documentElement.classList.remove('dark', 'light', 'system')
-
-    // if the class name is 'system'
-    if (
-      selectedTheme === 'system' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.add(selectedTheme)
-    }
-
-    // update local storage
-    localStorage.setItem('bighorn-theme', selectedTheme)
+    handleThemeTypeChange(selectedTheme)
   }, [selectedTheme])
 
   const toggleCommunityDropdown = () => {

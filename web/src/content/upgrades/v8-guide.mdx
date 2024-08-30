@@ -1,22 +1,3 @@
-## What's new in v8?
-
-### Background jobs
-Redwood now has a [Background Jobs]() system that allows you to create and execute background jobs in your Redwood app with ease. This is a powerful feature that can be useful for things like sending emails, processing images, or any other task that doesn't need to be done immediately.
-
-TODO(jgmw): Rob is making a video on this, put it here when it's ready.
-
-### Easier SSR and RSC setup
-It's easier than every to enable our experimental SSR and RSC features. You can now enable SSR or RSC with a single command without having to first upgrade to a canary version of Redwood.
-
-### Storybook using vite
-Our Storybook setup now uses Vite instead of the now removed Webpack. This means your storybook setup will be faster and more consistent with your underlying Redwood app.
-
-### Docker support
-We've added support for Docker in Redwood. You can now deploy your Redwood app anywhere that supports docker with ease. We have a guide on how to do this [here](https://docs.redwoodjs.com/docs/canary/docker).
-
-### Upgraded versions of React, Prisma, Vite, and more
-We've upgraded a number of packages in Redwood to their latest versions. This includes React, Prisma, Vite, and more. This means you'll be able to take advantage of the latest features and improvements in these packages.
-
 ## What you need to know before you upgrade
 
 In this release we've dropped support for Webpack. This means that if you're still using Webpack in your project you shouldn't upgrade yet. Instead you should stick with v7.7.4 and switch over to using Vite. We have a guide on how to do this [here](https://community.redwoodjs.com/t/redwood-v6-0-0-upgrade-guide/5044#vite-1).
@@ -264,7 +245,3 @@ You'll want to ensure you have generated a new Prisma client once you've upgrade
 ### Node v18 to v20 upgrade
 
 If you happen to be migrating from node version v18 to v20 as part of this upgrade you should take care to deal with any changes that itself requires. For example, deploying baremental and using pm2. In that case there are additional pm2 specific actions you must take when upgrading your system from v18 to v20. It won't be possible for us to document all things like that here. We can of course try to offer help in debugging issues that arise on our [community forums](https://community.redwoodjs.com/).
-
-## Feedback
-
-TODO(jgmw): This section

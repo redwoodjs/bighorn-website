@@ -1,16 +1,19 @@
 import * as authors from './authors'
 import type { Post } from './posts'
 
-export interface Upgrade extends Post {}
+export interface Upgrade extends Post {
+  updatedAt: Date
+}
 
 const upgrades: Upgrade[] = [
   {
-    slug: '8',
-    title: 'v8 Upgrade Guide',
+    slug: 'v8',
+    title: 'Redwood v8.0.0 🚀',
     brief:
       'Version 8 is out with some cool new features like background jobs! Upgrading should be easy with this guide to help you along the way.',
     tags: ['v8'],
     publishedAt: new Date('2024-08-23T12:00:00.000Z'),
+    updatedAt: new Date('2024-08-23T12:00:00.000Z'),
     author: authors.JoshGMWalker,
   },
 ]
