@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 
 import { Link, routes } from '@redwoodjs/router'
 
@@ -13,10 +13,28 @@ const createLazyComponent = (slug: string) =>
 
 const UpgradeGuideIndividualPage = ({ slug }) => {
   const { currentUser } = useAuth()
+  const [announcementToc, setAnnouncementToc] = useState(null)
+  const [guideToc, setGuideToc] = useState(null)
 
-  const upgrade = getUpgradeBySlug(slug)
+  // Load the table of contents for the announcement and guide
+  useEffect(() => {
+    const loadToc = async (type: string) => {
+      const { tableOfContents } = await import(
+        `../../content/upgrades/${slug}-${type}.mdx`
+      )
+      if (type === 'announcement') {
+        setAnnouncementToc(tableOfContents)
+      } else if (type === 'guide') {
+        setGuideToc(tableOfContents)
+      }
+    }
+
+    loadToc('announcement')
+    loadToc('guide')
+  }, [slug])
 
   // TODO: Provide a better 404 component
+  const upgrade = getUpgradeBySlug(slug)
   if (!upgrade) {
     return (
       <div className="page-content  mx-auto max-w-[1000px]">
@@ -87,10 +105,10 @@ const UpgradeGuideIndividualPage = ({ slug }) => {
               <h3>TABLE OF CONTENTS</h3>
             </li>
             <li>
-              <a href="#upgrading">Upgrading</a>
+              <pre>{JSON.stringify(announcementToc)}</pre>
             </li>
             <li>
-              <a href="#upgrading">Upgrading</a>
+              <pre>{JSON.stringify(guideToc)}</pre>
             </li>
           </ul>
 
