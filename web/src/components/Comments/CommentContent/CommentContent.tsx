@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
+import { Form, Submit, TextAreaField } from '@redwoodjs/forms'
+import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/toast'
+
 import { useAuth } from 'src/auth'
 import Avatar from 'src/components/Avatar/Avatar'
+import { QUERY as CommentsQuery } from 'src/components/Comments/CommentsCell/CommentsCell'
 import Icon from 'src/components/Icon/Icon'
 import Tooltip from 'src/components/Tooltip/Tooltip'
 import {
@@ -12,6 +17,15 @@ import {
 } from 'src/helpers/DateHelpers'
 
 import { CommentType } from '../Comment/Comment'
+
+// set the mutation for updating the comment
+const UPDATE_COMMENT_MUTATION = gql`
+  mutation UpdateCommentMutation($id: String!, $input: UpdateCommentInput!) {
+    updateComment(id: $id, input: $input) {
+      id
+    }
+  }
+`
 
 interface CommentContentProps {
   isThreaded?: boolean
@@ -24,6 +38,7 @@ const CommentContent = ({
 }: CommentContentProps) => {
   const [isEditTooltipShowing, setIsEditTooltipShowing] = useState(false)
   const { currentUser } = useAuth()
+  const [commentState, setCommentState] = useState<'view' | 'edit'>('view')
 
   const displayLastUpdated = () => {
     // get the number of days ago the comment was last updated
@@ -41,6 +56,31 @@ const CommentContent = ({
       return `${hoursAgo}h`
     }
     return `${daysAgo}d`
+  }
+
+  // set up the Apollo mutation
+  const [updateComment, { loading }] = useMutation(UPDATE_COMMENT_MUTATION, {
+    onCompleted: () => {
+      setCommentState('view')
+      toast.success('Comment updated')
+    },
+    onError: (error) => {
+      toast.error('Error updating comment')
+      console.error(error)
+    },
+    refetchQueries: [CommentsQuery],
+  })
+
+  const handleUpdate = (data) => {
+    console.log(data)
+    updateComment({
+      variables: {
+        id: comment.id,
+        input: {
+          comment: data.comment,
+        },
+      },
+    })
   }
 
   return (
@@ -76,6 +116,9 @@ const CommentContent = ({
                 </Tooltip>
               </div>
               <button
+                onClick={() => {
+                  setCommentState('edit')
+                }}
                 onMouseOver={() => setIsEditTooltipShowing(true)}
                 onFocus={() => setIsEditTooltipShowing(true)}
                 onMouseOut={() => setIsEditTooltipShowing(false)}
@@ -100,7 +143,34 @@ const CommentContent = ({
       {/* comment content */}
       <div className="pl-comment mb-8">
         {/* TODO: Need to parse Markdown */}
-        <p>{comment.comment}</p>
+        {commentState === 'view' ? (
+          <p>{comment.comment}</p>
+        ) : (
+          <Form onSubmit={handleUpdate}>
+            <fieldset disabled={loading}>
+              <TextAreaField
+                name="comment"
+                defaultValue={comment.comment}
+                className="w-full"
+              />
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setCommentState('view')
+                  }}
+                  className="underline hover:no-underline"
+                >
+                  Cancel
+                </button>
+                <Submit className="flex items-center gap-2 rounded-md border-1 border-sulu px-7 py-4 font-bold text-sulu hover:bg-sulu hover:text-black">
+                  <Icon id="check" />
+                  Update
+                </Submit>
+              </div>
+            </fieldset>
+          </Form>
+        )}
       </div>
     </div>
   )
