@@ -4,7 +4,7 @@ interface AvatarProps {
   src?: string
 }
 
-const Avatar = ({ alt, size = 42, src = '' }: AvatarProps) => {
+const Avatar = ({ alt = '?', size = 42, src = '' }: AvatarProps) => {
   if (!src) {
     return (
       <div

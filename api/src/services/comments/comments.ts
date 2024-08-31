@@ -9,6 +9,11 @@ import { ForbiddenError, ValidationError } from '@redwoodjs/graphql-server'
 
 import { ROLES } from 'src/lib/auth'
 import { db } from 'src/lib/db'
+import { logger } from 'src/lib/logger'
+import { mailer } from 'src/lib/mailer'
+import { sendNewCommentSlackNotification } from 'src/lib/slack'
+import { CommentAcknowledged } from 'src/mail/CommentAcknowledged/CommentAcknowledged'
+import { NewReply } from 'src/mail/NewReply/NewReply'
 
 export const commentThreads: QueryResolvers['commentThreads'] = async ({
   upgradeGuide,
@@ -39,6 +44,7 @@ export const createComment: MutationResolvers['createComment'] = async ({
           id: true,
         },
       },
+      email: true,
     },
   })
   if (!author) {
@@ -47,6 +53,7 @@ export const createComment: MutationResolvers['createComment'] = async ({
 
   // Confirm the thread
   let threadId = input.threadId
+  let isReply = false
   if (!threadId) {
     // If no threadId is provided, create a new thread
     const thread = await db.commentThread.create({
@@ -75,6 +82,7 @@ export const createComment: MutationResolvers['createComment'] = async ({
     if (thread.upgradeGuide !== input.upgradeGuide) {
       throw new ValidationError('Invalid thread')
     }
+    isReply = true
   }
 
   // Create the comment
@@ -96,9 +104,72 @@ export const createComment: MutationResolvers['createComment'] = async ({
     })
   }
 
-  // TODO(jgmw): Send slack notification
-  // TODO(jgmw): Send email acknowledgement
-  // TODO(jgmw): Send email notifications
+  const commentLink = `https://redwoodjs.com/upgrade/${input.upgradeGuide}#comment_${comment.id}`
+
+  try {
+    await sendNewCommentSlackNotification({
+      isReply,
+      commentLink,
+      comment: input.comment,
+      upgradeGuide: input.upgradeGuide,
+    })
+  } catch (error) {
+    logger.error('Failed to send slack notification', error)
+  }
+
+  try {
+    await mailer.send(CommentAcknowledged({ comment: comment.comment }), {
+      to: {
+        name: author.name,
+        address: author.email,
+      },
+      subject: 'RedwoodJS Comment Acknowledged',
+    })
+  } catch (error) {
+    logger.error('Failed to send email acknowledgement', error)
+  }
+
+  if (isReply) {
+    const usersToNotify = await db.subscribeUserToCommentThread.findMany({
+      where: {
+        threadId,
+        userId: {
+          not: input.authorId,
+        },
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+            name: true,
+          },
+        },
+      },
+    })
+    const uniqueUsersToNotify = []
+    for (const user of usersToNotify) {
+      if (!uniqueUsersToNotify.some((u) => u.id === user.user.id)) {
+        uniqueUsersToNotify.push(user.user)
+      }
+    }
+
+    await Promise.allSettled(
+      uniqueUsersToNotify.map(async (user) => {
+        try {
+          await mailer.send(NewReply({ commentLink }), {
+            to: {
+              name: user.name,
+              address: user.email,
+            },
+            subject: 'RedwoodJS New Reply',
+          })
+        } catch (error) {
+          logger.error('Failed to send email notification', error)
+        }
+      })
+    )
+  }
 
   return {
     authorId: author.id,

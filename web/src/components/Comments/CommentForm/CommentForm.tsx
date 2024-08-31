@@ -91,7 +91,7 @@ const CommentForm = ({
 
   return (
     <div className="flex flex-1 gap-4">
-      <Avatar alt={currentUser.name} />
+      <Avatar alt={currentUser?.name} />
       <div className="flex-1">
         <Form onSubmit={handleSubmit} formMethods={formMethods}>
           <fieldset disabled={loading}>
