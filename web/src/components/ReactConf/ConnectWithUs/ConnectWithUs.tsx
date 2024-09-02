@@ -20,7 +20,9 @@ const ConnectOption = ({ link, heading, icon, text }: Props) => (
     <div className="mb-3 text-maiTai">
       <Icon id={icon} size={36} />
     </div>
-    <h2 className="mb-3 text-lg font-bold text-white md:text-2xl">{heading}</h2>
+    <h2 className="mb-3 text-lg font-bold md:text-2xl dark:text-white">
+      {heading}
+    </h2>
     <p className="text-base md:text-lg">{text}</p>
   </a>
 )

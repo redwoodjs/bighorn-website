@@ -477,10 +477,10 @@
 
   ul.table-of-contents {
     @apply mx-11;
-    h3 { @apply text-sm font-bold uppercase tracking-wide text-sulu }
+    h3 { @apply text-sm font-bold uppercase tracking-wide text-christi dark:text-sulu }
     li { @apply pb-5 }
     li:last-child { @apply pb-0; }
-    li a { @apply text-white hover:text-sulu }
+    li a { @apply dark:text-white dark:hover:text-sulu hover:text-christi }
     li a:has(svg) { @apply flex gap-2 items-center }
     li a svg { @apply text-maiTai}
   }
