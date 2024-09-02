@@ -1,5 +1,10 @@
 import { useState } from 'react'
 
+import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
+import remarkBreaks from 'remark-breaks'
+import remarkGfm from 'remark-gfm'
 import { CommentThreadsQuery } from 'types/graphql'
 
 import { Form, Submit, TextAreaField } from '@redwoodjs/forms'
@@ -135,10 +140,17 @@ const CommentContent = ({ index, comment }: CommentContentProps) => {
       </div>
 
       {/* comment content */}
-      <div className="mb-8 pl-comment">
-        {/* TODO: Need to parse Markdown */}
+      <div className="pl-comment mb-8">
         {commentState === 'view' ? (
-          <p>{comment.comment}</p>
+          <div className="max-h-[50vh] overflow-auto">
+            <Markdown
+              remarkPlugins={[[remarkGfm], [remarkBreaks]]}
+              rehypePlugins={[rehypeRaw, rehypeSlug]}
+              className="markdown my-4"
+            >
+              {comment.comment}
+            </Markdown>
+          </div>
         ) : (
           <Form onSubmit={handleUpdate}>
             <fieldset disabled={loading}>
