@@ -41,7 +41,11 @@ export const QUERY: TypedDocumentNode<
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Empty</div>
+export const Empty = () => (
+  <div>
+    <p>You could be the first to comment!</p>
+  </div>
+)
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
