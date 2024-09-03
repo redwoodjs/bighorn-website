@@ -19,6 +19,12 @@ export default defineConfig(async () => {
   const { default: rehypeRaw } = await import('rehype-raw')
   const { default: rehypeSlug } = await import('rehype-slug')
   const { default: rehypeHighlight } = await import('rehype-highlight')
+  const { default: rehypeWithToc } = await import(
+    '@stefanprobst/rehype-extract-toc'
+  )
+  const { default: rehypeWithTocExport } = await import(
+    '@stefanprobst/rehype-extract-toc/mdx'
+  )
 
   const config: UserConfig = {
     plugins: [
@@ -40,6 +46,8 @@ export default defineConfig(async () => {
             },
           ],
           [rehypeSlug],
+          [rehypeWithToc],
+          [rehypeWithTocExport],
           [rehypeExternalLinks],
         ],
       }),

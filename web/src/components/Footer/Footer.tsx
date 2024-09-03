@@ -110,6 +110,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
+              <Link to={routes.upgradeGuide()}>Upgrade Guides</Link>
+            </li>
+            <li>
               <Link to={routes.blog()}>Blog</Link>
             </li>
             <li>

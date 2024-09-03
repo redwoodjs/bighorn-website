@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import { Link, routes } from '@redwoodjs/router'
 
+import { useAuth } from 'src/auth'
 import { Constants } from 'src/helpers/Constants'
 import {
   getDefaultThemeType,
@@ -30,6 +31,8 @@ const Nav = () => {
   const [selectedTheme, setSelectedTheme] = useState<ThemeType>(
     getDefaultThemeType()
   )
+
+  const { currentUser, logOut } = useAuth()
 
   // set up right click on the logo
   useEffect(() => {
@@ -198,6 +201,19 @@ const Nav = () => {
             </ul>
           </li>
           <li>
+            {currentUser ? (
+              <button
+                onClick={() => {
+                  logOut()
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link to={routes.login()}>Login</Link>
+            )}
+          </li>
+          <li>
             <a href={Constants.GET_STARTED}> Get Started</a>
           </li>
         </motion.ul>
@@ -285,6 +301,26 @@ const Nav = () => {
                 )}
               </AnimatePresence>
             </button>
+          </li>
+          <li className="w-16">
+            {currentUser ? (
+              <button
+                onClick={() => {
+                  logOut()
+                }}
+                className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
+              >
+                {' '}
+                Logout{' '}
+              </button>
+            ) : (
+              <Link
+                to={routes.login()}
+                className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
+              >
+                Login
+              </Link>
+            )}
           </li>
           <li>
             <a href={Constants.GET_STARTED} className="button hover:text-black">

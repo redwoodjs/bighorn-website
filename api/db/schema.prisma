@@ -21,3 +21,68 @@ model Newsletter {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model User {
+  id                           String                         @id @default(uuid())
+  name                         String
+  email                        String                         @unique
+  hashedPassword               String
+  salt                         String
+  resetToken                   String?
+  resetTokenExpiresAt          DateTime?
+  role                         Role                           @relation(fields: [roleId], references: [id])
+  roleId                       Int
+  Comment                      Comment[]
+  Like                         Like[]
+  createdAt                    DateTime                       @default(now())
+  SubscribeUserToCommentThread SubscribeUserToCommentThread[]
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  User      User[]
+}
+
+model CommentThread {
+  id                           Int                            @id @default(autoincrement())
+  upgradeGuide                 String
+  Comments                     Comment[]
+  createdAt                    DateTime                       @default(now())
+  SubscribeUserToCommentThread SubscribeUserToCommentThread[]
+}
+
+model Comment {
+  id              String         @id @default(uuid())
+  author          User           @relation(fields: [authorId], references: [id])
+  authorId        String
+  comment         String
+  visible         Boolean        @default(true)
+  flagged         Boolean        @default(false)
+  bookmarked      Boolean        @default(false)
+  editCount       Int            @default(0)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  Like            Like[]
+  CommentThread   CommentThread? @relation(fields: [commentThreadId], references: [id])
+  commentThreadId Int?
+}
+
+model SubscribeUserToCommentThread {
+  id        Int           @id @default(autoincrement())
+  user      User          @relation(fields: [userId], references: [id])
+  userId    String
+  thread    CommentThread @relation(fields: [threadId], references: [id])
+  threadId  Int
+  createdAt DateTime      @default(now())
+}
+
+model Like {
+  id        Int      @id @default(autoincrement())
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  commentId String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+}

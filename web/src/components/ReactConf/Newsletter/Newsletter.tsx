@@ -50,7 +50,7 @@ const Newsletter = () => {
             <EmailField
               name="email"
               placeholder="your@email.com"
-              className="h-[53px] w-full rounded-[4px] border-1 border-battleshipGray bg-transparent px-7 font-sans text-lg text-white transition-all sm:flex-1"
+              className="h-[53px] w-full rounded-[4px] border-1 border-battleshipGray bg-transparent px-7 font-sans text-lg transition-all sm:flex-1 dark:text-white"
             />
             <button
               type="submit"

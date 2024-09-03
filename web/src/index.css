@@ -109,6 +109,35 @@
     @apply bg-white dark:bg-licorice font-sans text-black dark:text-white m-0 p-0 scroll-smooth;
   }
 
+  /* FORM FIELDS */
+  label {
+    @apply block text-battleshipGray font-bold text-sm tracking-wide uppercase mb-2;
+  }
+
+  .auth-form {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      @apply border-battleshipGray bg-transparent text-lg text-black dark:text-white px-7 h-[54px] w-full rounded-[4px] mb-7 border-1;
+    }
+
+    input[type="text"]:disabled,
+    input[type="password"]:disabled,
+    input[type="email"]:disabled {
+      @apply bg-gray-100;
+    }
+  }
+
+  textarea {
+    @apply mb-4 dark:bg-[#251d18] bg-gray-200 p-7
+  }
+
+  input[type="checkbox"] {
+    @apply hidden;
+    label:has(&) { @apply bg-[url('/images/checkbox--unchecked.svg')] dark:bg-[url('/images/checkbox--unchecked-dark.svg')] bg-no-repeat bg-left-top min-h-[32px] leading-8 pl-10 font-normal text-lg dark:text-white normal-case cursor-pointer }
+    label:has(&:checked) { @apply bg-[url('/images/checkbox--checked.svg')] dark:bg-[url('/images/checkbox--checked-dark.svg')]}
+  }
+
   hr {
     @apply border-t-1 w-full border-maiTai bg-transparent
   }
@@ -296,18 +325,17 @@
   /* buttons */
   .button {
     /* passing green - #6aa910 */
-    @apply py-3 md:py-4 px-5 md:px-7 bg-[#8de112] dark:bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none
+    @apply py-3 md:py-4 px-5 md:px-7 bg-[#8de112] dark:bg-sulu center text-lg font-sans font-bold text-black rounded-[4px] inline-block leading-none whitespace-nowrap
   }
 
   .button.outline {
     @apply border-2 border-christi hover:border-christi dark:border-sulu dark:hover:border-sulu dark:text-sulu text-christi bg-transparent hover:bg-christi dark:hover:bg-sulu cursor-pointer dark:hover:text-black
   }
 
-
   /* changelog and blog */
-.blog-post h2 {
-  @apply text-3xl text-black dark:text-sulu font-serif font-bold mb-2;
-}
+  .blog-post h2 {
+    @apply text-3xl text-black dark:text-sulu font-serif font-bold mb-2;
+  }
 
   .blog-post h3,
   .changelog h3 {
@@ -445,6 +473,50 @@
 
   .blog-post .react-tweet-theme a {
     border-bottom: 0;
+  }
+
+  ul.table-of-contents {
+    @apply mx-11;
+    h3 { @apply text-sm font-bold uppercase tracking-wide text-christi dark:text-sulu }
+    li { @apply pb-5 }
+    li:last-child { @apply pb-0; }
+    li a { @apply dark:text-white dark:hover:text-sulu hover:text-christi }
+    li a:has(svg) { @apply flex gap-2 items-center }
+    li a svg { @apply text-maiTai}
+  }
+
+  .threaded-comment {
+    @apply relative;
+    &:before { @apply content-[''] block border-2 border-coffeeBean absolute h-full left-[60px] top-11 z-0; }
+    &:before:last-child { @apply h-[calc(100%_-_42px)] }
+  }
+
+  .comment-footer {
+    button { @apply text-maiTai hover:text-sulu; }
+  }
+
+  .tooltip {
+    @apply text-white border-sulu rounded-md border-1 text-sm leading-5 py-2 px-6 bg-eerieBlack relative whitespace-nowrap pointer-events-none;
+    &:after,
+    &:before { @apply size-0 content-[''] block border-[8px] border-transparent absolute }
+    &:after { @apply border-[10px] }
+    /* top */
+    &.tooltip-top:before { @apply border-t-sulu -bottom-[16px] left-1/2 -translate-x-1/2 ;}
+    &.tooltip-top:after { @apply border-t-eerieBlack -bottom-[16px] left-1/2 -translate-x-1/2 ;}
+    /* bottom */
+    &.tooltip-bottom:before { @apply border-b-sulu -top-[16px] left-1/2 -translate-x-1/2; }
+    &.tooltip-bottom:after { @apply border-b-eerieBlack -top-[16px] left-1/2 -translate-x-1/2; }
+    /* left */
+    &.tooltip-left:before { @apply border-l-sulu -right-[16px] top-1/2 -translate-y-1/2; }
+    &.tooltip-left:after { @apply border-l-eerieBlack -right-[16px] top-1/2 -translate-y-1/2; }
+    /* right */
+    &.tooltip-right:before { @apply border-r-sulu -left-[16px] top-1/2 -translate-y-1/2; }
+    &.tooltip-right:after { @apply border-r-eerieBlack -left-[16px] top-1/2 -translate-y-1/2; }
+  }
+
+  /* Offset the scroll margin for the sticky header */
+  .scroll-margin-container * {
+    scroll-margin-top: 80px;
   }
 }
 

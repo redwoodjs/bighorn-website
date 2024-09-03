@@ -34,7 +34,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
       <div className="flex justify-between">
         <Link
           to={routes.blogIndividual({ slug: post.slug })}
-          className="group/readMoreBlogLink flex items-center gap-1 font-bold uppercase text-white "
+          className="group/readMoreBlogLink flex items-center gap-1 font-bold uppercase dark:text-white "
         >
           <span className="border-b-1 border-b-black text-sm text-black group-hover/readMoreBlogLink:border-sulu dark:border-b-white dark:text-white dark:hover:text-white">
             Read

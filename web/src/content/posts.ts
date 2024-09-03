@@ -1,7 +1,7 @@
 import * as authors from './authors'
 import type { Author } from './authors'
 
-export type Post = {
+export interface Post {
   slug: string
   title: string
   brief: string
