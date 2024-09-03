@@ -38,6 +38,7 @@ FROM base as api_build
 #
 # ARG MY_BUILD_TIME_ENV_VAR
 
+COPY --chown=node:node web web
 COPY --chown=node:node api api
 RUN yarn redwood build api
 
@@ -46,6 +47,7 @@ RUN yarn redwood build api
 FROM base as web_build
 
 COPY --chown=node:node web web
+COPY --chown=node:node api api
 RUN yarn redwood build web --no-prerender
 
 # serve api
