@@ -102,7 +102,7 @@ const CommentForm = ({
                 <CheckboxField name={`subscribe_${threadId}`} defaultChecked />
                 Subscribe to Updates
               </Label>
-              <Submit className="flex items-center gap-2 rounded-md border-1 border-sulu px-7 py-4 font-bold text-sulu hover:bg-sulu hover:text-black">
+              <Submit className="flex items-center gap-2 rounded-md border-1 border-christi px-7 py-4 font-bold text-christi hover:bg-christi hover:text-black dark:border-sulu dark:text-sulu dark:hover:bg-sulu">
                 <Icon id="check" />
                 Submit
               </Submit>
