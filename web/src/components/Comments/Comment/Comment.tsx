@@ -150,21 +150,23 @@ const Comment = ({
         </div>
 
         {/* right side */}
-        <div className="flex items-center gap-8 text-sm font-bold uppercase text-maiTai">
-          {replyCount === 1 ? (
-            '1 Reply'
-          ) : replyCount < 1 ? (
-            <button
-              className="group flex items-center gap-2"
-              onClick={() => setIsReplyFormShowing(true)}
-            >
-              <Icon id="reply" />
-              REPLY
-            </button>
-          ) : (
-            `${replyCount} Replies`
-          )}
-        </div>
+        {index === 0 && (
+          <div className="flex items-center gap-8 text-sm font-bold uppercase text-maiTai">
+            {replyCount === 1 ? (
+              '1 Reply'
+            ) : replyCount < 1 ? (
+              <button
+                className="group flex items-center gap-2"
+                onClick={() => setIsReplyFormShowing(true)}
+              >
+                <Icon id="reply" />
+                REPLY
+              </button>
+            ) : (
+              `${replyCount} Replies`
+            )}
+          </div>
+        )}
       </div>
 
       {/* respond */}

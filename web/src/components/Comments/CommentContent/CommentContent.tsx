@@ -140,7 +140,7 @@ const CommentContent = ({ index, comment }: CommentContentProps) => {
       </div>
 
       {/* comment content */}
-      <div className="pl-comment mb-8">
+      <div className="mb-8 pl-comment">
         {commentState === 'view' ? (
           <div className="max-h-[50vh] overflow-auto">
             <Markdown
