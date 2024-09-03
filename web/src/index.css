@@ -134,8 +134,8 @@
 
   input[type="checkbox"] {
     @apply hidden;
-    label:has(&) { @apply bg-[url('/images/checkbox--unchecked.svg')] bg-no-repeat bg-left-top min-h-[32px] leading-8 pl-10 font-normal text-lg text-white normal-case cursor-pointer }
-    label:has(&:checked) { @apply bg-[url('/images/checkbox--checked.svg')]}
+    label:has(&) { @apply bg-[url('/images/checkbox--unchecked.svg')] dark:bg-[url('/images/checkbox--unchecked-dark.svg')] bg-no-repeat bg-left-top min-h-[32px] leading-8 pl-10 font-normal text-lg dark:text-white normal-case cursor-pointer }
+    label:has(&:checked) { @apply bg-[url('/images/checkbox--checked.svg')] dark:bg-[url('/images/checkbox--checked-dark.svg')]}
   }
 
   hr {
