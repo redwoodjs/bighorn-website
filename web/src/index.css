@@ -129,7 +129,7 @@
   }
 
   textarea {
-    @apply mb-4 bg-[#251d18] p-7
+    @apply mb-4 dark:bg-[#251d18] bg-gray-200 p-7
   }
 
   input[type="checkbox"] {
