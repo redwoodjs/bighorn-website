@@ -1,6 +1,6 @@
 ## What you need to know before you upgrade
 
-In this release we've dropped support for Webpack. This means that if you're still using Webpack in your project you shouldn't upgrade yet. Instead you should stick with v7.7.4 and switch over to using Vite. We have a guide on how to do this [here](https://community.redwoodjs.com/t/redwood-v6-0-0-upgrade-guide/5044#vite-1).
+In this release, we've dropped support for Webpack. This means that if you're still using Webpack in your project you shouldn't upgrade yet. Instead, you should stick with v7.7.4 and switch over to using Vite. We have a guide on how to do this [here](https://community.redwoodjs.com/t/redwood-v6-0-0-upgrade-guide/5044#vite-1).
 
 There are more changes that might impact you so please be sure to read the full guide here to make the upgrade as easy as possible. If you want to see a full list of every single change in v8 you can look at the release [here](https://github.com/redwoodjs/redwood/releases/v8.0.0). It details all the PRs that went into this release.
 
@@ -59,7 +59,7 @@ We've updated our default TSConfig settings to better match modern runtimes. You
 
 #### API Side
 
-This is found at `./api/tsconfig.json`. You'll want to update the `target`, `module` and `moduleResolution` settings.
+This is found at `./api/tsconfig.json`. You'll want to update the `target`, `module`, and `moduleResolution` settings.
 ```diff json
 {
   "compilerOptions": {
@@ -75,7 +75,7 @@ This is found at `./api/tsconfig.json`. You'll want to update the `target`, `mod
 
 #### Web Side
 
-This is found at `./web/tsconfig.json`. Again you'll want to update the `target`, `module` and `moduleResolution` settings.
+This is found at `./web/tsconfig.json`. Again you'll want to update the `target`, `module`, and `moduleResolution` settings.
 ```diff json
 {
   "compilerOptions": {
@@ -91,7 +91,7 @@ This is found at `./web/tsconfig.json`. Again you'll want to update the `target`
 
 #### Scripts
 
-This is found at `./scripts/tsconfig.json`. You'll want to update the `target`, `module` and `moduleResolution` settings.
+This is found at `./scripts/tsconfig.json`. You'll want to update the `target`, `module`, and `moduleResolution` settings.
 ```diff json
 {
   "compilerOptions": {
@@ -120,7 +120,7 @@ We've updated the default version of yarn to v4.4.0. You can update this in your
 
 Redwood's `NavLink` component uses the `className` and `activeClassName` props to apply classes to the link based on the current route. In v8 we've changed how `activeClassName` works. In v7 `activeClassName` would be merged with `className` if the link was active. In v8 `activeClassName` will replace `className` if the link is active.
 
-This means you'll need to update your `activeClassName` prop to include any of the `className` classes you wanted to be applied while the link is active since these won't be merged in anymore. For example take this component:
+This means you'll need to update your `activeClassName` prop to include any of the `className` classes you wanted to be applied while the link is active since these won't be merged in anymore. For example, take this component:
 ```tsx
 <NavLink
   to={routes.home()}
@@ -130,7 +130,7 @@ This means you'll need to update your `activeClassName` prop to include any of t
   Home
 </NavLink>
 ```
-In v7 you'd get both the border and color when the link was active. In v8 you'll only get the color and the border would no longer show. To fix this you'll need to update the `activeClassName` to include the border.
+In v7 you'd get both the border and color when the link was active. In v8 you'll only get the color and the border will no longer show. To fix this you'll need to update the `activeClassName` to include the border.
 ```diff tsx
 <NavLink
   to={routes.home()}
@@ -143,7 +143,7 @@ In v7 you'd get both the border and color when the link was active. In v8 you'll
 ```
 
 ### Database file structure change
-This is not technically a breaking change to your code but we have changed how we structure the database file by default and strongly recommend you update your database file to match this new expectation. It's a simple change. We instead expect you to create a distince variable for the Prisma client and export that later as `db`. This is in preparation for future changes that will introduce some awesome features. Here's what the typical diff would look like:
+This is not technically a breaking change to your code but we have changed how we structure the database file by default and strongly recommend you update your database file to match this new expectation. It's a simple change. We instead expect you to create a distinct variable for the Prisma client and export that later as `db`. This is in preparation for future changes that will introduce some awesome features. Here's what the typical diff would look like:
 
 ```diff ts
 import { PrismaClient } from '@prisma/client'
@@ -167,7 +167,7 @@ handlePrismaLogging({
 
 ## Other changes
 
-Those changes discussed above are likely to effect everyone. There are other changes that might impact you depending on how you're using Redwood. Let's walk through those.
+Those changes discussed above are likely to affect everyone. There are other changes that might impact you depending on how you're using Redwood. Let's walk through those.
 
 ### Prettier v3
 
@@ -209,13 +209,13 @@ We have upgraded from Vite v4 to v5. There are no breaking changes for users wit
 
 ### Redwood package imports and exports
 
-We have added [conditional exports](https://nodejs.org/api/packages.html#conditional-exports) to our `web`, `router`, `forms`, `prerender`, `api` and `internal` packages. This could mean that if you were importing from deep within the package like `@redwoodjs/web/dist/xyz` that this will no longer work.
+We have added [conditional exports](https://nodejs.org/api/packages.html#conditional-exports) to our `web`, `router`, `forms`, `prerender`, `api` and `internal` packages. This could mean that if you were importing from deep within the package like `@redwoodjs/web/dist/xyz` this will no longer work.
 
 For example, you could have been using components such as `Toast` by importing from the dist directory inside of `@redwoodjs/web`. We often no longer support importing directly from dist and you should instead import from the root like so `@redwoodjs/web/toast`.
 
-### `server.config.js` not longer supported
+### `server.config.js` no longer supported
 
-You can no longer use the `server.config.js` file to configure your fastify server. Instead you'll have to migrate to the new server file setup. This is documented [here](https://docs.redwoodjs.com/docs/canary/docker/#using-the-server-file).
+You can no longer use the `server.config.js` file to configure your fastify server. Instead, you'll have to migrate to the new server file setup. This is documented [here](https://docs.redwoodjs.com/docs/canary/docker/#using-the-server-file).
 
 ### Apollo `GraphQLFormattedError` and `GraphQLError`
 
@@ -223,11 +223,11 @@ Apollo recently fixed a type error with `GraphQLError` and `GraphQLFormatterErro
 
 ### `yarn rw build` no longer accepts a `performance` flag
 
-When using the Webpack bundler a `--performance` flag was available for the `yarn rw build` command. This flag, and the underlying functionality, is no longer available since we've removed Webpack. In v8 attempting to use this flag will throw an error.
+When using the Webpack bundler a `--performance` flag was available for the `yarn rw build` command. This flag, and the underlying functionality, are no longer available since we've removed Webpack. In v8 attempting to use this flag will throw an error.
 
 ### `firebase-admin` upgraded to v12
 
-Our [firebase auth provider](https://docs.redwoodjs.com/docs/auth/firebase/) uses the [firebase-admin](https://www.npmjs.com/package/firebase-admin) package. This has been upgraded from v11 to v12. We have seen no breaking changes that would effect a Redwood user with regards to authentication but please do consult their [changelog](https://github.com/firebase/firebase-admin-node/releases/tag/v12.0.0) if you use this auth provider.
+Our [firebase auth provider](https://docs.redwoodjs.com/docs/auth/firebase/) uses the [firebase-admin](https://www.npmjs.com/package/firebase-admin) package. This has been upgraded from v11 to v12. We have seen no breaking changes that would affect a Redwood user with regards to authentication but please do consult their [changelog](https://github.com/firebase/firebase-admin-node/releases/tag/v12.0.0) if you use this auth provider.
 
 ### Resend upgraded to v3
 
@@ -249,7 +249,7 @@ If you have used this function in your API side tests and have snapshots or othe
 
 ### Change to `isDataEmpty` function in `@redwoodjs/web`
 
-The `isDataEmpty` function from the `@redwoodjs/web` package is not typically used within Redwood projects but if you have chosen to import and use it you must now be aware that it will no longer throw an error when the data parameter is `null` or `undefined`. Instead it'll return `true` (as in, “yes, the data is empty”).
+The `isDataEmpty` function from the `@redwoodjs/web` package is not typically used within Redwood projects but if you have chosen to import and use it you must now be aware that it will no longer throw an error when the data parameter is `null` or `undefined`. Instead, it'll return `true` (as in, “yes, the data is empty”).
 
 ### Colors update in `@redwoodjs/cli-helpers`
 
@@ -266,7 +266,7 @@ We expect in this release a small change in the linting rules applied to your pr
 
 ### v1 codemods
 
-During upgrades we try when possible to provide codemods for non-trivial changes that need to be made to your project. There were a number of such codemods designed to make changes when upgrading from versions between v0.0.0 and v1.0.0. These codemods are published in the `@redwoodjs/codemods` package.
+During upgrades, we try when possible to provide codemods for non-trivial changes that need to be made to your project. There were a number of such codemods designed to make changes when upgrading from versions between v0.0.0 and v1.0.0. These codemods are published in the `@redwoodjs/codemods` package.
 
 From v8 this package will no longer contain codemods designed for versions prior to v1.0.0. If you still need those codemods then you can still use them by using the v7.7.4 of `@redwoodjs/codemods`.
 
@@ -274,8 +274,8 @@ From v8 this package will no longer contain codemods designed for versions prior
 
 ### Prisma Client
 
-You'll want to ensure you have generated a new Prisma client once you've upgraded. We have seen occasions where even though our upgrade script will regenerate the client that you will have to do so again to avoid errors. An example of an error we've seen where this has been the fix is wehn your API side is throwing because of reading length on undefined with regards to currentUser.
+You'll want to ensure you have generated a new Prisma client once you've upgraded. We have seen occasions where even though our upgrade script will regenerate the client you will have to do so again to avoid errors. An example of an error we've seen where this has been the fix is when your API side is throwing because of reading length on undefined with regards to currentUser.
 
 ### Node v18 to v20 upgrade
 
-If you happen to be migrating from node version v18 to v20 as part of this upgrade you should take care to deal with any changes that itself requires. For example, deploying baremental and using pm2. In that case there are additional pm2 specific actions you must take when upgrading your system from v18 to v20. It won't be possible for us to document all things like that here. We can of course try to offer help in debugging issues that arise on our [community forums](https://community.redwoodjs.com/).
+If you happen to be migrating from node version v18 to v20 as part of this upgrade you should take care to deal with any changes that itself required. For example, deploying baremental and using pm2. In that case, there are additional pm2 specific actions you must take when upgrading your system from v18 to v20. It won't be possible for us to document all things like that here. We can of course try to offer help in debugging issues that arise on our [community forums](https://community.redwoodjs.com/).
