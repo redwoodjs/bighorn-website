@@ -16,7 +16,7 @@ export const Constants = Object.freeze({
   EVENTS: 'https://lu.ma/redwoodjs',
   GET_STARTED: 'https://redwoodjs.com/docs/quick-start',
   GITHUB: 'https://github.com/redwoodjs/redwood',
-  GITHUB_STARS: '16.9k',
+  GITHUB_STARS: '17k',
   GITHUB_RELEASE: 'https://github.com/redwoodjs/redwood/releases',
   MAKER_HOUR: 'https://community.redwoodjs.com/t/redwood-makers-hour-stand-up/1971',
   NEWSLETTER: 'https://mailchi.mp/redwoodjs/redwoodjs-newsletter',
@@ -30,7 +30,7 @@ export const Constants = Object.freeze({
   STARTUP_FUND: 'http://redwoodstartupfund.com/',
   TUTORIAL: 'https://redwoodjs.com/docs/tutorial/foreword',
   UPGRADE: '8',
-  VERSION: 'v7.7',
+  VERSION: 'v8',
   X: 'https://twitter.com/redwoodjs',
   YOUTUBE: 'https://www.youtube.com/redwoodjs',
   YOUTUBE_SERIES: 'https://www.youtube.com/watch?v=Xr92RcUMngc&list=PLrz61zkUHJJFzXe0xZ55RdAF3o3PGhd0U'
