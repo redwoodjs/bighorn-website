@@ -10,7 +10,7 @@ export type EventEntry = {
 export const events: EventEntry[] = [
   {
     title: 'Maker Hour',
-    date: '2024-08-21',
+    date: '2024-09-11',
     time: '1:00pm PST',
     description:
       'Each week, we meet to support each other and discuss projects we’re building on top of RedwoodJS.',
@@ -19,7 +19,16 @@ export const events: EventEntry[] = [
   },
   {
     title: 'Maker Hour',
-    date: '2024-08-28',
+    date: '2024-09-18',
+    time: '1:00pm PST',
+    description:
+      'Each week, we meet to support each other and discuss projects we’re building on top of RedwoodJS.',
+    rsvp: 'https://lu.ma/8qgq5dlb',
+    published: true,
+  },
+  {
+    title: 'Maker Hour',
+    date: '2024-09-25',
     time: '1:00pm PST',
     description:
       'Each week, we meet to support each other and discuss projects we’re building on top of RedwoodJS.',
