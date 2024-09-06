@@ -213,6 +213,8 @@ We have added [conditional exports](https://nodejs.org/api/packages.html#conditi
 
 For example, you could have been using components such as `Toast` by importing from the dist directory inside of `@redwoodjs/web`. We often no longer support importing directly from dist and you should instead import from the root like so `@redwoodjs/web/toast`.
 
+In order to make this upgrade as smooth as possible, we have not removed all possible deep imports. There are cases like: `'@redwoodjs/web/dist/components/DevFatalErrorPage'` where this import will still work. If you encounter a problem with an import you should check the [Redwood repository](https://github.com/redwoodjs/redwood/tree/main/packages) and look at the `package.json` file of the package you're having difficulty with. If there is an `exports` field then you'll be able to see all our supported import paths, if there is no `exports` field then you can simply continue importing from dist as before.
+
 ### `server.config.js` no longer supported
 
 You can no longer use the `server.config.js` file to configure your fastify server. Instead, you'll have to migrate to the new server file setup. This is documented [here](https://docs.redwoodjs.com/docs/canary/docker/#using-the-server-file).
