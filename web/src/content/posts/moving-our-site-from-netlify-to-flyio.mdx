@@ -16,7 +16,7 @@ I won't go into all the details here and some of our canary setup is subject to 
 
 The main changes we chose to make were:
 
-1. Switched away from the Dockerfile Fly generated and used the Redwood Dockerfile [template](https://github.com/redwoodjs/redwood/blob/main/packages/cli/src/commands/experimental/templates/docker/Dockerfile).
+1. Switched away from the Dockerfile Fly generated and used the Redwood Dockerfile [template](https://github.com/redwoodjs/redwood/blob/main/packages/cli/src/commands/setup/docker/templates/Dockerfile).
 
 2. Altered the start script for our Fly machine to start both the web and API server processes. You should follow Fly's advice on multiple processes [here](https://fly.io/docs/app-guides/multiple-processes/).
 
