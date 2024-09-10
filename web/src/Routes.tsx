@@ -37,6 +37,8 @@ const Routes = () => {
           <Route path="/conf" redirect="/react-conf" />
           <Route path="/reactconf" redirect="/react-conf" />
           <Route path="/react-conf" page={ReactConfPage} name="reactConf" />
+          <Route path="/reactadvanced" redirect="/react-advanced" />
+          <Route path="/react-advanced" page={ReactAdvancedPage} name="reactAdvanced" />
 
           {/* UPGRADE - INDEX */}
           <Route path="/upgrade" page={UpgradeGuidePage} name="upgradeGuide" />
