@@ -118,6 +118,15 @@ const posts: Post[] = [
     publishedAt: new Date('2024-07-02T12:00:00.000Z'),
     author: authors.JoshGMWalker,
   },
+  {
+    slug: 'background-jobs',
+    title: 'Background Jobs',
+    brief:
+      "Redwood now ships with background job support! Scheduling, storing, and running your jobs is handled by Redwood!",
+    tags: ['redwoodjs'],
+    publishedAt: new Date('2024-09-09T00:00:00.000Z'),
+    author: authors.RobCameron,
+  },
 ]
 
 export function getPosts(): Post[] {
