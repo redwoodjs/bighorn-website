@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 import Icon from '../Icon/Icon'
 
@@ -7,17 +7,20 @@ interface EventItemProps {
   time: string
   title: string
   description: string
-  rsvp?: string
 }
 
-const EventItem = ({ date, time, title, description, rsvp = '' }: EventItemProps) => {
+const EventItem = ({ date, time, title, description }: EventItemProps) => {
+  // the data is in the format '2024-09-11'
+  // I want it to return Sep 11
   const getDate = (date: string) => {
-    return format(date, 'MMM d')
+    return format(parseISO(date), 'MMM d')
   }
 
   const getDay = (date: string) => {
-    return format(date, 'EEEE')
+    return format(parseISO(date), 'EEEE')
   }
+
+  console.log(date)
 
   return (
     <div>
@@ -35,21 +38,6 @@ const EventItem = ({ date, time, title, description, rsvp = '' }: EventItemProps
       <p className="mb-4 text-lg leading-6 text-battleshipGray">
         {description}
       </p>
-      {rsvp && (
-        <p>
-          <a
-            href={rsvp}
-            className="group/link inline-flex cursor-pointer items-center"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="border-b-1 border-b-black text-sm font-bold group-hover/link:border-b-alienArmpit dark:border-b-white dark:group-hover/link:border-b-sulu">
-              RSVP
-            </span>{' '}
-            <Icon id="doubleChevronRight" />
-          </a>
-        </p>
-      )}
     </div>
   )
 }

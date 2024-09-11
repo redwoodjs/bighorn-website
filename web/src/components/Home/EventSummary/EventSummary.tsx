@@ -47,7 +47,6 @@ const EventSummary = () => {
                 time={item.time}
                 title={item.title}
                 description={item.description}
-                rsvp={item.rsvp}
               />
             )
           }
