@@ -143,7 +143,7 @@ In v7 you'd get both the border and color when the link was active. In v8 you'll
 ```
 
 ### Database file structure change
-This is not technically a breaking change to your code but we have changed how we structure the database file by default and strongly recommend you update your database file to match this new expectation. It's a simple change. We instead expect you to create a distinct variable for the Prisma client and export that later as `db`. This is in preparation for future changes that will introduce some awesome features. Here's what the typical diff would look like:
+This is not technically a breaking change to your code but we have changed how we structure the database file (`api/src/lib/db.{ts,js}`) by default and strongly recommend you update your database file to match this new expectation. It's a simple change. We instead expect you to create a distinct variable for the Prisma client and export that later as `db`. This is in preparation for future changes that will introduce some awesome features. Here's what the typical diff would look like:
 
 ```diff ts
 import { PrismaClient } from '@prisma/client'
@@ -171,7 +171,7 @@ Those changes discussed above are likely to affect everyone. There are other cha
 
 ### Prettier v3
 
-We have internally updated to Prettier v3. We believe this won't have any downstream effect on users however, if you have Tailwind CSS configured you can upgrade `prettier-plugin-tailwindcss` to a version later than v0.4.1.
+We have internally updated to Prettier v3. We believe this won't have any downstream effect on users. However, if you have Tailwind CSS configured you can upgrade `prettier-plugin-tailwindcss` to a version later than v0.4.1, like for example 0.5.12.
 
 To do so you can make a few changes:
 
@@ -276,7 +276,7 @@ From v8 this package will no longer contain codemods designed for versions prior
 
 ### Prisma Client
 
-You'll want to ensure you have generated a new Prisma client once you've upgraded. We have seen occasions where even though our upgrade script will regenerate the client you will have to do so again to avoid errors. An example of an error we've seen where this has been the fix is when your API side is throwing because of reading length on undefined with regards to currentUser.
+You'll want to ensure you have generated a new Prisma client once you've upgraded. We have seen occasions where even though our upgrade script will regenerate the client you will have to do so again to avoid errors. An example of an error we've seen where this has been the fix is when your API side is throwing because of reading length on undefined with regards to `currentUser`.
 
 ### Node v18 to v20 upgrade
 
