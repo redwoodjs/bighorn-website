@@ -23,31 +23,18 @@ const ReactAdvancedPage = () => {
         og={{ image: `${origin}/images/og.png` }}
       />
 
-      <div className="page-content">
+      <div className="page-content bg-[#0f0f0f] bg-[url('/images/bg__react-advanced.png')] bg-[right_center] bg-no-repeat lg:bg-[center_center]">
         <header className="grid grid-cols-10 gap-5">
-          <div className="col-span-12 mr-12 lg:col-span-5">
-            {/* Heading and logo */}
-            <div className="mb-16">
-              <h1 className="mb-8 font-serif text-5xl font-bold text-maiTai md:text-7xl">
-                Hello from
-              </h1>
-              <img
-                src="/images/react-advanced-logo.svg"
-                alt="React Advanced 2024"
-                className="dark:hidden"
-              />
-              <img
-                src="/images/react-advanced-logo-white.svg"
-                alt="React Advanced 2024"
-                className="hidden dark:block"
-              />
-            </div>
+          <div className="col-span-12 mr-12 lg:col-span-6 lg:col-start-5 xl:col-span-4 xl:col-start-7">
+            <img
+              src="/images/react-advanced-logo.png"
+              srcSet="/images/react-advanced-logo@2x.png 2x, /images/react-advanced-logo.png 1x"
+              alt="React Advanced London"
+              className="relative mx-auto mb-10"
+            />
 
             {/* Newsletter Form */}
             <Newsletter />
-          </div>
-          <div className="col-span-12 hidden lg:col-span-5 lg:block">
-            <img src="/images/react-conf-art.png" alt="React Advanced 2024" />
           </div>
         </header>
       </div>
