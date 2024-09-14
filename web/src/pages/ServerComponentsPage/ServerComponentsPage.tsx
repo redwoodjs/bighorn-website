@@ -35,7 +35,8 @@ const ServerComponentsPage = () => {
               Quick Start
             </h1>
             <h2 className="mb-10 font-sans text-4xl font-thin text-battleshipGray">
-              The easiest way to get started with Redwood Server Components
+              The easiest way to get started with Redwood's Experimental Server
+              Components
             </h2>
             <div className="inline-flex h-[53px] items-center justify-between gap-7 rounded-[4px] border-2 border-maiTai px-7">
               <div
