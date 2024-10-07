@@ -6,11 +6,11 @@ const HomeHero = () => {
     <div className="home-hero mb-20 bg-licorice">
       <NavHome />
 
-      <h1 className="mb-2 mt-[350px] font-serif text-6xl font-black text-white md:mb-8 md:mt-36 md:text-8xl">
-        Bighorn
+      <h1 className="mb-2 mt-[350px] max-w-[780px] font-serif text-6xl font-black text-white md:mb-8 md:mt-36 md:text-8xl">
+        The Single-Dev Framework that Just Works
       </h1>
-      <h2 className="mb-14 text-xl font-extralight text-white lg:text-3xl">
-        the Next Development Epoch
+      <h2 className="mb-14 max-w-[420px] text-xl font-extralight leading-tight text-white lg:text-[29px]">
+        the most productive way to build web applications in JavaScript
       </h2>
 
       <a
@@ -18,18 +18,8 @@ const HomeHero = () => {
         className="button mb-4 inline-block text-sm md:mb-8 md:text-base"
         rel="noreferrer"
       >
-        Walk Through Bighorn&apos;s Features
+        Get Started
       </a>
-
-      <p className="text-sm text-white md:text-base">
-        or{' '}
-        <a
-          href={Constants.DOCS}
-          className="font-bold underline hover:no-underline"
-        >
-          Build on Redwood&apos;s Established Base
-        </a>
-      </p>
     </div>
   )
 }

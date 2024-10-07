@@ -268,7 +268,7 @@
   .home-hero {
     /* the background needs to be on a single line, otherwise it will break storybook */
     background: linear-gradient(180deg, rgba(24, 19, 17, 1) 0%, rgba(24, 19, 17, 0) 100px, rgba(24, 19, 17, 1) 100%), url('/images/hero.avif') center top no-repeat;
-    @apply pt-7 min-h-[800px] px-5;
+    @apply pt-7 min-h-[885px] px-5;
   }
 
   @media (min-width: 768px) {

@@ -36,15 +36,6 @@ const HomePage = () => {
       {/* WHAT'S INCLUDED */}
       <WhatsIncluded />
 
-      {/* ROADMAP */}
-      <RoadmapSummary />
-
-      {/* BLOG */}
-      <RecentBlogPosts />
-
-      {/* UPCOMING-EVENTS */}
-      <EventSummary />
-
       {/* NEWSLETTER */}
       <div className="mb-[270px]">
         <Newsletter />
