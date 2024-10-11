@@ -31,7 +31,7 @@ const Newsletter = () => {
   return (
     <section className="page-grid !mb-0">
       <div className="col-span-5 px-5 md:pl-page md:pr-0">
-        <h2 className="section-heading mb-6">Fortnightly Newsletter</h2>
+        <h2 className="section-heading mb-6">RedwoodJS Newsletter</h2>
         <h3 className="section-subheading">Pure information gold. No spam.</h3>
       </div>
       <div className="col-span-7 px-5 pt-5 md:px-page lg:pr-page lg:pt-18 xl:col-span-6">
@@ -58,7 +58,7 @@ const Newsletter = () => {
       <div className="col-span-6 px-5 md:px-page lg:pr-0">
         <p className="text-lg leading-normal text-battleshipGray">
           Get a summary of what we’ve shipped, articles we’ve written, and
-          upcoming events straight to your inbox, every two weeks.
+          upcoming events straight to your inbox, at most once every two weeks.
         </p>
       </div>
     </section>
