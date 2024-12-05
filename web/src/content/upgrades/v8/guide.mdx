@@ -32,6 +32,21 @@ Simply delete the package from your `package.json` and run `yarn install` to rem
 },
 ```
 
+#### Update `tsconfig`/`jsconfig` for Storybook
+
+In order for TypeScript and your editor's language server to find the new Storybook files we need to include a new path in your web side's `tsconfig.json` (or `jsconfig.json` if you're not using TypeScript). Add `"./.storybook/**/*",` to the includes in your `web/tsconfig.json` or `web/jsconfig.json` file. Like this:
+
+```diff json
+ "include": [
+   "src",
+   "config",
++  "./.storybook/**/*",
+   "../.redwood/types/includes/all-*",
+   "../.redwood/types/includes/web-*",
+   "./types"
+ ]
+```
+
 ### Running the upgrade command
 
 Now we're ready to upgrade to v8. Run the following command to switch your redwood packages to v8.
