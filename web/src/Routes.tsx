@@ -33,6 +33,7 @@ const Routes = () => {
           <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
 
           {/* LANDING PAGES */}
+          <Route path="/letter" page={LetterPage} name="letter" />
           <Route path="/server-components" page={ServerComponentsPage} name="serverComponents" />
           <Route path="/conf" redirect="/react-conf" />
           <Route path="/reactconf" redirect="/react-conf" />
