@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 
+import HelloBar from 'src/components/HelloBar/HelloBar'
+
 type BaseLayoutProps = {
   children?: React.ReactNode
 }
@@ -18,7 +20,12 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
     }
   }, [])
 
-  return <>{children}</>
+  return (
+    <div>
+      <HelloBar />
+      {children}
+    </div>
+  )
 }
 
 export default BaseLayout
