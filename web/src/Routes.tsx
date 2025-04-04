@@ -18,7 +18,7 @@ const Routes = () => {
   return (
     <Router useAuth={useAuth}>
       <Set wrap={BaseLayout}>
-        <Route path="/" page={HomePage} name="home" />
+        {/* <Route path="/" page={HomePage} name="home" /> */}
 
         {/* UPGRADE - INDIVIDUAL */}
         <Set wrap={UpgradeGuideLayout}>
@@ -26,6 +26,9 @@ const Routes = () => {
         </Set>
 
         <Set wrap={InteriorLayout}>
+          {/* HOME PAGE */}
+          <Route path="/" page={LetterPage} name="home" />
+
           {/* AUTH */}
           <Route path="/login" page={LoginPage} name="login" />
           <Route path="/signup" page={SignupPage} name="signup" />
@@ -33,7 +36,6 @@ const Routes = () => {
           <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
 
           {/* LANDING PAGES */}
-          <Route path="/letter" page={LetterPage} name="letter" />
           <Route path="/server-components" page={ServerComponentsPage} name="serverComponents" />
           <Route path="/conf" redirect="/react-conf" />
           <Route path="/reactconf" redirect="/react-conf" />
