@@ -40,6 +40,7 @@ module.exports = {
         18: '4.5rem',
       },
       zIndex: {
+        helloBar: '9999',
         nav: '9000',
       },
     },

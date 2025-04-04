@@ -14,7 +14,7 @@ import RecentBlogPosts from 'src/components/RecentBlogPosts/RecentBlogPosts'
 const HomePage = () => {
   const { origin } = useLocation()
   return (
-    <>
+    <div className="pt-10">
       <Metadata
         title="RedwoodJS: The App Framework for Startups"
         description="Grow from side project to startup with RedwoodJS. Combines React, GraphQL, and Prisma for a full-stack app framework."
@@ -42,7 +42,7 @@ const HomePage = () => {
       </div>
 
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -86,6 +86,15 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'Cambon';
+  src: url('/fonts/cambon/Cambon-Regular.eot');
+  src: local('Cambon Regular'), local('Cambon-Regular'), url('/fonts/cambon/Cambon-Regular.eot?#iefix') format('embedded-opentype'), url('/fonts/cambon/Cambon-Regular.woff2') format('woff2'), url('/fonts/cambon/Cambon-Regular.woff') format('woff'), url('/fonts/cambon/Cambon-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /**
  * START --- SETUP TAILWINDCSS EDIT
  *
@@ -517,6 +526,15 @@
   /* Offset the scroll margin for the sticky header */
   .scroll-margin-container * {
     scroll-margin-top: 80px;
+  }
+
+  .letter {
+    h1 { @apply font-sans font-extralight text-3xl mb-8 pt-3; }
+    h2 { @apply font-sans font-normal text-xl mb-6 pt-3; }
+    li, p { @apply font-serif font-normal text-lg leading-normal mb-8; }
+    ol { @apply list-disc ml-6 mb-10; }
+    li { @apply mb-6; }
+    li:last-child { @apply mb-0; }
   }
 }
 
