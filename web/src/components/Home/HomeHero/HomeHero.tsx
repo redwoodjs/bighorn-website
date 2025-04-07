@@ -14,7 +14,7 @@ const HomeHero = () => {
       </h2>
 
       <a
-        href={Constants.BIGHORN_FEATURES}
+        href={Constants.RWSDK_DOCS}
         className="button mb-4 inline-block text-sm md:mb-8 md:text-base"
         rel="noreferrer"
       >

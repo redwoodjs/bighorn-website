@@ -16,6 +16,18 @@ const Footer = () => {
         <div>
           <h4>About</h4>
           <ul>
+          <li>
+              <a href={Constants.RWSDK} target="_blank" rel="noreferrer">
+                RedwoodSDK
+                <Icon id="arrowUpRight" />
+              </a>
+            </li>
+            <li>
+              <a href={Constants.PERSONAL_SOFTWARE} target="_blank" rel="noreferrer">
+                Personal Software
+                <Icon id="arrowUpRight" />
+              </a>
+            </li>
             <li>
               <a href={Constants.README} target="_blank" rel="noreferrer">
                 README
@@ -104,9 +116,14 @@ const Footer = () => {
         <div>
           <h4>RESOURCES</h4>
           <ul>
+          <li>
+              <a href={Constants.RWSDK_DOCS} rel="noreferrer">
+                RedwoodSDK Docs
+              </a>
+            </li>
             <li>
               <a href={Constants.DOCS} rel="noreferrer">
-                Docs
+                RedwoodGQL Docs
               </a>
             </li>
             <li>

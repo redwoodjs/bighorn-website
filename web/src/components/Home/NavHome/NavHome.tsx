@@ -172,7 +172,14 @@ const Nav = () => {
             <Link to={routes.home()}>Home</Link>
           </li>
           <li>
-            <a href={Constants.DOCS}>Docs</a>
+            <a href={Constants.RWSDK_DOCS} target="_blank" rel="noreferrer">
+              RedwoodSDK Docs
+            </a>
+          </li>
+          <li>
+            <a href={Constants.DOCS} target="_blank" rel="noreferrer">
+              RedwoodGQL Docs
+            </a>
           </li>
           <li>
             <Link to={routes.blog()}>Blog</Link>
@@ -207,7 +214,7 @@ const Nav = () => {
             )}
           </li>
           <li>
-            <a href={Constants.GET_STARTED}>Get Started</a>
+            <a href={Constants.RWSDK_QUICKSTART}>Get Started</a>
           </li>
         </motion.ul>
       </nav>
@@ -247,8 +254,13 @@ const Nav = () => {
             </div>
           </li>
           <li>
+            <a href={Constants.RWSDK_DOCS} target="_blank" rel="noreferrer">
+              RedwoodSDK Docs
+            </a>
+          </li>
+          <li>
             <a href={Constants.DOCS} target="_blank" rel="noreferrer">
-              Docs
+              RedwoodGQL Docs
             </a>
           </li>
           <li>
@@ -302,7 +314,7 @@ const Nav = () => {
           </li>
           <li>
             <a
-              href={Constants.GET_STARTED}
+              href={Constants.RWSDK_QUICKSTART}
               className="button truncate hover:text-black"
             >
               Get Started

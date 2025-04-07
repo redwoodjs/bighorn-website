@@ -33,7 +33,7 @@ const RedwoodIs = () => {
       </h3>
 
       <div className="flex flex-col gap-9 md:flex-row">
-        <a href={Constants.GET_STARTED} className="button">
+        <a href={Constants.RWSDK_QUICKSTART} className="button">
           Get Started
         </a>
         <div className="flex h-[53px] items-center justify-between gap-7 rounded-[4px] border-2 border-maiTai px-7">

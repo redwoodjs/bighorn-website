@@ -179,7 +179,7 @@ const Nav = () => {
             <Link to={routes.home()}>Home</Link>
           </li>
           <li>
-            <a href={Constants.DOCS}>Docs</a>
+            <a href={Constants.RWSDK_DOCS}>RedwoodSDK Docs</a>
           </li>
           <li>
             <Link to={routes.blog()}>Blog</Link>
@@ -214,7 +214,7 @@ const Nav = () => {
             )}
           </li>
           <li>
-            <a href={Constants.GET_STARTED}> Get Started</a>
+            <a href={Constants.RWSDK_QUICKSTART}> Get Started</a>
           </li>
         </motion.ul>
       </nav>
@@ -255,11 +255,11 @@ const Nav = () => {
           </li>
           <li>
             <a
-              href={Constants.DOCS}
+              href={Constants.RWSDK_DOCS}
               rel="noreferrer"
               className="text-black hover:text-christi dark:text-white dark:hover:text-sulu"
             >
-              Docs
+              RedwoodSDK Docs
             </a>
           </li>
           <li>
@@ -323,7 +323,7 @@ const Nav = () => {
             )}
           </li>
           <li>
-            <a href={Constants.GET_STARTED} className="button hover:text-black">
+            <a href={Constants.RWSDK_QUICKSTART} className="button hover:text-black">
               Get Started
             </a>
           </li>
