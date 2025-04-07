@@ -16,7 +16,7 @@ const LetterPage = () => {
 
         {/* letter */}
         <div className="letter relative z-10 mx-5 mt-[175px] max-w-[750px] bg-white bg-[url('/images/bg-letter.png')] bg-center bg-repeat px-10 py-[60px] text-[#414141] md:mx-auto md:px-[115px] md:py-[100px] dark:text-[#414141]">
-          <img src="/images/sdk-logo-light.svg" alt="RedwoodSDK.com" />
+          <img src="/images/sdk-logo-light.svg" alt="RedwoodSDK.com" className="mb-10" />
           <p>
             Today, we're sharing an important step forward for Redwood. To
             achieve our vision of empowering the next generation of personal
