@@ -3,7 +3,7 @@ import { Metadata } from '@redwoodjs/web'
 const LetterPage = () => {
   return (
     <>
-      <Metadata title="Letter" description="Letter page" />
+      <Metadata title="RedwoodSDK" description="RedwoodSDK is a composable toolkit for building server-driven webapps on Cloudflare. It starts as a Vite plugin that unlocks SSR, React Server Components, Server Functions, and realtime. Its standards-based router—with middleware and interruptors—gives you precise control over every request and response. With built-in access to Cloudflare’s Workers, Database (D1), Storage (R2), Queues, and AI—and full local emulation via Miniflare—development feels just like production." />
       <div className="relative -top-[150px] mx-auto mb-[100px] min-h-[911px] max-w-[867px] md:top-0">
         {/* envelope */}
         <div className="absolute -top-[100px] left-0 z-0 hidden md:block">
@@ -16,12 +16,16 @@ const LetterPage = () => {
 
         {/* letter */}
         <div className="letter relative z-10 mx-5 mt-[175px] max-w-[750px] bg-white bg-[url('/images/bg-letter.png')] bg-center bg-repeat px-10 py-[60px] text-[#414141] md:mx-auto md:px-[115px] md:py-[100px] dark:text-[#414141]">
+          <img src="/images/sdk-logo-light.svg" alt="RedwoodSDK.com" />
           <p>
             Today, we're sharing an important step forward for Redwood. To
             achieve our vision of empowering the next generation of personal
             software, we're aligning our efforts around two clearly defined
             paths: <strong>Redwood GraphQL</strong> and{' '}
-            <strong>Redwood SDK</strong>.
+            <strong>
+              <a href="https://rwsdk.com">RedwoodSDK</a>
+            </strong>
+            .
           </p>
 
           <h1>Why We're Making This Change</h1>
@@ -35,7 +39,9 @@ const LetterPage = () => {
           </p>
 
           <p>
-            To fully pursue this vision, we're launching Redwood SDK, a new
+            To fully pursue this vision, we're launching  <strong>
+              <a href="https://rwsdk.com">RedwoodSDK</a>
+            </strong>, a new
             framework that will become the foundation for this personal software
             revolution. We’ll be sharing more about this in the weeks to come.
           </p>
@@ -77,15 +83,18 @@ const LetterPage = () => {
             </li>
           </ol>
 
-          <h2>Looking Ahead: The Redwood SDK</h2>
+          <h2>Looking Ahead: The RedwoodSDK</h2>
 
           <p>
-            Redwood SDK represents our commitment to the future we want to build
-            - a software ecosystem designed for personal and modular software
-            creation, distribution, and ownership. It will harness the power of
-            modern serverless infrastructure, AI-driven development tools, and
-            open ecosystems, ensuring that building personal and owned software
-            is accessible to everyone.
+            <strong>
+              <a href="https://rwsdk.com">RedwoodSDK</a>
+            </strong>{' '}
+            represents our commitment to the future we want to build - a software
+            ecosystem designed for personal and modular software creation,
+            distribution, and ownership. It will harness the power of modern
+            serverless infrastructure, AI-driven development tools, and open
+            ecosystems, ensuring that building personal and owned software is
+            accessible to everyone.
           </p>
 
           <p>
@@ -95,10 +104,12 @@ const LetterPage = () => {
           </p>
 
           <p>
-            We’ll share more about the Redwood SDK in the coming weeks. Until
-            then, those of you are currently using Redwood GraphQL can rest
-            assured - our intention is to ensure that it remains secure,
-            reliable, and ready to power your projects long-term.
+            We’ll share more about the <strong>
+              <a href="https://rwsdk.com">RedwoodSDK</a>
+            </strong>{' '}
+            in the coming weeks. Until then, those of you are currently using
+            Redwood GraphQL can rest assured - our intention is to ensure that it
+            remains secure, reliable, and ready to power your projects long-term.
           </p>
 
           <p>
@@ -110,8 +121,8 @@ const LetterPage = () => {
         </div>
 
         <div className="mt-[60px] text-center">
-          <a href="/docs" className="button inline-block hover:text-black">
-            Continue to Redwood GraphQL Docs
+          <a href="https://docs.rwsdk.com" className="button inline-block hover:text-black">
+            Continue to RedwoodSDK Docs
           </a>
         </div>
       </div>
