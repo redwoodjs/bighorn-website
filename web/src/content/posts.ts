@@ -127,6 +127,15 @@ const posts: Post[] = [
     publishedAt: new Date('2024-09-09T00:00:00.000Z'),
     author: authors.RobCameron,
   },
+  {
+    slug: 'redwoodsdk',
+    title: 'RedwoodSDK',
+    brief:
+      "RedwoodSDK is here. RedwoodJS is not going anywhere.",
+    tags: ['redwoodjs', 'redwoodsdk'],
+    publishedAt: new Date('2025-04-10T00:00:00.000Z'),
+    author: authors.PeterPistorius,
+  },
 ]
 
 export function getPosts(): Post[] {
