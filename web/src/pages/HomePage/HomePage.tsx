@@ -19,17 +19,8 @@ const HomePage = () => {
         title="RedwoodJS: The App Framework for Startups"
         description="Grow from side project to startup with RedwoodJS. Combines React, GraphQL, and Prisma for a full-stack app framework."
         og={{
-          image: `${origin}/images/og-new.png`,
+          image: `${origin}/images/og.png`,
           url: 'https://redwoodjs.com',
-          type: 'website',
-          title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
-          twitter: {
-            card: 'summary_large_image',
-            site: '@redwoodjs',
-            title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
-            description: 'RedwoodSDK represents our commitment to the future we want to build - a software ecosystem designed for personal and modular software creation, distribution, and ownership. But RedwoodJS is not going anywhere.',
-            image: `${origin}/images/og-new.png`,
-          },
         }}
       />
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
