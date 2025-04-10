@@ -3,7 +3,23 @@ import { Metadata } from '@redwoodjs/web'
 const LetterPage = () => {
   return (
     <>
-      <Metadata title="RedwoodSDK" description="RedwoodSDK is a composable toolkit for building server-driven webapps on Cloudflare. It starts as a Vite plugin that unlocks SSR, React Server Components, Server Functions, and realtime. Its standards-based router—with middleware and interruptors—gives you precise control over every request and response. With built-in access to Cloudflare’s Workers, Database (D1), Storage (R2), Queues, and AI—and full local emulation via Miniflare—development feels just like production." />
+      <Metadata
+        title="RedwoodJS: The App Framework for Startups"
+        description="RedwoodSDK is a composable React framework for building server-driven webapps on Cloudflare. It starts as a Vite plugin that unlocks SSR, React Server Components, Server Functions, and realtime. Its standards-based router—with middleware and interruptors—gives you precise control over every request and response. With built-in access to Cloudflare's Workers, Database (D1), Storage (R2), Queues, and AI—and full local emulation via Miniflare—development feels just like production."
+        og={{
+          image: `${origin}/images/og-new.png`,
+          url: 'https://redwoodjs.com',
+          type: 'website',
+          title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
+          twitter: {
+            card: 'summary_large_image',
+            site: '@redwoodjs',
+            title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
+            description: 'RedwoodSDK represents our commitment to the future we want to build - a software ecosystem designed for personal and modular software creation, distribution, and ownership. But RedwoodJS is not going anywhere.',
+            image: `${origin}/images/og-new.png`,
+          },
+        }}
+      />
       <div className="relative -top-[150px] mx-auto mb-[100px] min-h-[911px] max-w-[867px] md:top-0">
         {/* envelope */}
         <div className="absolute -top-[100px] left-0 z-0 hidden md:block">
