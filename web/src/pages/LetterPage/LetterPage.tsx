@@ -11,13 +11,13 @@ const LetterPage = () => {
           url: 'https://redwoodjs.com',
           type: 'website',
           title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
-          twitter: {
-            card: 'summary_large_image',
-            site: '@redwoodjs',
-            title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
-            description: 'RedwoodSDK represents our commitment to the future we want to build - a software ecosystem designed for personal and modular software creation, distribution, and ownership. But RedwoodJS is not going anywhere.',
-            image: `${origin}/images/og-new.png`,
-          },
+        }}
+        twitter= {{
+          card: 'summary_large_image',
+          site: '@redwoodjs',
+          title: 'RedwoodSDK is here. RedwoodJS is not going anywhere.',
+          description: 'RedwoodSDK represents our commitment to the future we want to build - a software ecosystem designed for personal and modular software creation, distribution, and ownership. But RedwoodJS is not going anywhere.',
+          image: `${origin}/images/og-new.png`,
         }}
       />
       <div className="relative -top-[150px] mx-auto mb-[100px] min-h-[911px] max-w-[867px] md:top-0">
