@@ -182,6 +182,11 @@ const Nav = () => {
             <a href={Constants.RWSDK_DOCS}>RedwoodSDK Docs</a>
           </li>
           <li>
+            <a href={Constants.DOCS} target="_blank" rel="noreferrer">
+              RedwoodGQL Docs
+            </a>
+          </li>
+          <li>
             <Link to={routes.blog()}>Blog</Link>
           </li>
           <li>
