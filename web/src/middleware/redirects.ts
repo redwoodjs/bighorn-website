@@ -96,6 +96,16 @@ export async function middleware(
   mwResponse: MiddlewareResponse
 ) {
   const url = new URL(req.url)
+  const host = req.headers.get('host') || ''
+
+  // 🔴 Domain-level redirect
+  if (host === 'redwoodjs.com' || host === 'www.redwoodjs.com') {
+    const target = `https://rwsdk.com/`
+    mwResponse.status = 301
+    mwResponse.headers.set('Location', target)
+    mwResponse.body = ''
+    return mwResponse
+  }
 
   // Dynamic redirect
   if (url.pathname.startsWith('/docs')) {
