@@ -16,6 +16,12 @@
   port = 8888
 
 [[redirects]]
+  from = "/*"
+  to = "https://rwsdk.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/docs/*"
   to = "https://docs.redwoodjs.com/docs/:splat"
   status = 301
